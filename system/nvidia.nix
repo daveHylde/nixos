@@ -1,11 +1,6 @@
 {config, ...}:
 
-let
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-in {
-
-  boot.kernelPackages = unstable.linuxPackages_latest;
-
+{
   services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {

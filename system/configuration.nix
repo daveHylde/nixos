@@ -107,35 +107,6 @@
 
     systemPackages = with pkgs; [
       neovim
-      cargo
-      discord
-      dotnet-sdk_8
-      docker
-      file
-      firefox
-      git
-      kitty
-      keepassxc
-      kubectl
-      kubernetes-helm
-      lf
-      lm_sensors
-      libdbusmenu
-      liquidctl
-      libappindicator-gtk3
-      nerdfonts
-      nodejs
-      minikube
-      openrgb
-      openssl
-      python3Full
-      slack
-      spotify
-      vscode
-      wget
-      xclip
-      yarn
-    #  (let coolercontrol = pkgs.callPackage (import ./packages/coolercontrol.nix) {}; in coolercontrol) 
     ];
   };
 

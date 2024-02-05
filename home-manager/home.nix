@@ -2,7 +2,7 @@
   username = "david";
 in {
   imports = [
-    ./programs
+    ./configs
   ];
 
   fonts = {
@@ -53,6 +53,7 @@ in {
       wget
       xclip
       yarn
+      (let coolercontrol = pkgs.callPackage (import ./packages/coolercontrol.nix) {}; in coolercontrol) 
     ];
   };
 }
