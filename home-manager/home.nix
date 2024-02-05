@@ -29,10 +29,13 @@ in {
       discord
       dotnet-sdk_8
       docker
+      fd
       file
       firefox
       git
+      gcc
       kitty
+      libsForQt5.kdeconnect-kde
       keepassxc
       kubectl
       kubernetes-helm
@@ -41,9 +44,11 @@ in {
       nerdfonts
       nodejs
       minikube
+      openlens
       openrgb
       openssl
       python3Full
+      ripgrep
       slack
       spotify
       vscode
