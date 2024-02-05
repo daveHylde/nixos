@@ -38,9 +38,6 @@ in {
       kubernetes-helm
       lf
       lm_sensors
-      libdbusmenu
-      liquidctl
-      libappindicator-gtk3
       nerdfonts
       nodejs
       minikube
@@ -53,7 +50,6 @@ in {
       wget
       xclip
       yarn
-      (let coolercontrol = pkgs.callPackage (import ./packages/coolercontrol.nix) {}; in coolercontrol) 
     ];
   };
 }
