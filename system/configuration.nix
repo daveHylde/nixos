@@ -110,5 +110,12 @@
     ];
   };
 
-  system.stateVersion = "23.11";
+  system = {
+    stateVersion = "23.11";
+
+    autoUpgrade = {
+      enable = true;
+      allowReboot = true;
+    }; 
+  };
 }
