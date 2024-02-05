@@ -43,15 +43,6 @@
       driSupport = true;
       driSupport32Bit = true;
     };
-    nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.production;
-      modesetting.enable = true;
-      powerManagement.enable = false;
-      powerManagement.finegrained = false;
-      open = false;
-      nvidiaSettings = true;
-      forceFullCompositionPipeline = true;
-    };
   };
 
   virtualisation = {
@@ -76,7 +67,6 @@
 
     xserver = {
       enable = true;
-      videoDrivers = ["nvidia"];
       displayManager.sddm.enable = true;
       desktopManager.plasma5.enable = true;
       xkb = {

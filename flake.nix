@@ -21,6 +21,7 @@
       specialArgs = {inherit inputs self user;};
       modules = [
         ./system/configuration.nix
+	./system/nvidia.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
