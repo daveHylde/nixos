@@ -8,7 +8,7 @@
   imports =
     [ 
       ./hardware-configuration.nix
-      ./nvidia.nix
+#      ./nvidia.nix
     ];
 
   nix = {
