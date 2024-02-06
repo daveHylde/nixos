@@ -93,18 +93,15 @@
   users.users.david = {
     isNormalUser = true;
     description = "David";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ 
+      "networkmanager" 
+      "wheel" 
+      "docker"
+      "root"
+    ];
   };
 
   environment = {
-
-    variables = {
-      EDITOR = "nvim";
-    };
-
-    systemPackages = with pkgs; [
-      neovim
-    ];
 
     plasma5.excludePackages = with pkgs.libsForQt5; [
       plasma-browser-integration
