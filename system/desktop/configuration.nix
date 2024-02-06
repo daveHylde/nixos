@@ -5,12 +5,6 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ 
-      ./hardware-configuration.nix
-#      ./nvidia.nix
-    ];
-
   nix = {
     settings = {
       warn-dirty = false;
@@ -53,7 +47,6 @@
   };
 
   networking = {
-    hostName = "desktop";
     networkmanager.enable = true;
   }; 
 
@@ -68,7 +61,10 @@
 
     xserver = {
       enable = true;
-      displayManager.sddm.enable = true;
+      displayManager = {
+        sddm.enable = true;
+	defaultSession = "plasmawayland";
+      };
       desktopManager.plasma5.enable = true;
       xkb = {
         variant = "";
@@ -108,6 +104,12 @@
 
     systemPackages = with pkgs; [
       neovim
+    ];
+
+    plasma5.excludePackages = with pkgs.libsForQt5; [
+      plasma-browser-integration
+      konsole
+      oxygen
     ];
   };
 

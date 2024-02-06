@@ -16,11 +16,12 @@
     let
       user = "david";
     in {
-    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.desktop-work = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {inherit inputs self user;};
       modules = [
-        ./system/desktop/configuration.nix
+       ./system/desktop/hardware-work.nix
+       ./system/desktop/configuration.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
@@ -30,6 +31,20 @@
         }
       ];
     };
-
+    nixosConfigurations.desktop-jobbi = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {inherit inputs self user;};
+      modules = [
+       ./system/desktop/hardware-jobbi.nix
+       ./system/desktop/configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.david = import ./home-manager/home.nix;
+          home-manager.extraSpecialArgs = {inherit inputs self user;};
+        }
+      ];
+    };
   };
 }
