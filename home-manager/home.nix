@@ -32,6 +32,7 @@ in {
       fd
       file
       firefox
+      flameshot
       git
       gcc
       kitty
@@ -51,6 +52,7 @@ in {
       ripgrep
       slack
       spotify
+      thunderbird
       vscode
       wget
       xclip
