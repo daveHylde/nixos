@@ -1,5 +1,6 @@
 {pkgs, ...}: let
   username = "david";
+  swagger = import ./modules/swagger.nix
 in {
   imports = [
     ./configs
@@ -28,7 +29,7 @@ in {
     packages = with pkgs; [
       cargo
       discord
-      dotnet-sdk_8
+      dotnetCorePackages.sdk_8_0
       docker
       fd
       file
@@ -54,6 +55,7 @@ in {
       python3Full
       ripgrep
       slack
+      (swagger-cli = dotnet.buildDotnetModule;)
       spotify
       thunderbird
       vscode-fhs

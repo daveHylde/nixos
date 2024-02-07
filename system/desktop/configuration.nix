@@ -55,15 +55,14 @@
   console.keyMap = "no";
 
   services = {
-    flatpak.enable = true;
-    
+    onedrive.enable = true;
+
     udev.packages = [ pkgs.openrgb ];
 
     xserver = {
       enable = true;
       displayManager = {
         sddm.enable = true;
-	defaultSession = "plasmawayland";
       };
       desktopManager.plasma5.enable = true;
       xkb = {
@@ -97,7 +96,6 @@
       "networkmanager" 
       "wheel" 
       "docker"
-      "root"
     ];
   };
 
@@ -115,7 +113,7 @@
 
     autoUpgrade = {
       enable = true;
-      allowReboot = true;
+      allowReboot = false;
     }; 
   };
 }
