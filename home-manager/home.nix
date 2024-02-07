@@ -1,6 +1,6 @@
-{pkgs, ...}: let
+{pkgs, ...}: 
+let 
   username = "david";
-  swagger = import ./modules/swagger.nix
 in {
   imports = [
     ./configs
@@ -55,7 +55,7 @@ in {
       python3Full
       ripgrep
       slack
-      (swagger-cli = dotnet.buildDotnetModule;)
+      (import ./modules/hello.nix)
       spotify
       thunderbird
       vscode-fhs

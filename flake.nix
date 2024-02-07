@@ -35,7 +35,6 @@
       system = "x86_64-linux";
       specialArgs = {inherit inputs self user;};
       modules = [
-       ./modules/swagger.nix
        ./system/desktop/hardware-jobbi.nix
        ./system/desktop/configuration.nix
         home-manager.nixosModules.home-manager
