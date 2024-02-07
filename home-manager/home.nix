@@ -36,11 +36,13 @@ in {
       flameshot
       git
       gcc
+      jdk
       kitty
-      libsForQt5.kdeconnect-kde
       keepassxc
       kubectl
       kubernetes-helm
+      lazygit
+      libsForQt5.kdeconnect-kde
       lf
       lm_sensors
       nerdfonts
@@ -54,7 +56,7 @@ in {
       slack
       spotify
       thunderbird
-      vscode
+      vscode-fhs
       wget
       xclip
       yarn

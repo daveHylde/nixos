@@ -26,21 +26,30 @@
     ];
 
     plugins = with pkgs.vimPlugins; [
-      nvim-lspconfig
-      
+      nvim-lspconfig 
+      plenary-nvim
+      telescope-fzf-native-nvim
+      vim-nix
+
+      {
+        plugin = toggleterm-nvim;
+        config = toLuaFile ./plugins/toggleterm.lua;
+      }
+
       {
         plugin = telescope-nvim;
         config = toLuaFile ./plugins/telescope.lua;
       }
 
-      plenary-nvim
-      telescope-fzf-native-nvim
-
       {
         plugin = nvim-treesitter.withAllGrammars;
         config = toLuaFile ./plugins/treesitter.lua;
       }
-      vim-nix
+
+      {
+        plugin = nvim-tree-lua;
+        config = toLuaFile ./plugins/tree.lua;
+      }
     ];
   };
 }
