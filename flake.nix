@@ -21,7 +21,7 @@
       specialArgs = {inherit inputs self user;};
       modules = [
        ./system/desktop/hardware-work.nix
-       ./system/desktop/configuration.nix
+       ./system/configuration.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
@@ -36,7 +36,7 @@
       specialArgs = {inherit inputs self user;};
       modules = [
        ./system/desktop/hardware-jobbi.nix
-       ./system/desktop/configuration.nix
+       ./system/configuration.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;

@@ -6,7 +6,6 @@ in {
     ./configs
   ];
 
- 
   fonts = {
     fontconfig = { 
       enable = true;
@@ -35,8 +34,9 @@ in {
       file
       firefox
       flameshot
-      git
       gcc
+      git
+      glib
       jdk
       kitty
       keepassxc
@@ -55,13 +55,13 @@ in {
       python3Full
       ripgrep
       slack
-      (import ./modules/hello.nix)
       spotify
       thunderbird
       vscode-fhs
       wget
       xclip
       yarn
+      (callPackage ./modules/swagger/swagger.nix {})
     ];
  };
 }

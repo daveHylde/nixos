@@ -6,7 +6,8 @@
 buildDotnetModule rec {
   pname = "Swashbuckle.AspNetCore.Cli";
   version = "6.5.0";
-
+ 
+  nugetDeps = ./deps.nix;
 
   src = fetchFromGitHub {
     owner = "domaindrivendev";
