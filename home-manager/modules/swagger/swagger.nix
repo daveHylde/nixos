@@ -1,6 +1,7 @@
 { fetchFromGitHub
 , buildDotnetModule
 , lib
+, dotnetCorePackages
 }:
 
 buildDotnetModule rec {
@@ -16,7 +17,16 @@ buildDotnetModule rec {
     sha256 = "sha256-pSxq+V6l+lsl0T4PrldeoLWhJ6quUcJ0j0dzI6vU6g0=";
   };
 
-  projectFile = "Swashbuckle.AspNetCore.Cli/Swashbuckle.AspNetCore.Cli.csproj";
+  dotnet-sdk = dotnetCorePackages.sdk_8_0;
+  useDotnetFromEnv = true;
+  dotnet-runtime = dotnetCorePackages.runtime_8_0;
+
+  shellHook = ''
+    echo "I'm the shell"
+    export DOTNET_ROLL_FORWARD=LatestMajor
+  '';
+
+  projectFile = "src/Swashbuckle.AspNetCore.Cli/Swashbuckle.AspNetCore.Cli.csproj";
 
   meta = with lib; {
     homepage = "https://github.com/domaindrivendev/Swashbuckle.AspNetCore";
@@ -24,4 +34,3 @@ buildDotnetModule rec {
     license = licenses.mit;
   };
 }
-

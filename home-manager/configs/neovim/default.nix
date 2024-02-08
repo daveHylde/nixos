@@ -26,11 +26,12 @@
     ];
 
     plugins = with pkgs.vimPlugins; [
-      nvim-lspconfig 
       plenary-nvim
       telescope-fzf-native-nvim
       vim-nix
-
+      {
+        plugin = nvim-lspconfig;
+        config = toLuaFile ./plugins/lsp.lua;
       {
         plugin = toggleterm-nvim;
         config = toLuaFile ./plugins/toggleterm.lua;
