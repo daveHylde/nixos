@@ -18,20 +18,22 @@
       ${builtins.readFile ./mappings.lua}
     '';
 
-
-    extraPackages = with pkgs; [
-      lua-language-server
-      xclip
-      ripgrep
+    extraPackages = [
+      #(let angular-language-server = import ./modules/angular-lsp/default.nix; in [angular-language-server])
     ];
 
+
     plugins = with pkgs.vimPlugins; [
+      cmp-nvim-lsp
+      nvim-cmp
       plenary-nvim
       telescope-fzf-native-nvim
       vim-nix
       {
         plugin = nvim-lspconfig;
         config = toLuaFile ./plugins/lsp.lua;
+      }
+
       {
         plugin = toggleterm-nvim;
         config = toLuaFile ./plugins/toggleterm.lua;
