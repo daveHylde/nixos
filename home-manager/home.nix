@@ -37,16 +37,11 @@ in {
       gcc
       git
       glib
-      gtk3
-      haskellPackages.webkit2gtk3-javascriptcore
-      jdk
       kitty
       keepassxc
       kubectl
       kubernetes-helm
       lazygit
-      libsForQt5.kdeconnect-kde
-      libusb1
       lf
       lm_sensors
       nerdfonts
@@ -64,9 +59,7 @@ in {
       wget
       xclip
       yarn
-
-      (let keymapp = import ./modules/wally.nix {}; in keymapp)
-#      (callPackage ./modules/swagger/swagger.nix {}) # still issues with it complaining about .NET 7 missing. package bug.
+      (callPackage ./modules/keymapp/keymapp.nix {})
     ];
  };
 }

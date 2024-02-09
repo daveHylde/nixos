@@ -57,7 +57,12 @@
   services = {
     onedrive.enable = true;
 
-    udev.packages = [ pkgs.openrgb ];
+    udev = {
+      packages = [ pkgs.openrgb ];
+      extraRules =''
+        ${builtins.readFile ./50-zsa.rules}
+      '';
+    };
 
     xserver = {
       enable = true;
@@ -96,6 +101,7 @@
       "networkmanager" 
       "wheel" 
       "docker"
+      "plugdev"
     ];
   };
 
