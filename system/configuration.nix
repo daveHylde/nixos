@@ -56,9 +56,10 @@
 
   services = {
     onedrive.enable = true;
+    pcscd.enable = true;
 
     udev = {
-      packages = [ pkgs.openrgb ];
+      packages = [ pkgs.openrgb pkgs.yubioath-flutter ];
       extraRules =''
         ${builtins.readFile ./50-zsa.rules}
       '';
@@ -92,6 +93,18 @@
 
   security = {
     rtkit.enable = true;
+    pam = {
+      services = {
+        login.u2fAuth = true;
+        sudo.u2fAuth = false;
+      };
+      yubico = {
+        enable = true;
+        debug = true;
+        mode = "challenge-response";
+        id = [ "26631457" ];
+      };
+    };
   };
 
   users.users.david = {

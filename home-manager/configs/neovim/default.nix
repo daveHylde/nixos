@@ -30,10 +30,20 @@
       telescope-fzf-native-nvim
       vim-nix
       {
+        plugin = mason-nvim;
+        config = toLuaFile ./plugins/mason.lua;
+      }
+     
+      {
+        plugin = mason-lspconfig-nvim;
+        config = toLuaFile ./plugins/mason-lsp.lua;
+      } 
+ 
+      {
         plugin = nvim-lspconfig;
         config = toLuaFile ./plugins/lsp.lua;
       }
-
+      
       {
         plugin = toggleterm-nvim;
         config = toLuaFile ./plugins/toggleterm.lua;
@@ -52,7 +62,7 @@
       {
         plugin = nvim-tree-lua;
         config = toLuaFile ./plugins/tree.lua;
-      }
+      }  
     ];
   };
 }

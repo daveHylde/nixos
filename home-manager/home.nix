@@ -59,6 +59,8 @@ in {
       wget
       xclip
       yarn
+      yubikey-personalization
+      yubioath-flutter
       (callPackage ./modules/keymapp/keymapp.nix {})
     ];
  };
