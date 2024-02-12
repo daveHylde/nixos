@@ -18,26 +18,12 @@
       ${builtins.readFile ./mappings.lua}
     '';
 
-    extraPackages = [
-      #(let angular-language-server = import ./modules/angular-lsp/default.nix; in [angular-language-server])
-    ];
-
-
     plugins = with pkgs.vimPlugins; [
       cmp-nvim-lsp
       nvim-cmp
       plenary-nvim
       telescope-fzf-native-nvim
       vim-nix
-      {
-        plugin = mason-nvim;
-        config = toLuaFile ./plugins/mason.lua;
-      }
-     
-      {
-        plugin = mason-lspconfig-nvim;
-        config = toLuaFile ./plugins/mason-lsp.lua;
-      } 
  
       {
         plugin = nvim-lspconfig;
