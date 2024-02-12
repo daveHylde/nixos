@@ -47,7 +47,10 @@
   };
 
   networking = {
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      dns = "dnsmasq";
+    };
   }; 
 
   time.timeZone = "Europe/Oslo";
@@ -93,9 +96,10 @@
 
   security = {
     rtkit.enable = true;
+    
     pam = {
       services = {
-        login.u2fAuth = true;
+        login.u2fAuth = false;
         sudo.u2fAuth = false;
       };
       yubico = {
@@ -118,17 +122,26 @@
     ];
   };
 
-  environment = {
-
+  environment = rec {
     plasma5.excludePackages = with pkgs.libsForQt5; [
       plasma-browser-integration
       konsole
       oxygen
+      elisa
+      okular
+      kwallet
+      kwalletmanager
     ];
+
+    variables = {
+      MINIKUBE_STATIC_IP = "192.168.49.3";
+    };
+    etc = {
+      "NetworkManager/dnsmasq.d/minikube.conf".text = "server=/jb/${variables.MINIKUBE_STATIC_IP}";
+    };
   };
-
+ 
   system = {
-
     stateVersion = "23.11";
 
     autoUpgrade = {

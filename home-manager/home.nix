@@ -26,27 +26,29 @@ in {
     stateVersion = "23.11";
 
     packages = with pkgs; [
-      cargo
       discord
       dotnetCorePackages.sdk_8_0
       docker
       fd
       file
+      figma-linux
       firefox
       flameshot
       gcc
       git
+      gimp
       glib
       kitty
       keepassxc
       kubectl
       kubernetes-helm
       lazygit
+      libreoffice
       lf
       lm_sensors
+      minikube
       nerdfonts
       nodejs
-      minikube
       openlens
       openrgb
       openssl
@@ -61,7 +63,9 @@ in {
       yarn
       yubikey-personalization
       yubioath-flutter
+      yq
       (callPackage ./modules/keymapp/keymapp.nix {})
+      (callPackage ./modules/coolercontrol/coolercontrol.nix {}) # does not work
     ];
  };
 }
