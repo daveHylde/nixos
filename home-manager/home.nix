@@ -65,7 +65,7 @@ in {
       yubioath-flutter
       yq
       (callPackage ./modules/keymapp/keymapp.nix {})
-      (callPackage ./modules/coolercontrol/coolercontrol.nix {}) # does not work
+#      (callPackage ./modules/coolercontrol/coolercontrol.nix {}) # does not work
     ];
  };
 }

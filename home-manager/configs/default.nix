@@ -4,5 +4,6 @@
     ./neovim
     ./kitty
     ./bash
+    ./fusuma
   ];
 }

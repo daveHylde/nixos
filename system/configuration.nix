@@ -60,6 +60,13 @@
   services = {
     onedrive.enable = true;
     pcscd.enable = true;
+    fprintd = {
+      enable = true;
+      tod = {
+        enable = true;
+        driver =  pkgs.libfprint-2-tod1-goodix;
+      };
+    };
 
     udev = {
       packages = [ pkgs.openrgb pkgs.yubioath-flutter ];
@@ -119,10 +126,12 @@
       "wheel" 
       "docker"
       "plugdev"
+      "input"
     ];
   };
 
   environment = rec {
+
     plasma5.excludePackages = with pkgs.libsForQt5; [
       plasma-browser-integration
       konsole
