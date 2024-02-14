@@ -5,6 +5,14 @@
     enable = true;
     extraPackages = with pkgs; [ coreutils xdotool xorg.xprop ];
     settings = {
+      threshold = { 
+        swipe = 0.1; 
+        pinch = 0.1; 
+      };
+      interval = { 
+        swipe = 0.7; 
+        pinch = 0.7; 
+      };
       swipe = {
         "3" = {
           up = {
