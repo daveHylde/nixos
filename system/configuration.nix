@@ -101,6 +101,8 @@
     enable = true;
   };
 
+  programs.ssh.startAgent = true;
+
   security = {
     rtkit.enable = true;
     
@@ -111,7 +113,7 @@
       };
       yubico = {
         enable = true;
-        debug = true;
+        debug = false;
         mode = "challenge-response";
         id = [ "26631457" ];
       };
@@ -138,8 +140,6 @@
       oxygen
       elisa
       okular
-      kwallet
-      kwalletmanager
     ];
 
     variables = {

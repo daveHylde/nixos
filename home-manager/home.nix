@@ -26,6 +26,7 @@ in {
     stateVersion = "23.11";
 
     packages = with pkgs; [
+      azure-cli
       busybox
       discord
       dotnetCorePackages.sdk_8_0
@@ -53,6 +54,7 @@ in {
       openlens
       openrgb
       openssl
+      powershell
       python3Full
       ripgrep
       slack
