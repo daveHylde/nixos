@@ -41,11 +41,5 @@
 
   networking.hostName = "laptop-work";
 
-  services.xserver.xkb.extraLayouts = {
-    workman-no-num = {
-      description = "Norwegian Workman layout with symbols";
-      languages = [ "nob" "nno" "nor" ];
-      symbolsFile = ./workman-no;
-    };
-  };
+  services.xserver.displayManager.sessionCommands = "setxkbmap workman-no-num";
 }

@@ -82,8 +82,15 @@
       };
       desktopManager.plasma5.enable = true;
       xkb = {
-        variant = "";
-        layout = "no";
+        variant = ",";
+        layout = "no,workman-no-num";
+        extraLayouts = {
+          workman-no-num = {
+          description = "Norwegian Workman layout with symbols";
+          languages = [ "nob" "nno" "nor" ];
+           symbolsFile = ./workman-no;
+          };  
+        };
       };
     };
 
