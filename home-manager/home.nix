@@ -40,6 +40,7 @@ in {
       gimp
       glib
       jq
+      google-chrome
       kitty
       keepassxc
       kubectl
