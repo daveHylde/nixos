@@ -82,8 +82,8 @@
       };
       desktopManager.plasma5.enable = true;
       xkb = {
-        variant = ",";
-        layout = "no,workman-no-num";
+        variant = "";
+        layout = "no";
         extraLayouts = {
           workman-no-num = {
           description = "Norwegian Workman layout with symbols";
