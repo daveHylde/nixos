@@ -27,7 +27,6 @@ in {
 
     packages = with pkgs; [
       azure-cli
-      busybox
       discord
       dotnetCorePackages.sdk_8_0
       docker
@@ -36,6 +35,7 @@ in {
       figma-linux
       firefox
       flameshot
+      gcc
       git
       gimp
       glib
