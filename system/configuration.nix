@@ -11,6 +11,12 @@
       experimental-features = "nix-command flakes";
       auto-optimise-store = true;
     };
+
+    gc = {
+      automatic = true;
+      dates = "Weekly";
+      options = "--delete-older-than 7d";
+    };
   };
 
   nixpkgs = {
@@ -108,7 +114,9 @@
     enable = true;
   };
 
-  programs.ssh.startAgent = true;
+  programs = {
+    ssh.startAgent = true;
+  };
 
   security = {
     rtkit.enable = true;
@@ -118,6 +126,7 @@
         login.u2fAuth = false;
         sudo.u2fAuth = false;
       };
+       
       yubico = {
         enable = true;
         debug = false;
@@ -162,6 +171,7 @@
 
     autoUpgrade = {
       enable = true;
+      channel = "https://nixos.org/channels/nixos-unstable";
       allowReboot = false;
     }; 
   };

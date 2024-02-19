@@ -13,6 +13,7 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/52bdf092-6893-4ea0-9a30-8f6bbc9d3d2f";
       fsType = "ext4";
@@ -25,7 +26,16 @@
 
   swapDevices = [ ];
 
-  services.fwupd.enable = true;
+  services = {
+    fwupd.enable = true;
+    xserver.videoDrivers = [ "amdgpu" ];
+  };  
+
+  hardware = {
+    opengl.extraPackages = with pkgs; [
+      rocmPackages.clr.icd
+    ];
+  };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -40,6 +50,4 @@
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   networking.hostName = "laptop-work";
-
-  services.xserver.displayManager.sessionCommands = "setxkbmap workman-no-num";
 }

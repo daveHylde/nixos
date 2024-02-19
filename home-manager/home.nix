@@ -27,6 +27,7 @@ in {
 
     packages = with pkgs; [
       azure-cli
+      clinfo
       discord
       dotnetCorePackages.sdk_8_0
       docker
@@ -39,6 +40,7 @@ in {
       git
       gimp
       glib
+      glxinfo
       jq
       google-chrome
       kitty
