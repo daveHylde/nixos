@@ -26,7 +26,6 @@ in {
     stateVersion = "23.11";
 
     packages = with pkgs; [
-      azure-cli
       clinfo
       discord
       dotnetCorePackages.sdk_8_0
@@ -57,21 +56,17 @@ in {
       openlens
       openrgb
       openssl
-      powershell
       python3Full
-      ripgrep
       slack
       spotify
       thunderbird
       vscode-fhs
-      wget
       xclip
       yarn
       yubikey-personalization
       yubioath-flutter
       yq
       (callPackage ./modules/keymapp/keymapp.nix {})
-#      (callPackage ./modules/coolercontrol/coolercontrol.nix {}) # does not work
     ];
  };
 }
