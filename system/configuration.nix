@@ -120,6 +120,12 @@
 
   security = {
     rtkit.enable = true;
+
+    pki = {
+      certificateFiles = [
+        ./certs/jobbiLocalCA.pem
+      ];
+    };
     
     pam = {
       services = {
