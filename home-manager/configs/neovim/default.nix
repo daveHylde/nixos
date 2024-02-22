@@ -32,6 +32,7 @@
 
     plugins = with pkgs.vimPlugins; [
       cmp-nvim-lsp
+      cmp_luasnip
       nvim-cmp
       plenary-nvim
       telescope-fzf-native-nvim
@@ -41,6 +42,13 @@
       neotest-jest
       neotest-plenary
       lsp-zero-nvim
+      luasnip
+
+      {
+        plugin = nvim-dap-ui;
+        config = toLuaFile ./plugins/dap-ui.lua;
+      }
+
       {
         plugin = (pkgs.vimUtils.buildVimPlugin {
                     name = "nx-nvim";
