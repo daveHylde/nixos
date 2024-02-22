@@ -1,7 +1,7 @@
-{pkgs, ...}: 
-let 
-  username = "david";
-in {
+{pkgs, inputs, user, ...}: 
+
+{
+
   imports = [
     ./configs
   ];
@@ -21,8 +21,8 @@ in {
   };
 
   home = {
-    username = "${username}";
-    homeDirectory = "/home/${username}";
+    username = "${user}";
+    homeDirectory = "/home/${user}";
     stateVersion = "23.11";
 
     packages = with pkgs; [
@@ -69,19 +69,7 @@ in {
       yubikey-personalization
       yubioath-flutter
       yq
-      nodePackages."@angular/cli"
       (callPackage ./modules/keymapp/keymapp.nix {})
-
-      # Neovim
-      vscode-langservers-extracted
-      lua-language-server
-      yaml-language-server
-      nodePackages.vscode-json-languageserver-bin
-      nodePackages.bash-language-server
-      nodePackages.typescript-language-server
-      nixd
-      csharp-ls
-      netcoredbg
     ];
  };
 }

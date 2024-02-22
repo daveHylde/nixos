@@ -5,6 +5,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    plugin-nx-nvim = {
+      url = "github:Equilibris/nx.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {

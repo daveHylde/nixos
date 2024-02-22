@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }: 
+{ pkgs, inputs, ... }: 
 
 {
   programs.neovim =
@@ -18,6 +18,18 @@
       ${builtins.readFile ./mappings.lua}
     '';
 
+    extraPackages = with pkgs; [
+      vscode-langservers-extracted
+      lua-language-server
+      yaml-language-server
+      nodePackages.vscode-json-languageserver-bin
+      nodePackages.bash-language-server
+      nodePackages.typescript-language-server
+      nixd
+      csharp-ls
+      netcoredbg
+    ];
+
     plugins = with pkgs.vimPlugins; [
       cmp-nvim-lsp
       nvim-cmp
@@ -29,7 +41,13 @@
       neotest-jest
       neotest-plenary
       lsp-zero-nvim
-
+      {
+        plugin = (pkgs.vimUtils.buildVimPlugin {
+                    name = "nx-nvim";
+                    src = inputs.plugin-nx-nvim;
+                  });
+        config = toLua "require(\"nx\").setup{ nx_cmd_root = 'npx nx', }";
+      }
       {
         plugin = nvim-dap;
         config = toLuaFile ./plugins/dap.lua;

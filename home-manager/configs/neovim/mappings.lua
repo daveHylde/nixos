@@ -1,5 +1,6 @@
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<C-s>", ':w<ENTER>')
+vim.keymap.set("n", "<leader>ch", ':noh<ENTER>')
 
 -- telescope
 local builtin_telescope = require('telescope.builtin')
@@ -20,14 +21,17 @@ vim.keymap.set('n', '<leader>eq', function()
 	tree_api.tree.close()
 end)
 
--- toggleterm
-
 -- git
 vim.keymap.set('n', '<leader>gg', '<cmd>lua _LAZYGIT_TOGGLE()<cr>', {})
 
 -- test
-
 local test_api = require('neotest')
 vim.keymap.set('n', '<leader>tt', function() test_api.summary.toggle() end, {})
 vim.keymap.set('n', '<leader>tc', function() test_api.run.run() end, {})
 vim.keymap.set('n', '<leader>tf', function() test_api.run.run(vim.fn.expand("%")) end, {})
+vim.keymap.set('n', '<leader>ta', function() test_api.run.run(vim.fn.getcwd()) end, {})
+
+
+-- nx
+vim.keymap.set('n', '<leader>nr', '<cmd>Telescope nx actions<CR>', {})
+vim.keymap.set('n', '<leader>ng', '<cmd>Telescope nx generators<CR>', {})
