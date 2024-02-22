@@ -10,7 +10,7 @@ local function my_on_attach(bufnr)
 
   -- custom mappings
   vim.keymap.set('n', '?', api.tree.toggle_help,    opts('Help'))
-  vim.keymap.set('n', 'ø', api.node.open.preview,   opts('Open Preview'))
+  vim.keymap.set('n', '<F7>', api.node.open.preview,   opts('Open Preview'))
 end
 
 -- pass to setup along with your other options

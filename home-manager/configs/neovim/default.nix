@@ -24,7 +24,20 @@
       plenary-nvim
       telescope-fzf-native-nvim
       vim-nix
- 
+      vim-csharp
+      neotest-dotnet
+      neotest-jest
+      neotest-plenary
+      lsp-zero-nvim
+
+      {
+        plugin = nvim-dap;
+        config = toLuaFile ./plugins/dap.lua;
+      }
+      {
+        plugin = neotest;
+        config = toLuaFile ./plugins/neotest.lua;
+      }
       {
         plugin = nvim-lspconfig;
         config = toLuaFile ./plugins/lsp.lua;
@@ -41,7 +54,33 @@
       }
 
       {
-        plugin = nvim-treesitter.withAllGrammars;
+        plugin = nvim-treesitter.withPlugins (p: [
+          p.angular
+          p.bash
+          p.c_sharp
+          p.c
+          p.dockerfile
+          p.dot
+          p.gitignore
+          p.go
+          p.javascript
+          p.typescript
+          p.xml
+          p.java
+          p.kotlin
+          p.pem
+          p.sql
+          p.lua
+          p.html
+          p.css
+          p.scss
+          p.yaml
+          p.json
+          p.json5
+          p.nix
+          p.vim
+          p.vimdoc
+        ]);
         config = toLuaFile ./plugins/treesitter.lua;
       }
 

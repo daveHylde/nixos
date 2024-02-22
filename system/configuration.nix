@@ -166,6 +166,7 @@
 
     variables = {
       MINIKUBE_STATIC_IP = "192.168.49.2";
+      EDITOR = "nvim";
     };
     etc = {
       "NetworkManager/dnsmasq.d/minikube.conf".text = "server=/jb/${variables.MINIKUBE_STATIC_IP}";

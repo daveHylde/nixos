@@ -11,5 +11,9 @@
       k = "kubectl";
       clpb = "xclip -selection clipboard";
     };
+    bashrcExtra = ''
+      export PATH=~/.npm-packages/bin:$PATH
+      export NODE_PATH=~/.npm-packages/lib/node_modules
+    '';
   };
 }

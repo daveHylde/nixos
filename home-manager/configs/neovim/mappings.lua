@@ -13,10 +13,10 @@ end)
 
 -- tree
 local tree_api = require('nvim-tree.api')
-vim.keymap.set('n', '<leader>e', function()
+vim.keymap.set('n', '<leader>ee', function()
 	tree_api.tree.focus({ find_file = true })
 end)
-vim.keymap.set('n', '<leader>te', function() 
+vim.keymap.set('n', '<leader>eq', function()
 	tree_api.tree.close()
 end)
 
@@ -25,3 +25,9 @@ end)
 -- git
 vim.keymap.set('n', '<leader>gg', '<cmd>lua _LAZYGIT_TOGGLE()<cr>', {})
 
+-- test
+
+local test_api = require('neotest')
+vim.keymap.set('n', '<leader>tt', function() test_api.summary.toggle() end, {})
+vim.keymap.set('n', '<leader>tc', function() test_api.run.run() end, {})
+vim.keymap.set('n', '<leader>tf', function() test_api.run.run(vim.fn.expand("%")) end, {})
