@@ -1,29 +1,38 @@
+-- normal mode
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<C-s>", ':w<ENTER>')
 vim.keymap.set("n", "<leader>ch", ':noh<ENTER>')
 vim.keymap.set("n", "<C-q>", ':bd<ENTER>')
 
--- telescope
-local builtin_telescope = require('telescope.builtin')
-vim.keymap.set('n', '<leader>pf', builtin_telescope.find_files, {})
-vim.keymap.set('n', '<C-p>', builtin_telescope.git_files, {})
+vim.keymap.set('n', '<leader>ve', vim.diagnostic.open_float)
+vim.keymap.set('n', '<leader>vn', vim.diagnostic.goto_prev)
+vim.keymap.set('n', '<leader>vp', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<leader>vl', vim.diagnostic.setloclist)
 
-vim.keymap.set('n', '<leader>pu', builtin_telescope.buffers, {})
+vim.keymap.set('n', '<M-Right>', '<C-w>w')
+vim.keymap.set('n', '<M-Left>', '<C-w>h')
+
+-- visual mode 
+vim.keymap.set("v", "<M-Down>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<M-Up>", ":m '<-2<CR>gv=gv")
+
+-- telescope
+local telescope = require('telescope.builtin')
+vim.keymap.set('n', '<leader>pt', telescope.find_files, {})
+vim.keymap.set('n', '<C-p>', telescope.git_files, {})
+vim.keymap.set('n', '<leader>pb', telescope.buffers, {})
 vim.keymap.set('n', '<leader>ps', function()
-	builtin_telescope.grep_string({ search = vim.fn.input("Grep > ") })
+	telescope.grep_string({ search = vim.fn.input("Grep > ") })
 end)
 
 -- tree
 local tree_api = require('nvim-tree.api')
-vim.keymap.set('n', '<leader>ee', function()
+vim.keymap.set('n', '<leader>e', function()
 	tree_api.tree.focus({ find_file = true })
-end)
-vim.keymap.set('n', '<leader>eq', function()
-	tree_api.tree.close()
 end)
 
 -- git
-vim.keymap.set('n', '<leader>gg', '<cmd>lua _LAZYGIT_TOGGLE()<cr>', {})
+vim.keymap.set('n', '<leader>gs', ':Git<CR>', {})
 
 -- test
 local test_api = require('neotest')
@@ -37,6 +46,8 @@ vim.keymap.set('n', '<leader>ta', function() test_api.run.run(vim.fn.getcwd()) e
 -- nx
 vim.keymap.set('n', '<leader>nr', '<cmd>Telescope nx actions<CR>', {})
 vim.keymap.set('n', '<leader>ng', '<cmd>Telescope nx generators<CR>', {})
+vim.keymap.set('n', '<leader>nm', '<cmd>Telescope nx run_many<CR>', {})
+vim.keymap.set('n', '<leader>na', '<cmd>Telescope nx affected<CR>', {})
 
 -- dap
 vim.api.nvim_set_keymap('n', '<F5>', '<Cmd>lua require"dap".continue()<CR>', {silent = true})

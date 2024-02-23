@@ -22,15 +22,15 @@
       vscode-langservers-extracted
       lua-language-server
       yaml-language-server
-      nodePackages.vscode-json-languageserver-bin
       nodePackages.bash-language-server
-      nodePackages.typescript-language-server
       nixd
       csharp-ls
       netcoredbg
+      dockerfile-language-server-nodejs
     ];
 
     plugins = with pkgs.vimPlugins; [
+      nvim-treesitter-parsers.angular
       cmp-nvim-lsp
       cmp_luasnip
       nvim-cmp
@@ -43,10 +43,37 @@
       neotest-plenary
       lsp-zero-nvim
       luasnip
+      nvim-ts-autotag
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "flexoki";
+        src = inputs.plugin-flexoki-theme;
+      })
 
       {
         plugin = nvim-dap-ui;
         config = toLuaFile ./plugins/dap-ui.lua;
+      }
+
+      {
+        plugin = (pkgs.vimUtils.buildVimPlugin {
+                    name = "cmp-bulma-nvim";
+                    src = inputs.plugin-bulma-cmp;
+                  });
+        config = toLua "require('cmp_bulma').setup{}";
+      }
+
+      {
+        plugin = (pkgs.vimUtils.buildVimPlugin {
+                    name = "neotest-playwright";
+                    src = inputs.plugin-neotest-playwright;
+                  });
+      }
+
+      {
+        plugin = (pkgs.vimUtils.buildVimPlugin {
+                    name = "vim-fugitive";
+                    src = inputs.plugin-vim-fugitive;
+                  });
       }
 
       {
@@ -56,10 +83,12 @@
                   });
         config = toLua "require(\"nx\").setup{ nx_cmd_root = 'npx nx', }";
       }
+      
       {
         plugin = nvim-dap;
         config = toLuaFile ./plugins/dap.lua;
       }
+      
       {
         plugin = neotest;
         config = toLuaFile ./plugins/neotest.lua;
@@ -80,33 +109,7 @@
       }
 
       {
-        plugin = nvim-treesitter.withPlugins (p: [
-          p.angular
-          p.bash
-          p.c_sharp
-          p.c
-          p.dockerfile
-          p.dot
-          p.gitignore
-          p.go
-          p.javascript
-          p.typescript
-          p.xml
-          p.java
-          p.kotlin
-          p.pem
-          p.sql
-          p.lua
-          p.html
-          p.css
-          p.scss
-          p.yaml
-          p.json
-          p.json5
-          p.nix
-          p.vim
-          p.vimdoc
-        ]);
+        plugin = nvim-treesitter.withAllGrammars;
         config = toLuaFile ./plugins/treesitter.lua;
       }
 

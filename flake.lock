@@ -36,6 +36,54 @@
         "type": "github"
       }
     },
+    "plugin-bulma-cmp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1678888359,
+        "narHash": "sha256-W2MOiyi/PtEXnSaQD3UBpQM5wUoHQ/EhkT34MCS9t0g=",
+        "owner": "garyhurtz",
+        "repo": "cmp_bulma.nvim",
+        "rev": "40b6b1b06a0b4378fbf11ff2e60a334663ae77bd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "garyhurtz",
+        "repo": "cmp_bulma.nvim",
+        "type": "github"
+      }
+    },
+    "plugin-flexoki-theme": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1707339288,
+        "narHash": "sha256-D8FZXkeoyOzIHjvT/0ubMfLPk691s8xDcAiCagEtMro=",
+        "owner": "kepano",
+        "repo": "flexoki-neovim",
+        "rev": "975654bce67514114db89373539621cff42befb5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kepano",
+        "repo": "flexoki-neovim",
+        "type": "github"
+      }
+    },
+    "plugin-neotest-playwright": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1707898363,
+        "narHash": "sha256-woRw8uqp3izhnCOH7vuyZW7l9lH2k4jkWx0Nj1meCbQ=",
+        "owner": "thenbe",
+        "repo": "neotest-playwright",
+        "rev": "c036fe39469e06ae70b63479b5bb2ce7d654beaf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "thenbe",
+        "repo": "neotest-playwright",
+        "type": "github"
+      }
+    },
     "plugin-nx-nvim": {
       "flake": false,
       "locked": {
@@ -52,11 +100,31 @@
         "type": "github"
       }
     },
+    "plugin-vim-fugitive": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1707706623,
+        "narHash": "sha256-dI28XbFYUWuGQ89oGR51WK6M3kWhBwqqC0Bs99vxrjY=",
+        "owner": "tpope",
+        "repo": "vim-fugitive",
+        "rev": "011cf4fcb93a9649ffc6dcdff56ef948f5d0f7cc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tpope",
+        "repo": "vim-fugitive",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "plugin-nx-nvim": "plugin-nx-nvim"
+        "plugin-bulma-cmp": "plugin-bulma-cmp",
+        "plugin-flexoki-theme": "plugin-flexoki-theme",
+        "plugin-neotest-playwright": "plugin-neotest-playwright",
+        "plugin-nx-nvim": "plugin-nx-nvim",
+        "plugin-vim-fugitive": "plugin-vim-fugitive"
       }
     }
   },

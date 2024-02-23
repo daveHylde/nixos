@@ -57,6 +57,7 @@
       openlens
       openrgb
       openssl
+      playwright-test
       python3Full
       ripgrep
       slack

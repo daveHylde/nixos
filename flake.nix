@@ -10,6 +10,27 @@
       url = "github:Equilibris/nx.nvim";
       flake = false;
     };
+
+    plugin-neotest-playwright = {
+      url = "github:thenbe/neotest-playwright";
+      flake = false;
+    };
+
+    plugin-bulma-cmp = {
+      url = "github:garyhurtz/cmp_bulma.nvim";
+      flake = false;
+    };
+
+    plugin-flexoki-theme = {
+      url = "github:kepano/flexoki-neovim";
+      flake = false;
+    };
+
+    plugin-vim-fugitive = {
+      url = "github:tpope/vim-fugitive";
+      flake = false;
+    };
+
   };
 
   outputs = inputs @ {

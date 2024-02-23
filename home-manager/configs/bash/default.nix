@@ -10,6 +10,7 @@
     shellAliases = {
       k = "kubectl";
       clpb = "xclip -selection clipboard";
+      nx = "npx nx";
     };
     bashrcExtra = ''
       export PATH=~/.npm-packages/bin:$PATH
