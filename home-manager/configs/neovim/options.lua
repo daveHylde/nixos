@@ -29,11 +29,11 @@ vim.opt.scrolloff = 8
 vim.opt.updatetime = 50
 
 -- Define the autocmd for angular html files
-vim.cmd[[
-    augroup AngularFileType
-        autocmd!
-        autocmd BufRead,BufEnter *.component.html set filetype=angular
-    augroup END
-]]
+--vim.cmd[[
+--    augroup AngularFileType
+--        autocmd!
+--        autocmd BufRead,BufEnter *.component.html set filetype=angular
+--    augroup END
+--]]
 
 vim.opt.clipboard="unnamed,unnamedplus"

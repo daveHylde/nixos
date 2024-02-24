@@ -1,6 +1,7 @@
 -- normal mode
+local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-vim.keymap.set("n", "<C-s>", ':w<ENTER>')
+vim.keymap.set("n", "<C-s>", ':wa<ENTER>')
 vim.keymap.set("n", "<leader>ch", ':noh<ENTER>')
 vim.keymap.set("n", "<C-q>", ':bd<ENTER>')
 
@@ -9,8 +10,10 @@ vim.keymap.set('n', '<leader>vn', vim.diagnostic.goto_prev)
 vim.keymap.set('n', '<leader>vp', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>vl', vim.diagnostic.setloclist)
 
-vim.keymap.set('n', '<M-Right>', '<C-w>w')
-vim.keymap.set('n', '<M-Left>', '<C-w>h')
+vim.keymap.set('n', 'j', 'k', opts)
+vim.keymap.set('n', 'k', 'j', opts)
+vim.keymap.set('v', 'j', 'k', opts)
+vim.keymap.set('v', 'k', 'j', opts)
 
 -- visual mode 
 vim.keymap.set("v", "<M-Down>", ":m '>+1<CR>gv=gv")
@@ -27,12 +30,11 @@ end)
 
 -- tree
 local tree_api = require('nvim-tree.api')
-vim.keymap.set('n', '<leader>e', function()
-	tree_api.tree.focus({ find_file = true })
-end)
+vim.keymap.set('n', '<leader>en', function() tree_api.tree.focus({ find_file = true }) end)
+vim.keymap.set('n', '<leader>eq', function() tree_api.tree.close() end)
 
 -- git
-vim.keymap.set('n', '<leader>gs', ':Git<CR>', {})
+vim.keymap.set('n', '<leader>gs', ':tab Git<CR>', {})
 
 -- test
 local test_api = require('neotest')
@@ -59,3 +61,53 @@ vim.api.nvim_set_keymap('n', '<Leader>B', '<Cmd>lua require"dap".set_breakpoint(
 vim.api.nvim_set_keymap('n', '<Leader>lp', '<Cmd>lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>', {silent = true})
 vim.api.nvim_set_keymap('n', '<Leader>dr', '<Cmd>lua require"dap".repl.open()<CR>', {silent = true})
 vim.api.nvim_set_keymap('n', '<Leader>dl', '<Cmd>lua require"dap".run_last()<CR>', {silent = true})
+
+-- Trouble
+vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end)
+vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end)
+vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end)
+vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end)
+vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end)
+vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
+
+-- barbar
+-- Move to previous/next
+vim.keymap.set('n', '<A-Left>', '<Cmd>BufferPrevious<CR>', opts)
+vim.keymap.set('n', '<A-Right>', '<Cmd>BufferNext<CR>', opts)
+-- Re-order to previous/next
+vim.keymap.set('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', opts)
+vim.keymap.set('n', '<A->>', '<Cmd>BufferMoveNext<CR>', opts)
+-- Goto buffer in position...
+vim.keymap.set('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', opts)
+vim.keymap.set('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', opts)
+vim.keymap.set('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', opts)
+vim.keymap.set('n', '<A-4>', '<Cmd>BufferGoto 4<CR>', opts)
+vim.keymap.set('n', '<A-5>', '<Cmd>BufferGoto 5<CR>', opts)
+vim.keymap.set('n', '<A-6>', '<Cmd>BufferGoto 6<CR>', opts)
+vim.keymap.set('n', '<A-7>', '<Cmd>BufferGoto 7<CR>', opts)
+vim.keymap.set('n', '<A-8>', '<Cmd>BufferGoto 8<CR>', opts)
+vim.keymap.set('n', '<A-9>', '<Cmd>BufferGoto 9<CR>', opts)
+vim.keymap.set('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
+-- Pin/unpin buffer
+vim.keymap.set('n', '<A-p>', '<Cmd>BufferPin<CR>', opts)
+-- Close buffer
+vim.keymap.set('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
+-- Wipeout buffer
+--                 :BufferWipeout
+-- Close commands
+--                 :BufferCloseAllButCurrent
+--                 :BufferCloseAllButPinned
+--                 :BufferCloseAllButCurrentOrPinned
+--                 :BufferCloseBuffersLeft
+--                 :BufferCloseBuffersRight
+-- Magic buffer-picking mode
+vim.keymap.set('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
+-- Sort automatically by...
+vim.keymap.set('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
+vim.keymap.set('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
+vim.keymap.set('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
+vim.keymap.set('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
+
+-- Other:
+-- :BarbarEnable - enables barbar (enabled by default)
+-- :BarbarDisable - very bad command, should never be used

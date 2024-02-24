@@ -41,9 +41,10 @@ lspconfig.lua_ls.setup {}
 
 lspconfig.nixd.setup {}
 
+
 lspconfig.angularls.setup {
 	root_dir = util.root_pattern("angular.json", "project.json"), -- This is for monorepo's
-	filetypes = { "angular", "html", "typescript", "typescriptreact" },
+	filetypes = { "html", "typescript", "typescriptreact", "angular" },
 }
 
 local cmp = require('cmp')

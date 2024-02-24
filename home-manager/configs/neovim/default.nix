@@ -19,10 +19,11 @@
     '';
 
     extraPackages = with pkgs; [
+      nodePackages.typescript-language-server
+      nodePackages.bash-language-server
       vscode-langservers-extracted
       lua-language-server
       yaml-language-server
-      nodePackages.bash-language-server
       nixd
       csharp-ls
       netcoredbg
@@ -30,7 +31,6 @@
     ];
 
     plugins = with pkgs.vimPlugins; [
-      nvim-treesitter-parsers.angular
       cmp-nvim-lsp
       cmp_luasnip
       nvim-cmp
@@ -44,6 +44,11 @@
       lsp-zero-nvim
       luasnip
       nvim-ts-autotag
+      barbar-nvim
+      auto-pairs
+      nvim-web-devicons
+      trouble-nvim
+
       (pkgs.vimUtils.buildVimPlugin {
         name = "flexoki";
         src = inputs.plugin-flexoki-theme;
@@ -77,6 +82,11 @@
       }
 
       {
+        plugin = nvim-colorizer-lua;
+        config = toLuaFile ./plugins/colorizer.lua;
+      }
+ 
+      {
         plugin = (pkgs.vimUtils.buildVimPlugin {
                     name = "nx-nvim";
                     src = inputs.plugin-nx-nvim;
@@ -109,7 +119,7 @@
       }
 
       {
-        plugin = nvim-treesitter.withAllGrammars;
+        plugin = nvim-treesitter.withAllGrammars;            
         config = toLuaFile ./plugins/treesitter.lua;
       }
 
