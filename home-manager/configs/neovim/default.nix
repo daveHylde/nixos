@@ -48,6 +48,7 @@
       auto-pairs
       nvim-web-devicons
       trouble-nvim
+      lazygit-nvim
 
       (pkgs.vimUtils.buildVimPlugin {
         name = "flexoki";
@@ -71,13 +72,6 @@
         plugin = (pkgs.vimUtils.buildVimPlugin {
                     name = "neotest-playwright";
                     src = inputs.plugin-neotest-playwright;
-                  });
-      }
-
-      {
-        plugin = (pkgs.vimUtils.buildVimPlugin {
-                    name = "vim-fugitive";
-                    src = inputs.plugin-vim-fugitive;
                   });
       }
 

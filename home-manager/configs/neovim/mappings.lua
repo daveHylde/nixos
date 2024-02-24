@@ -30,11 +30,13 @@ end)
 
 -- tree
 local tree_api = require('nvim-tree.api')
-vim.keymap.set('n', '<leader>en', function() tree_api.tree.focus({ find_file = true }) end)
-vim.keymap.set('n', '<leader>eq', function() tree_api.tree.close() end)
+vim.keymap.set('n', '<leader>ne', function() tree_api.tree.focus({ find_file = true }) end)
+vim.keymap.set('n', '<leader>ny', function() tree_api.tree.close() end)
 
 -- git
-vim.keymap.set('n', '<leader>gs', ':tab Git<CR>', {})
+vim.keymap.set('n', '<leader>gg', ':LazyGit<CR>', {})
+-- Some settings for lazygit
+vim.g.lazygit_floating_window_use_plenary = 1
 
 -- test
 local test_api = require('neotest')

@@ -166,6 +166,7 @@
   environment = rec {
 
     plasma5.excludePackages = with pkgs.libsForQt5; [
+      spectacle
       plasma-browser-integration
       konsole
       oxygen
