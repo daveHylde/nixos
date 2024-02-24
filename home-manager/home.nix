@@ -48,6 +48,7 @@
       kubectl
       kubernetes-helm
       lazygit
+      libsForQt5.kdeconnect-kde
       libreoffice
       lf
       lm_sensors
