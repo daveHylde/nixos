@@ -28,7 +28,7 @@ vim.opt.scrolloff = 8
 
 vim.opt.updatetime = 50
 
--- Define the autocmd for angular html files
+--- Define the autocmd for angular html files
 --vim.cmd[[
 --    augroup AngularFileType
 --        autocmd!
@@ -36,4 +36,13 @@ vim.opt.updatetime = 50
 --    augroup END
 --]]
 
-vim.opt.clipboard="unnamed,unnamedplus"
+-- Define the autocmd for angular html files
+vim.cmd [[
+    augroup AngularFileType
+        autocmd!
+        autocmd BufNewFile,BufRead *.cshtml set filetype=html.cshtml.razor
+        autocmd BufNewFile,BufRead *.razor set filetype=html.cshtml.razor
+    augroup END
+]]
+
+vim.opt.clipboard = "unnamed,unnamedplus"
