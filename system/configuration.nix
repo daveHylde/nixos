@@ -50,6 +50,9 @@
     docker = {
       enable = true;
     };
+    libvirtd = {
+      enable = true;
+    };
   };
 
   networking = {
@@ -124,6 +127,7 @@
   };
 
   programs = {
+    virt-manager.enable = true;
     ssh.startAgent = true;
   };
 

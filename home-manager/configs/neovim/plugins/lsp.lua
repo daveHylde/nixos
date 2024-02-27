@@ -9,7 +9,9 @@ end)
 local lspconfig = require('lspconfig')
 local util = require('lspconfig.util')
 
-lspconfig.csharp_ls.setup {}
+lspconfig.csharp_ls.setup {
+  filtypes = { "cs", "razor", "cshtml", "html" }
+}
 
 lspconfig.jsonls.setup {}
 
