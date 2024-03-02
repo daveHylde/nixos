@@ -27,6 +27,7 @@
 
     packages = with pkgs; [
       clinfo
+      brave
       discord
       dotnetCorePackages.sdk_8_0
       docker
