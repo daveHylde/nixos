@@ -1,7 +1,7 @@
 {
   imports = [
     ./git
-    ./neovim
+#    ./neovim
     ./kitty
     ./bash
     ./fusuma

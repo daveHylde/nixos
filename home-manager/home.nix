@@ -27,7 +27,6 @@
 
     packages = with pkgs; [
       clinfo
-      brave
       discord
       dotnetCorePackages.sdk_8_0
       docker
@@ -54,12 +53,12 @@
       lf
       lm_sensors
       minikube
+      neovim
       nerdfonts
       nodejs
       openlens
       openrgb
       openssl
-      playwright-test
       python3Full
       ripgrep
       slack

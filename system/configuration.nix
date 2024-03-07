@@ -153,6 +153,12 @@
         id = [ "26631457" ];
       };
     };
+
+    tpm2 = {
+      enable = true;
+      pkcs11.enable = true;
+      tctiEnvironment.enable = true;
+    };
   };
 
   users.users.david = {
@@ -164,6 +170,7 @@
       "docker"
       "plugdev"
       "input"
+      "tss"
     ];
   };
 
@@ -182,6 +189,7 @@
       MINIKUBE_STATIC_IP = "192.168.49.2";
       EDITOR = "nvim";
     };
+  
     etc = {
       "NetworkManager/dnsmasq.d/minikube.conf".text = "server=/jb/${variables.MINIKUBE_STATIC_IP}";
     };
