@@ -27,6 +27,7 @@
 
     packages = with pkgs; [
       clinfo
+      csharp-ls
       discord
       dotnetCorePackages.sdk_8_0
       docker
@@ -55,6 +56,7 @@
       minikube
       neovim
       nerdfonts
+      netcoredbg
       nodejs
       openlens
       openrgb
@@ -71,6 +73,8 @@
       yubikey-personalization
       yubioath-flutter
       yq
+      unzip
+      zip
       (callPackage ./modules/keymapp/keymapp.nix {})
     ];
  };
