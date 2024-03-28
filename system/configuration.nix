@@ -22,6 +22,7 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
+      allowBroken = true;
     };
   };
 
@@ -76,8 +77,11 @@
   console.keyMap = "no";
 
   services = {
+    hardware.bolt.enable = true;
     onedrive.enable = true;
     pcscd.enable = true;
+    printing.enable = true;
+
     fprintd = {
       enable = true;
       tod = {
@@ -95,9 +99,7 @@
 
     xserver = {
       enable = true;
-      displayManager = {
-        sddm.enable = true;
-      };
+      displayManager.sddm.enable = true;
       desktopManager.plasma5.enable = true;
       xkb = {
         variant = "";
@@ -118,8 +120,6 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-
-    printing.enable = true;
   };
 
   sound = {
@@ -183,6 +183,7 @@
       oxygen
       elisa
       okular
+      ksshaskpass
     ];
 
     variables = {

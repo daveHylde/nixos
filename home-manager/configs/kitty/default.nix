@@ -1,7 +1,7 @@
 {
   programs.kitty = {
     enable = true;
-    theme = "Cobalt2";
+    theme = "Flexoki (Dark)";
     shellIntegration = {
       enableBashIntegration = true;
     };

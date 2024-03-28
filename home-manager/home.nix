@@ -30,7 +30,6 @@
       discord
       dotnetCorePackages.sdk_8_0
       docker
-      figma-linux
       firefox
       flameshot
       git
@@ -44,15 +43,19 @@
       keepassxc
       kubectl
       kubernetes-helm
+      lazydocker
+      lazygit
       libsForQt5.kdeconnect-kde
       libreoffice
       lm_sensors
       minikube
+      mysql80
       nerdfonts
       nodejs
       openlens
       openrgb
       openssl
+      powershell
       python3Full
       slack
       spotify
@@ -65,18 +68,10 @@
       yq
       unzip
       zip
+      plasma5Packages.plasma-thunderbolt
+      yubikey-manager-qt
+      zoxide
       (callPackage ./modules/keymapp/keymapp.nix {})
-      
-      # Stuff for NeoVim
-      fd
-      file
-      gcc
-      neovim
-      lazydocker
-      lazygit
-      netcoredbg
-      ripgrep
-      lua-language-server
     ];
  };
 }

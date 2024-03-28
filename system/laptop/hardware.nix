@@ -4,31 +4,71 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
+   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/52bdf092-6893-4ea0-9a30-8f6bbc9d3d2f";
+    { device = "/dev/disk/by-uuid/69572e9f-16c2-4d3b-9b0e-9f365de658c3";
       fsType = "ext4";
     };
 
+  boot.initrd.luks.devices."luks-38b4cde7-3687-4fb2-9137-651f162ea1da".device = "/dev/disk/by-uuid/38b4cde7-3687-4fb2-9137-651f162ea1da";
+
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/CD70-941F";
+    { device = "/dev/disk/by-uuid/A089-9DC8";
       fsType = "vfat";
     };
 
-  swapDevices = [ ];
 
-  services = {
+ services = {
     fwupd.enable = true;
     xserver.videoDrivers = [ "amdgpu" ];
+    thinkfan = {
+      enable = true;
+      levels = [
+        [
+          0
+          0
+          60
+        ]
+        [
+          1
+          60
+          65
+        ]
+        [
+          2
+          65
+          70
+        ]
+        [
+          3
+          70
+          72
+        ]
+        [
+          6
+          72
+          75
+        ]
+        [
+          7
+          75
+          85
+        ]
+        [
+          "level auto"
+          80
+          32767
+        ]
+      ];
+    };
   };  
 
   hardware = {
