@@ -3,6 +3,10 @@
 {
   programs.neovim = {
     enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+
     extraLuaPackages = ps: [ 
       ps.magick
       ps.lua-curl
@@ -15,6 +19,7 @@
       netcoredbg
       ripgrep
       lua-language-server
+      stylua
     ];
   };
 }
