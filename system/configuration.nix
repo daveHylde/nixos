@@ -81,7 +81,6 @@
     onedrive.enable = true;
     pcscd.enable = true;
     printing.enable = true;
-
     fprintd = {
       enable = true;
       tod = {
