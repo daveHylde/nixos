@@ -1,5 +1,6 @@
 {
   imports = [
+    ./firefox
     ./neovim
     ./git
     ./kitty

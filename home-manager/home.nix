@@ -28,17 +28,17 @@
 
     packages = with pkgs; [
       clinfo
+      cargo
       discord
       dotnetCorePackages.sdk_8_0
       docker
-      firefox
       flameshot
       git
       gimp
       glib
       glxinfo
       jq
-      google-chrome
+      chromium
       k9s
       kitty
       keepassxc
