@@ -29,6 +29,12 @@
  services = {
     fwupd.enable = true;
     xserver.videoDrivers = [ "amdgpu" ];
+    openvpn.servers = {
+      officeVPN  = { 
+        config = '' config /root/nixos/openvpn/officeVPN.conf '';
+        updateResolvConf = true;
+      };
+    };
     thinkfan = {
       enable = true;
       levels = [
