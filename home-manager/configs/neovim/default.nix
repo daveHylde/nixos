@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 
 {
   programs.neovim = {
@@ -7,7 +7,7 @@
     viAlias = true;
     vimAlias = true;
 
-    extraLuaPackages = ps: [ 
+    extraLuaPackages = ps: [
       ps.magick
       ps.lua-curl
     ];

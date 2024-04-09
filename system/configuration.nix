@@ -27,13 +27,13 @@
   };
 
   boot = {
-     loader = {
-        systemd-boot.enable = true;
-        efi.canTouchEfiVariables = true;
-     };
-   kernelModules = [ "i2c-piix4" "i2c-dev" ];
-  }; 
- 
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    kernelModules = [ "i2c-piix4" "i2c-dev" ];
+  };
+
   hardware = {
     bluetooth = {
       enable = true;
@@ -48,29 +48,28 @@
   };
 
   virtualisation = {
-    docker = {
+    docker.enable = true;
+    virtualbox.host = {
       enable = true;
-    };
-    libvirtd = {
-      enable = true;
+      enableExtensionPack = true;
     };
   };
 
   networking = {
-    firewall = { 
+    firewall = {
       enable = true;
-      allowedTCPPortRanges = [ 
+      allowedTCPPortRanges = [
         { from = 1714; to = 1764; } # KDE Connect
-      ];  
-      allowedUDPPortRanges = [ 
+      ];
+      allowedUDPPortRanges = [
         { from = 1714; to = 1764; } # KDE Connect
-      ];  
+      ];
     };
     networkmanager = {
       enable = true;
       dns = "dnsmasq";
     };
-  }; 
+  };
 
   time.timeZone = "Europe/Oslo";
   i18n.defaultLocale = "nb_NO.UTF-8";
@@ -85,13 +84,17 @@
       enable = true;
       tod = {
         enable = true;
-        driver =  pkgs.libfprint-2-tod1-goodix;
+        driver = pkgs.libfprint-2-tod1-goodix;
       };
     };
 
     udev = {
-      packages = [ pkgs.openrgb pkgs.yubioath-flutter ];
-      extraRules =''
+      packages = [
+        pkgs.openrgb
+        pkgs.yubioath-flutter
+        pkgs.coolercontrol.coolercontrold
+      ];
+      extraRules = ''
         ${builtins.readFile ./50-zsa.rules}
       '';
     };
@@ -105,10 +108,10 @@
         layout = "no";
         extraLayouts = {
           workman-no-num = {
-          description = "Norwegian Workman layout with symbols";
-          languages = [ "nob" "nno" "nor" ];
-           symbolsFile = ./workman-no;
-          };  
+            description = "Norwegian Workman layout with symbols";
+            languages = [ "nob" "nno" "nor" ];
+            symbolsFile = ./workman-no;
+          };
         };
       };
     };
@@ -126,8 +129,8 @@
   };
 
   programs = {
-    virt-manager.enable = true;
     ssh.startAgent = true;
+    coolercontrol.enable = true;
   };
 
   security = {
@@ -138,13 +141,13 @@
         ./certs/jobbiLocalCA.pem
       ];
     };
-    
+
     pam = {
       services = {
         login.u2fAuth = false;
         sudo.u2fAuth = false;
       };
-       
+
       yubico = {
         enable = true;
         debug = false;
@@ -163,13 +166,15 @@
   users.users.david = {
     isNormalUser = true;
     description = "David";
-    extraGroups = [ 
-      "networkmanager" 
-      "wheel" 
+    extraGroups = [
+      "networkmanager"
+      "wheel"
       "docker"
       "plugdev"
       "input"
       "tss"
+      "libvirtd"
+      "vboxusers"
     ];
   };
 
@@ -189,12 +194,12 @@
       MINIKUBE_STATIC_IP = "192.168.49.2";
       EDITOR = "nvim";
     };
-  
+
     etc = {
       "NetworkManager/dnsmasq.d/minikube.conf".text = "server=/jb/${variables.MINIKUBE_STATIC_IP}";
     };
   };
- 
+
   system = {
     stateVersion = "23.11";
 
@@ -202,6 +207,6 @@
       enable = true;
       channel = "https://nixos.org/channels/nixos-unstable";
       allowReboot = false;
-    }; 
+    };
   };
 }

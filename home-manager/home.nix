@@ -1,4 +1,4 @@
-{pkgs, inputs, user, ...}: 
+{ pkgs, inputs, user, ... }:
 
 {
 
@@ -6,11 +6,14 @@
     ./configs
   ];
 
-  fonts = {
-    fontconfig = { 
-      enable = true;
+  dconf.settings = {
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = [ "qemu:///system" ];
+      uris = [ "qemu:///system" ];
     };
   };
+
+  fonts.fontconfig.enable = true;
 
   xdg = {
     enable = true;
@@ -24,7 +27,7 @@
     username = "${user}";
     homeDirectory = "/home/${user}";
     stateVersion = "23.11";
-    
+
 
     packages = with pkgs; [
       clinfo
@@ -32,6 +35,7 @@
       discord
       dotnetCorePackages.sdk_8_0
       docker
+      firefox
       flameshot
       git
       gimp
@@ -72,7 +76,7 @@
       plasma5Packages.plasma-thunderbolt
       yubikey-manager-qt
       zoxide
-      (callPackage ./modules/keymapp/keymapp.nix {})
+      (callPackage ./modules/keymapp/keymapp.nix { })
     ];
- };
+  };
 }
