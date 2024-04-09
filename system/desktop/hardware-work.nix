@@ -13,18 +13,20 @@
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ "kvm-amd" "jc42" "nct6775" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/699290af-819f-40ae-8605-9e60cecc907d";
+    {
+      device = "/dev/disk/by-uuid/699290af-819f-40ae-8605-9e60cecc907d";
       fsType = "ext4";
     };
 
   boot.initrd.luks.devices."luks-555377a0-a42c-44f5-823a-fcf76ddb74a7".device = "/dev/disk/by-uuid/555377a0-a42c-44f5-823a-fcf76ddb74a7";
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/0F45-3777";
+    {
+      device = "/dev/disk/by-uuid/0F45-3777";
       fsType = "vfat";
     };
 
@@ -32,7 +34,7 @@
 
   services = {
     openvpn.servers = {
-      officeVPN  = { 
+      officeVPN = {
         config = '' config /root/nixos/openvpn/officeVPN.conf '';
         updateResolvConf = true;
       };
@@ -49,6 +51,6 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  
+
   networking.hostName = "desktop-work";
 }

@@ -2,23 +2,25 @@
 
 {
   imports =
-    [ 
+    [
       (modulesPath + "/installer/scan/not-detected.nix")
       ./nvidia.nix
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ "kvm-amd" "jc42" "nct6775" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/601e1dba-5238-40f2-aeb1-09c37462dd03";
+    {
+      device = "/dev/disk/by-uuid/601e1dba-5238-40f2-aeb1-09c37462dd03";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/5BAC-65BC";
+    {
+      device = "/dev/disk/by-uuid/5BAC-65BC";
       fsType = "vfat";
     };
 
