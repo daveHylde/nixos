@@ -6,6 +6,7 @@
     plugins = with pkgs; [
       tmuxPlugins.gruvbox
       tmuxPlugins.vim-tmux-navigator
+      tmuxPlugins.resurrect
     ];
     extraConfig = ''
       unbind r

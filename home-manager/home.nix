@@ -64,6 +64,7 @@
       python3Full
       slack
       spotify
+      tldr
       thunderbird
       vscode-fhs
       xclip
