@@ -1,5 +1,6 @@
 {
   imports = [
+    ./tmux
     ./neovim
     ./git
     ./kitty
