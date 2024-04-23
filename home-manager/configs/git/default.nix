@@ -14,6 +14,6 @@
         gpgSign = true;
       };
     };
-    diff-so-fancy.enable = true;
+    delta.enable = true;
   };
 } 
