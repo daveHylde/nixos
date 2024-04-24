@@ -7,8 +7,13 @@
       pull.rebase = false;
       rerere.enabled = true;
       gpg.format = "ssh";
-      user.signingkey = "~/.ssh/github.pub";
+      user = {
+        signingkey = "/home/david/.ssh/github.pub";
+      };
+      commit = {
+        gpgSign = true;
+      };
     };
-    diff-so-fancy.enable = true;
+    delta.enable = true;
   };
 } 

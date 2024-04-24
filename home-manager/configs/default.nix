@@ -1,5 +1,7 @@
 {
   imports = [
+    ./lazygit
+    ./tmux
     ./neovim
     ./git
     ./kitty

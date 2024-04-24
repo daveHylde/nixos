@@ -78,6 +78,7 @@
   console.keyMap = "no";
 
   services = {
+    displayManager.sddm.enable = true;
     hardware.bolt.enable = true;
     onedrive.enable = true;
     pcscd.enable = true;
@@ -103,7 +104,6 @@
 
     xserver = {
       enable = true;
-      displayManager.sddm.enable = true;
       desktopManager.plasma5.enable = true;
       xkb = {
         variant = "";

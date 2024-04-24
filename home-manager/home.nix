@@ -48,7 +48,6 @@
       kubectl
       kubernetes-helm
       lazydocker
-      lazygit
       libsForQt5.kdeconnect-kde
       libreoffice
       lm_sensors
@@ -63,6 +62,7 @@
       python3Full
       slack
       spotify
+      tldr
       thunderbird
       vscode-fhs
       xclip
