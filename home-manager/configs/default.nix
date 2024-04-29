@@ -8,6 +8,5 @@
     ./fusuma
     ./java
     ./tmux
-    ./zellij
   ];
 }
