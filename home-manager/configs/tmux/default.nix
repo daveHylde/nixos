@@ -8,6 +8,7 @@
         gruvbox
         resurrect
         vim-tmux-navigator
+        continuum
       ];
     clock24 = true;
     disableConfirmationPrompt = true;
@@ -22,6 +23,7 @@
       set-option -g status-position top
 
       set -g @ressurect-strategy-vim 'session'
+      set -g @continuum-restore 'on'
 
       # Smart pane switching with awareness of Vim splits.
       # See: https://github.com/christoomey/vim-tmux-navigator
