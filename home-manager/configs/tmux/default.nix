@@ -16,6 +16,7 @@
     extraConfig = ''
       unbind r
       bind r source-file ~/.config/tmux/tmux.conf
+      bind u display-popup
 
       set -g prefix C-t
       set -g allow-passthrough on
