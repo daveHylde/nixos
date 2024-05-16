@@ -78,11 +78,19 @@
   console.keyMap = "no";
 
   services = {
-    displayManager.sddm.enable = true;
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
     hardware.bolt.enable = true;
     onedrive.enable = true;
     pcscd.enable = true;
     printing.enable = true;
+
+    desktopManager = {
+      plasma6.enable = true;
+    };
+
     fprintd = {
       enable = true;
       tod = {
@@ -104,7 +112,6 @@
 
     xserver = {
       enable = true;
-      desktopManager.plasma5.enable = true;
       xkb = {
         variant = "";
         layout = "no";
@@ -182,7 +189,7 @@
 
   environment = rec {
 
-    plasma5.excludePackages = with pkgs.libsForQt5; [
+    plasma6.excludePackages = with pkgs.libsForQt5; [
       spectacle
       plasma-browser-integration
       konsole

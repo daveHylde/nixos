@@ -48,7 +48,7 @@
       kubectl
       kubernetes-helm
       lazydocker
-      libsForQt5.kdeconnect-kde
+      kdePackages.kdeconnect-kde
       libreoffice
       lm_sensors
       minikube
@@ -72,7 +72,7 @@
       yq
       unzip
       zip
-      plasma5Packages.plasma-thunderbolt
+      kdePackages.plasma-thunderbolt
       yubikey-manager-qt
       zoxide
       (callPackage ./modules/keymapp/keymapp.nix { })
