@@ -79,7 +79,6 @@
 
   services = {
     displayManager.sddm.enable = true;
-    hardware.bolt.enable = true;
     onedrive.enable = true;
     pcscd.enable = true;
     printing.enable = true;

@@ -18,6 +18,9 @@
       bind r source-file ~/.config/tmux/tmux.conf
       bind u display-popup
 
+      set-option -g default-terminal "screen-256color"
+      set-option -sa terminal-features ',screen-256color:RGB'
+
       set -g prefix C-t
       set -g allow-passthrough on
 
