@@ -7,13 +7,13 @@
     viAlias = true;
     vimAlias = true;
 
-    extraLuaPackages = ps: [
-      ps.magick
-      ps.lua-curl
-      ps.xml2lua
-      ps.jsregexp
-      ps.luarocks
-      ps.mimetypes
+    extraLuaPackages = luaPkgs: with luaPkgs; [
+      magick
+      lua-curl
+      xml2lua
+      jsregexp
+      luarocks
+      mimetypes
     ];
     extraPackages = with pkgs; [
       nixd
@@ -21,7 +21,7 @@
       file
       gcc
       netcoredbg
-      python3
+      python3Full
       ripgrep
       lua-language-server
       stylua
@@ -29,6 +29,7 @@
       lua
       gnumake
       wget
+      libllvm
     ];
   };
 }
