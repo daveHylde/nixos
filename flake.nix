@@ -29,6 +29,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.${user} = import ./home-manager/home.nix;
             home-manager.extraSpecialArgs = { inherit inputs self user; };
+            home-manager.backupFileExtension = "backup";
           }
         ];
       };
@@ -44,6 +45,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.${user} = import ./home-manager/home.nix;
             home-manager.extraSpecialArgs = { inherit inputs self user; };
+            home-manager.backupFileExtension = "backup";
           }
         ];
       };
@@ -60,6 +62,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.${user} = import ./home-manager/home.nix;
             home-manager.extraSpecialArgs = { inherit inputs self user; };
+            home-manager.backupFileExtension = "backup";
           }
         ];
       };
