@@ -36,95 +36,10 @@
         "type": "github"
       }
     },
-    "plugin-bulma-cmp": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1678888359,
-        "narHash": "sha256-W2MOiyi/PtEXnSaQD3UBpQM5wUoHQ/EhkT34MCS9t0g=",
-        "owner": "garyhurtz",
-        "repo": "cmp_bulma.nvim",
-        "rev": "40b6b1b06a0b4378fbf11ff2e60a334663ae77bd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "garyhurtz",
-        "repo": "cmp_bulma.nvim",
-        "type": "github"
-      }
-    },
-    "plugin-flexoki-theme": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1707339288,
-        "narHash": "sha256-D8FZXkeoyOzIHjvT/0ubMfLPk691s8xDcAiCagEtMro=",
-        "owner": "kepano",
-        "repo": "flexoki-neovim",
-        "rev": "975654bce67514114db89373539621cff42befb5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "kepano",
-        "repo": "flexoki-neovim",
-        "type": "github"
-      }
-    },
-    "plugin-neotest-playwright": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1708663188,
-        "narHash": "sha256-uNQhEucVoYyBZvGVveWHHqomx9/P5jTf+M5HM3YufG8=",
-        "owner": "thenbe",
-        "repo": "neotest-playwright",
-        "rev": "39968792371cb48d395dc54c0498b7373ef73986",
-        "type": "github"
-      },
-      "original": {
-        "owner": "thenbe",
-        "repo": "neotest-playwright",
-        "type": "github"
-      }
-    },
-    "plugin-nx-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1705164555,
-        "narHash": "sha256-Yl7tg466650w4CZcuFdnUZhXk6z/uq0AHa64EKeZx/o=",
-        "owner": "Equilibris",
-        "repo": "nx.nvim",
-        "rev": "f8a3a21b3d540889401a40d1f2803083794c0372",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Equilibris",
-        "repo": "nx.nvim",
-        "type": "github"
-      }
-    },
-    "plugin-vim-fugitive": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1716130336,
-        "narHash": "sha256-nyNtb3nsS/zFdSNRyXabcGIabAwgivJIUFB2c62vXmA=",
-        "owner": "tpope",
-        "repo": "vim-fugitive",
-        "rev": "4f59455d2388e113bd510e85b310d15b9228ca0d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tpope",
-        "repo": "vim-fugitive",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
-        "plugin-bulma-cmp": "plugin-bulma-cmp",
-        "plugin-flexoki-theme": "plugin-flexoki-theme",
-        "plugin-neotest-playwright": "plugin-neotest-playwright",
-        "plugin-nx-nvim": "plugin-nx-nvim",
-        "plugin-vim-fugitive": "plugin-vim-fugitive"
+        "nixpkgs": "nixpkgs"
       }
     }
   },
