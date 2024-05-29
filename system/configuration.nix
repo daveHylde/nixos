@@ -32,7 +32,6 @@
     };
     kernelModules = [ "i2c-piix4" "i2c-dev" ];
   };
-
   hardware = {
     bluetooth = {
       enable = true;
@@ -46,8 +45,8 @@
       enable = true;
     };
     virtualbox.host = {
-      enable = true;
-      enableExtensionPack = true;
+      enable = false;
+      enableExtensionPack = false;
     };
   };
 
