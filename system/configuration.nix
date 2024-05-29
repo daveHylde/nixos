@@ -74,11 +74,13 @@
     onedrive.enable = true;
     pcscd.enable = true;
     printing.enable = true;
+    displayManager.sddm.enable = true;
 
     udev = {
       packages = [
         pkgs.openrgb
         pkgs.yubioath-flutter
+        pkgs.coolercontrol.coolercontrold
       ];
       extraRules = ''
         ${builtins.readFile ./50-zsa.rules}
@@ -86,7 +88,6 @@
     };
 
     xserver = {
-      displayManager.sddm.enable = true;
       enable = true;
       desktopManager.plasma5.enable = true;
       xkb = {
@@ -116,6 +117,7 @@
 
   programs = {
     ssh.startAgent = true;
+    coolercontrol.enable = true;
   };
 
   security = {
