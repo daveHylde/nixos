@@ -15,7 +15,7 @@
     gc = {
       automatic = true;
       dates = "Weekly";
-      options = "--delete-older-than 7d";
+      options = "--delete-older-than 14d";
     };
   };
 
@@ -45,8 +45,8 @@
       enable = true;
     };
     virtualbox.host = {
-      enable = false;
-      enableExtensionPack = false;
+      enable = true;
+      enableExtensionPack = true;
     };
   };
 
@@ -71,7 +71,6 @@
   console.keyMap = "no";
 
   services = {
-    displayManager.sddm.enable = true;
     onedrive.enable = true;
     pcscd.enable = true;
     printing.enable = true;
@@ -80,7 +79,6 @@
       packages = [
         pkgs.openrgb
         pkgs.yubioath-flutter
-        pkgs.coolercontrol.coolercontrold
       ];
       extraRules = ''
         ${builtins.readFile ./50-zsa.rules}
@@ -88,6 +86,7 @@
     };
 
     xserver = {
+      displayManager.sddm.enable = true;
       enable = true;
       desktopManager.plasma5.enable = true;
       xkb = {
@@ -117,7 +116,6 @@
 
   programs = {
     ssh.startAgent = true;
-    coolercontrol.enable = true;
   };
 
   security = {
@@ -173,7 +171,6 @@
       oxygen
       elisa
       okular
-      ksshaskpass
     ];
 
     variables = {

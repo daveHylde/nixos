@@ -32,6 +32,7 @@
       clinfo
       cargo
       discord
+      dconf
       dotnetCorePackages.sdk_8_0
       firefox
       flameshot

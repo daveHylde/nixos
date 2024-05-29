@@ -10,10 +10,8 @@
     extraLuaPackages = luaPkgs: with luaPkgs; [
       magick
       lua-curl
-      xml2lua
       jsregexp
       luarocks
-      mimetypes
     ];
     extraPackages = with pkgs; [
       nixd
