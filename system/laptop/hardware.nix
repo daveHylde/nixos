@@ -39,9 +39,10 @@
   # networking.interfaces.wwan0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   services = {
+    fwupd.enable = true;
+    thinkfan.enable = true;
     xserver.videoDrivers = [ "amdgpu" ];
     openvpn.servers = {
       officeVPN = {
@@ -51,5 +52,11 @@
     };
   };
 
+  hardware = {
+    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    opengl.extraPackages = with pkgs; [
+      rocmPackages.clr.icd
+    ];
+  };
   networking.hostName = "laptop-work";
 }
