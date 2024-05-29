@@ -45,8 +45,8 @@
       enable = true;
     };
     virtualbox.host = {
-      enable = true;
-      enableExtensionPack = true;
+      enable = false;
+      enableExtensionPack = false;
     };
   };
 
