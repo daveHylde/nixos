@@ -22,7 +22,6 @@
   nixpkgs = {
     config = {
       allowUnfree = true;
-      allowBroken = true;
     };
   };
 
@@ -40,11 +39,6 @@
       powerOnBoot = true;
     };
     pulseaudio.enable = false;
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-    };
   };
 
   virtualisation = {
@@ -82,13 +76,6 @@
     onedrive.enable = true;
     pcscd.enable = true;
     printing.enable = true;
-    fprintd = {
-      enable = true;
-      tod = {
-        enable = true;
-        driver = pkgs.libfprint-2-tod1-goodix;
-      };
-    };
 
     udev = {
       packages = [
@@ -145,7 +132,6 @@
 
     pam = {
       services = {
-        login.u2fAuth = false;
         sudo.u2fAuth = false;
       };
 
