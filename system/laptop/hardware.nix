@@ -4,51 +4,29 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
+
   imports =
-    [
-      (modulesPath + "/installer/scan/not-detected.nix")
+    [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    {
-      device = "/dev/disk/by-uuid/0102432c-f516-40f2-93fa-65d802ff279a";
+    { device = "/dev/disk/by-uuid/a106e856-9724-4fce-85e7-b74e6dce9c7a";
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."luks-7710359e-7e3e-44a6-9e3f-00e720fb5089".device = "/dev/disk/by-uuid/7710359e-7e3e-44a6-9e3f-00e720fb5089";
+  boot.initrd.luks.devices."luks-401dea83-122b-48f8-9ed1-bfb990b933a3".device = "/dev/disk/by-uuid/401dea83-122b-48f8-9ed1-bfb990b933a3";
 
   fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/0740-E0BA";
+    { device = "/dev/disk/by-uuid/0740-E0BA";
       fsType = "vfat";
     };
 
-  services = {
-    fwupd.enable = true;
-    xserver.videoDrivers = [ "amdgpu" ];
-    openvpn.servers = {
-      officeVPN = {
-        config = '' config /root/nixos/openvpn/officeVPN.conf '';
-        updateResolvConf = true;
-      };
-    };
-    thinkfan = {
-      enable = true;
-    };
-  };
-
-  hardware = {
-    opengl.extraPackages = with pkgs; [
-      rocmPackages.clr.icd
-    ];
-  };
-
-  powerManagement.cpuFreqGovernor = "performance";
+  swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -61,6 +39,16 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  services = {
+    xserver.videoDrivers = [ "amdgpu" ];
+    openvpn.servers = {
+      officeVPN = {
+        config = '' config /root/nixos/openvpn/officeVPN.conf '';
+        updateResolvConf = true;
+      };
+    };
+  };
 
   networking.hostName = "laptop-work";
 }

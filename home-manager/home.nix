@@ -28,7 +28,6 @@
     homeDirectory = "/home/${user}";
     stateVersion = "23.11";
 
-
     packages = with pkgs; [
       clinfo
       cargo
@@ -74,8 +73,6 @@
       zip
       plasma5Packages.plasma-thunderbolt
       yubikey-manager-qt
-      zoxide
-      (callPackage ./modules/keymapp/keymapp.nix { })
     ];
   };
 }
