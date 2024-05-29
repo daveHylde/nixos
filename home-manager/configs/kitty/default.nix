@@ -1,7 +1,7 @@
 {
   programs.kitty = {
     enable = true;
-    theme = "Desert";
+    theme = "Broadcast";
     shellIntegration = {
       enableBashIntegration = true;
     };
