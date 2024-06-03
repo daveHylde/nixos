@@ -15,6 +15,13 @@
     }:
     let
       user = "david";
+      shared-config = {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.${user} = import ./home-manager/home.nix;
+        home-manager.extraSpecialArgs = { inherit inputs self user; };
+        home-manager.backupFileExtension = "backup";
+      };
     in
     {
       nixosConfigurations.desktop-work = nixpkgs.lib.nixosSystem {
@@ -24,13 +31,7 @@
           ./system/desktop/hardware-work.nix
           ./system/configuration.nix
           home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${user} = import ./home-manager/home.nix;
-            home-manager.extraSpecialArgs = { inherit inputs self user; };
-            home-manager.backupFileExtension = "backup";
-          }
+          shared-config
         ];
       };
       nixosConfigurations.desktop-jobbi = nixpkgs.lib.nixosSystem {
@@ -40,13 +41,7 @@
           ./system/desktop/hardware-jobbi.nix
           ./system/configuration.nix
           home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${user} = import ./home-manager/home.nix;
-            home-manager.extraSpecialArgs = { inherit inputs self user; };
-            home-manager.backupFileExtension = "backup";
-          }
+          shared-config
         ];
       };
 
@@ -57,13 +52,7 @@
           ./system/laptop/hardware.nix
           ./system/configuration.nix
           home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${user} = import ./home-manager/home.nix;
-            home-manager.extraSpecialArgs = { inherit inputs self user; };
-            home-manager.backupFileExtension = "backup";
-          }
+          shared-config
         ];
       };
     };
