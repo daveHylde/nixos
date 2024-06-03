@@ -8,28 +8,32 @@
     vimAlias = true;
 
     extraLuaPackages = luaPkgs: with luaPkgs; [
-      magick
-      lua-curl
-      xml2lua
       jsregexp
+      lua-curl
+      lua-lsp
       luarocks
+      luarocks-nix
+      magick
       mimetypes
+      rest-nvim
+      rocks-nvim
+      xml2lua
     ];
     extraPackages = with pkgs; [
-      nixd
       fd
       file
       gcc
+      gnumake
+      libllvm
+      lua
+      lua-language-server
       netcoredbg
+      nixd
+      prettierd
       python3Full
       ripgrep
-      lua-language-server
       stylua
-      prettierd
-      lua
-      gnumake
       wget
-      libllvm
     ];
   };
 }
