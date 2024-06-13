@@ -26,29 +26,27 @@
   home = {
     username = "${user}";
     homeDirectory = "/home/${user}";
-    stateVersion = "23.11";
+    stateVersion = "24.05";
 
     packages = with pkgs; [
-      clinfo
       cargo
+      chromium
+      clinfo
       discord
-      dconf
       dotnetCorePackages.sdk_8_0
       firefox
       flameshot
-      git
       gimp
+      git
       glib
       glxinfo
       jq
-      chromium
       k9s
-      kitty
       keepassxc
+      kitty
       kubectl
       kubernetes-helm
       lazydocker
-      libsForQt5.kdeconnect-kde
       libreoffice
       lm_sensors
       minikube
@@ -62,18 +60,17 @@
       python3Full
       slack
       spotify
-      tldr
       thunderbird
+      tldr
+      unzip
       vscode-fhs
       xclip
       yarn
+      yq
+      yubikey-manager-qt
       yubikey-personalization
       yubioath-flutter
-      yq
-      unzip
       zip
-      plasma5Packages.plasma-thunderbolt
-      yubikey-manager-qt
     ];
   };
 }
