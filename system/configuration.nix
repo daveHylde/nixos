@@ -75,7 +75,6 @@
     pcscd.enable = true;
     printing.enable = true;
     displayManager.sddm.enable = true;
-    desktopManager.plasma6.enable = true;
     hardware.bolt.enable = true;
 
     udev = {
@@ -91,6 +90,7 @@
 
     xserver = {
       enable = true;
+      desktopManager.plasma5.enable = true;
       xkb = {
         variant = "";
         layout = "no";
@@ -119,7 +119,6 @@
   programs = {
     ssh.startAgent = true;
     coolercontrol.enable = true;
-    dconf.enable = true;
   };
 
   security = {
@@ -167,13 +166,8 @@
   };
 
   environment = rec {
-    
-    systemPackages = with pkgs; [
-      kdePackages.kdeconnect-kde
-      kdePackages.plasma-thunderbolt
-    ];
 
-    plasma6.excludePackages = with pkgs.kdePackages; [
+    plasma5.excludePackages = with pkgs.libsForQt5; [
       spectacle
       plasma-browser-integration
       konsole

@@ -29,24 +29,26 @@
     stateVersion = "24.05";
 
     packages = with pkgs; [
-      cargo
-      chromium
       clinfo
+      cargo
       discord
+      dconf
       dotnetCorePackages.sdk_8_0
       firefox
       flameshot
-      gimp
       git
+      gimp
       glib
       glxinfo
       jq
+      chromium
       k9s
-      keepassxc
       kitty
+      keepassxc
       kubectl
       kubernetes-helm
       lazydocker
+      libsForQt5.kdeconnect-kde
       libreoffice
       lm_sensors
       minikube
@@ -61,17 +63,18 @@
       python3Full
       slack
       spotify
-      thunderbird
       tldr
-      unzip
+      thunderbird
       vscode-fhs
       xclip
       yarn
-      yq
-      yubikey-manager-qt
       yubikey-personalization
       yubioath-flutter
+      yq
+      unzip
       zip
+      plasma5Packages.plasma-thunderbolt
+      yubikey-manager-qt
     ];
   };
 }
