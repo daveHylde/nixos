@@ -48,6 +48,7 @@
       kubectl
       kubernetes-helm
       lazydocker
+      lua-language-server
       libsForQt5.kdeconnect-kde
       libreoffice
       lm_sensors

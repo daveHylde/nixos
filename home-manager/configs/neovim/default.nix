@@ -23,16 +23,8 @@
       fd
       file
       gcc
-      gnumake
-      libllvm
-      lua
-      lua-language-server
-      netcoredbg
-      nixd
-      prettierd
       python3Full
       ripgrep
-      stylua
       wget
     ];
   };
