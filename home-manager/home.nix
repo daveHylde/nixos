@@ -1,7 +1,6 @@
 { pkgs, inputs, user, ... }:
 
 {
-
   imports = [
     ./configs
   ];
@@ -15,6 +14,7 @@
 
   fonts.fontconfig.enable = true;
 
+
   xdg = {
     enable = true;
     userDirs = {
@@ -27,6 +27,10 @@
     username = "${user}";
     homeDirectory = "/home/${user}";
     stateVersion = "24.05";
+
+		sessionVariables = {
+			DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_8_0}";
+		};
 
     packages = with pkgs; [
       clinfo

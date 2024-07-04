@@ -5,12 +5,17 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+		plugin-tailwindcss-cmp-colorizer = {
+			url = "github:roobert/tailwindcss-colorizer-cmp.nvim";
+			flake = false;
+		};
   };
 
   outputs =
     inputs @ { self
     , nixpkgs
     , home-manager
+		, plugin-tailwindcss-cmp-colorizer
     , ...
     }:
     let

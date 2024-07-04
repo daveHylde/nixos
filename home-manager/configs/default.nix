@@ -6,7 +6,6 @@
     ./kitty
     ./bash
     ./fusuma
-    ./java
     ./tmux
   ];
 }
