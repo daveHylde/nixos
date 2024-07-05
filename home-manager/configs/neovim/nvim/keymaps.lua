@@ -131,3 +131,6 @@ map({ "n", "v" }, "<F12>", function()	dap.step_over()end, { desc = "Step Over" }
 
 -- Undotree
 map('n', '<leader>uu', vim.cmd.UndotreeToggle, {desc = "Toggle undotree"})
+
+-- Dadbod
+map("n", "<leader>kk", "<cmd>DBUIToggle<cr>", { noremap = true, silent = true, desc = "Toggle DB UI" })

@@ -24,7 +24,8 @@ vim.opt.undofile = true
 -- Make sure the directory exists
 vim.opt.undodir = vim.fn.expand('~/.config/nvim/undodir')
 
--- Create the directory if it doesn't exist
-if vim.fn.isdirectory(vim.opt.undodir) == 0 then
-  vim.fn.mkdir(vim.opt.undodir, 'p')
-end
+vim.g.db_ui_use_nerd_fonts = 1
+vim.g.db_ui_winwidth = 50
+vim.g.db_ui_expanded_layout = 1
+vim.g.db_up_execute_on_save = 0
+vim.g.db_ui_auto_execute_table_helpers = 0
