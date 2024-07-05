@@ -33,7 +33,6 @@
 			wget
 			xclip
 			nixd
-			netcoredbg
 		];
 
 		extraLuaConfig = ''
@@ -43,26 +42,32 @@
 		'';
 
 		plugins = with pkgs.vimPlugins; [
+			FixCursorHold-nvim
 			cmp-nvim-lsp
+			cmp-path
 			cmp_luasnip
+			csharpls-extended-lsp-nvim
+			editorconfig-nvim
 			friendly-snippets
 			lazygit-nvim
 			lualine-nvim
 			luasnip
-			nui-nvim
-			nvim-web-devicons
-			which-key-nvim
-			plenary-nvim
-			telescope-fzf-native-nvim
-			telescope-media-files-nvim
-			telescope-live-grep-args-nvim
-			vim-tmux-navigator
-			csharpls-extended-lsp-nvim
-			FixCursorHold-nvim
 			neotest-dotnet
 			neotest-playwright
-			cmp-path
-			nvim-dap-ui
+			nui-nvim
+			nvim-web-devicons
+			plenary-nvim
+			telescope-fzf-native-nvim
+			telescope-live-grep-args-nvim
+			telescope-media-files-nvim
+			vim-dotenv
+			vim-tmux-navigator
+			which-key-nvim
+			undotree
+			vim-dadbod
+			vim-dadbod-completion
+			vim-dadbod-ui
+
 
       (pkgs.vimUtils.buildVimPlugin {
         name = "tailwindcss-colorizer-cmp";
@@ -70,9 +75,21 @@
       })
 
       (pkgs.vimUtils.buildVimPlugin {
-        name = "nx-nvim";
-        src = inputs.plugin-nx;
+        name = "vim-razor";
+        src = inputs.plugin-tailwindcss-colorizer-cmp;
       })
+
+			{ 
+				plugin = nvim-dap-ui;
+				config = toLuaFile ./nvim/plugins/dapui.lua;
+			}
+			{
+				plugin = (pkgs.vimUtils.buildVimPlugin {
+					name = "nx-nvim";
+					src = inputs.plugin-nx;
+				});
+				config = toLuaFile ./nvim/plugins/nx.lua;
+			}
 
 			{
 					plugin = nvim-dap;

@@ -61,6 +61,7 @@
       minikube
       mysql80
       nerdfonts
+			netcoredbg
       nodejs
       openlens
       openrgb

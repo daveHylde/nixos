@@ -17,3 +17,14 @@ vim.o.updatetime = 50
 
 vim.o.termguicolors = true
 
+-- Enable persistent undo
+vim.opt.undofile = true
+
+-- Set the directory where the undo files will be stored
+-- Make sure the directory exists
+vim.opt.undodir = vim.fn.expand('~/.config/nvim/undodir')
+
+-- Create the directory if it doesn't exist
+if vim.fn.isdirectory(vim.opt.undodir) == 0 then
+  vim.fn.mkdir(vim.opt.undodir, 'p')
+end

@@ -15,6 +15,10 @@
 			url = "github:Equilibris/nx.nvim";
 			flake = false;
 		};
+		plugin-vim-razor = {
+			url = "github:jlcrochet/vim-razor";
+			flake = false;
+		};
   };
 
   outputs =

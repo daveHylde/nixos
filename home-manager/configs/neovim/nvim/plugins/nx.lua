@@ -1,4 +1,4 @@
-require('nx.nvim').setup{
+require('nx').setup{
     nx_cmd_root = 'yarn nx',
 
     -- Command running capabilities,
