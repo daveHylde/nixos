@@ -1,12 +1,18 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-		plugin-tailwindcss-cmp-colorizer = {
+
+		# Neovim plugins
+		plugin-tailwindcss-colorizer-cmp = {
 			url = "github:roobert/tailwindcss-colorizer-cmp.nvim";
+			flake = false;
+		};
+		plugin-nx = {
+			url = "github:Equilibris/nx.nvim";
 			flake = false;
 		};
   };
@@ -15,7 +21,6 @@
     inputs @ { self
     , nixpkgs
     , home-manager
-		, plugin-tailwindcss-cmp-colorizer
     , ...
     }:
     let

@@ -32,6 +32,8 @@
 			ripgrep
 			wget
 			xclip
+			nixd
+			netcoredbg
 		];
 
 		extraLuaConfig = ''
@@ -55,12 +57,31 @@
 			telescope-media-files-nvim
 			telescope-live-grep-args-nvim
 			vim-tmux-navigator
+			csharpls-extended-lsp-nvim
+			FixCursorHold-nvim
+			neotest-dotnet
+			neotest-playwright
+			cmp-path
+			nvim-dap-ui
 
       (pkgs.vimUtils.buildVimPlugin {
-        name = "tailwindcss-cmp-plugin";
-        src = inputs.plugin-tailwindcss-cmp-colorizer;
+        name = "tailwindcss-colorizer-cmp";
+        src = inputs.plugin-tailwindcss-colorizer-cmp;
       })
 
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "nx-nvim";
+        src = inputs.plugin-nx;
+      })
+
+			{
+					plugin = nvim-dap;
+					config = toLuaFile ./nvim/plugins/dap.lua;
+			}
+			{
+				plugin = neotest;
+				config = toLuaFile ./nvim/plugins/neotest.lua;
+			}
 			{
 				plugin = lualine-nvim;
 				config = toLua "require(\"lualine\").setup()";
@@ -75,7 +96,7 @@
 			}
 			{
 				plugin = actions-preview-nvim;
-				config = toLua "require(\"actions-preview\").setup()";
+				config = toLuaFile ./nvim/plugins/actions-preview.lua;
 			}
 			{
 				plugin = gitsigns-nvim;

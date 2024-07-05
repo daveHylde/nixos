@@ -30,6 +30,8 @@
 
 		sessionVariables = {
 			DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_8_0}";
+      PLAYWRIGHT_BROWSERS_PATH="${pkgs.playwright-driver.browsers}";
+      PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS="true";
 		};
 
     packages = with pkgs; [
@@ -59,7 +61,6 @@
       minikube
       mysql80
       nerdfonts
-      netcoredbg
       nodejs
       openlens
       openrgb

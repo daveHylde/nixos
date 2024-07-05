@@ -37,7 +37,23 @@
         "type": "github"
       }
     },
-    "plugin-tailwindcss-cmp-colorizer": {
+    "plugin-nx": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1705164555,
+        "narHash": "sha256-Yl7tg466650w4CZcuFdnUZhXk6z/uq0AHa64EKeZx/o=",
+        "owner": "Equilibris",
+        "repo": "nx.nvim",
+        "rev": "f8a3a21b3d540889401a40d1f2803083794c0372",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Equilibris",
+        "repo": "nx.nvim",
+        "type": "github"
+      }
+    },
+    "plugin-tailwindcss-colorizer-cmp": {
       "flake": false,
       "locked": {
         "lastModified": 1711194583,
@@ -57,7 +73,8 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "plugin-tailwindcss-cmp-colorizer": "plugin-tailwindcss-cmp-colorizer"
+        "plugin-nx": "plugin-nx",
+        "plugin-tailwindcss-colorizer-cmp": "plugin-tailwindcss-colorizer-cmp"
       }
     }
   },

@@ -6,7 +6,7 @@ local on_attach = function(_, bufnr)
 	end
 
 	bufmap('<leader>cr', vim.lsp.buf.rename)
-	bufmap('<leader>ca', vim.lsp.buf.code_action)
+	bufmap('<leader>ca', function() require("actions-preview").code_actions() end)
 
 	bufmap('gd', vim.lsp.buf.definition)
 	bufmap('gD', vim.lsp.buf.declaration)
@@ -18,8 +18,6 @@ local on_attach = function(_, bufnr)
 	bufmap('<leader>S', require('telescope.builtin').lsp_dynamic_workspace_symbols)
 
 	bufmap('K', vim.lsp.buf.hover)
-
-	require("tailwindcss-colors").buf_attach(bufnr)
 
 	vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
 		vim.lsp.buf.format()
@@ -57,10 +55,15 @@ lsp.vtsls.setup {
 	capabilities = capabilities,
 	root_dir = util.root_pattern("package.json", ".git", "tsconfig.base.json"),
 }
+local cs_ext = require('csharpls_extended')
 lsp.csharp_ls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
 	filetypes = { "cs" },
+	handlers = {
+		["textDocument/definition"] = cs_ext.handler,
+		["textDocument/typeDefinition"] = cs_ext.handler,
+	}
 }
 lsp.html.setup {
 	on_attach = on_attach,
@@ -68,7 +71,10 @@ lsp.html.setup {
 	filetypes = { "html" },
 }
 lsp.tailwindcss.setup {
-	on_attach = on_attach,
+	on_attach = function(_, bufnr)
+		on_attach(_, bufnr)
+		require("tailwindcss-colors").buf_attach(bufnr)
+	end,
 	capabilities = capabilities,
 }
 lsp.eslint.setup {
@@ -78,6 +84,7 @@ lsp.eslint.setup {
 lsp.nixd.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
+	cmd = { "nixd" }
 }
 lsp.cssls.setup {
 	on_attach = on_attach,
