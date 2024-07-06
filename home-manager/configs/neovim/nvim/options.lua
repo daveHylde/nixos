@@ -29,3 +29,10 @@ vim.g.db_ui_winwidth = 50
 vim.g.db_ui_expanded_layout = 1
 vim.g.db_up_execute_on_save = 0
 vim.g.db_ui_auto_execute_table_helpers = 0
+
+-- Ignore case when completing file names and directories
+vim.o.wildignorecase = true
+
+-- Ignore case in search patterns, but become case-sensitive if the pattern contains uppercase letters
+vim.o.ignorecase = true
+vim.o.smartcase = true

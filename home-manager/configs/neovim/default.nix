@@ -53,7 +53,6 @@
 			lualine-nvim
 			luasnip
 			neotest-dotnet
-			neotest-playwright
 			nui-nvim
 			nvim-web-devicons
 			plenary-nvim
@@ -67,6 +66,7 @@
 			vim-dadbod
 			vim-dadbod-completion
 			vim-dadbod-ui
+			popup-nvim
 
 
       (pkgs.vimUtils.buildVimPlugin {

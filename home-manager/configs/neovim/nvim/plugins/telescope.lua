@@ -2,6 +2,11 @@ local lga_actions = require("telescope-live-grep-args.actions")
 local actions = require('telescope.actions')
 
 require('telescope').setup({
+	pickers = {
+		find_files = {
+			hidden = true
+		}
+	},
 	defaults = {
 		mappings = {
 			i = {
@@ -22,8 +27,7 @@ require('telescope').setup({
 		},
 		media_files = {
 			-- filetypes whitelist
-			-- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-			filetypes = { "png", "webp", "jpg", "jpeg" },
+			filetypes = { "png", "webp", "jpg", "jpeg", "pdf" },
 			-- find command (defaults to `fd`)
 			find_cmd = "rg"
 		},
