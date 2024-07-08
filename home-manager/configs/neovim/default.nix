@@ -43,6 +43,8 @@
 
 		plugins = with pkgs.vimPlugins; [
 			FixCursorHold-nvim
+			SchemaStore-nvim
+			cmp-buffer
 			cmp-nvim-lsp
 			cmp-path
 			cmp_luasnip
@@ -56,17 +58,17 @@
 			nui-nvim
 			nvim-web-devicons
 			plenary-nvim
+			popup-nvim
 			telescope-fzf-native-nvim
 			telescope-live-grep-args-nvim
 			telescope-media-files-nvim
-			vim-dotenv
-			vim-tmux-navigator
-			which-key-nvim
 			undotree
 			vim-dadbod
 			vim-dadbod-completion
 			vim-dadbod-ui
-			popup-nvim
+			vim-dotenv
+			vim-tmux-navigator
+			which-key-nvim
 
 
       (pkgs.vimUtils.buildVimPlugin {
@@ -76,7 +78,7 @@
 
       (pkgs.vimUtils.buildVimPlugin {
         name = "vim-razor";
-        src = inputs.plugin-tailwindcss-colorizer-cmp;
+        src = inputs.plugin-vim-razor;
       })
 
 			{ 
@@ -98,6 +100,10 @@
 			{
 				plugin = neotest;
 				config = toLuaFile ./nvim/plugins/neotest.lua;
+			}
+			{
+				plugin = alpha-nvim;
+				config = toLuaFile ./nvim/plugins/alpha.lua;
 			}
 			{
 				plugin = lualine-nvim;
@@ -158,6 +164,7 @@
 						p.tree-sitter-toml
 						p.tree-sitter-typescript
 						p.tree-sitter-vim
+						p.tree-sitter-vimdoc
 						p.tree-sitter-yaml
 				]));
 		  config = toLuaFile ./nvim/plugins/treesitter.lua;

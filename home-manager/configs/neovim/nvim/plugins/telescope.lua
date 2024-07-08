@@ -4,16 +4,16 @@ local actions = require('telescope.actions')
 require('telescope').setup({
 	pickers = {
 		find_files = {
-			hidden = true
+			find_command = { 'rg', '--files', '--iglob', '!.git', '--hidden' },
 		}
 	},
 	defaults = {
 		mappings = {
 			i = {
-				["<Esc>"] = actions.close,         -- Close on Esc in insert mode
+				["<Esc>"] = actions.close, -- Close on Esc in insert mode
 			},
 			n = {
-				["<Esc>"] = actions.close,         -- Close on Esc in normal mode
+				["<Esc>"] = actions.close, -- Close on Esc in normal mode
 			},
 		}
 	},
@@ -47,6 +47,7 @@ require('telescope').setup({
 		}
 	},
 })
+
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('media_files')
 require('telescope').load_extension('live_grep_args')

@@ -1,6 +1,7 @@
 {
   imports = [
     ./lazygit
+    ./java
     ./neovim
     ./git
     ./kitty

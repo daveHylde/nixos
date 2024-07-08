@@ -26,6 +26,7 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 --require('neodev').setup()
 local lsp = require('lspconfig')
@@ -48,7 +49,7 @@ lsp.angularls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
 	root_dir = util.root_pattern("package.json", "angular.json", "project.json"), -- This is for monorepo's
-	filetypes = { "html", "typescript", "typescriptreact", "angular" },
+	filetypes = { 'typescript', 'html', 'typescriptreact', 'typescript.tsx', 'angular.html', 'angular' }
 }
 lsp.vtsls.setup {
 	on_attach = on_attach,
@@ -97,6 +98,18 @@ lsp.dockerls.setup {
 lsp.yamlls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
+	settings = {
+		yaml = {
+			schemaStore = {
+				-- You must disable built-in schemaStore support if you want to use
+				-- this plugin and its advanced options like `ignore`.
+				enable = false,
+				-- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+				url = "",
+			},
+			schemas = require('schemastore').yaml.schemas(),
+		},
+	},
 }
 lsp.sqlls.setup {
 	on_attach = on_attach,
@@ -109,4 +122,10 @@ lsp.marksman.setup {
 lsp.jsonls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
+	settings = {
+		json = {
+			schemas = require('schemastore').json.schemas(),
+			validate = { enable = true },
+		},
+	},
 }

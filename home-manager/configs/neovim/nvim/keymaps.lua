@@ -4,7 +4,7 @@ local map = vim.keymap.set
 map({ "n", "v" }, "<c-s>", ":wa<cr>", { desc = "Save all" })
 map({ "n", "v" }, "<a-down>", ":m '>+1<CR>gv=gv", { desc = "Move down" })
 map({ "n", "v" }, "<a-up>", ":m '<-2<CR>gv=gv", { desc = "Move up" })
-map({ "n", "v" }, "<esc><esc>", ":noh<cr>", { desc = "Clear Highlight" })
+map({ "n", "v" }, "<Esc><Esc>", ":noh<cr>", { desc = "Clear Highlight" })
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 map('v', '>', '>gv', { noremap = true, silent = true, desc = "Indent" })
 map('v', '<', '<gv', { noremap = true, silent = true, desc = "Indent" })

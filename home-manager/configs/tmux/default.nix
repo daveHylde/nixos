@@ -20,6 +20,7 @@
 
       set-option -g default-terminal "screen-256color"
       set-option -sa terminal-features ',screen-256color:RGB'
+			set-option -sg escape-time 10
 
       set -g prefix C-t
       set -g allow-passthrough on
