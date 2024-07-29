@@ -112,10 +112,6 @@
     };
   };
 
-  sound = {
-    enable = true;
-  };
-
   programs = {
     ssh.startAgent = true;
     coolercontrol.enable = true;

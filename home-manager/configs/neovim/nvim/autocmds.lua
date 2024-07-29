@@ -24,3 +24,12 @@ vim.api.nvim_create_autocmd("FileType", {
 		})
 	end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	group    = 'bufcheck',
+	pattern  = { "typescript", "html", "angular", "angularhtml" },
+	callback = function()
+		vim.b.matchup_matchparen_enabled = 1
+		vim.g.matchup_matchparen_offscreen = { method = "popup" }
+	end,
+})

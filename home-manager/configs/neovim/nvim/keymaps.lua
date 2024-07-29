@@ -2,12 +2,18 @@ local map = vim.keymap.set
 
 -- generic
 map({ "n", "v" }, "<c-s>", ":wa<cr>", { desc = "Save all" })
-map({ "n", "v" }, "<a-down>", ":m '>+1<CR>gv=gv", { desc = "Move down" })
-map({ "n", "v" }, "<a-up>", ":m '<-2<CR>gv=gv", { desc = "Move up" })
-map({ "n", "v" }, "<Esc><Esc>", ":noh<cr>", { desc = "Clear Highlight" })
+map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 map('v', '>', '>gv', { noremap = true, silent = true, desc = "Indent" })
 map('v', '<', '<gv', { noremap = true, silent = true, desc = "Indent" })
+
+-- Move lines
+map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
+map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
+map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
+map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
+map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
+map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
 
 -- Git
 map({ "n", "v" }, "<leader>gg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })

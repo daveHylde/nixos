@@ -47,6 +47,7 @@
       glxinfo
       jq
       chromium
+			figma-linux
       k9s
       kitty
       keepassxc
@@ -67,6 +68,7 @@
       openssl
       powershell
       python3Full
+			signal-desktop
       slack
       spotify
       tldr

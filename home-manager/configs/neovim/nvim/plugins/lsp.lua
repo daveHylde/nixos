@@ -69,7 +69,7 @@ lsp.csharp_ls.setup {
 lsp.html.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
-	filetypes = { "html" },
+	filetypes = { "html", "typescript", "angular" },
 }
 lsp.tailwindcss.setup {
 	on_attach = function(_, bufnr)
@@ -77,6 +77,21 @@ lsp.tailwindcss.setup {
 		require("tailwindcss-colors").buf_attach(bufnr)
 	end,
 	capabilities = capabilities,
+	settings = {
+		tailwindCSS = {
+			classAttributes = { "class", "className", "class:list", "classList", "ngClass", "routerLinkActive", "xClasses" },
+			lint = {
+				cssConflict = "warning",
+				invalidApply = "error",
+				invalidConfigPath = "error",
+				invalidScreen = "error",
+				invalidTailwindDirective = "error",
+				invalidVariant = "error",
+				recommendedVariantOrder = "warning"
+			},
+			validate = true
+		}
+	}
 }
 lsp.eslint.setup {
 	on_attach = on_attach,

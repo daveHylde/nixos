@@ -67,23 +67,28 @@
 			vim-dadbod-completion
 			vim-dadbod-ui
 			vim-dotenv
+			vim-matchup
 			vim-tmux-navigator
 			which-key-nvim
 
-
+		  # From source
       (pkgs.vimUtils.buildVimPlugin {
         name = "tailwindcss-colorizer-cmp";
         src = inputs.plugin-tailwindcss-colorizer-cmp;
       })
-
       (pkgs.vimUtils.buildVimPlugin {
         name = "vim-razor";
         src = inputs.plugin-vim-razor;
       })
 
+			# With config
 			{ 
 				plugin = nvim-dap-ui;
 				config = toLuaFile ./nvim/plugins/dapui.lua;
+			}
+			{	
+				plugin =	nvim-ts-autotag;
+				config = toLuaFile ./nvim/plugins/autotag.lua;
 			}
 			{
 				plugin = (pkgs.vimUtils.buildVimPlugin {
@@ -92,7 +97,6 @@
 				});
 				config = toLuaFile ./nvim/plugins/nx.lua;
 			}
-
 			{
 					plugin = nvim-dap;
 					config = toLuaFile ./nvim/plugins/dap.lua;
@@ -100,6 +104,10 @@
 			{
 				plugin = neotest;
 				config = toLuaFile ./nvim/plugins/neotest.lua;
+			}
+			{
+				plugin = rainbow-delimiters-nvim;
+#				config = toLuaFile ./nvim/plugins/rainbow.lua;
 			}
 			{
 				plugin = alpha-nvim;
