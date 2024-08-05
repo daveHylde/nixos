@@ -76,6 +76,7 @@
     printing.enable = true;
     displayManager.sddm.enable = true;
     hardware.bolt.enable = true;
+    desktopManager.plasma6.enable = true;
 
     udev = {
       packages = [
@@ -90,7 +91,6 @@
 
     xserver = {
       enable = true;
-      desktopManager.plasma5.enable = true;
       xkb = {
         variant = "";
         layout = "no";
@@ -115,6 +115,7 @@
   programs = {
     ssh.startAgent = true;
     coolercontrol.enable = true;
+    dconf.enable = true;
   };
 
   security = {
@@ -163,7 +164,7 @@
 
   environment = rec {
 
-    plasma5.excludePackages = with pkgs.libsForQt5; [
+    plasma6.excludePackages = with pkgs.kdePackages; [
       spectacle
       plasma-browser-integration
       konsole
