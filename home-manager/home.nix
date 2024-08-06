@@ -36,7 +36,6 @@
       clinfo
       cargo
       discord
-      dconf
       dotnetCorePackages.sdk_8_0
       firefox
       flameshot
@@ -55,7 +54,6 @@
       kubernetes-helm
       lazydocker
       lua-language-server
-      libsForQt5.kdeconnect-kde
       libreoffice
       lm_sensors
       minikube
@@ -76,13 +74,12 @@
       vscode-fhs
       xclip
       yarn
+			yubikey-manager-qt
       yubikey-personalization
       yubioath-flutter
       yq
       unzip
       zip
-      plasma5Packages.plasma-thunderbolt
-      yubikey-manager-qt
     ];
   };
 }
