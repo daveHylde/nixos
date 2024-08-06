@@ -69,14 +69,10 @@ vim.defer_fn(function()
 			bufmap('gr', cs_ext.telescope_lsp_references)
 			bufmap('gI', cs_ext.telescope_lsp_implementation)
 		end,
-		init_options = {
-			enableDecompilationSupport = true,
-			enableImportCompletion = true,
-		},
 		capabilities = capabilities,
-		filetypes = { "cs" },
+		filetypes = { "cs", "razor" },
 		cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
-		root_dir = require('lspconfig').util.root_pattern("*.csproj", "*.sln"),
+		root_dir = require('lspconfig').util.root_pattern("*.sln", "*.csproj"),
 		settings = {
 			FormattingOptions = {
 				EnableEditorConfigSupport = true,
