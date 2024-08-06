@@ -1,10 +1,16 @@
-local lga_actions = require("telescope-live-grep-args.actions")
 local actions = require('telescope.actions')
+
+local function format_path(_, path)
+    local tail = require("telescope.utils").path_tail(path)
+    local shortened_path = path:gsub("(.*/)(.*)", "%1")
+    return string.format("%s ~ %s", tail, shortened_path)
+end
 
 require('telescope').setup({
 	pickers = {
 		find_files = {
 			find_command = { 'rg', '--files', '--iglob', '!.git', '--hidden' },
+      path_display = format_path,
 		}
 	},
 	defaults = {
@@ -22,28 +28,14 @@ require('telescope').setup({
 			fuzzy = true,                -- false will only do exact matching
 			override_generic_sorter = true, -- override the generic sorter
 			override_file_sorter = true, -- override the file sorter
-			case_mode = "smart_case",    -- or "ignore_case" or "respect_case"
-			-- the default case_mode is "smart_case"
+			case_mode = "ignore_case",   -- or "smart_case" or "respect_case"
 		},
 		media_files = {
-			-- filetypes whitelist
 			filetypes = { "png", "webp", "jpg", "jpeg", "pdf" },
-			-- find command (defaults to `fd`)
 			find_cmd = "rg"
 		},
 		live_grep_args = {
-			auto_quoting = true, -- enable/disable auto-quoting
-			-- define mappings, e.g.
-			mappings = {      -- extend mappings
-				i = {
-					["<leader>sg"] = lga_actions.quote_prompt(),
-					["<leader>sG"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
-				},
-			},
-			-- ... also accepts theme settings, for example:
-			-- theme = "dropdown", -- use dropdown theme
-			-- theme = { }, -- use own theme spec
-			-- layout_config = { mirror=true }, -- mirror preview pane
+			auto_quoting = true,
 		}
 	},
 })

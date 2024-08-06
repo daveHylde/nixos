@@ -7,6 +7,17 @@ map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 map('v', '>', '>gv', { noremap = true, silent = true, desc = "Indent" })
 map('v', '<', '<gv', { noremap = true, silent = true, desc = "Indent" })
 
+local function paste_preserve_yank()
+	local yanked = vim.fn.getreg('"')
+	vim.cmd('normal! p')
+	vim.fn.setreg('"', yanked)
+end
+map('n', 'p', paste_preserve_yank, { noremap = true, silent = true })
+map('n', 'P', function()
+	vim.cmd('normal! P')
+	paste_preserve_yank()
+end, { noremap = true, silent = true })
+
 -- Move lines
 map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
 map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
@@ -45,7 +56,8 @@ map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
 
 -- Telescope
 map("n", "<leader><space>", "<cmd>Telescope find_files<cr>", { desc = "Find Files" })
-map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Live Grep" })
+map("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+	{ desc = "Live Grep Args" })
 map("n", "<leader>fm", "<cmd>Telescope media_files<cr>", { desc = "Media Files" })
 map("n", "<leader>fq", "<cmd>Telescope quickfix<cr>", { desc = "Quickfix" })
 map("n", "<leader>fc", "<cmd>Telescope resume<cr>", { desc = "Resume" })
@@ -108,7 +120,7 @@ map("n", "<leader>tT", function() neotest.run.run(vim.uv.cwd()) end, { desc = "R
 map("n", "<leader>tr", function() neotest.run.run() end, { desc = "Run Nearest" })
 map("n", "<leader>tl", function() neotest.run.run_last() end, { desc = "Run Last" })
 map("n", "<leader>ts", function() neotest.summary.toggle() end, { desc = "Toggle Summary" })
-map("n", "<leader>to", function() neotest.output.open({ enter = true, auto_close = true }) end,	{ desc = "Show Output" })
+map("n", "<leader>to", function() neotest.output.open({ enter = true, auto_close = true }) end, { desc = "Show Output" })
 map("n", "<leader>tO", function() neotest.output_panel.toggle() end, { desc = "Toggle Output Panel" })
 map("n", "<leader>tS", function() neotest.run.stop() end, { desc = "Stop" })
 map("n", "<leader>tw", function() neotest.watch.toggle(vim.fn.expand("%")) end, { desc = "Toggle Watch" })
@@ -128,15 +140,15 @@ map({ "n", "v" }, "<leader>dw", function() dapui.widgets.hover() end, { desc = "
 map({ "n", "v" }, "<leader>du", function() dapui.toggle({}) end, { desc = "Dap UI" })
 map({ "n", "v" }, "<leader>de", function() dapui.eval() end, { desc = "Eval" })
 map({ "n", "v" }, "<leader>dEs", function() dap.set_exception_breakpoints() end, { desc = "Stop on exceptions" })
-map({ "n", "v" }, "<leader>dEc", function()	dap.set_exception_breakpoints({}) end, { desc = "Don't stop on exceptions" })
-map({ "n", "v" }, "<leader>dx", function()	dap.clear_breakpoints()end, { desc = "Clear all breakpoints" })
-map({ "n", "v" }, "<F5>", function()	dap.continue()end, { desc = "Continue" })
-map({ "n", "v" }, "<F10>", function()	dap.step_into()end, { desc = "Step Into" })
-map({ "n", "v" }, "<F11>", function()	dap.step_out()end, { desc = "Step Out" })
-map({ "n", "v" }, "<F12>", function()	dap.step_over()end, { desc = "Step Over" })
+map({ "n", "v" }, "<leader>dEc", function() dap.set_exception_breakpoints({}) end, { desc = "Don't stop on exceptions" })
+map({ "n", "v" }, "<leader>dx", function() dap.clear_breakpoints() end, { desc = "Clear all breakpoints" })
+map({ "n", "v" }, "<F5>", function() dap.continue() end, { desc = "Continue" })
+map({ "n", "v" }, "<F10>", function() dap.step_into() end, { desc = "Step Into" })
+map({ "n", "v" }, "<F11>", function() dap.step_out() end, { desc = "Step Out" })
+map({ "n", "v" }, "<F12>", function() dap.step_over() end, { desc = "Step Over" })
 
 -- Undotree
-map('n', '<leader>uu', vim.cmd.UndotreeToggle, {desc = "Toggle undotree"})
+map('n', '<leader>uu', vim.cmd.UndotreeToggle, { desc = "Toggle undotree" })
 
 -- Dadbod
 map("n", "<leader>kk", "<cmd>DBUIToggle<cr>", { noremap = true, silent = true, desc = "Toggle DB UI" })
