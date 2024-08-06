@@ -48,7 +48,6 @@
 			cmp-nvim-lsp
 			cmp-path
 			cmp_luasnip
-			csharpls-extended-lsp-nvim
 			editorconfig-nvim
 			friendly-snippets
 			lazygit-nvim
@@ -57,6 +56,7 @@
 			neotest-dotnet
 			nui-nvim
 			nvim-web-devicons
+			omnisharp-extended-lsp-nvim
 			plenary-nvim
 			popup-nvim
 			telescope-fzf-native-nvim
