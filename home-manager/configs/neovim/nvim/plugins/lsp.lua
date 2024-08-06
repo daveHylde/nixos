@@ -56,42 +56,40 @@ lsp.vtsls.setup {
 	capabilities = capabilities,
 	root_dir = util.root_pattern("package.json", ".git", "tsconfig.base.json"),
 }
-vim.defer_fn(function()
-	local cs_ext = require('omnisharp_extended')
-	lsp.omnisharp.setup {
-		on_attach = function(_, bufnr)
-			local bufmap = function(keys, func)
-				vim.keymap.set('n', keys, func, { buffer = bufnr })
-			end
-			on_attach(_, bufnr)
-			bufmap('gd', cs_ext.telescope_lsp_definition)
-			bufmap('gD', cs_ext.telescope_lsp_type_definition)
-			bufmap('gr', cs_ext.telescope_lsp_references)
-			bufmap('gI', cs_ext.telescope_lsp_implementation)
-		end,
-		capabilities = capabilities,
-		filetypes = { "cs", "razor" },
-		cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
-		root_dir = require('lspconfig').util.root_pattern("*.sln", "*.csproj"),
-		settings = {
-			FormattingOptions = {
-				EnableEditorConfigSupport = true,
-				OrganizeImports = true,
-			},
-			MsBuild = {
-				LoadProjectsOnDemand = false,
-			},
-			RoslynExtensionsOptions = {
-				EnableAnalyzersSupport = true,
-				EnableImportCompletion = true,
-				AnalyzeOpenDocumentsOnly = false,
-			},
-			Sdk = {
-				IncludePrereleases = true,
-			},
+local cs_ext = require('omnisharp_extended')
+lsp.omnisharp.setup {
+	on_attach = function(_, bufnr)
+		local bufmap = function(keys, func)
+			vim.keymap.set('n', keys, func, { buffer = bufnr })
+		end
+		on_attach(_, bufnr)
+		bufmap('gd', cs_ext.telescope_lsp_definition)
+		bufmap('gD', cs_ext.telescope_lsp_type_definition)
+		bufmap('gr', cs_ext.telescope_lsp_references)
+		bufmap('gI', cs_ext.telescope_lsp_implementation)
+	end,
+	capabilities = capabilities,
+	filetypes = { "cs" },
+	cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
+	root_dir = require('lspconfig').util.root_pattern("*.sln", "*.csproj"),
+	settings = {
+		FormattingOptions = {
+			EnableEditorConfigSupport = true,
+			OrganizeImports = true,
+		},
+		MsBuild = {
+			LoadProjectsOnDemand = false,
+		},
+		RoslynExtensionsOptions = {
+			EnableAnalyzersSupport = true,
+			EnableImportCompletion = true,
+			AnalyzeOpenDocumentsOnly = false,
+		},
+		Sdk = {
+			IncludePrereleases = true,
 		},
 	}
-end, 100)
+}
 lsp.html.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,

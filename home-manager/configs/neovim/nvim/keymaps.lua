@@ -7,17 +7,6 @@ map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 map('v', '>', '>gv', { noremap = true, silent = true, desc = "Indent" })
 map('v', '<', '<gv', { noremap = true, silent = true, desc = "Indent" })
 
-local function paste_preserve_yank()
-	local yanked = vim.fn.getreg('"')
-	vim.cmd('normal! p')
-	vim.fn.setreg('"', yanked)
-end
-map('n', 'p', paste_preserve_yank, { noremap = true, silent = true })
-map('n', 'P', function()
-	vim.cmd('normal! P')
-	paste_preserve_yank()
-end, { noremap = true, silent = true })
-
 -- Move lines
 map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
 map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })

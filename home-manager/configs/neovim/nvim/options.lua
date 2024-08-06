@@ -36,3 +36,5 @@ vim.o.wildignorecase = true
 -- Ignore case in search patterns, but become case-sensitive if the pattern contains uppercase letters
 vim.o.ignorecase = true
 vim.o.smartcase = true
+
+vim.o.pumheight = 10
