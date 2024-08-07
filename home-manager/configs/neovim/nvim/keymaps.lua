@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
 -- generic
-map({ "n", "v" }, "<c-s>", ":wa<cr>", { desc = "Save all" })
+map({ "n", "v" }, "<c-s>", ":w<cr>", { desc = "Save" })
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 map('v', '>', '>gv', { noremap = true, silent = true, desc = "Indent" })

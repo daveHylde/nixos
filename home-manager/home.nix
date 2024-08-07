@@ -72,13 +72,14 @@
       tldr
       thunderbird
       vscode-fhs
-      xclip
+      wl-clipboard
       yarn
 			yubikey-manager-qt
       yubikey-personalization
       yubioath-flutter
       yq
       unzip
+			xwayland
       zip
     ];
   };

@@ -31,7 +31,7 @@
 			python3Full
 			ripgrep
 			wget
-			xclip
+			wl-clipboard
 			nixd
 		];
 
@@ -86,6 +86,10 @@
 				plugin = nvim-dap-ui;
 				config = toLuaFile ./nvim/plugins/dapui.lua;
 			}
+			{ 
+				plugin = mini-nvim;
+				config = toLuaFile ./nvim/plugins/mini.lua;
+			}
 			{	
 				plugin =	nvim-ts-autotag;
 				config = toLuaFile ./nvim/plugins/autotag.lua;
@@ -104,10 +108,6 @@
 			{
 				plugin = neotest;
 				config = toLuaFile ./nvim/plugins/neotest.lua;
-			}
-			{
-				plugin = rainbow-delimiters-nvim;
-#				config = toLuaFile ./nvim/plugins/rainbow.lua;
 			}
 			{
 				plugin = alpha-nvim;

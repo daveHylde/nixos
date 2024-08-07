@@ -9,7 +9,7 @@
     '';
     shellAliases = {
       k = "kubectl";
-      clpb = "xclip -selection clipboard";
+      clpb = "wl-copy";
       nx = "npx nx";
     };
     bashrcExtra = ''
