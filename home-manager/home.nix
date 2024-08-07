@@ -1,4 +1,4 @@
-{ pkgs, inputs, user, ... }:
+{ pkgs, pkgs-unstable, user, ... }:
 
 {
   imports = [
@@ -32,55 +32,54 @@
 			DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_8_0}";
 		};
 
-    packages = with pkgs; [
-      clinfo
-      cargo
-      discord
-      dotnetCorePackages.sdk_8_0
-      firefox
-      flameshot
-			fzf
-      git
-      gimp
-      glib
-      glxinfo
-      jq
-      chromium
-			figma-linux
-      k9s
-      kitty
-      keepassxc
-      kubectl
-      kubernetes-helm
-      lazydocker
-      lua-language-server
-      libreoffice
-      lm_sensors
-      minikube
-      mysql80
-      nerdfonts
-			netcoredbg
-      nodejs
-      openlens
-      openrgb
-      openssl
-      powershell
-      python3Full
-			signal-desktop
-      slack
-      spotify
-      tldr
-      thunderbird
-      vscode-fhs
-      wl-clipboard
-      yarn
-			yubikey-manager-qt
-      yubikey-personalization
-      yubioath-flutter
-      yq
-      unzip
-			xwayland
-      zip
+    packages = [
+      pkgs.clinfo
+      pkgs.cargo
+      pkgs.dotnetCorePackages.sdk_8_0
+      pkgs.firefox
+      pkgs.flameshot
+			pkgs.fzf
+      pkgs.git
+      pkgs.gimp
+      pkgs.glib
+      pkgs.glxinfo
+      pkgs.jq
+      pkgs.chromium
+			pkgs-unstable.figma-linux
+			pkgs.k9s
+      pkgs.kitty
+      pkgs.keepassxc
+      pkgs.kubectl
+      pkgs.kubernetes-helm
+      pkgs.lazydocker
+      pkgs.lua-language-server
+      pkgs.libreoffice
+      pkgs.lm_sensors
+      pkgs.minikube
+      pkgs.mysql80
+      pkgs.nerdfonts
+			pkgs.netcoredbg
+      pkgs.nodejs
+      pkgs.openlens
+      pkgs.openrgb
+      pkgs.openssl
+      pkgs.powershell
+      pkgs.python3Full
+			pkgs.signal-desktop
+      pkgs.slack
+      pkgs.spotify
+      pkgs.tldr
+      pkgs.thunderbird
+      pkgs.vscode-fhs
+      pkgs.wl-clipboard
+      pkgs.yarn
+			pkgs.yubikey-manager-qt
+      pkgs.yubikey-personalization
+      pkgs.yubioath-flutter
+      pkgs.yq
+      pkgs.unzip
+			pkgs.xwayland
+      pkgs.zip
     ];
   };
 }

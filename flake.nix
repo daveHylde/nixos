@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05"; 
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable"; 
 
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
@@ -25,22 +26,29 @@
   outputs =
     inputs @ { self
     , nixpkgs
+		, nixpkgs-unstable
     , home-manager
     , ...
     }:
     let
+			system = "x86_64-linux";
       user = "david";
       shared-config = {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.${user} = import ./home-manager/home.nix;
-        home-manager.extraSpecialArgs = { inherit inputs self user; };
+        home-manager.extraSpecialArgs = { 
+					inherit inputs self user;
+					pkgs-unstable = import nixpkgs-unstable {
+						inherit system;
+						config.allowUnfree = true;
+					}; 
+				};
         home-manager.backupFileExtension = "backup";
       };
     in
     {
       nixosConfigurations.desktop-work = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         specialArgs = { inherit inputs self user; };
         modules = [
           ./system/desktop/hardware-work.nix
@@ -49,9 +57,7 @@
           shared-config
         ];
       };
-      nixosConfigurations.desktop-jobbi = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs self user; };
+      nixosConfigurations.desktop-jobbi = nixpkgs.lib.nixosSystem rec {
         modules = [
           ./system/desktop/hardware-jobbi.nix
           ./system/configuration.nix
@@ -60,7 +66,7 @@
         ];
       };
 
-      nixosConfigurations.laptop-work = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.laptop-work = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         specialArgs = { inherit inputs self user; };
         modules = [
