@@ -5,17 +5,16 @@
 
   hardware = {
     nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.latest;
+      package = config.boot.kernelPackages.nvidiaPackages.production;
       modesetting.enable = true;
-      powerManagement.enable = false;
+      powerManagement.enable = true;
       powerManagement.finegrained = false;
       open = false;
       nvidiaSettings = true;
-      forceFullCompositionPipeline = true;
     };
-    graphics = {
-      enable = true;
-      enable32Bit = true;
+    opengl = {
+      driSupport = true;
+      driSupport32Bit = true;
     };
   };
 }
