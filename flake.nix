@@ -1,13 +1,13 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05"; 
+
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
 		# Neovim plugins
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 		plugin-tailwindcss-colorizer-cmp = {
 			url = "github:roobert/tailwindcss-colorizer-cmp.nvim";
 			flake = false;
@@ -37,9 +37,6 @@
         home-manager.extraSpecialArgs = { inherit inputs self user; };
         home-manager.backupFileExtension = "backup";
       };
-      overlays = [
-        inputs.neovim-nightly-overlay.overlays.default
-      ];
     in
     {
       nixosConfigurations.desktop-work = nixpkgs.lib.nixosSystem {
@@ -50,9 +47,6 @@
           ./system/configuration.nix
           home-manager.nixosModules.home-manager
           shared-config
-          { 
-            nixpkgs.overlays = overlays; 
-          }
         ];
       };
       nixosConfigurations.desktop-jobbi = nixpkgs.lib.nixosSystem {
@@ -63,9 +57,6 @@
           ./system/configuration.nix
           home-manager.nixosModules.home-manager
           shared-config
-          { 
-            nixpkgs.overlays = overlays; 
-          }
         ];
       };
 
@@ -77,9 +68,6 @@
           ./system/configuration.nix
           home-manager.nixosModules.home-manager
           shared-config
-          { 
-            nixpkgs.overlays = overlays; 
-          }
         ];
       };
     };

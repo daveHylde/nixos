@@ -2,14 +2,13 @@
 
 {
 	programs.neovim = let
-		toLua = str: "lua << EOF\n${str}\nEOF\n";
+			toLua = str: "lua << EOF\n${str}\nEOF\n";
 	  	toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
 	in {
 		enable = true;
 		defaultEditor = true;
 		viAlias = true;
 		vimAlias = true;
-		package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
 
 		extraLuaPackages = luaPkgs: with luaPkgs; [
 				lua-curl
