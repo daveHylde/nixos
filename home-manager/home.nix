@@ -58,19 +58,19 @@
       pkgs.minikube
       pkgs.mysql80
       pkgs.nerdfonts
-			pkgs.netcoredbg
+			pkgs-unstable.netcoredbg
       pkgs.nodejs
-      pkgs.openlens
-      pkgs.openrgb
+      pkgs-unstable.openlens
+      pkgs-unstable.openrgb
       pkgs.openssl
       pkgs.powershell
       pkgs.python3Full
-			pkgs.signal-desktop
+			pkgs-unstable.signal-desktop
       pkgs-unstable.slack
-      pkgs.spotify
+      pkgs-unstable.spotify
       pkgs.tldr
-      pkgs.thunderbird
-      pkgs.vscode-fhs
+      pkgs-unstable.thunderbird
+      pkgs-unstable.vscode-fhs
       pkgs.wl-clipboard
       pkgs.yarn
 			pkgs.yubikey-manager-qt
