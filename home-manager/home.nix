@@ -66,7 +66,7 @@
       pkgs.powershell
       pkgs.python3Full
 			pkgs.signal-desktop
-      pkgs.slack
+      pkgs-unstable.slack
       pkgs.spotify
       pkgs.tldr
       pkgs.thunderbird
