@@ -2,6 +2,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05"; 
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable"; 
+		neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
@@ -46,6 +47,9 @@
 				};
         home-manager.backupFileExtension = "backup";
       };
+			overlays = [
+        inputs.neovim-nightly-overlay.overlays.default
+      ];
     in
     {
       nixosConfigurations.desktop-work = nixpkgs.lib.nixosSystem {
@@ -55,6 +59,9 @@
           ./system/configuration.nix
           home-manager.nixosModules.home-manager
           shared-config
+					{
+						nixpkgs.overlays= overlays;
+					}
         ];
       };
       nixosConfigurations.desktop-jobbi = nixpkgs.lib.nixosSystem rec {
@@ -63,6 +70,9 @@
           ./system/configuration.nix
           home-manager.nixosModules.home-manager
           shared-config
+					{
+						nixpkgs.overlays= overlays;
+					}
         ];
       };
 
@@ -74,6 +84,9 @@
           ./system/configuration.nix
           home-manager.nixosModules.home-manager
           shared-config
+					{
+						nixpkgs.overlays= overlays;
+					}
         ];
       };
     };

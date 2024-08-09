@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, pkgs-unstable, inputs, ... }:
 
 {
 	programs.neovim = let
@@ -9,6 +9,7 @@
 		defaultEditor = true;
 		viAlias = true;
 		vimAlias = true;
+		package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
 
 		extraLuaPackages = luaPkgs: with luaPkgs; [
 				lua-curl
@@ -22,7 +23,7 @@
 				xml2lua
 		  	jsregexp
 		];
-		extraPackages = with pkgs; [
+		extraPackages = with pkgs-unstable; [
 			chafa
 			fd
 			file
@@ -41,7 +42,7 @@
 		${builtins.readFile ./nvim/autocmds.lua}
 		'';
 
-		plugins = with pkgs.vimPlugins; [
+		plugins = with pkgs-unstable.vimPlugins; [
 			FixCursorHold-nvim
 			SchemaStore-nvim
 			cmp-buffer
@@ -72,11 +73,11 @@
 			which-key-nvim
 
 		  # From source
-      (pkgs.vimUtils.buildVimPlugin {
+      (pkgs-unstable.vimUtils.buildVimPlugin {
         name = "tailwindcss-colorizer-cmp";
         src = inputs.plugin-tailwindcss-colorizer-cmp;
       })
-      (pkgs.vimUtils.buildVimPlugin {
+      (pkgs-unstable.vimUtils.buildVimPlugin {
         name = "vim-razor";
         src = inputs.plugin-vim-razor;
       })
@@ -91,7 +92,7 @@
 				config = toLuaFile ./nvim/plugins/autotag.lua;
 			}
 			{
-				plugin = (pkgs.vimUtils.buildVimPlugin {
+				plugin = (pkgs-unstable.vimUtils.buildVimPlugin {
 					name = "nx-nvim";
 					src = inputs.plugin-nx;
 				});

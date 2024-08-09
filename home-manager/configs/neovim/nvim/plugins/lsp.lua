@@ -78,11 +78,11 @@ lsp.omnisharp.setup {
 			OrganizeImports = true,
 		},
 		MsBuild = {
-			LoadProjectsOnDemand = false,
+			LoadProjectsOnDemand = true,
 		},
 		RoslynExtensionsOptions = {
 			EnableAnalyzersSupport = true,
-			EnableImportCompletion = true,
+			EnableImportCompletion = false,
 			AnalyzeOpenDocumentsOnly = false,
 		},
 		Sdk = {
