@@ -111,6 +111,10 @@
 				config = toLuaFile ./nvim/plugins/alpha.lua;
 			}
 			{
+				plugin=	trouble-nvim;
+				config = toLua "require(\"trouble\").setup()";
+			}
+			{
 				plugin = lualine-nvim;
 				config = toLua "require(\"lualine\").setup()";
 			}

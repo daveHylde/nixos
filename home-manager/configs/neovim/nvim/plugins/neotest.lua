@@ -9,5 +9,11 @@ neotest.setup {
 			},
 			discovery_root = "solution",
 		}),
-	}
+	},
+	quickfix = {
+		open = function()
+			vim.cmd("Trouble quickfix")
+		end,
+		enabled = true,
+	},
 }
