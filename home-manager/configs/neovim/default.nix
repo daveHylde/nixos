@@ -11,7 +11,7 @@
 		vimAlias = true;
 		package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
 
-		extraLuaPackages = luaPkgs: with luaPkgs; [
+		extraLuaPackages =  luaPkgs: with pkgs-unstable.luajitPackages; [
 				lua-curl
 				lua-lsp
 				luarocks
