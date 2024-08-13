@@ -52,7 +52,7 @@
       pkgs.kubectl
       pkgs.kubernetes-helm
       pkgs.lazydocker
-      pkgs.lua-language-server
+      pkgs-unstable.lua-language-server
       pkgs.libreoffice
       pkgs.lm_sensors
       pkgs.minikube
