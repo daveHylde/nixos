@@ -22,6 +22,10 @@
 			url = "github:jlcrochet/vim-razor";
 			flake = false;
 		};
+		plugin-git-file-history = {
+			url = "github:isak102/telescope-git-file-history.nvim";
+			flake = false;
+		};
   };
 
   outputs =

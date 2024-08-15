@@ -68,6 +68,7 @@
 			vim-dadbod-completion
 			vim-dadbod-ui
 			vim-dotenv
+			vim-fugitive
 			vim-matchup
 			vim-tmux-navigator
 			which-key-nvim
@@ -80,6 +81,11 @@
       (pkgs-unstable.vimUtils.buildVimPlugin {
         name = "vim-razor";
         src = inputs.plugin-vim-razor;
+      })
+
+      (pkgs-unstable.vimUtils.buildVimPlugin {
+        name = "telescope-git-file-history";
+        src = inputs.plugin-git-file-history;
       })
 
 			# With config

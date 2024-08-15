@@ -253,6 +253,22 @@
         "type": "github"
       }
     },
+    "plugin-git-file-history": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1710955015,
+        "narHash": "sha256-7cVmZaseWntB339DSB4sNKIMQkwkhLPBYEuLlVg0J28=",
+        "owner": "isak102",
+        "repo": "telescope-git-file-history.nvim",
+        "rev": "f94fab1d5a51fa28dd95b1a6bd377505dc1a8e82",
+        "type": "github"
+      },
+      "original": {
+        "owner": "isak102",
+        "repo": "telescope-git-file-history.nvim",
+        "type": "github"
+      }
+    },
     "plugin-nx": {
       "flake": false,
       "locked": {
@@ -307,6 +323,7 @@
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "plugin-git-file-history": "plugin-git-file-history",
         "plugin-nx": "plugin-nx",
         "plugin-tailwindcss-colorizer-cmp": "plugin-tailwindcss-colorizer-cmp",
         "plugin-vim-razor": "plugin-vim-razor"

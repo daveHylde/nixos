@@ -20,6 +20,9 @@ map({ "n", "v" }, "<leader>gg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
 map({ "n", "v" }, "<leader>gp", "<cmd>Gitsigns preview_hunk_inline<cr>", { desc = "View hunk change" })
 map({ "n", "v" }, "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>", { desc = "Reset hunk" })
 map({ "n", "v" }, "<leader>gb", "<cmd>Gitsigns blame_line<cr>", { desc = "Blame line" })
+map({ "n", "v" }, "<leader>gB", "<cmd>Gitsigns blame<cr>", { desc = "Blame file" })
+map({ "n", "v" }, "<leader>gf", function() require("telescope").extensions.git_file_history.git_file_history() end,
+	{ desc = "File History" })
 
 -- buffer
 map({ "n", "v" }, "<leader>bd", ":bd<cr>", { desc = "Delete buffer" })
