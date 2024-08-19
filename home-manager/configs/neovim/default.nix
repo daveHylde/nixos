@@ -49,6 +49,7 @@
 			cmp-nvim-lsp
 			cmp-path
 			cmp_luasnip
+			cmp-nvim-lsp-signature-help
 			editorconfig-nvim
 			friendly-snippets
 			lazygit-nvim
@@ -72,6 +73,7 @@
 			vim-matchup
 			vim-tmux-navigator
 			which-key-nvim
+			colorizer
 
 		  # From source
       (pkgs-unstable.vimUtils.buildVimPlugin {
