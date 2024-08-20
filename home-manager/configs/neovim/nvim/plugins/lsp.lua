@@ -2,7 +2,7 @@ local util = require("lspconfig.util")
 
 local on_attach = function(_, bufnr)
 	local bufmap = function(keys, func)
-		vim.keymap.set('n', keys, func, { buffer = bufnr })
+		vim.keymap.set({'n', 'v'}, keys, func, { buffer = bufnr })
 	end
 
 	bufmap('<leader>cr', vim.lsp.buf.rename)
@@ -52,7 +52,6 @@ lsp.angularls.setup {
 	filetypes = { 'typescript', 'html', 'typescriptreact', 'typescript.tsx', 'angular.html', 'angular' }
 }
 lsp.vtsls.setup {
-	on_attach = on_attach,
 	capabilities = capabilities,
 	root_dir = util.root_pattern("package.json", ".git", "tsconfig.base.json"),
 }

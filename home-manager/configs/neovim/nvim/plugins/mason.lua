@@ -3,7 +3,6 @@ local mason = require('mason-tool-installer')
 mason.setup({
 	ensure_installed = {
 		"angular-language-server",
-		"csharp-language-server",
 		"css-lsp",
 		"html-lsp",
     "dockerfile-language-server",

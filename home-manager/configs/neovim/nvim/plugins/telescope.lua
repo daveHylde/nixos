@@ -1,16 +1,16 @@
 local actions = require('telescope.actions')
 
 local function format_path(_, path)
-    local tail = require("telescope.utils").path_tail(path)
-    local shortened_path = path:gsub("(.*/)(.*)", "%1")
-    return string.format("%s ~ %s", tail, shortened_path)
+	local tail = require("telescope.utils").path_tail(path)
+	local shortened_path = path:gsub("(.*/)(.*)", "%1")
+	return string.format("%s ~ %s", tail, shortened_path)
 end
 
 require('telescope').setup({
 	pickers = {
 		find_files = {
 			find_command = { 'rg', '--files', '--iglob', '!.git', '--hidden' },
-      path_display = format_path,
+			path_display = format_path,
 		}
 	},
 	defaults = {
@@ -36,6 +36,9 @@ require('telescope').setup({
 		},
 		live_grep_args = {
 			auto_quoting = true,
+		},
+		["ui-select"] = {
+			require("telescope.themes").get_dropdown {}
 		}
 	},
 })
@@ -44,3 +47,4 @@ require('telescope').load_extension('fzf')
 require('telescope').load_extension('media_files')
 require('telescope').load_extension('live_grep_args')
 require("telescope").load_extension("git_file_history")
+require("telescope").load_extension("ui-select")
