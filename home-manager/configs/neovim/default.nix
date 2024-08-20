@@ -56,13 +56,14 @@
 			lualine-nvim
 			luasnip
 			neotest-dotnet
-			nui-nvim
 			nvim-web-devicons
+			nvim-nio
 			omnisharp-extended-lsp-nvim
 			plenary-nvim
 			popup-nvim
 			telescope-fzf-native-nvim
 			telescope-live-grep-args-nvim
+			telescope-ui-select-nvim
 			telescope-media-files-nvim
 			undotree
 			vim-dadbod
@@ -74,6 +75,7 @@
 			vim-tmux-navigator
 			which-key-nvim
 			colorizer
+			nui-nvim
 
 		  # From source
       (pkgs-unstable.vimUtils.buildVimPlugin {
@@ -117,6 +119,10 @@
 			{
 				plugin = alpha-nvim;
 				config = toLuaFile ./nvim/plugins/alpha.lua;
+			}
+			{
+				plugin=	nvim-notify;
+				config = toLuaFile ./nvim/plugins/notify.lua;
 			}
 			{
 				plugin=	trouble-nvim;
