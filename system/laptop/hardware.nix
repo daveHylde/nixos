@@ -7,6 +7,7 @@
 
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
+      ../amdgpu.nix
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usb_storage" "sd_mod" ];
@@ -43,7 +44,6 @@
   services = {
     fwupd.enable = true;
     thinkfan.enable = true;
-    xserver.videoDrivers = [ "amdgpu" ];
     openvpn.servers = {
       officeVPN = {
         config = '' config /root/nixos/openvpn/officeVPN.conf '';
@@ -52,11 +52,6 @@
     };
   };
 
-  hardware = {
-    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-    opengl.extraPackages = with pkgs; [
-      rocmPackages.clr.icd
-    ];
-  };
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   networking.hostName = "laptop-work";
 }

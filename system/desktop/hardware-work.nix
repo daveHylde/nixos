@@ -7,7 +7,7 @@
   imports =
     [
       (modulesPath + "/installer/scan/not-detected.nix")
-      ./nvidia.nix
+      ../amdgpu.nix
     ];
 
 
