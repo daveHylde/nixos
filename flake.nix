@@ -57,7 +57,13 @@
     in
     {
       nixosConfigurations.desktop-work = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs self user; };
+        specialArgs = { 
+					inherit inputs self user; 
+					pkgs-unstable = import nixpkgs-unstable {
+						inherit system;
+						config.allowUnfree = true;
+					}; 
+				};
         modules = [
           ./system/desktop/hardware-work.nix
           ./system/configuration.nix
@@ -69,6 +75,13 @@
         ];
       };
       nixosConfigurations.desktop-jobbi = nixpkgs.lib.nixosSystem rec {
+        specialArgs = { 
+					inherit inputs self user; 
+					pkgs-unstable = import nixpkgs-unstable {
+						inherit system;
+						config.allowUnfree = true;
+					}; 
+				};
         modules = [
           ./system/desktop/hardware-jobbi.nix
           ./system/configuration.nix
@@ -82,7 +95,13 @@
 
       nixosConfigurations.laptop-work = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs self user; };
+        specialArgs = { 
+					inherit inputs self user; 
+					pkgs-unstable = import nixpkgs-unstable {
+						inherit system;
+						config.allowUnfree = true;
+					}; 
+				};
         modules = [
           ./system/laptop/hardware.nix
           ./system/configuration.nix
