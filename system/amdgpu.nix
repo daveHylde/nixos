@@ -1,8 +1,6 @@
 { pkgs-unstable, ... }:
 
 {
-	boot.initrd.kernelModules = [ "amdgpu" ];
-
 	hardware.opengl = {
 
 		# Mesa
@@ -10,13 +8,10 @@
 
 		# Vulkan
 		driSupport = true;
+		driSupport32Bit = true;
 
 		extraPackages = with pkgs-unstable; [
 			rocmPackages.clr.icd
-			amdvlk
-		];
-		extraPackages32 = with pkgs-unstable; [
-			driversi686Linux.amdvlk
 		];
 	};
 }

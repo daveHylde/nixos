@@ -164,6 +164,17 @@
 
   environment = rec {
 
+		systemPackages = with pkgs; [
+			clinfo
+			kdePackages.kdeconnect-kde
+			xwayland
+      glib
+      glxinfo
+			gpu-viewer
+			vulkan-tools
+			wayland-utils
+		];	
+
     plasma6.excludePackages = with pkgs.kdePackages; [
       spectacle
       plasma-browser-integration

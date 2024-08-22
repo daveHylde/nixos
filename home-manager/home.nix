@@ -38,8 +38,6 @@
 			pkgs-unstable.signal-desktop
 			pkgs.fzf
 			pkgs.k9s
-			pkgs.kdePackages.kdeconnect-kde
-			pkgs.xwayland
 			pkgs.yubikey-manager-qt
       pkgs-unstable.lua-language-server
       pkgs-unstable.openlens
@@ -50,14 +48,11 @@
       pkgs-unstable.vscode-fhs
       pkgs.cargo
       pkgs.chromium
-      pkgs.clinfo
       pkgs.dotnetCorePackages.sdk_8_0
       pkgs.firefox
       pkgs.flameshot
       pkgs.gimp
       pkgs.git
-      pkgs.glib
-      pkgs.glxinfo
       pkgs.jq
       pkgs.keepassxc
       pkgs.kitty
