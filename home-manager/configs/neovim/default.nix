@@ -80,11 +80,6 @@
 
 		  # From source
       (pkgs-unstable.vimUtils.buildVimPlugin {
-        name = "tailwind-tools";
-        src = inputs.plugin-tailwind-tools;
-				config = toLua "require(\"tailwind-tools\").setup()";
-      })
-      (pkgs-unstable.vimUtils.buildVimPlugin {
         name = "vim-razor";
         src = inputs.plugin-vim-razor;
       })
@@ -93,6 +88,13 @@
         name = "telescope-git-file-history";
         src = inputs.plugin-git-file-history;
       })
+			{
+				plugin = (pkgs-unstable.vimUtils.buildVimPlugin {
+					name = "tailwind-tools";
+					src = inputs.plugin-tailwind-tools;
+				});
+				config = toLuaFile ./nvim/plugins/tailwind-tools.lua;
+			}
 
 			# With config
 			{ 
