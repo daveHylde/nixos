@@ -285,19 +285,19 @@
         "type": "github"
       }
     },
-    "plugin-tailwindcss-colorizer-cmp": {
+    "plugin-tailwind-tools": {
       "flake": false,
       "locked": {
-        "lastModified": 1711194583,
-        "narHash": "sha256-PIkfJzLt001TojAnE/rdRhgVEwSvCvUJm/vNPLSWjpY=",
-        "owner": "roobert",
-        "repo": "tailwindcss-colorizer-cmp.nvim",
-        "rev": "3d3cd95e4a4135c250faf83dd5ed61b8e5502b86",
+        "lastModified": 1723988531,
+        "narHash": "sha256-W1HrPXZ1XWwqAAyk1XBvtwUGYh5zLaQRbn31SERVXPQ=",
+        "owner": "luckasRanarison",
+        "repo": "tailwind-tools.nvim",
+        "rev": "bf7c89151b55673c1d47f6699fc3d1a4c5b68f11",
         "type": "github"
       },
       "original": {
-        "owner": "roobert",
-        "repo": "tailwindcss-colorizer-cmp.nvim",
+        "owner": "luckasRanarison",
+        "repo": "tailwind-tools.nvim",
         "type": "github"
       }
     },
@@ -325,7 +325,7 @@
         "nixpkgs-unstable": "nixpkgs-unstable",
         "plugin-git-file-history": "plugin-git-file-history",
         "plugin-nx": "plugin-nx",
-        "plugin-tailwindcss-colorizer-cmp": "plugin-tailwindcss-colorizer-cmp",
+        "plugin-tailwind-tools": "plugin-tailwind-tools",
         "plugin-vim-razor": "plugin-vim-razor"
       }
     }

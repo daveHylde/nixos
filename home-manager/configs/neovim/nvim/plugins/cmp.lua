@@ -3,6 +3,7 @@ local luasnip = require('luasnip')
 
 require('luasnip.loaders.from_vscode').lazy_load()
 require 'luasnip'.filetype_extend("typescript", { "html", "css" })
+local lspkind = require('lspkind');
 
 cmp.setup {
 	snippet = {
@@ -11,7 +12,9 @@ cmp.setup {
 		end,
 	},
 	formatting = {
-		format = require("tailwindcss-colorizer-cmp").formatter
+		format = lspkind.cmp_format({
+			before = require("tailwind-tools.cmp").lspkind_format
+		})
 	},
 	mapping = cmp.mapping.preset.insert {
 		['<C-n>'] = cmp.mapping.select_next_item(),

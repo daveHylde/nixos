@@ -95,10 +95,7 @@ lsp.html.setup {
 	filetypes = { "html", "typescript", "angular" },
 }
 lsp.tailwindcss.setup {
-	on_attach = function(_, bufnr)
-		on_attach(_, bufnr)
-		require("tailwindcss-colors").buf_attach(bufnr)
-	end,
+	on_attach =	on_attach,
 	capabilities = capabilities,
 	settings = {
 		tailwindCSS = {

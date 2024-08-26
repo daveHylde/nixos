@@ -10,8 +10,8 @@
     };
 
 		# Neovim plugins
-		plugin-tailwindcss-colorizer-cmp = {
-			url = "github:roobert/tailwindcss-colorizer-cmp.nvim";
+		plugin-tailwind-tools = {
+			url = "github:luckasRanarison/tailwind-tools.nvim";
 			flake = false;
 		};
 		plugin-nx = {

@@ -55,6 +55,7 @@
 			lazygit-nvim
 			lualine-nvim
 			luasnip
+			lspkind-nvim
 			neotest-dotnet
 			nvim-web-devicons
 			nvim-nio
@@ -79,8 +80,9 @@
 
 		  # From source
       (pkgs-unstable.vimUtils.buildVimPlugin {
-        name = "tailwindcss-colorizer-cmp";
-        src = inputs.plugin-tailwindcss-colorizer-cmp;
+        name = "tailwind-tools";
+        src = inputs.plugin-tailwind-tools;
+				config = toLua "require(\"tailwind-tools\").setup()";
       })
       (pkgs-unstable.vimUtils.buildVimPlugin {
         name = "vim-razor";
@@ -131,10 +133,6 @@
 			{
 				plugin = lualine-nvim;
 				config = toLua "require(\"lualine\").setup()";
-			}
-			{
-				plugin = tailwindcss-colors-nvim;
-				config = toLua "require(\"tailwindcss-colors\").setup()";
 			}
 			{
 				plugin = bufferline-nvim;
