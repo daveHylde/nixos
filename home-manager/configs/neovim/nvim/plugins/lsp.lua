@@ -74,14 +74,14 @@ lsp.omnisharp.setup {
 	settings = {
 		FormattingOptions = {
 			EnableEditorConfigSupport = true,
-			OrganizeImports = true,
+			OrganizeImports = false,
 		},
 		MsBuild = {
 			LoadProjectsOnDemand = false,
 		},
 		RoslynExtensionsOptions = {
 			EnableAnalyzersSupport = true,
-			EnableImportCompletion = false,
+			EnableImportCompletion = true,
 			AnalyzeOpenDocumentsOnly = false,
 		},
 		Sdk = {
@@ -134,6 +134,7 @@ lsp.sqlls.setup {
 lsp.marksman.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
+	cmd = { "marksman" },
 }
 lsp.jsonls.setup {
 	on_attach = on_attach,

@@ -34,6 +34,7 @@
 			wget
 			wl-clipboard
 			nixd
+			marksman
 		];
 
 		extraLuaConfig = ''

@@ -10,7 +10,6 @@ mason.setup({
     "html-lsp",
     "json-lsp",
 		"lemminx",
-    "marksman",
     "omnisharp",
     "sqlls",
     "tailwindcss-language-server",
