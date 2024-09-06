@@ -66,6 +66,7 @@
       pkgs.nerdfonts
       pkgs.nodejs
       pkgs.openssl
+			pkgs.postgresql
       pkgs.powershell
       pkgs.python3Full
       pkgs.tldr
