@@ -53,6 +53,7 @@
       pkgs.flameshot
       pkgs.gimp
       pkgs.git
+			pkgs-unstable.ollama
       pkgs.jq
       pkgs.keepassxc
       pkgs.kitty
