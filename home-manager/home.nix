@@ -53,6 +53,7 @@
       pkgs.flameshot
       pkgs.gimp
       pkgs.git
+			pkgs-unstable.ollama
       pkgs.jq
       pkgs.keepassxc
       pkgs.kitty
@@ -66,6 +67,7 @@
       pkgs.nerdfonts
       pkgs.nodejs
       pkgs.openssl
+			pkgs.postgresql
       pkgs.powershell
       pkgs.python3Full
       pkgs.tldr
