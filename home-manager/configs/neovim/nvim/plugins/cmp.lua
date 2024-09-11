@@ -11,10 +11,13 @@ cmp.setup {
 			luasnip.lsp_expand(args.body)
 		end,
 	},
-	formatting = {
-		format = lspkind.cmp_format({
-			before = require("tailwind-tools.cmp").lspkind_format
-		})
+--	formatting = {
+--		format = lspkind.cmp_format({
+--			before = require("tailwind-tools.cmp").lspkind_format
+--		})
+--	},
+	performance = {
+		max_view_entries = 50,
 	},
 	mapping = cmp.mapping.preset.insert {
 		['<C-n>'] = cmp.mapping.select_next_item(),
@@ -46,6 +49,7 @@ cmp.setup {
 		end, { 'i', 's' }),
 	},
 	sources = {
+		--{ name = 'cmp_ai' },
 		{ name = 'nvim_lsp' },
 		{ name = 'luasnip' },
 		{ name = 'buffer' },

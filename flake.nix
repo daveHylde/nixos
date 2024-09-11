@@ -10,22 +10,26 @@
     };
 
 		# Neovim plugins
-		plugin-tailwind-tools = {
-			url = "github:luckasRanarison/tailwind-tools.nvim";
-			flake = false;
-		};
-		plugin-nx = {
-			url = "github:Equilibris/nx.nvim";
-			flake = false;
-		};
-		plugin-vim-razor = {
-			url = "github:jlcrochet/vim-razor";
-			flake = false;
-		};
-		plugin-git-file-history = {
-			url = "github:isak102/telescope-git-file-history.nvim";
-			flake = false;
-		};
+		# plugin-tailwind-tools = {
+		# 	url = "github:luckasRanarison/tailwind-tools.nvim";
+		# 	flake = false;
+		# };
+		# plugin-nx = {
+		# 	url = "github:Equilibris/nx.nvim";
+		# 	flake = false;
+		# };
+		# plugin-vim-razor = {
+		# 	url = "github:jlcrochet/vim-razor";
+		# 	flake = false;
+		# };
+		# plugin-cmp-ai = {
+		# 	url = "github:tzachar/cmp-ai";
+		# 	flake = false;
+		# };
+		# plugin-git-file-history = {
+		# 	url = "github:isak102/telescope-git-file-history.nvim";
+		# 	flake = false;
+		# };
   };
 
   outputs =
@@ -74,7 +78,7 @@
 					}
         ];
       };
-      nixosConfigurations.desktop-jobbi = nixpkgs.lib.nixosSystem rec {
+      nixosConfigurations.desktop-jobbi = nixpkgs.lib.nixosSystem {
         specialArgs = { 
 					inherit inputs self user; 
 					pkgs-unstable = import nixpkgs-unstable {

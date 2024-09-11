@@ -34,18 +34,17 @@
 
     packages = [
 			pkgs-unstable.figma-linux
-			pkgs-unstable.netcoredbg
 			pkgs-unstable.signal-desktop
+			pkgs-unstable.lens
+			pkgs-unstable.openrgb
+			pkgs-unstable.slack
+			pkgs-unstable.spotify
+			pkgs-unstable.thunderbird
+			pkgs-unstable.vscode-fhs
+			pkgs-unstable.ollama
 			pkgs.fzf
 			pkgs.k9s
 			pkgs.yubikey-manager-qt
-      pkgs-unstable.lua-language-server
-      pkgs-unstable.openlens
-      pkgs-unstable.openrgb
-      pkgs-unstable.slack
-      pkgs-unstable.spotify
-      pkgs-unstable.thunderbird
-      pkgs-unstable.vscode-fhs
       pkgs.cargo
       pkgs.chromium
       pkgs.dotnetCorePackages.sdk_8_0
@@ -53,7 +52,6 @@
       pkgs.flameshot
       pkgs.gimp
       pkgs.git
-			pkgs-unstable.ollama
       pkgs.jq
       pkgs.keepassxc
       pkgs.kitty

@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
 	programs.neovim = let
@@ -9,9 +9,8 @@
 		defaultEditor = true;
 		viAlias = true;
 		vimAlias = true;
-		package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
 
-		extraLuaPackages =  luaPkgs: with pkgs-unstable.luajitPackages; [
+		extraLuaPackages =  luaPkgs: with pkgs.luajitPackages; [
 				lua-curl
 				lua-lsp
 				luarocks
@@ -23,7 +22,7 @@
 				xml2lua
 		  	jsregexp
 		];
-		extraPackages = with pkgs-unstable; [
+		extraPackages = with pkgs; [
 			chafa
 			fd
 			file
@@ -43,7 +42,7 @@
 		${builtins.readFile ./nvim/autocmds.lua}
 		'';
 
-		plugins = with pkgs-unstable.vimPlugins; [
+		plugins = with pkgs.vimPlugins; [
 			FixCursorHold-nvim
 			SchemaStore-nvim
 			cmp-buffer
@@ -80,22 +79,36 @@
 			nui-nvim
 
 		  # From source
-      (pkgs-unstable.vimUtils.buildVimPlugin {
-        name = "vim-razor";
-        src = inputs.plugin-vim-razor;
-      })
-
-      (pkgs-unstable.vimUtils.buildVimPlugin {
-        name = "telescope-git-file-history";
-        src = inputs.plugin-git-file-history;
-      })
-			{
-				plugin = (pkgs-unstable.vimUtils.buildVimPlugin {
-					name = "tailwind-tools";
-					src = inputs.plugin-tailwind-tools;
-				});
-				config = toLuaFile ./nvim/plugins/tailwind-tools.lua;
-			}
+			#      (pkgs.vimUtils.buildVimPlugin {
+			#        name = "vim-razor";
+			#        src = inputs.plugin-vim-razor;
+			#      })
+			#
+			#      (pkgs.vimUtils.buildVimPlugin {
+			#        name = "telescope-git-file-history";
+			#        src = inputs.plugin-git-file-history;
+			#      })
+			#			{
+			#				plugin = (pkgs.vimUtils.buildVimPlugin {
+			#					name = "tailwind-tools";
+			#					src = inputs.plugin-tailwind-tools;
+			#				});
+			#				config = toLuaFile ./nvim/plugins/tailwind-tools.lua;
+			#			}
+			#			{
+			#				plugin = (pkgs.vimUtils.buildVimPlugin {
+			#					name = "cmp_ai.config";
+			#					src = inputs.plugin-cmp-ai;
+			#				});
+			#				config = toLuaFile ./nvim/plugins/cmp-ai.lua;
+			#			}
+			#			{
+			#				plugin = (pkgs.vimUtils.buildVimPlugin {
+			#					name = "nx-nvim";
+			#					src = inputs.plugin-nx;
+			#				});
+			#				config = toLuaFile ./nvim/plugins/nx.lua;
+			#			}
 
 			# With config
 			{ 
@@ -105,13 +118,6 @@
 			{	
 				plugin =	nvim-ts-autotag;
 				config = toLuaFile ./nvim/plugins/autotag.lua;
-			}
-			{
-				plugin = (pkgs-unstable.vimUtils.buildVimPlugin {
-					name = "nx-nvim";
-					src = inputs.plugin-nx;
-				});
-				config = toLuaFile ./nvim/plugins/nx.lua;
 			}
 			{
 					plugin = nvim-dap;
