@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, user, ... }:
+{ pkgs, user, ... }:
 
 {
   imports = [
@@ -33,15 +33,15 @@
 		};
 
     packages = [
-			pkgs-unstable.figma-linux
-			pkgs-unstable.signal-desktop
-			pkgs-unstable.lens
-			pkgs-unstable.openrgb
-			pkgs-unstable.slack
-			pkgs-unstable.spotify
-			pkgs-unstable.thunderbird
-			pkgs-unstable.vscode-fhs
-			pkgs-unstable.ollama
+			pkgs.figma-linux
+			pkgs.signal-desktop
+			pkgs.lens
+			pkgs.openrgb
+			pkgs.slack
+			pkgs.spotify
+			pkgs.thunderbird
+			pkgs.vscode-fhs
+			pkgs.ollama
 			pkgs.fzf
 			pkgs.k9s
 			pkgs.yubikey-manager-qt

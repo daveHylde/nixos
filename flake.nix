@@ -1,41 +1,17 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05"; 
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable"; 
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; 
 		neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-		# Neovim plugins
-		# plugin-tailwind-tools = {
-		# 	url = "github:luckasRanarison/tailwind-tools.nvim";
-		# 	flake = false;
-		# };
-		# plugin-nx = {
-		# 	url = "github:Equilibris/nx.nvim";
-		# 	flake = false;
-		# };
-		# plugin-vim-razor = {
-		# 	url = "github:jlcrochet/vim-razor";
-		# 	flake = false;
-		# };
-		# plugin-cmp-ai = {
-		# 	url = "github:tzachar/cmp-ai";
-		# 	flake = false;
-		# };
-		# plugin-git-file-history = {
-		# 	url = "github:isak102/telescope-git-file-history.nvim";
-		# 	flake = false;
-		# };
   };
 
   outputs =
     inputs @ { self
     , nixpkgs
-		, nixpkgs-unstable
     , home-manager
     , ...
     }:
@@ -47,11 +23,7 @@
         home-manager.useUserPackages = true;
         home-manager.users.${user} = import ./home-manager/home.nix;
         home-manager.extraSpecialArgs = { 
-					inherit inputs self user;
-					pkgs-unstable = import nixpkgs-unstable {
-						inherit system;
-						config.allowUnfree = true;
-					}; 
+					inherit inputs self user system;
 				};
         home-manager.backupFileExtension = "backup";
       };
@@ -62,11 +34,7 @@
     {
       nixosConfigurations.desktop-work = nixpkgs.lib.nixosSystem {
         specialArgs = { 
-					inherit inputs self user; 
-					pkgs-unstable = import nixpkgs-unstable {
-						inherit system;
-						config.allowUnfree = true;
-					}; 
+					inherit inputs self user system; 
 				};
         modules = [
           ./system/desktop/hardware-work.nix
@@ -80,11 +48,7 @@
       };
       nixosConfigurations.desktop-jobbi = nixpkgs.lib.nixosSystem {
         specialArgs = { 
-					inherit inputs self user; 
-					pkgs-unstable = import nixpkgs-unstable {
-						inherit system;
-						config.allowUnfree = true;
-					}; 
+					inherit inputs self user system; 
 				};
         modules = [
           ./system/desktop/hardware-jobbi.nix
@@ -100,11 +64,7 @@
       nixosConfigurations.laptop-work = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         specialArgs = { 
-					inherit inputs self user; 
-					pkgs-unstable = import nixpkgs-unstable {
-						inherit system;
-						config.allowUnfree = true;
-					}; 
+					inherit inputs self user system; 
 				};
         modules = [
           ./system/laptop/hardware.nix

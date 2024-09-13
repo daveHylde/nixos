@@ -1,16 +1,15 @@
-{ pkgs-unstable, ... }:
+{ pkgs, ... }:
 
 {
-	hardware.opengl = {
+	hardware.graphics = {
 
 		# Mesa
 		enable = true;
 
 		# Vulkan
-		driSupport = true;
-		driSupport32Bit = true;
+		enable32Bit = true;
 
-		extraPackages = with pkgs-unstable; [
+		extraPackages = with pkgs; [
 			rocmPackages.clr.icd
 		];
 	};
