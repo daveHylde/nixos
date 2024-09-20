@@ -1,12 +1,31 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; 
-		neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+		plugin-roslyn-lsp = {
+			url = "github:seblj/roslyn.nvim";
+			flake = false;
+		};
+		plugin-tailwind-tools = {
+			url = "github:luckasRanarison/tailwind-tools.nvim";
+			flake = false;
+		};
+		plugin-nx = {
+			url = "github:Equilibris/nx.nvim";
+			flake = false;
+		};
+		plugin-vim-razor = {
+			url = "github:jlcrochet/vim-razor";
+			flake = false;
+		};
+		plugin-git-file-history = {
+			url = "github:isak102/telescope-git-file-history.nvim";
+			flake = false;
+		};
   };
 
   outputs =
@@ -27,9 +46,6 @@
 				};
         home-manager.backupFileExtension = "backup";
       };
-			overlays = [
-        inputs.neovim-nightly-overlay.overlays.default
-      ];
     in
     {
       nixosConfigurations.desktop-work = nixpkgs.lib.nixosSystem {
@@ -41,9 +57,6 @@
           ./system/configuration.nix
           home-manager.nixosModules.home-manager
           shared-config
-					{
-						nixpkgs.overlays= overlays;
-					}
         ];
       };
       nixosConfigurations.desktop-jobbi = nixpkgs.lib.nixosSystem {
@@ -55,9 +68,6 @@
           ./system/configuration.nix
           home-manager.nixosModules.home-manager
           shared-config
-					{
-						nixpkgs.overlays= overlays;
-					}
         ];
       };
 
@@ -71,9 +81,6 @@
           ./system/configuration.nix
           home-manager.nixosModules.home-manager
           shared-config
-					{
-						nixpkgs.overlays= overlays;
-					}
         ];
       };
     };

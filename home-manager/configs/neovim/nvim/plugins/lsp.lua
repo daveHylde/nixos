@@ -55,40 +55,6 @@ lsp.vtsls.setup {
 	capabilities = capabilities,
 	root_dir = util.root_pattern("package.json", ".git", "tsconfig.base.json"),
 }
-local cs_ext = require('omnisharp_extended')
-lsp.omnisharp.setup {
-	on_attach = function(_, bufnr)
-		local bufmap = function(keys, func)
-			vim.keymap.set('n', keys, func, { buffer = bufnr })
-		end
-		on_attach(_, bufnr)
-		bufmap('gd', cs_ext.telescope_lsp_definition)
-		bufmap('gD', cs_ext.telescope_lsp_type_definition)
-		bufmap('gr', cs_ext.telescope_lsp_references)
-		bufmap('gI', cs_ext.telescope_lsp_implementation)
-	end,
-	capabilities = capabilities,
-	filetypes = { "cs" },
-	cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
-	root_dir = require('lspconfig').util.root_pattern("*.sln", "*.csproj"),
-	settings = {
-		FormattingOptions = {
-			EnableEditorConfigSupport = true,
-			OrganizeImports = false,
-		},
-		MsBuild = {
-			LoadProjectsOnDemand = false,
-		},
-		RoslynExtensionsOptions = {
-			EnableAnalyzersSupport = true,
-			EnableImportCompletion = false,
-			AnalyzeOpenDocumentsOnly = false,
-		},
-		Sdk = {
-			IncludePrereleases = true,
-		},
-	}
-}
 lsp.html.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -146,23 +112,40 @@ lsp.jsonls.setup {
 		},
 	},
 }
-
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(ev)
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
-    local function toSnakeCase(str)
-      return string.gsub(str, "%s*[- ]%s*", "_")
-    end
-
-    if client.name == 'omnisharp' then
-      local tokenModifiers = client.server_capabilities.semanticTokensProvider.legend.tokenModifiers
-      for i, v in ipairs(tokenModifiers) do
-        tokenModifiers[i] = toSnakeCase(v)
-      end
-      local tokenTypes = client.server_capabilities.semanticTokensProvider.legend.tokenTypes
-      for i, v in ipairs(tokenTypes) do
-        tokenTypes[i] = toSnakeCase(v)
-      end
-    end
-  end,
+local configs = require('lspconfig.configs')
+configs.roslyn = {
+	default_config = {
+		filetypes = { 'cs', 'razor', 'aspnetcorerazor' },
+		root_dir = lsp.util.root_pattern("*.sln", "*.csproj", ".git"),
+		cmd = {
+			"dotnet",
+			vim.fs.joinpath(vim.fn.stdpath("data"), "roslyn", "Microsoft.CodeAnalysis.LanguageServer.dll"),
+			"--logLevel=Information",
+			"--extensionLogDirectory=/tmp"
+		},
+		settings = {
+			["csharp|inlay_hints"] = {
+				csharp_enable_inlay_hints_for_implicit_object_creation = true,
+				csharp_enable_inlay_hints_for_implicit_variable_types = true,
+				csharp_enable_inlay_hints_for_lambda_parameter_types = true,
+				csharp_enable_inlay_hints_for_types = true,
+				dotnet_enable_inlay_hints_for_indexer_parameters = true,
+				dotnet_enable_inlay_hints_for_literal_parameters = true,
+				dotnet_enable_inlay_hints_for_object_creation_parameters = true,
+				dotnet_enable_inlay_hints_for_other_parameters = true,
+				dotnet_enable_inlay_hints_for_parameters = true,
+				dotnet_suppress_inlay_hints_for_parameters_that_differ_only_by_suffix = true,
+				dotnet_suppress_inlay_hints_for_parameters_that_match_argument_name = true,
+				dotnet_suppress_inlay_hints_for_parameters_that_match_method_intent = true,
+			},
+			["csharp|code_lens"] = {
+				dotnet_enable_references_code_lens = true,
+			},
+		}
+	},
+}
+lsp.roslyn.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
 })
+
