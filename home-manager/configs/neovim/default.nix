@@ -34,6 +34,7 @@
 			wl-clipboard
 			nixd
 			marksman
+			roslyn-ls
 		];
 
 		extraLuaConfig = ''
@@ -79,36 +80,35 @@
 			nui-nvim
 
 		  # From source
-			#      (pkgs.vimUtils.buildVimPlugin {
-			#        name = "vim-razor";
-			#        src = inputs.plugin-vim-razor;
-			#      })
-			#
-			#      (pkgs.vimUtils.buildVimPlugin {
-			#        name = "telescope-git-file-history";
-			#        src = inputs.plugin-git-file-history;
-			#      })
-			#			{
-			#				plugin = (pkgs.vimUtils.buildVimPlugin {
-			#					name = "tailwind-tools";
-			#					src = inputs.plugin-tailwind-tools;
-			#				});
-			#				config = toLuaFile ./nvim/plugins/tailwind-tools.lua;
-			#			}
-			#			{
-			#				plugin = (pkgs.vimUtils.buildVimPlugin {
-			#					name = "cmp_ai.config";
-			#					src = inputs.plugin-cmp-ai;
-			#				});
-			#				config = toLuaFile ./nvim/plugins/cmp-ai.lua;
-			#			}
-			#			{
-			#				plugin = (pkgs.vimUtils.buildVimPlugin {
-			#					name = "nx-nvim";
-			#					src = inputs.plugin-nx;
-			#				});
-			#				config = toLuaFile ./nvim/plugins/nx.lua;
-			#			}
+			      (pkgs.vimUtils.buildVimPlugin {
+			        name = "vim-razor";
+			        src = inputs.plugin-vim-razor;
+			      })
+			
+			      (pkgs.vimUtils.buildVimPlugin {
+			        name = "telescope-git-file-history";
+			        src = inputs.plugin-git-file-history;
+			      })
+						{
+							plugin = (pkgs.vimUtils.buildVimPlugin {
+								name = "tailwind-tools";
+								src = inputs.plugin-tailwind-tools;
+							});
+							config = toLuaFile ./nvim/plugins/tailwind-tools.lua;
+						}
+						{
+							plugin = (pkgs.vimUtils.buildVimPlugin {
+								name = "nx-nvim";
+								src = inputs.plugin-nx;
+							});
+							config = toLuaFile ./nvim/plugins/nx.lua;
+						}
+						{
+							plugin = (pkgs.vimUtils.buildVimPlugin {
+								name = "roslyn";
+								src = inputs.plugin-roslyn-lsp;
+							});
+						}
 
 			# With config
 			{ 

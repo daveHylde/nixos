@@ -20,27 +20,28 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1719254875,
-        "narHash": "sha256-ECni+IkwXjusHsm9Sexdtq8weAq/yUyt1TWIemXt3Ko=",
+        "lastModified": 1726463316,
+        "narHash": "sha256-gI9kkaH0ZjakJOKrdjaI/VbaMEo9qBbSUl93DnU7f4c=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "2893f56de08021cffd9b6b6dfc70fd9ccd51eb60",
+        "rev": "99dc8785f6a0adac95f5e2ab05cc2e1bf666d172",
         "type": "github"
       },
       "original": {
-        "id": "nixpkgs",
+        "owner": "NixOS",
         "ref": "nixos-unstable",
-        "type": "indirect"
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
-    "razor": {
+    "razor-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1719600650,
-        "narHash": "sha256-OKUSzSc2ReuTmOLean7E3DXlmNRVDQFv5jz70bDrvo4=",
+        "lastModified": 1726792535,
+        "narHash": "sha256-Aj20kTTGAI7zDZaIHpUZO4zGu6tMmQjOU1PzKsiGxE0=",
         "owner": "dotnet",
         "repo": "razor",
-        "rev": "5173e34bcaff8b5972f9b98f4547e6ff66fdb12f",
+        "rev": "6aa9aee9ab1384f3ca620115704526b932da38ef",
         "type": "github"
       },
       "original": {
@@ -53,7 +54,7 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs",
-        "razor": "razor"
+        "razor-src": "razor-src"
       }
     },
     "systems": {
