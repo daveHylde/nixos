@@ -35,6 +35,7 @@
 			wl-clipboard
 			nixd
 			marksman
+			sox
 		];
 
 		extraLuaConfig = ''

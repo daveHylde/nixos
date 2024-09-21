@@ -169,3 +169,150 @@ map("n", "<leader>cl", "<cmd>Trouble lsp toggle focus=false win.position=right<c
 	{ desc = "LSP Definitions / references / ... (Trouble)" })
 map("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>", { desc = "Location List (Trouble)" })
 map("n", "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List (Trouble)" })
+
+
+-- GP
+local function keymapOptions(desc)
+	return {
+		noremap = true,
+		silent = true,
+		nowait = true,
+		desc = "GPT prompt " .. desc,
+	}
+end
+
+-- Chat commands
+vim.keymap.set({ "n", "i" }, "<leader>ac", "<cmd>GpChatNew<cr>", keymapOptions("New Chat"))
+vim.keymap.set({ "n", "i" }, "<leader>at", "<cmd>GpChatToggle<cr>", keymapOptions("Toggle Chat"))
+vim.keymap.set({ "n", "i" }, "<leader>af", "<cmd>GpChatFinder<cr>", keymapOptions("Chat Finder"))
+
+vim.keymap.set("v", "<leader>ac", ":<C-u>'<,'>GpChatNew<cr>", keymapOptions("Visual Chat New"))
+vim.keymap.set("v", "<leader>ap", ":<C-u>'<,'>GpChatPaste<cr>", keymapOptions("Visual Chat Paste"))
+vim.keymap.set("v", "<leader>at", ":<C-u>'<,'>GpChatToggle<cr>", keymapOptions("Visual Toggle Chat"))
+
+vim.keymap.set({ "n", "i" }, "<leader>a<C-x>", "<cmd>GpChatNew split<cr>", keymapOptions("New Chat split"))
+vim.keymap.set({ "n", "i" }, "<leader>a<C-v>", "<cmd>GpChatNew vsplit<cr>", keymapOptions("New Chat vsplit"))
+vim.keymap.set({ "n", "i" }, "<leader>a<C-t>", "<cmd>GpChatNew tabnew<cr>", keymapOptions("New Chat tabnew"))
+
+vim.keymap.set("v", "<leader>a<C-x>", ":<C-u>'<,'>GpChatNew split<cr>", keymapOptions("Visual Chat New split"))
+vim.keymap.set("v", "<leader>a<C-v>", ":<C-u>'<,'>GpChatNew vsplit<cr>", keymapOptions("Visual Chat New vsplit"))
+vim.keymap.set("v", "<leader>a<C-t>", ":<C-u>'<,'>GpChatNew tabnew<cr>", keymapOptions("Visual Chat New tabnew"))
+
+-- Prompt commands
+vim.keymap.set({ "n", "i" }, "<leader>ar", "<cmd>GpRewrite<cr>", keymapOptions("Inline Rewrite"))
+vim.keymap.set({ "n", "i" }, "<leader>aa", "<cmd>GpAppend<cr>", keymapOptions("Append (after)"))
+vim.keymap.set({ "n", "i" }, "<leader>ab", "<cmd>GpPrepend<cr>", keymapOptions("Prepend (before)"))
+
+vim.keymap.set("v", "<leader>ar", ":<C-u>'<,'>GpRewrite<cr>", keymapOptions("Visual Rewrite"))
+vim.keymap.set("v", "<leader>aa", ":<C-u>'<,'>GpAppend<cr>", keymapOptions("Visual Append (after)"))
+vim.keymap.set("v", "<leader>ab", ":<C-u>'<,'>GpPrepend<cr>", keymapOptions("Visual Prepend (before)"))
+vim.keymap.set("v", "<leader>ai", ":<C-u>'<,'>GpImplement<cr>", keymapOptions("Implement selection"))
+
+vim.keymap.set({ "n", "i" }, "<leader>agp", "<cmd>GpPopup<cr>", keymapOptions("Popup"))
+vim.keymap.set({ "n", "i" }, "<leader>age", "<cmd>GpEnew<cr>", keymapOptions("GpEnew"))
+vim.keymap.set({ "n", "i" }, "<leader>agn", "<cmd>GpNew<cr>", keymapOptions("GpNew"))
+vim.keymap.set({ "n", "i" }, "<leader>agv", "<cmd>GpVnew<cr>", keymapOptions("GpVnew"))
+vim.keymap.set({ "n", "i" }, "<leader>agt", "<cmd>GpTabnew<cr>", keymapOptions("GpTabnew"))
+
+vim.keymap.set("v", "<leader>agp", ":<C-u>'<,'>GpPopup<cr>", keymapOptions("Visual Popup"))
+vim.keymap.set("v", "<leader>age", ":<C-u>'<,'>GpEnew<cr>", keymapOptions("Visual GpEnew"))
+vim.keymap.set("v", "<leader>agn", ":<C-u>'<,'>GpNew<cr>", keymapOptions("Visual GpNew"))
+vim.keymap.set("v", "<leader>agv", ":<C-u>'<,'>GpVnew<cr>", keymapOptions("Visual GpVnew"))
+vim.keymap.set("v", "<leader>agt", ":<C-u>'<,'>GpTabnew<cr>", keymapOptions("Visual GpTabnew"))
+
+vim.keymap.set({ "n", "i" }, "<leader>ax", "<cmd>GpContext<cr>", keymapOptions("Toggle Context"))
+vim.keymap.set("v", "<leader>ax", ":<C-u>'<,'>GpContext<cr>", keymapOptions("Visual Toggle Context"))
+
+vim.keymap.set({ "n", "i", "v", "x" }, "<leader>as", "<cmd>GpStop<cr>", keymapOptions("Stop"))
+vim.keymap.set({ "n", "i", "v", "x" }, "<leader>an", "<cmd>GpNextAgent<cr>", keymapOptions("Next Agent"))
+
+-- optional Whisper commands with prefix <leader>aw
+vim.keymap.set({ "n", "i" }, "<leader>aww", "<cmd>GpWhisper<cr>", keymapOptions("Whisper"))
+vim.keymap.set("v", "<leader>aww", ":<C-u>'<,'>GpWhisper<cr>", keymapOptions("Visual Whisper"))
+
+vim.keymap.set({ "n", "i" }, "<leader>awr", "<cmd>GpWhisperRewrite<cr>", keymapOptions("Whisper Inline Rewrite"))
+vim.keymap.set({ "n", "i" }, "<leader>awa", "<cmd>GpWhisperAppend<cr>", keymapOptions("Whisper Append (after)"))
+vim.keymap.set({ "n", "i" }, "<leader>awb", "<cmd>GpWhisperPrepend<cr>", keymapOptions("Whisper Prepend (before) "))
+
+vim.keymap.set("v", "<leader>awr", ":<C-u>'<,'>GpWhisperRewrite<cr>", keymapOptions("Visual Whisper Rewrite"))
+vim.keymap.set("v", "<leader>awa", ":<C-u>'<,'>GpWhisperAppend<cr>", keymapOptions("Visual Whisper Append (after)"))
+vim.keymap.set("v", "<leader>awb", ":<C-u>'<,'>GpWhisperPrepend<cr>", keymapOptions("Visual Whisper Prepend (before)"))
+
+vim.keymap.set({ "n", "i" }, "<leader>awp", "<cmd>GpWhisperPopup<cr>", keymapOptions("Whisper Popup"))
+vim.keymap.set({ "n", "i" }, "<leader>awe", "<cmd>GpWhisperEnew<cr>", keymapOptions("Whisper Enew"))
+vim.keymap.set({ "n", "i" }, "<leader>awn", "<cmd>GpWhisperNew<cr>", keymapOptions("Whisper New"))
+vim.keymap.set({ "n", "i" }, "<leader>awv", "<cmd>GpWhisperVnew<cr>", keymapOptions("Whisper Vnew"))
+vim.keymap.set({ "n", "i" }, "<leader>awt", "<cmd>GpWhisperTabnew<cr>", keymapOptions("Whisper Tabnew"))
+
+vim.keymap.set("v", "<leader>awp", ":<C-u>'<,'>GpWhisperPopup<cr>", keymapOptions("Visual Whisper Popup"))
+vim.keymap.set("v", "<leader>awe", ":<C-u>'<,'>GpWhisperEnew<cr>", keymapOptions("Visual Whisper Enew"))
+vim.keymap.set("v", "<leader>awn", ":<C-u>'<,'>GpWhisperNew<cr>", keymapOptions("Visual Whisper New"))
+vim.keymap.set("v", "<leader>awv", ":<C-u>'<,'>GpWhisperVnew<cr>", keymapOptions("Visual Whisper Vnew"))
+vim.keymap.set("v", "<leader>awt", ":<C-u>'<,'>GpWhisperTabnew<cr>", keymapOptions("Visual Whisper Tabnew"))
+map({ "n", "i" }, "<leader>ac", "<cmd>GpChatNew<cr>", keymapOptions("New Chat"))
+map({ "n", "i" }, "<leader>at", "<cmd>GpChatToggle<cr>", keymapOptions("Toggle Chat"))
+map({ "n", "i" }, "<leader>af", "<cmd>GpChatFinder<cr>", keymapOptions("Chat Finder"))
+
+map("v", "<leader>ac", ":<C-u>'<,'>GpChatNew<cr>", keymapOptions("Visual Chat New"))
+map("v", "<leader>ap", ":<C-u>'<,'>GpChatPaste<cr>", keymapOptions("Visual Chat Paste"))
+map("v", "<leader>at", ":<C-u>'<,'>GpChatToggle<cr>", keymapOptions("Visual Toggle Chat"))
+
+map({ "n", "i" }, "<leader>a<C-x>", "<cmd>GpChatNew split<cr>", keymapOptions("New Chat split"))
+map({ "n", "i" }, "<leader>a<C-v>", "<cmd>GpChatNew vsplit<cr>", keymapOptions("New Chat vsplit"))
+map({ "n", "i" }, "<leader>a<C-t>", "<cmd>GpChatNew tabnew<cr>", keymapOptions("New Chat tabnew"))
+
+map("v", "<leader>a<C-x>", ":<C-u>'<,'>GpChatNew split<cr>", keymapOptions("Visual Chat New split"))
+map("v", "<leader>a<C-v>", ":<C-u>'<,'>GpChatNew vsplit<cr>", keymapOptions("Visual Chat New vsplit"))
+map("v", "<leader>a<C-t>", ":<C-u>'<,'>GpChatNew tabnew<cr>", keymapOptions("Visual Chat New tabnew"))
+
+-- Prompt commands
+map({ "n", "i" }, "<leader>ar", "<cmd>GpRewrite<cr>", keymapOptions("Inline Rewrite"))
+map({ "n", "i" }, "<leader>aa", "<cmd>GpAppend<cr>", keymapOptions("Append (after)"))
+map({ "n", "i" }, "<leader>ab", "<cmd>GpPrepend<cr>", keymapOptions("Prepend (before)"))
+
+map("v", "<leader>ar", ":<C-u>'<,'>GpRewrite<cr>", keymapOptions("Visual Rewrite"))
+map("v", "<leader>aa", ":<C-u>'<,'>GpAppend<cr>", keymapOptions("Visual Append (after)"))
+map("v", "<leader>ab", ":<C-u>'<,'>GpPrepend<cr>", keymapOptions("Visual Prepend (before)"))
+map("v", "<leader>ai", ":<C-u>'<,'>GpImplement<cr>", keymapOptions("Implement selection"))
+
+map({ "n", "i" }, "<leader>agp", "<cmd>GpPopup<cr>", keymapOptions("Popup"))
+map({ "n", "i" }, "<leader>age", "<cmd>GpEnew<cr>", keymapOptions("GpEnew"))
+map({ "n", "i" }, "<leader>agn", "<cmd>GpNew<cr>", keymapOptions("GpNew"))
+map({ "n", "i" }, "<leader>agv", "<cmd>GpVnew<cr>", keymapOptions("GpVnew"))
+map({ "n", "i" }, "<leader>agt", "<cmd>GpTabnew<cr>", keymapOptions("GpTabnew"))
+
+map("v", "<leader>agp", ":<C-u>'<,'>GpPopup<cr>", keymapOptions("Visual Popup"))
+map("v", "<leader>age", ":<C-u>'<,'>GpEnew<cr>", keymapOptions("Visual GpEnew"))
+map("v", "<leader>agn", ":<C-u>'<,'>GpNew<cr>", keymapOptions("Visual GpNew"))
+map("v", "<leader>agv", ":<C-u>'<,'>GpVnew<cr>", keymapOptions("Visual GpVnew"))
+map("v", "<leader>agt", ":<C-u>'<,'>GpTabnew<cr>", keymapOptions("Visual GpTabnew"))
+
+map({ "n", "i" }, "<leader>ax", "<cmd>GpContext<cr>", keymapOptions("Toggle Context"))
+map("v", "<leader>ax", ":<C-u>'<,'>GpContext<cr>", keymapOptions("Visual Toggle Context"))
+
+map({ "n", "i", "v", "x" }, "<leader>as", "<cmd>GpStop<cr>", keymapOptions("Stop"))
+map({ "n", "i", "v", "x" }, "<leader>an", "<cmd>GpNextAgent<cr>", keymapOptions("Next Agent"))
+
+-- optional Whisper commands with prefix <leader>aw
+map({ "n", "i" }, "<leader>aww", "<cmd>GpWhisper<cr>", keymapOptions("Whisper"))
+map("v", "<leader>aww", ":<C-u>'<,'>GpWhisper<cr>", keymapOptions("Visual Whisper"))
+
+map({ "n", "i" }, "<leader>awr", "<cmd>GpWhisperRewrite<cr>", keymapOptions("Whisper Inline Rewrite"))
+map({ "n", "i" }, "<leader>awa", "<cmd>GpWhisperAppend<cr>", keymapOptions("Whisper Append (after)"))
+map({ "n", "i" }, "<leader>awb", "<cmd>GpWhisperPrepend<cr>", keymapOptions("Whisper Prepend (before) "))
+
+map("v", "<leader>awr", ":<C-u>'<,'>GpWhisperRewrite<cr>", keymapOptions("Visual Whisper Rewrite"))
+map("v", "<leader>awa", ":<C-u>'<,'>GpWhisperAppend<cr>", keymapOptions("Visual Whisper Append (after)"))
+map("v", "<leader>awb", ":<C-u>'<,'>GpWhisperPrepend<cr>", keymapOptions("Visual Whisper Prepend (before)"))
+
+map({ "n", "i" }, "<leader>awp", "<cmd>GpWhisperPopup<cr>", keymapOptions("Whisper Popup"))
+map({ "n", "i" }, "<leader>awe", "<cmd>GpWhisperEnew<cr>", keymapOptions("Whisper Enew"))
+map({ "n", "i" }, "<leader>awn", "<cmd>GpWhisperNew<cr>", keymapOptions("Whisper New"))
+map({ "n", "i" }, "<leader>awv", "<cmd>GpWhisperVnew<cr>", keymapOptions("Whisper Vnew"))
+map({ "n", "i" }, "<leader>awt", "<cmd>GpWhisperTabnew<cr>", keymapOptions("Whisper Tabnew"))
+
+map("v", "<leader>awp", ":<C-u>'<,'>GpWhisperPopup<cr>", keymapOptions("Visual Whisper Popup"))
+map("v", "<leader>awe", ":<C-u>'<,'>GpWhisperEnew<cr>", keymapOptions("Visual Whisper Enew"))
+map("v", "<leader>awn", ":<C-u>'<,'>GpWhisperNew<cr>", keymapOptions("Visual Whisper New"))
+map("v", "<leader>awv", ":<C-u>'<,'>GpWhisperVnew<cr>", keymapOptions("Visual Whisper Vnew"))
+map("v", "<leader>awt", ":<C-u>'<,'>GpWhisperTabnew<cr>", keymapOptions("Visual Whisper Tabnew"))
