@@ -136,8 +136,12 @@
 				config = toLuaFile ./nvim/plugins/autotag.lua;
 			}
 			{
-					plugin = nvim-dap;
-					config = toLuaFile ./nvim/plugins/dap.lua;
+				plugin = nvim-dap;
+				config = toLuaFile ./nvim/plugins/dap.lua;
+			}
+			{
+				plugin = harpoon2;
+				config = toLua "require(\"harpoon\"):setup()";
 			}
 			{
 				plugin = neotest;
