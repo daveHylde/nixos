@@ -116,6 +116,20 @@
 				plugin = nvim-dap-ui;
 				config = toLuaFile ./nvim/plugins/dapui.lua;
 			}
+			{ 
+				plugin = (pkgs.vimUtils.buildVimPlugin {
+					name = "conform";
+					src = inputs.plugin-conform;
+				});
+				config = toLuaFile ./nvim/plugins/conform.lua;
+			}
+			{ 
+				plugin = (pkgs.vimUtils.buildVimPlugin {
+					name = "parrot";
+					src = inputs.plugin-parrot;
+				});
+				config = toLuaFile ./nvim/plugins/parrot.lua;
+			}
 			{	
 				plugin =	nvim-ts-autotag;
 				config = toLuaFile ./nvim/plugins/autotag.lua;
@@ -139,6 +153,11 @@
 			{
 				plugin=	trouble-nvim;
 				config = toLua "require(\"trouble\").setup()";
+			}
+			{
+				plugin=markdown-preview-nvim;
+				config = toLua "require(\"trouble\").setup()";
+				
 			}
 			{
 				plugin=	nvim-dap-virtual-text;

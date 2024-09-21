@@ -23,6 +23,14 @@
 			url = "github:jlcrochet/vim-razor";
 			flake = false;
 		};
+		plugin-conform = {
+			url = "github:stevearc/conform.nvim";
+			flake = false;
+		};
+		plugin-parrot = {
+			url = "github:frankroeder/parrot.nvim";
+			flake = false;
+		};
 		plugin-git-file-history = {
 			url = "github:isak102/telescope-git-file-history.nvim";
 			flake = false;

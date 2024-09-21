@@ -6,6 +6,7 @@ map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsea
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 map('v', '>', '>gv', { noremap = true, silent = true, desc = "Indent" })
 map('v', '<', '<gv', { noremap = true, silent = true, desc = "Indent" })
+map('x', 'p', '"_dP', { noremap = true })
 
 -- Move lines
 map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
@@ -25,7 +26,7 @@ map({ "n", "v" }, "<leader>gf", function() require("telescope").extensions.git_f
 	{ desc = "File History" })
 
 -- buffer
-map({ "n", "v" }, "<leader>bd", ":bd<cr>", { desc = "Delete buffer" })
+map({ "n", "v" }, "<leader>bd", ":bd!<cr>", { desc = "Delete buffer" })
 map({ "n", "v" }, "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", { desc = "Toggle Pin" })
 map({ "n", "v" }, "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", { desc = "Delete Non-Pinned Buffers" })
 map({ "n", "v" }, "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>", { desc = "Delete Other Buffers" })

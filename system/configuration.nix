@@ -200,6 +200,7 @@
     variables = {
       MINIKUBE_STATIC_IP = "192.168.49.2";
       EDITOR = "nvim";
+			ANTHROPIC_API_KEY="/home/david/.config/nvim/ANTHROPIC_API_KEY";
     };
 
     etc = {
