@@ -108,7 +108,7 @@
 					name = "roslyn";
 					src = inputs.plugin-roslyn-lsp;
 				});
-				config = toLua "require(\"roslyn\").setup()";
+				config = toLuaFile ./nvim/plugins/roslyn.lua;
 			}
 
 			# With config
