@@ -27,8 +27,8 @@
 			url = "github:stevearc/conform.nvim";
 			flake = false;
 		};
-		plugin-parrot = {
-			url = "github:frankroeder/parrot.nvim";
+		plugin-gp = {
+			url = "github:Robitx/gp.nvim";
 			flake = false;
 		};
 		plugin-git-file-history = {

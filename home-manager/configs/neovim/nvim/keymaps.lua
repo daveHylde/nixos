@@ -6,7 +6,20 @@ map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsea
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 map('v', '>', '>gv', { noremap = true, silent = true, desc = "Indent" })
 map('v', '<', '<gv', { noremap = true, silent = true, desc = "Indent" })
+
+-- Send all delete and change operations to the black hole register
+map({ 'n', 'v' }, 'd', '"_d', { noremap = true })
+map({ 'n', 'v' }, 'D', '"_D', { noremap = true })
+map({ 'n', 'v' }, 'c', '"_c', { noremap = true })
+map('n', 'C', '"_C', { noremap = true })
+map('n', 'x', '"_x', { noremap = true })
+map('n', 'X', '"_X', { noremap = true })
+-- Preserve the yank operation
+map({ 'n', 'v' }, 'y', 'y', { noremap = true })
+map('n', 'Y', 'Y', { noremap = true })
+-- Override paste in visual mode to not capture overwritten text
 map('x', 'p', '"_dP', { noremap = true })
+
 
 -- Move lines
 map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })

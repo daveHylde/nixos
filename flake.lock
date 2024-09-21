@@ -268,6 +268,22 @@
         "type": "github"
       }
     },
+    "plugin-gp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1726734798,
+        "narHash": "sha256-QUZrFU/+TPBEU8yi9gmyRYjI/u7DP88AxcS0RMk7Jvk=",
+        "owner": "Robitx",
+        "repo": "gp.nvim",
+        "rev": "2372d5323c6feaa2e9c19f7ccb537c615d878e18",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Robitx",
+        "repo": "gp.nvim",
+        "type": "github"
+      }
+    },
     "plugin-nx": {
       "flake": false,
       "locked": {
@@ -281,22 +297,6 @@
       "original": {
         "owner": "Equilibris",
         "repo": "nx.nvim",
-        "type": "github"
-      }
-    },
-    "plugin-parrot": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1726852760,
-        "narHash": "sha256-l1wLEHWQ7++BbcDgH1ZyXi6QBb2TVNeXiB/OH+6shGc=",
-        "owner": "frankroeder",
-        "repo": "parrot.nvim",
-        "rev": "b347a1ce80336a519634df3668c8b940acf83653",
-        "type": "github"
-      },
-      "original": {
-        "owner": "frankroeder",
-        "repo": "parrot.nvim",
         "type": "github"
       }
     },
@@ -355,8 +355,8 @@
         "nixpkgs": "nixpkgs_2",
         "plugin-conform": "plugin-conform",
         "plugin-git-file-history": "plugin-git-file-history",
+        "plugin-gp": "plugin-gp",
         "plugin-nx": "plugin-nx",
-        "plugin-parrot": "plugin-parrot",
         "plugin-roslyn-lsp": "plugin-roslyn-lsp",
         "plugin-tailwind-tools": "plugin-tailwind-tools",
         "plugin-vim-razor": "plugin-vim-razor"

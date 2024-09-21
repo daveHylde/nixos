@@ -125,10 +125,10 @@
 			}
 			{ 
 				plugin = (pkgs.vimUtils.buildVimPlugin {
-					name = "parrot";
-					src = inputs.plugin-parrot;
+					name = "gp";
+					src = inputs.plugin-gp;
 				});
-				config = toLuaFile ./nvim/plugins/parrot.lua;
+				config = toLuaFile ./nvim/plugins/gp.lua;
 			}
 			{	
 				plugin =	nvim-ts-autotag;
