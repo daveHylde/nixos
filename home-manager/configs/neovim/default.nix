@@ -9,6 +9,7 @@
 		defaultEditor = true;
 		viAlias = true;
 		vimAlias = true;
+		package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
 
 		extraLuaPackages =  luaPkgs: with pkgs.luajitPackages; [
 				lua-curl
@@ -34,7 +35,6 @@
 			wl-clipboard
 			nixd
 			marksman
-			roslyn-ls
 		];
 
 		extraLuaConfig = ''
@@ -80,35 +80,36 @@
 			nui-nvim
 
 		  # From source
-			      (pkgs.vimUtils.buildVimPlugin {
-			        name = "vim-razor";
-			        src = inputs.plugin-vim-razor;
-			      })
-			
-			      (pkgs.vimUtils.buildVimPlugin {
-			        name = "telescope-git-file-history";
-			        src = inputs.plugin-git-file-history;
-			      })
-						{
-							plugin = (pkgs.vimUtils.buildVimPlugin {
-								name = "tailwind-tools";
-								src = inputs.plugin-tailwind-tools;
-							});
-							config = toLuaFile ./nvim/plugins/tailwind-tools.lua;
-						}
-						{
-							plugin = (pkgs.vimUtils.buildVimPlugin {
-								name = "nx-nvim";
-								src = inputs.plugin-nx;
-							});
-							config = toLuaFile ./nvim/plugins/nx.lua;
-						}
-						{
-							plugin = (pkgs.vimUtils.buildVimPlugin {
-								name = "roslyn";
-								src = inputs.plugin-roslyn-lsp;
-							});
-						}
+			(pkgs.vimUtils.buildVimPlugin {
+				name = "vim-razor";
+				src = inputs.plugin-vim-razor;
+			})
+
+			(pkgs.vimUtils.buildVimPlugin {
+				name = "telescope-git-file-history";
+				src = inputs.plugin-git-file-history;
+			})
+			{
+				plugin = (pkgs.vimUtils.buildVimPlugin {
+					name = "tailwind-tools";
+					src = inputs.plugin-tailwind-tools;
+				});
+				config = toLuaFile ./nvim/plugins/tailwind-tools.lua;
+			}
+			{
+				plugin = (pkgs.vimUtils.buildVimPlugin {
+					name = "nx-nvim";
+					src = inputs.plugin-nx;
+				});
+				config = toLuaFile ./nvim/plugins/nx.lua;
+			}
+			{
+				plugin = (pkgs.vimUtils.buildVimPlugin {
+					name = "roslyn";
+					src = inputs.plugin-roslyn-lsp;
+				});
+				config = toLua "require(\"roslyn\").setup()";
+			}
 
 			# With config
 			{ 
@@ -138,6 +139,10 @@
 			{
 				plugin=	trouble-nvim;
 				config = toLua "require(\"trouble\").setup()";
+			}
+			{
+				plugin=	nvim-dap-virtual-text;
+				config = toLua "require(\"nvim-dap-virtual-text\").setup()";
 			}
 			{
 				plugin = lualine-nvim;

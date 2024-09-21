@@ -2,7 +2,7 @@ local util = require("lspconfig.util")
 
 local on_attach = function(_, bufnr)
 	local bufmap = function(keys, func)
-		vim.keymap.set({'n', 'v'}, keys, func, { buffer = bufnr })
+		vim.keymap.set({ 'n', 'v' }, keys, func, { buffer = bufnr })
 	end
 
 	bufmap('<leader>cr', vim.lsp.buf.rename)
@@ -28,8 +28,21 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
---require('neodev').setup()
 local lsp = require('lspconfig')
+local configs = require('lspconfig.configs')
+configs.roslyn = {
+	default_config = {
+		filetypes = { 'cs' },
+		cmd = {
+			"dotnet",
+			"/etc/profiles/per-user/david/lib/roslyn-ls/Microsoft.CodeAnalysis.LanguageServer.dll",
+			--			vim.fs.joinpath(vim.fn.stdpath("data"), "roslyn", "Microsoft.CodeAnalysis.LanguageServer.dll"),
+			"--logLevel=Information",
+			"--extensionLogDirectory=/tmp"
+		},
+	},
+}
+
 lsp.lua_ls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
@@ -112,40 +125,29 @@ lsp.jsonls.setup {
 		},
 	},
 }
-local configs = require('lspconfig.configs')
-configs.roslyn = {
-	default_config = {
-		filetypes = { 'cs', 'razor', 'aspnetcorerazor' },
-		root_dir = lsp.util.root_pattern("*.sln", "*.csproj", ".git"),
-		cmd = {
-			"dotnet",
-			vim.fs.joinpath(vim.fn.stdpath("data"), "roslyn", "Microsoft.CodeAnalysis.LanguageServer.dll"),
-			"--logLevel=Information",
-			"--extensionLogDirectory=/tmp"
-		},
-		settings = {
-			["csharp|inlay_hints"] = {
-				csharp_enable_inlay_hints_for_implicit_object_creation = true,
-				csharp_enable_inlay_hints_for_implicit_variable_types = true,
-				csharp_enable_inlay_hints_for_lambda_parameter_types = true,
-				csharp_enable_inlay_hints_for_types = true,
-				dotnet_enable_inlay_hints_for_indexer_parameters = true,
-				dotnet_enable_inlay_hints_for_literal_parameters = true,
-				dotnet_enable_inlay_hints_for_object_creation_parameters = true,
-				dotnet_enable_inlay_hints_for_other_parameters = true,
-				dotnet_enable_inlay_hints_for_parameters = true,
-				dotnet_suppress_inlay_hints_for_parameters_that_differ_only_by_suffix = true,
-				dotnet_suppress_inlay_hints_for_parameters_that_match_argument_name = true,
-				dotnet_suppress_inlay_hints_for_parameters_that_match_method_intent = true,
-			},
-			["csharp|code_lens"] = {
-				dotnet_enable_references_code_lens = true,
-			},
-		}
-	},
-}
-lsp.roslyn.setup({
+
+lsp.roslyn.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
-})
-
+	root_dir = lsp.util.root_pattern("*.sln", "*.csproj", ".git"),
+	filetypes = { 'cs' },
+	settings = {
+		["csharp|inlay_hints"] = {
+			csharp_enable_inlay_hints_for_implicit_object_creation = true,
+			csharp_enable_inlay_hints_for_implicit_variable_types = true,
+			csharp_enable_inlay_hints_for_lambda_parameter_types = true,
+			csharp_enable_inlay_hints_for_types = true,
+			dotnet_enable_inlay_hints_for_indexer_parameters = true,
+			dotnet_enable_inlay_hints_for_literal_parameters = true,
+			dotnet_enable_inlay_hints_for_object_creation_parameters = true,
+			dotnet_enable_inlay_hints_for_other_parameters = true,
+			dotnet_enable_inlay_hints_for_parameters = true,
+			dotnet_suppress_inlay_hints_for_parameters_that_differ_only_by_suffix = true,
+			dotnet_suppress_inlay_hints_for_parameters_that_match_argument_name = true,
+			dotnet_suppress_inlay_hints_for_parameters_that_match_method_intent = true,
+		},
+		["csharp|code_lens"] = {
+			dotnet_enable_references_code_lens = true,
+		},
+	}
+}

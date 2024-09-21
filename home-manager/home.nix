@@ -33,50 +33,52 @@
 		};
 
     packages = with pkgs; [
-			figma-linux
-			signal-desktop
-			lens
-			openrgb
-			slack
-			spotify
-			thunderbird
-			vscode-fhs
-			ollama
-			fzf
-			k9s
-			yubikey-manager-qt
 			cargo
 			chromium
 			dotnetCorePackages.sdk_8_0
+			figma-linux
 			firefox
 			flameshot
+			fzf
 			gimp
 			git
 			jq
+			k9s
 			keepassxc
 			kitty
 			kubectl
 			kubernetes-helm
 			lazydocker
+			lens
 			libreoffice
 			lm_sensors
 			minikube
 			mysql80
 			nerdfonts
+			netcoredbg
 			nodejs
+			ollama
+			openrgb
 			openssl
 			postgresql
 			powershell
 			python3Full
+			roslyn-ls
+			signal-desktop
+			slack
+			spotify
+			thunderbird
 			tldr
 			unzip
+			vscode-extensions.ms-dotnettools.csharp
+			vscode-fhs
 			wl-clipboard
 			yarn
 			yq
+			yubikey-manager-qt
 			yubikey-personalization
 			yubioath-flutter
 			zip
-			vscode-extensions.ms-dotnettools.csharp
 		];
   };
 }

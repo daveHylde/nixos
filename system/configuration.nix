@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   nix = {
@@ -70,6 +70,8 @@
   i18n.defaultLocale = "nb_NO.UTF-8";
   console.keyMap = "no";
 
+	systemd.services.lactd.wantedBy = ["multi-user.target"];
+
   services = {
     onedrive.enable = true;
     pcscd.enable = true;
@@ -77,6 +79,16 @@
     displayManager.sddm.enable = true;
     hardware.bolt.enable = true;
     desktopManager.plasma6.enable = true;
+
+	ollama = {
+			enable = true;
+			acceleration = "rocm";
+			environmentVariables = {
+				HCC_AMDGPU_TARGET = "gfx1031";
+			};
+			rocmOverrideGfx = "10.3.1";
+		};
+
 
     udev = {
       packages = [
@@ -165,6 +177,7 @@
   environment = rec {
 
 		systemPackages = with pkgs; [
+			lact 
 			clinfo
 			kdePackages.kdeconnect-kde
 			xwayland
