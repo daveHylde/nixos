@@ -4,7 +4,7 @@ require("gp").setup {
 	providers = {
 		openai = {
 			endpoint = "https://api.openai.com/v1/chat/completions",
-			secret = os.getenv("OPENAI_API_KEY"),
+			secret = { 'cat', vim.fs.joinpath(vim.fn.stdpath("data"), 'OPENAI_API_KEY') },
 		},
 
 		ollama = {
@@ -13,7 +13,7 @@ require("gp").setup {
 
 		anthropic = {
 			endpoint = "https://api.anthropic.com/v1/messages",
-			secret = os.getenv("ANTHROPIC_API_KEY"),
+			secret = { 'cat', vim.fs.joinpath(vim.fn.stdpath("data"), 'ANTHROPIC_API_KEY') },
 		},
 	},
 }
