@@ -49,7 +49,7 @@
 			kubectl
 			kubernetes-helm
 			lazydocker
-			lens
+			inotify-tools
 			libreoffice
 			lm_sensors
 			minikube
