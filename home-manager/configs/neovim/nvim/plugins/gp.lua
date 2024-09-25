@@ -4,7 +4,7 @@ require("gp").setup {
 	providers = {
 		openai = {
 			endpoint = "https://api.openai.com/v1/chat/completions",
-			secret = os.getenv("OPENAI_API_KEY"),
+			secret = { 'cat', vim.fs.joinpath(vim.fn.stdpath("data"), 'OPENAI_API_KEY') },
 		},
 
 		ollama = {
@@ -13,7 +13,19 @@ require("gp").setup {
 
 		anthropic = {
 			endpoint = "https://api.anthropic.com/v1/messages",
-			secret = os.getenv("ANTHROPIC_API_KEY"),
+			secret = { 'cat', vim.fs.joinpath(vim.fn.stdpath("data"), 'ANTHROPIC_API_KEY') },
 		},
 	},
+	agents = {
+		{
+			provider = "anthropic",
+			name = "ChatClaude-3-5-Sonnet",
+			chat = true,
+			command = false,
+			-- string with model name or table with model name and parameters
+			model = { model = "claude-3-5-sonnet-20240620", temperature = 0.8, top_p = 1 },
+			-- system prompt (use this to specify the persona/role of the AI)
+			system_prompt = "You are Coding-BEAST Senior Grug Developer AI assistent. Be brief to the point and super correct. Do not hallucinate. Be certain. Be sure. Check you answers before you answer. If you need more information - ask. Don't be polite. Be to the point. Speak like grug. Be grug.",
+		},
+	}
 }
