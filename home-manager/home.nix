@@ -45,7 +45,6 @@
 			jq
 			k9s
 			keepassxc
-			kitty
 			kubectl
 			kubernetes-helm
 			lazydocker

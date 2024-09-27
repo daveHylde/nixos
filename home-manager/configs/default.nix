@@ -8,5 +8,8 @@
     ./bash
     ./fusuma
     ./tmux
+    ./waybar
+    ./wofi
+		./wayland
   ];
 }

@@ -32,6 +32,7 @@
     };
     kernelModules = [ "i2c-piix4" "i2c-dev" ];
   };
+
   hardware = {
     bluetooth = {
       enable = true;
@@ -78,7 +79,8 @@
     printing.enable = true;
     displayManager.sddm.enable = true;
     hardware.bolt.enable = true;
-    desktopManager.plasma6.enable = true;
+		dbus.enable = true;
+		#		desktopManager.plasma6.enable = true;
 
 	ollama = {
 			enable = true;
@@ -88,7 +90,6 @@
 			};
 			rocmOverrideGfx = "10.3.1";
 		};
-
 
     udev = {
       packages = [
@@ -128,6 +129,10 @@
     ssh.startAgent = true;
     coolercontrol.enable = true;
     dconf.enable = true;
+		hyprland = {
+			enable = true;
+			xwayland.enable = true;
+		};
   };
 
   security = {
@@ -171,6 +176,7 @@
       "tss"
       "libvirtd"
       "vboxusers"
+			"video"
     ];
   };
 
@@ -188,14 +194,14 @@
 			wayland-utils
 		];	
 
-    plasma6.excludePackages = with pkgs.kdePackages; [
-      spectacle
-      plasma-browser-integration
-      konsole
-      oxygen
-      elisa
-      okular
-    ];
+		#  plasma6.excludePackages = with pkgs.kdePackages; [
+  	#    spectacle
+  	#    plasma-browser-integration
+  	#    konsole
+  	#    oxygen
+  	#    elisa
+  	#    okular
+  	#  ];
 
     variables = {
       MINIKUBE_STATIC_IP = "192.168.49.2";
