@@ -80,16 +80,7 @@
     displayManager.sddm.enable = true;
     hardware.bolt.enable = true;
 		dbus.enable = true;
-		#		desktopManager.plasma6.enable = true;
-
-	ollama = {
-			enable = true;
-			acceleration = "rocm";
-			environmentVariables = {
-				HCC_AMDGPU_TARGET = "gfx1031";
-			};
-			rocmOverrideGfx = "10.3.1";
-		};
+		desktopManager.plasma6.enable = true;
 
     udev = {
       packages = [
@@ -194,14 +185,14 @@
 			wayland-utils
 		];	
 
-		#  plasma6.excludePackages = with pkgs.kdePackages; [
-  	#    spectacle
-  	#    plasma-browser-integration
-  	#    konsole
-  	#    oxygen
-  	#    elisa
-  	#    okular
-  	#  ];
+		plasma6.excludePackages = with pkgs.kdePackages; [
+			spectacle
+			plasma-browser-integration
+			konsole
+			oxygen
+			elisa
+			okular
+		];
 
     variables = {
       MINIKUBE_STATIC_IP = "192.168.49.2";

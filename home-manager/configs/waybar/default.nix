@@ -11,22 +11,21 @@
         modules-right = ["hyprland/workspaces"];
         modules-center = [];
         modules-left = [
-          "pulseaudio"
-					"network"
-					"cpu"
-					"memory"
-					"temperature"
 					"clock"
-					"tray"
-				];
+          "network"
+          "cpu"
+          "memory"
+          "temperature"
+          "tray"
+        ];
         "hyprland/workspaces" = {
           disable-scroll = true;
           all-outputs = true;
           format = "{name}: {icon}";
           format-icons = {
-            urgent = "";
-            focused = "";
-            default = "";
+            urgent = "💥";
+            focused = "🤖";
+            default = "💤";
           };
         };
         tray = {

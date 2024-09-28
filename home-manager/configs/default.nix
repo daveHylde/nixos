@@ -10,6 +10,6 @@
     ./tmux
     ./waybar
     ./wofi
-		./wayland
+		./hyprpaper
   ];
 }
