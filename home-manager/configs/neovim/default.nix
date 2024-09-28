@@ -61,6 +61,7 @@
 			neotest-dotnet
 			nvim-web-devicons
 			nvim-nio
+			mini-icons
 			omnisharp-extended-lsp-nvim
 			plenary-nvim
 			popup-nvim
