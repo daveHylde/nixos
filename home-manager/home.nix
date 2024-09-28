@@ -42,6 +42,9 @@
 			fzf
 			gimp
 			git
+			hyprpaper
+			grim
+			slurp
 			jq
 			k9s
 			keepassxc
@@ -113,9 +116,11 @@
 			exec-once = keepassxc
 			exec-once = openrgb --profile default --startminimized
 
-			exec-once = [workspace 2 silent] slack
 			exec-once = [workspace 2 silent] signal-desktop
+			exec-once = [workspace 2 silent] slack
 			exec-once = [workspace 2 silent] thunderbird
+			exec-once = dbus-update-activation-environment --systemd --all
+	 	  exec-once = hyprpaper
 
 
 			#############################
@@ -206,7 +211,7 @@
 
 			# https://wiki.hyprland.org/Configuring/Variables/#misc
 			misc { 
-					force_default_wallpaper = -1 # Set to 0 or 1 to disable the anime mascot wallpapers
+					force_default_wallpaper = 0 # Set to 0 or 1 to disable the anime mascot wallpapers
 					disable_hyprland_logo = false # If true disables the random hyprland logo / anime girl background. :(
 			}
 
@@ -253,9 +258,9 @@
 			$mainMod = SUPER # Sets "Windows" key as main modifier
 
 			# Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-			bind = $mainMod, Q, exec, $terminal
+			bind = $mainMod, T, exec, $terminal
 			bind = $mainMod, C, killactive,
-			bind = $mainMod, M, exit,
+			bind = $mainMod, L, exit,
 			bind = $mainMod, E, exec, $fileManager
 			bind = $mainMod, V, togglefloating,
 			bind = $mainMod, R, exec, pidof $menu && hyprctl dispatch focuswindow $menu || $menu
@@ -273,12 +278,13 @@
 			bind = $mainMod SHIFT, up, resizeactive, 0 -50
 			bind = $mainMod SHIFT, down, resizeactive, 0 50
 			bind = $mainMod SHIFT, right, resizeactive, 50 0
-			bind = $mainMod, T, togglesplit, # toggle window orientation
 			# Move windows in the workspace
 			bind = $mainMod CTRL, left, movewindow, l
 			bind = $mainMod CTRL, right, movewindow, r
 			bind = $mainMod CTRL, up, movewindow, u
 			bind = $mainMod CTRL, down, movewindow, d
+
+			bind = $mainMod SHIFT, S, exec, grim -g "$(slurp -d)" - | wl-copy
 
 			# Switch workspaces with mainMod + [0-9]
 			bind = $mainMod, 1, workspace, 1
@@ -339,18 +345,20 @@
 
 			windowrulev2 = suppressevent maximize, class:.* # You'll probably like this.
 
-			windowrulev2 = workspace 2,class:^(Slack)$
-			windowrulev2 = workspace 2,class:^(Signal)$
-			windowrulev2 = workspace 2,class:^(thunderbird)$
+			# Move applications to workspace 2
+			windowrulev2 = workspace 2 silent, class:^(Slack)$
+			windowrulev2 = workspace 2 silent, class:^(Signal)$
+			windowrulev2 = workspace 2 silent, class:^(thunderbird)$
 
-			windowrulev2 = size 50% 100%,class:^(Slack)$
-			windowrulev2 = move 0 0,class:^(Slack)$
+			# Set initial window size (optional, as Hyprland will tile them automatically)
+			windowrulev2 = size 33% 100%, class:^(Slack)$
+			windowrulev2 = size 33% 100%, class:^(Signal)$
+			windowrulev2 = size 33% 100%, class:^(thunderbird)$
 
-			windowrulev2 = size 50% 50%,class:^(Signal)$
-			windowrulev2 = move 50% 0,class:^(Signal)$
-
-			windowrulev2 = size 50% 50%,class:^(thunderbird)$
-			windowrulev2 = move 50% 50%,class:^(thunderbird)$
+			# Set the order of the windows (left to right)
+			windowrulev2 = tile, class:^(Signal)$
+			windowrulev2 = tile, class:^(Slack)$
+			windowrulev2 = tile, class:^(thunderbird)$
 		''; 
 
 	};

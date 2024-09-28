@@ -6,17 +6,16 @@
     settings = {
       mainBar = {
         layer = "top";
-        position = "right";
+        position = "bottom";
+        height = 30;
         spacing = 4;
-        modules-right = ["hyprland/workspaces"];
-        modules-center = [];
+        modules-right = ["tray" ];
+        modules-center = [ "clock" "hyprland/workspaces" ];
         modules-left = [
-					"clock"
           "network"
           "cpu"
           "memory"
           "temperature"
-          "tray"
         ];
         "hyprland/workspaces" = {
           disable-scroll = true;
