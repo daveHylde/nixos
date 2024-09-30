@@ -7,9 +7,9 @@
       mainBar = {
         layer = "top";
         position = "bottom";
-        height = 30;
+        height = 18;
         spacing = 4;
-        modules-right = ["tray" ];
+        modules-right = [ "tray" ];
         modules-center = [ "clock" "hyprland/workspaces" ];
         modules-left = [
           "network"
@@ -23,13 +23,13 @@
           format = "{name}: {icon}";
           format-icons = {
             urgent = "💥";
-            focused = "🤖";
+            active = "🤖";
             default = "💤";
           };
         };
         tray = {
-          icon-size = 21;
-          spacing = 10;
+          icon-size = 18;
+          spacing = 8;
         };
         clock = {
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";

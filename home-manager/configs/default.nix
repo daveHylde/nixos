@@ -8,8 +8,6 @@
     ./bash
     ./fusuma
     ./tmux
-    ./waybar
-    ./wofi
-		./hyprpaper
+		./hyprland
   ];
 }
