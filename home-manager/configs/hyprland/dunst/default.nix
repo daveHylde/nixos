@@ -5,12 +5,12 @@
     enable = true;
     settings = {
       global = {
-        font = "Noto Sans 11";
+        font = "SF Pro Text 11";
         markup = "full";
         format = "<b>%s</b>\n%b";
         sort = "yes";
         indicate_hidden = "yes";
-        alignment = "left";
+        alignment = "center";
         show_age_threshold = 60;
         word_wrap = "yes";
         ignore_newline = "no";
@@ -18,36 +18,37 @@
         hide_duplicate_count = false;
         geometry = "300x5-30+20";
         shrink = "no";
-        transparency = 10;
+        transparency = 15;
         idle_threshold = 120;
         monitor = 0;
         follow = "mouse";
         sticky_history = "yes";
         history_length = 20;
-        show_indicators = "yes";
+        show_indicators = "no";
         line_height = 0;
-        separator_height = 2;
-        padding = 8;
-        horizontal_padding = 8;
-        separator_color = "frame";
+        separator_height = 1;
+        padding = 12;
+        horizontal_padding = 12;
+        separator_color = "auto";
         startup_notification = false;
-        frame_width = 3;
-        frame_color = "#ebdbb2";
+        frame_width = 1;
+        frame_color = "#007AFF";
+        corner_radius = 10;
       };
       urgency_low = {
-        background = "#282828";
-        foreground = "#ebdbb2";
+        background = "#F2F2F7";
+        foreground = "#000000";
         timeout = 10;
       };
       urgency_normal = {
-        background = "#458588";
-        foreground = "#ebdbb2";
+        background = "#007AFF";
+        foreground = "#FFFFFF";
         timeout = 10;
       };
       urgency_critical = {
-        background = "#cc241d";
-        foreground = "#ebdbb2";
-        frame_color = "#fb4934";
+        background = "#FF3B30";
+        foreground = "#FFFFFF";
+        frame_color = "#FF3B30";
         timeout = 0;
       };
     };
