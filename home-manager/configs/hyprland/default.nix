@@ -247,6 +247,11 @@
 			bindel = ,XF86MonBrightnessUp, exec, brightnessctl s 10%+
 			bindel = ,XF86MonBrightnessDown, exec, brightnessctl s 10%-
 
+			# Media control
+			bind = , XF86AudioPlay, exec, playerctl play-pause
+			bind = , XF86AudioNext, exec, playerctl next
+			bind = , XF86AudioPrev, exec, playerctl previous
+			bind = , XF86AudioStop, exec, playerctl stop
 			##############################
 			### WINDOWS AND WORKSPACES ###
 			##############################

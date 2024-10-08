@@ -9,7 +9,6 @@
 		defaultEditor = true;
 		viAlias = true;
 		vimAlias = true;
-		package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
 
 		extraLuaPackages =  luaPkgs: with pkgs.luajitPackages; [
 				lua-curl
@@ -62,7 +61,6 @@
 			nvim-web-devicons
 			nvim-nio
 			mini-icons
-			omnisharp-extended-lsp-nvim
 			plenary-nvim
 			popup-nvim
 			telescope-fzf-native-nvim
@@ -228,31 +226,31 @@
 						p.tree-sitter-yaml
 				]));
 		  config = toLuaFile ./nvim/plugins/treesitter.lua;
-		}
-		{
-			plugin = gruvbox-nvim;
-			config = "colorscheme gruvbox";
-		}
-		{
-			plugin = comment-nvim;
-			config = toLua "require(\"Comment\").setup()";
-		} 
-		{
-			plugin = neo-tree-nvim;
-			config = toLuaFile ./nvim/plugins/neotree.lua;
-		} 
-		{
-			plugin = telescope-nvim;
-			config = toLuaFile ./nvim/plugins/telescope.lua;
-		}
-		{
-			plugin = nvim-cmp;
-			config = toLuaFile ./nvim/plugins/cmp.lua;
-		}
-		{
-			plugin = nvim-lspconfig;
-			config = toLuaFile ./nvim/plugins/lsp.lua;
-		}
+			}
+			{
+				plugin = gruvbox-nvim;
+				config = "colorscheme gruvbox";
+			}
+			{
+				plugin = comment-nvim;
+				config = toLua "require(\"Comment\").setup()";
+			} 
+			{
+				plugin = neo-tree-nvim;
+				config = toLuaFile ./nvim/plugins/neotree.lua;
+			} 
+			{
+				plugin = telescope-nvim;
+				config = toLuaFile ./nvim/plugins/telescope.lua;
+			}
+			{
+				plugin = nvim-cmp;
+				config = toLuaFile ./nvim/plugins/cmp.lua;
+			}
+			{
+				plugin = nvim-lspconfig;
+				config = toLuaFile ./nvim/plugins/lsp.lua;
+			}
 		];
 	};
 }
