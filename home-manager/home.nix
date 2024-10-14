@@ -42,14 +42,17 @@
 			fzf
 			gimp
 			git
+			gwenview
+			hyprpaper
+			hyprshot
+			pinta
+			inotify-tools
 			jq
 			k9s
 			keepassxc
-			kitty
 			kubectl
 			kubernetes-helm
 			lazydocker
-			lens
 			libreoffice
 			lm_sensors
 			minikube
@@ -57,7 +60,6 @@
 			nerdfonts
 			netcoredbg
 			nodejs
-			ollama
 			openrgb
 			openssl
 			postgresql
@@ -80,5 +82,5 @@
 			yubioath-flutter
 			zip
 		];
-  };
+	};
 }

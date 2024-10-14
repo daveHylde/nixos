@@ -8,5 +8,6 @@
     ./bash
     ./fusuma
     ./tmux
+		./hyprland
   ];
 }

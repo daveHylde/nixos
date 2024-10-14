@@ -20,7 +20,7 @@
 
       set-option -g default-terminal "screen-256color"
       set-option -sa terminal-features ',screen-256color:RGB'
-			set-option -sg escape-time 10
+      set-option -sg escape-time 10
 
       set -g prefix C-t
       set -g allow-passthrough on
@@ -29,6 +29,9 @@
 
       set -g @ressurect-strategy-vim 'session'
       set -g @continuum-restore 'on'
+
+      # Enable vi mode
+      set-window-option -g mode-keys vi
 
       # Smart pane switching with awareness of Vim splits.
       # See: https://github.com/christoomey/vim-tmux-navigator
@@ -43,6 +46,11 @@
           "bind-key -n 'C-p' if-shell \"$is_vim\" 'send-keys C-p'  'select-pane -l'"
       if-shell -b '[ "$(echo "$tmux_version >= 3.0" | bc)" = 1 ]' \
           "bind-key -n 'C-p' if-shell \"$is_vim\" 'send-keys C-p\\'  'select-pane -l'"
+
+      # Vim-like bindings for copy mode
+      bind-key -T copy-mode-vi v send-keys -X begin-selection
+      bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+      bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
 
       bind-key -T copy-mode-vi 'C-Left' select-pane -L
       bind-key -T copy-mode-vi 'C-Down' select-pane -D
