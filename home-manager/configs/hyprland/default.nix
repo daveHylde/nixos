@@ -5,7 +5,8 @@
     ./waybar
     ./wofi
 		./hyprpaper
-		./dunst
+		./swaync
+		./hyprlock
   ];
 
 	home.file."/home/${user}/.config/hypr/hyprland.conf".text = ''
@@ -37,10 +38,14 @@
 			# Or execute your favorite apps at launch like this:
 
 			exec-once = waybar
-			exec-once = dunst
+			exec-once = swaync
 			exec-once = keepassxc
 			exec-once = openrgb --profile default --startminimized
+			exec-once = nm-applet --indicator
+			exec-once = blueman-applet
 
+			exec-once = [workspace 1 silent] firefox
+			exec-once = [workspace 1 silent] $terminal
 			exec-once = [workspace 2 silent] slack
 			exec-once = [workspace 2 silent] signal-desktop
 			exec-once = [workspace 2 silent] thunderbird
@@ -56,6 +61,7 @@
 
 			env = XCURSOR_SIZE,24
 			env = HYPRCURSOR_SIZE,24
+			env = XCURSOR_THEME,Kora
 
 
 			#####################
@@ -185,12 +191,13 @@
 			# Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 			bind = $mainMod, T, exec, $terminal
 			bind = $mainMod, C, killactive,
-			bind = $mainMod, L, exit,
+			bind = $mainMod SHIFT, Q, exit,
 			bind = $mainMod, E, exec, $fileManager
 			bind = $mainMod, F, togglefloating,
 			bind = $mainMod, R, exec, pidof $menu && hyprctl dispatch focuswindow $menu || $menu
 			bind = $mainMod, P, pseudo, # dwindle
 			bind = $mainMod, O, togglesplit, # dwindle
+			bind = $mainMod, L, exec, hyprlock
 
 			# Move focus with mainMod + arrow keys
 			bind = $mainMod, left, movefocus, l
@@ -248,10 +255,11 @@
 			bindel = ,XF86MonBrightnessDown, exec, brightnessctl s 10%-
 
 			# Media control
-			bind = , XF86AudioPlay, exec, playerctl play-pause
-			bind = , XF86AudioNext, exec, playerctl next
-			bind = , XF86AudioPrev, exec, playerctl previous
-			bind = , XF86AudioStop, exec, playerctl stop
+      bindl = , XF86AudioPlay, exec, playerctl play-pause
+	    bindl = , XF86AudioNext, exec, playerctl next
+			bindl = , XF86AudioPrev, exec, playerctl previous
+			bindl = , XF86AudioStop, exec, playerctl stop
+
 			##############################
 			### WINDOWS AND WORKSPACES ###
 			##############################
@@ -266,20 +274,5 @@
 			# windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
 
 			windowrulev2 = suppressevent maximize, class:.* # You'll probably like this.
-
-			# Move applications to workspace 2
-			windowrulev2 = workspace 2 silent, class:^(Slack)$
-			windowrulev2 = workspace 2 silent, class:^(Signal)$
-			windowrulev2 = workspace 2 silent, class:^(thunderbird)$
-
-			# Set initial window size (optional, as Hyprland will tile them automatically)
-			windowrulev2 = size 33% 100%, class:^(Slack)$
-			windowrulev2 = size 33% 100%, class:^(Signal)$
-			windowrulev2 = size 33% 100%, class:^(thunderbird)$
-
-			# Set the order of the windows (left to right)
-			windowrulev2 = tile, class:^(Signal)$
-			windowrulev2 = tile, class:^(Slack)$
-			windowrulev2 = tile, class:^(thunderbird)$
 	''; 
 }

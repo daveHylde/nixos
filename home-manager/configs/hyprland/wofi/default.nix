@@ -20,7 +20,6 @@
       gtk_dark = true;
       layer = "overlay";
       term = "kitty";
-      dynamic_lines = true;
     };
     style = ''
       window {

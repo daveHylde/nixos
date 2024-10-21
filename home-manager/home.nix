@@ -23,6 +23,18 @@
     };
   };
 
+	gtk = {
+	  enable = true;
+	  theme = {
+	    name = "Graphite-Dark";
+	    package = pkgs.graphite-gtk-theme;
+	  };
+		#		iconTheme = {
+		#			name = "Kora";
+		#			package = pkgs.kora-icon-theme;
+		#		};
+	};
+
   home = {
     username = "${user}";
     homeDirectory = "/home/${user}";
@@ -32,7 +44,9 @@
 			DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_8_0}";
 		};
 
+
     packages = with pkgs; [
+			blueman
 			cargo
 			chromium
 			dotnetCorePackages.sdk_8_0
@@ -59,9 +73,11 @@
 			mysql80
 			nerdfonts
 			netcoredbg
+			networkmanagerapplet
 			nodejs
 			openrgb
 			openssl
+			playerctl
 			postgresql
 			powershell
 			python3Full
