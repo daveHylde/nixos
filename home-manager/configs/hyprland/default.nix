@@ -44,8 +44,8 @@
 			exec-once = nm-applet --indicator
 			exec-once = blueman-applet
 
-			exec-once = [workspace 1 silent] firefox
 			exec-once = [workspace 1 silent] $terminal
+			exec-once = [workspace 1 silent] firefox
 			exec-once = [workspace 2 silent] slack
 			exec-once = [workspace 2 silent] signal-desktop
 			exec-once = [workspace 2 silent] thunderbird
