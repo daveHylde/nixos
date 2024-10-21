@@ -29,10 +29,10 @@
 	    name = "Graphite-Dark";
 	    package = pkgs.graphite-gtk-theme;
 	  };
-		#		iconTheme = {
-		#			name = "Kora";
-		#			package = pkgs.kora-icon-theme;
-		#		};
+		iconTheme = {
+			name = "Kora";
+			package = pkgs.kora-icon-theme;
+		};
 	};
 
   home = {
