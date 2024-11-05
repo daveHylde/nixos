@@ -5,5 +5,8 @@
     shellIntegration = {
       enableBashIntegration = true;
     };
+	  extraConfig = ''
+			background_opacity 0.9
+		'';
   };
 }
