@@ -68,7 +68,6 @@
   };
 
   time.timeZone = "Europe/Oslo";
-  i18n.defaultLocale = "nb_NO.UTF-8";
   console.keyMap = "no";
 
 	systemd.services.lactd.wantedBy = ["multi-user.target"];
