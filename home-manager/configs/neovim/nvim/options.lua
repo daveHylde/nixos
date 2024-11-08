@@ -37,4 +37,7 @@ vim.o.wildignorecase = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
+vim.o.foldmethod = 'expr'
+vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
+
 vim.o.pumheight = 10
