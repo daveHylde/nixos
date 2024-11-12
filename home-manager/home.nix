@@ -56,6 +56,7 @@
 			gimp
 			git
 			gwenview
+			home-manager
 			hyprpaper
 			hyprshot
 			pinta
