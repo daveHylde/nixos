@@ -45,6 +45,7 @@
 
 
     packages = with pkgs; [
+			audacity
 			blueman
 			cargo
 			chromium
