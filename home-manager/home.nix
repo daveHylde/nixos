@@ -40,7 +40,7 @@
     stateVersion = "24.05";
 
 		sessionVariables = {
-			DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_8_0}";
+			DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_9_0}";
 		};
 
 
@@ -49,7 +49,7 @@
 			blueman
 			cargo
 			chromium
-			dotnetCorePackages.sdk_8_0
+			dotnetCorePackages.sdk_9_0
 			figma-linux
 			firefox
 			flameshot
@@ -71,7 +71,6 @@
 			libreoffice
 			lm_sensors
 			minikube
-			mysql80
 			nerdfonts
 			netcoredbg
 			networkmanagerapplet
