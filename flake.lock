@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1731235328,
-        "narHash": "sha256-NjavpgE9/bMe/ABvZpyHIUeYF1mqR5lhaep3wB79ucs=",
+        "lastModified": 1732482255,
+        "narHash": "sha256-GUffLwzawz5WRVfWaWCg78n/HrBJrOG7QadFY6rtV8A=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "60bb110917844d354f3c18e05450606a435d2d10",
+        "rev": "a9953635d7f34e7358d5189751110f87e3ac17da",
         "type": "github"
       },
       "original": {
@@ -22,11 +22,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1731139594,
-        "narHash": "sha256-IigrKK3vYRpUu+HEjPL/phrfh7Ox881er1UEsZvw9Q4=",
+        "lastModified": 1732014248,
+        "narHash": "sha256-y/MEyuJ5oBWrWAic/14LaIr/u5E0wRVzyYsouYY3W6w=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "76612b17c0ce71689921ca12d9ffdc9c23ce40b2",
+        "rev": "23e89b7da85c3640bbc2173fe04f4bd114342367",
         "type": "github"
       },
       "original": {
@@ -39,11 +39,11 @@
     "plugin-conform": {
       "flake": false,
       "locked": {
-        "lastModified": 1731295166,
-        "narHash": "sha256-i36OS+hs8wd3SZgToLh+vkn1gNt3pvzGgCHalASsywA=",
+        "lastModified": 1732487744,
+        "narHash": "sha256-GmKhbXWw61qCkYYvQeYOA590DmSfyQi4Ec3REGSLqq8=",
         "owner": "stevearc",
         "repo": "conform.nvim",
-        "rev": "8c354323201d04530727d8bdcc4669791ee082ef",
+        "rev": "a203480a350b03092e473bf3001733d547160a73",
         "type": "github"
       },
       "original": {
@@ -103,11 +103,11 @@
     "plugin-roslyn-lsp": {
       "flake": false,
       "locked": {
-        "lastModified": 1731267563,
-        "narHash": "sha256-fmpNVp0e5x5hbWSoy032FxiOqWXs1wytX9swGChYhhY=",
+        "lastModified": 1732027019,
+        "narHash": "sha256-iHNhMCw7VU/nyPOEJNM+Sr1w4rDqwBLe5oYM0zGDoRQ=",
         "owner": "seblj",
         "repo": "roslyn.nvim",
-        "rev": "6122b4c6216d7e6a0fd384038eae4d0f031fbc50",
+        "rev": "31113dcd48d22b11850c832349b79bb7698d814a",
         "type": "github"
       },
       "original": {
@@ -119,11 +119,11 @@
     "plugin-tailwind-tools": {
       "flake": false,
       "locked": {
-        "lastModified": 1730643973,
-        "narHash": "sha256-y/i7US08H1AI7XOJmVH+UtWDGvX/ze07KkPbgzsHjZM=",
+        "lastModified": 1731720825,
+        "narHash": "sha256-C9p+yRcZdxYIXPO6FFrHdY0Kk91MJkxQynA+YFavSMU=",
         "owner": "luckasRanarison",
         "repo": "tailwind-tools.nvim",
-        "rev": "cfd8275caa16749b130c0eae2f737c5f66620efc",
+        "rev": "3703e162d819a04b128902c508276553dae0dfb8",
         "type": "github"
       },
       "original": {
