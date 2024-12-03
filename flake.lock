@@ -116,6 +116,22 @@
         "type": "github"
       }
     },
+    "plugin-rzls": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1733054466,
+        "narHash": "sha256-WmmHeQv+y5brDgQKEaqtocQ2FX70bSfm2Ag196gifYI=",
+        "owner": "tris203",
+        "repo": "rzls.nvim",
+        "rev": "642666b9af56a42bb119de4f7a95d7d50fd9bf6d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tris203",
+        "repo": "rzls.nvim",
+        "type": "github"
+      }
+    },
     "plugin-tailwind-tools": {
       "flake": false,
       "locked": {
@@ -157,6 +173,7 @@
         "plugin-gp": "plugin-gp",
         "plugin-nx": "plugin-nx",
         "plugin-roslyn-lsp": "plugin-roslyn-lsp",
+        "plugin-rzls": "plugin-rzls",
         "plugin-tailwind-tools": "plugin-tailwind-tools",
         "plugin-vim-razor": "plugin-vim-razor"
       }

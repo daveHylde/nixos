@@ -14,6 +14,7 @@ require('telescope').setup({
 		}
 	},
 	defaults = {
+		file_ignore_patterns = { '%__virtual.cs$' },
 		mappings = {
 			i = {
 				["<Esc>"] = actions.close, -- Close on Esc in insert mode

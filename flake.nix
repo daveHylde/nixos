@@ -6,6 +6,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+		plugin-rzls = {
+			url = "github:tris203/rzls.nvim";
+			flake = false;
+		};
 		plugin-roslyn-lsp = {
 			url = "github:seblj/roslyn.nvim";
 			flake = false;

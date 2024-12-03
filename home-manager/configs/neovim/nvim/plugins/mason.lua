@@ -18,5 +18,7 @@ mason.setup({
 		"vtsls",
 		"xmlformatter",
 		"yaml-language-server",
+		"roslyn",
+		"rzls"
 	},
 })

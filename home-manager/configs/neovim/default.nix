@@ -44,6 +44,7 @@
 		'';
 
 		plugins = with pkgs.vimPlugins; [
+			markdown-preview-nvim
 			advanced-git-search-nvim
 			FixCursorHold-nvim
 			SchemaStore-nvim
@@ -105,6 +106,13 @@
 			}
 			{
 				plugin = (pkgs.vimUtils.buildVimPlugin {
+					name = "rzls";
+					src = inputs.plugin-rzls;
+				});
+				config = toLua "require(\"rzls\").setup{}";
+			}
+			{
+				plugin = (pkgs.vimUtils.buildVimPlugin {
 					name = "roslyn";
 					src = inputs.plugin-roslyn-lsp;
 				});
@@ -139,10 +147,6 @@
 				config = toLuaFile ./nvim/plugins/dap.lua;
 			}
 			{
-				plugin = harpoon2;
-				config = toLua "require(\"harpoon\"):setup()";
-			}
-			{
 				plugin = neotest;
 				config = toLuaFile ./nvim/plugins/neotest.lua;
 			}
@@ -156,40 +160,11 @@
 			}
 			{
 				plugin=	trouble-nvim;
-				config = toLua "require(\"trouble\").setup()";
-			}
-			{
-				plugin=markdown-preview-nvim;
-				config = toLua "require(\"trouble\").setup()";
-				
-			}
-			{
-				plugin=	nvim-dap-virtual-text;
-				config = toLua "require(\"nvim-dap-virtual-text\").setup()";
-			}
-			{
-				plugin = lualine-nvim;
-				config = toLua "require(\"lualine\").setup()";
-			}
-			{
-				plugin = bufferline-nvim;
-				config = toLua "require(\"bufferline\").setup()";
+				config = toLuaFile ./nvim/plugins/trouble.lua;
 			}
 			{
 				plugin = actions-preview-nvim;
 				config = toLuaFile ./nvim/plugins/actions-preview.lua;
-			}
-			{
-				plugin = gitsigns-nvim;
-				config = toLua "require(\"gitsigns\").setup()";
-			}
-			{
-				plugin = which-key-nvim;
-				config = toLua "require(\"which-key\").setup()";
-			}
-			{
-				plugin = mason-nvim;
-				config = toLua "require(\"mason\").setup()";
 			}
 			{
 				plugin = mason-tool-installer-nvim;
@@ -198,6 +173,26 @@
 			{
 				plugin = image-nvim;
 				config = toLuaFile ./nvim/plugins/image.lua;
+			}
+			{
+				plugin = neo-tree-nvim;
+				config = toLuaFile ./nvim/plugins/neotree.lua;
+			} 
+			{
+				plugin = telescope-nvim;
+				config = toLuaFile ./nvim/plugins/telescope.lua;
+			}
+			{
+				plugin = nvim-cmp;
+				config = toLuaFile ./nvim/plugins/cmp.lua;
+			}
+			{
+				plugin = nvim-lspconfig;
+				config = toLuaFile ./nvim/plugins/lsp.lua;
+			}
+			{
+				plugin = lualine-nvim;
+				config = toLuaFile ./nvim/plugins/lualine.lua;
 			}
 			{
 				plugin = (nvim-treesitter.withPlugins (p: [
@@ -228,6 +223,30 @@
 		  config = toLuaFile ./nvim/plugins/treesitter.lua;
 			}
 			{
+				plugin = harpoon2;
+				config = toLua "require(\"harpoon\"):setup()";
+			}
+			{
+				plugin=	nvim-dap-virtual-text;
+				config = toLua "require(\"nvim-dap-virtual-text\").setup()";
+			}
+			{
+				plugin = bufferline-nvim;
+				config = toLua "require(\"bufferline\").setup()";
+			}
+			{
+				plugin = gitsigns-nvim;
+				config = toLua "require(\"gitsigns\").setup()";
+			}
+			{
+				plugin = which-key-nvim;
+				config = toLua "require(\"which-key\").setup()";
+			}
+			{
+				plugin = mason-nvim;
+				config = toLua "require(\"mason\").setup()";
+			}
+			{
 				plugin = gruvbox-nvim;
 				config = "colorscheme gruvbox";
 			}
@@ -235,22 +254,6 @@
 				plugin = comment-nvim;
 				config = toLua "require(\"Comment\").setup()";
 			} 
-			{
-				plugin = neo-tree-nvim;
-				config = toLuaFile ./nvim/plugins/neotree.lua;
-			} 
-			{
-				plugin = telescope-nvim;
-				config = toLuaFile ./nvim/plugins/telescope.lua;
-			}
-			{
-				plugin = nvim-cmp;
-				config = toLuaFile ./nvim/plugins/cmp.lua;
-			}
-			{
-				plugin = nvim-lspconfig;
-				config = toLuaFile ./nvim/plugins/lsp.lua;
-			}
 		];
 	};
 }

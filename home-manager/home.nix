@@ -81,7 +81,6 @@
 			postgresql
 			powershell
 			python3Full
-			roslyn-ls
 			signal-desktop
 			slack
 			spotify
