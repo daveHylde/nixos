@@ -1,5 +1,4 @@
 local ros = require('roslyn')
-local lsp = require('lspconfig')
 
 local on_attach = function(_, bufnr)
 	local bufmap = function(keys, func)
@@ -33,10 +32,6 @@ ros.setup {
 	config = {
 		on_attach = on_attach,
 		capabilities = capabilities
-	},
-	exe = {
-		"dotnet",
-		"/etc/profiles/per-user/david/lib/roslyn-ls/Microsoft.CodeAnalysis.LanguageServer.dll",
 	},
 	filewatching = false,
 

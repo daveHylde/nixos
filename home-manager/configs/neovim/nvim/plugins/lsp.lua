@@ -34,12 +34,6 @@ require('lspconfig.configs').roslyn = {
 		config = {
 			filetypes = { 'cs', 'razor' },
 			root_dir = lsp.util.root_pattern("*.sln", "*.csproj", ".git"),
-			cmd = {
-				"dotnet",
-				"/etc/profiles/per-user/david/lib/roslyn-ls/Microsoft.CodeAnalysis.LanguageServer.dll",
-				"--logLevel=Information",
-				"--extensionLogDirectory=/tmp"
-			},
 			settings = {
 				["csharp|inlay_hints"] = {
 					csharp_enable_inlay_hints_for_implicit_object_creation = true,
