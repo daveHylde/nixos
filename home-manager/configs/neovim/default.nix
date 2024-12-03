@@ -44,6 +44,7 @@
 		'';
 
 		plugins = with pkgs.vimPlugins; [
+			advanced-git-search-nvim
 			FixCursorHold-nvim
 			SchemaStore-nvim
 			cmp-buffer
@@ -53,7 +54,6 @@
 			cmp-nvim-lsp-signature-help
 			editorconfig-nvim
 			friendly-snippets
-			lazygit-nvim
 			lualine-nvim
 			luasnip
 			lspkind-nvim

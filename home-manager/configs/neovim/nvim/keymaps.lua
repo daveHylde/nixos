@@ -30,7 +30,6 @@ map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
 map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
 
 -- Git
-map({ "n", "v" }, "<leader>gg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
 map({ "n", "v" }, "<leader>gp", "<cmd>Gitsigns preview_hunk_inline<cr>", { desc = "View hunk change" })
 map({ "n", "v" }, "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>", { desc = "Reset hunk" })
 map({ "n", "v" }, "<leader>gb", "<cmd>Gitsigns blame_line<cr>", { desc = "Blame line" })
@@ -61,15 +60,18 @@ map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
 map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
 
 -- Telescope
+local builtinTele = require('telescope.builtin')
 map("n", "<leader><space>", "<cmd>Telescope find_files<cr>", { desc = "Find Files" })
 map("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
 	{ desc = "Live Grep Args" })
 map("n", "<leader>fm", "<cmd>Telescope media_files<cr>", { desc = "Media Files" })
 map("n", "<leader>fq", "<cmd>Telescope quickfix<cr>", { desc = "Quickfix" })
 map("n", "<leader>fc", "<cmd>Telescope resume<cr>", { desc = "Resume" })
-map("n", "<leader>fc", "<cmd>Telescope resume<cr>", { desc = "Resume" })
-map('n', '<leader>fw', function() require('telescope.builtin').grep_string({ search = vim.fn.expand("<cword>") }) end,
-	{ noremap = true, silent = true, desc = "Grep current word" })
+map("n", "<leader>fu", "<cmd>AdvancedGitSearch<cr>", { desc = "AdvancedGitSearch" })
+map("n", "<leader>fb", builtinTele.buffers, { desc = "Buffers" })
+map("n", "<leader>fs", builtinTele.lsp_document_symbols, { desc = "LSP symbols" })
+map("n", "<leader>fo", builtinTele.oldfiles, { desc = "Old files" })
+map('n', '<leader>fw', builtinTele.grep_string, { noremap = true, silent = true, desc = "Grep current word" })
 -- nx
 map("n", "<leader>nx", "<cmd>Telescope nx actions<CR>", {})
 map("n", "<leader>ng", "<cmd>Telescope nx generators<CR>", {})
