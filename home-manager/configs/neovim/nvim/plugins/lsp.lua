@@ -77,7 +77,7 @@ lsp.angularls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
 	root_dir = util.root_pattern("package.json", "angular.json", "project.json"), -- This is for monorepo's
-	filetypes = { 'typescript', 'html', 'typescriptreact', 'typescript.tsx', 'angular.html', 'angular' }
+	filetypes = { 'typescript', 'angular.html', 'angular' }
 }
 lsp.vtsls.setup {
 	capabilities = capabilities,

@@ -1,4 +1,4 @@
-local ros = require('roslyn')
+local rzls = require('rzls')
 
 local on_attach = function(_, bufnr)
 	local bufmap = function(keys, func)
@@ -28,34 +28,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-ros.setup {
-	-- args = {
-	-- 	'--logLevel=Information',
-	-- 	'--extensionLogDirectory=' .. vim.fs.dirname(vim.lsp.get_log_path()),
-	-- 	'--razorSourceGenerator=' .. vim.fs.joinpath(
-	-- 		vim.fn.stdpath 'data' --[[@as string]],
-	-- 		'mason',
-	-- 		'packages',
-	-- 		'roslyn',
-	-- 		'libexec',
-	-- 		'Microsoft.CodeAnalysis.Razor.Compiler.dll'
-	-- 	),
-	-- 	'--razorDesignTimePath=' .. vim.fs.joinpath(
-	-- 		vim.fn.stdpath 'data' --[[@as string]],
-	-- 		'mason',
-	-- 		'packages',
-	-- 		'rzls',
-	-- 		'libexec',
-	-- 		'Targets',
-	-- 		'Microsoft.NET.Sdk.Razor.DesignTime.targets'
-	-- 	),
-	-- },
-	config = {
-		on_attach = on_attach,
-		capabilities = capabilities,
-		--	handlers = require 'rzls.roslyn_handlers',
-	},
-	filewatching = false,
-
-	choose_sln = nil,
+rzls.setup {
+	on_attach = on_attach,
+	capabilities = capabilities
 }
