@@ -1,13 +1,7 @@
-{ pkgs, ... }: 
-
 {
   programs.kitty = {
     enable = true;
     themeFile = "Obsidian";
-    font = {
-      name = "Zed Mono";
-			package = pkgs.nerd-fonts.zed-mono;
-		};
     shellIntegration = {
       enableBashIntegration = true;
     };

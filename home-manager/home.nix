@@ -71,10 +71,7 @@
 			libreoffice
 			lm_sensors
 			minikube
-			nerd-fonts.agave
-			nerd-fonts.symbols-only
-			nerd-fonts.zed-mono
-			nerd-fonts.fira-code
+			nerdfonts
 			netcoredbg
 			networkmanagerapplet
 			nodejs

@@ -104,13 +104,13 @@
 				});
 				config = toLuaFile ./nvim/plugins/nx.lua;
 			}
-			# {
-			# 	plugin = (pkgs.vimUtils.buildVimPlugin {
-			# 		name = "rzls";
-			# 		src = inputs.plugin-rzls;
-			# 	});
-			# 	config = toLuaFile ./nvim/plugins/rzls.lua;
-			# }
+			{
+				plugin = (pkgs.vimUtils.buildVimPlugin {
+					name = "rzls";
+					src = inputs.plugin-rzls;
+				});
+				config = toLuaFile ./nvim/plugins/rzls.lua;
+			}
 			{
 				plugin = (pkgs.vimUtils.buildVimPlugin {
 					name = "roslyn";
