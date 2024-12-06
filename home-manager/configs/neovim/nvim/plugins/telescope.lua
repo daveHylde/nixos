@@ -1,20 +1,42 @@
 local actions = require('telescope.actions')
 
-local function format_path(_, path)
-	local tail = require("telescope.utils").path_tail(path)
-	local shortened_path = path:gsub("(.*/)(.*)", "%1")
-	return string.format("%s ~ %s", tail, shortened_path)
-end
-
 require('telescope').setup({
-	pickers = {
-		find_files = {
-			find_command = { 'rg', '--files', '--iglob', '!.git', '--hidden' },
-			path_display = format_path,
-		}
-	},
 	defaults = {
-		file_ignore_patterns = { '%__virtual.cs$' },
+		path_display = {
+			filename_first = {
+				reverse_directories = true
+			}
+		},
+		sorting_strategy = "ascending",
+		layout_config = {
+			horizontal = {
+				prompt_position = "top",
+				preview_width = 0.67,
+			},
+			width = 0.98,
+			height = 0.98,
+		},
+		file_ignore_patterns = {
+			'%__virtual.cs$',
+			'node_modules',
+			'dist',
+			'.angular',
+			'tmp',
+			'.nx',
+			'.git',
+			'.idea',
+			'build',
+			'out',
+			'target',
+			'vendor',
+			'.cache',
+			'.DS_Store',
+			'%.o',
+			'%.a',
+			'%.so',
+			'%.pyc',
+			'__pycache__'
+		},
 		mappings = {
 			i = {
 				["<Esc>"] = actions.close, -- Close on Esc in insert mode

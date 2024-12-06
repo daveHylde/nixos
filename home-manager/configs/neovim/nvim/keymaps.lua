@@ -71,6 +71,7 @@ map("n", "<leader>fu", "<cmd>AdvancedGitSearch<cr>", { desc = "AdvancedGitSearch
 map("n", "<leader>fb", builtinTele.buffers, { desc = "Buffers" })
 map("n", "<leader>fs", builtinTele.lsp_document_symbols, { desc = "LSP symbols" })
 map("n", "<leader>fo", builtinTele.oldfiles, { desc = "Old files" })
+map("n", "<leader>fh", "<cmd>Telescope find_files hidden=true no_ignore=true<cr>", { desc = "Find hidden files" })
 map('n', '<leader>fw', builtinTele.grep_string, { noremap = true, silent = true, desc = "Grep current word" })
 -- nx
 map("n", "<leader>nx", "<cmd>Telescope nx actions<CR>", {})
