@@ -1,4 +1,9 @@
 local tree = require('neo-tree')
+local events = require("neo-tree.events")
+
+local function on_move(data)
+	require('snacks').rename.on_rename_file(data.source, data.destination)
+end
 
 tree.setup({
 	filesystem = {
@@ -11,12 +16,13 @@ tree.setup({
 			hide_gitignored = false,
 		},
 	},
+	event_handlers = {
+		{ event = events.FILE_MOVED,   handler = on_move },
+		{ event = events.FILE_RENAMED, handler = on_move },
+	},
 	window = {
 		mappings = {
 			["P"] = { "toggle_preview", config = { use_float = false, use_image_nvim = true } },
 		},
 	},
 })
-
---local events = require("neo-tree.events")
---events.fire_event(events.GIT_EVENT)

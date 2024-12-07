@@ -32,7 +32,7 @@ map("v", "<A-k>", function() vim.cmd("m '<-2<cr>gv=gv") end, { desc = "Move Up" 
 -- Gitsigns
 map({ "n", "v" }, "<leader>gp", "<cmd>Gitsigns preview_hunk_inline<cr>", { desc = "View hunk change" })
 map({ "n", "v" }, "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>", { desc = "Reset hunk" })
-map({ "n", "v" }, "<leader>gb", "<cmd>Gitsigns blame_line<cr>", { desc = "Blame line" })
+-- map({ "n", "v" }, "<leader>gb", "<cmd>Gitsigns blame_line<cr>", { desc = "Blame line" })
 map({ "n", "v" }, "<leader>gB", "<cmd>Gitsigns blame<cr>", { desc = "Blame file" })
 
 -- buffer
@@ -82,6 +82,7 @@ map({ "n", "v" }, "<leader>gf", snacks.lazygit.log_file, { desc = "Lazygit file 
 map({ "n", "v" }, "<leader>bd", snacks.bufdelete.delete, { desc = "Delete buffer" })
 map({ "n", "v" }, "<leader>bo", snacks.bufdelete.other, { desc = "Delete other buffers" })
 map({ "n", "v" }, "<leader>ba", snacks.bufdelete.all, { desc = "Delete all buffers" })
+map({ "n", "v" }, "<leader>gb", snacks.git.blame_line, { desc = "Blame line" })
 
 -- Neotree
 map({ "n", "v" }, "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Toggle Neotree" })
@@ -259,7 +260,6 @@ map("v", "<C-g>wv", ":<C-u>'<,'>GpWhisperVnew<cr>", keymapOptions("Visual Whispe
 map("v", "<C-g>wt", ":<C-u>'<,'>GpWhisperTabnew<cr>", keymapOptions("Visual Whisper Tab"))
 
 -- harpoon
-
 local harpoon = require("harpoon")
 map("n", "<leader>hn", function() harpoon:list():replace_at(1) end)
 map("n", "<leader>he", function() harpoon:list():replace_at(2) end)
