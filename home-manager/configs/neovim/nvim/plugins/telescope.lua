@@ -11,10 +11,10 @@ require('telescope').setup({
 		layout_config = {
 			horizontal = {
 				prompt_position = "top",
-				preview_width = 0.67,
+				preview_width = 0.65,
 			},
-			width = 0.98,
-			height = 0.98,
+			width = 1,
+			height = 1,
 		},
 		file_ignore_patterns = {
 			'%__virtual.cs$',

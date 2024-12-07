@@ -29,13 +29,11 @@ map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
 map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
 map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
 
--- Git
+-- Gitsigns
 map({ "n", "v" }, "<leader>gp", "<cmd>Gitsigns preview_hunk_inline<cr>", { desc = "View hunk change" })
 map({ "n", "v" }, "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>", { desc = "Reset hunk" })
 map({ "n", "v" }, "<leader>gb", "<cmd>Gitsigns blame_line<cr>", { desc = "Blame line" })
 map({ "n", "v" }, "<leader>gB", "<cmd>Gitsigns blame<cr>", { desc = "Blame file" })
-map({ "n", "v" }, "<leader>gf", function() require("telescope").extensions.git_file_history.git_file_history() end,
-	{ desc = "File History" })
 
 -- buffer
 map({ "n", "v" }, "<leader>bd", ":bd!<cr>", { desc = "Delete buffer" })
@@ -78,6 +76,14 @@ map("n", "<leader>nx", "<cmd>Telescope nx actions<CR>", {})
 map("n", "<leader>ng", "<cmd>Telescope nx generators<CR>", {})
 map("n", "<leader>nm", "<cmd>Telescope nx run_many<CR>", {})
 map("n", "<leader>na", "<cmd>Telescope nx affected<CR>", {})
+
+-- Snacks
+local snacks = require('snacks')
+map({ "n", "v" }, "<leader>mx", snacks.notifier.hide, { desc = "Hide notification" })
+map({ "n", "v" }, "<leader>mh", snacks.notifier.show_history, { desc = "Notification history" })
+map({ "n", "v" }, "<leader>gg", snacks.lazygit.open, { desc = "Lazygit" })
+map({ "n", "v" }, "<leader>gf", snacks.lazygit.log_file, { desc = "Lazygit file history" })
+
 
 -- Neotree
 map({ "n", "v" }, "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Toggle Neotree" })

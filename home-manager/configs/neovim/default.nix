@@ -155,8 +155,12 @@
 				config = toLuaFile ./nvim/plugins/alpha.lua;
 			}
 			{
-				plugin=	nvim-notify;
-				config = toLuaFile ./nvim/plugins/notify.lua;
+				plugin=	noice-nvim;
+				config = toLuaFile ./nvim/plugins/noice.lua;
+			}
+			{
+				plugin=	snacks-nvim;
+				config = toLuaFile ./nvim/plugins/snacks.lua;
 			}
 			{
 				plugin=	trouble-nvim;
