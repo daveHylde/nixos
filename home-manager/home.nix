@@ -75,7 +75,7 @@
 			nerdfonts
 			netcoredbg
 			networkmanagerapplet
-			nodejs
+			nodejs_22
 			openrgb
 			openssl
 			playerctl
