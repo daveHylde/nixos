@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
 -- generic
-map({ "n", "v" }, "<c-s>", ":w<cr>", { desc = "Save" })
+map({ "n", "v" }, "<c-s>", function() vim.cmd('w') end, { desc = "Save" })
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 map('v', '>', '>gv', { noremap = true, silent = true, desc = "Indent" })
@@ -26,8 +26,8 @@ map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
 map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
 map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
 map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
-map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
-map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
+map("v", "<A-j>", function() vim.cmd("m '>+1<cr>gv=gv") end, { desc = "Move Down" })
+map("v", "<A-k>", function() vim.cmd("m '<-2<cr>gv=gv") end, { desc = "Move Up" })
 
 -- Gitsigns
 map({ "n", "v" }, "<leader>gp", "<cmd>Gitsigns preview_hunk_inline<cr>", { desc = "View hunk change" })
@@ -36,12 +36,6 @@ map({ "n", "v" }, "<leader>gb", "<cmd>Gitsigns blame_line<cr>", { desc = "Blame 
 map({ "n", "v" }, "<leader>gB", "<cmd>Gitsigns blame<cr>", { desc = "Blame file" })
 
 -- buffer
-map({ "n", "v" }, "<leader>bd", ":bd!<cr>", { desc = "Delete buffer" })
-map({ "n", "v" }, "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", { desc = "Toggle Pin" })
-map({ "n", "v" }, "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", { desc = "Delete Non-Pinned Buffers" })
-map({ "n", "v" }, "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>", { desc = "Delete Other Buffers" })
-map({ "n", "v" }, "<leader>br", "<Cmd>BufferLineCloseRight<CR>", { desc = "Delete Buffers to the Right" })
-map({ "n", "v" }, "<leader>bl", "<Cmd>BufferLineCloseLeft<CR>", { desc = "Delete Buffers to the Left" })
 map({ "n", "v" }, "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
 map({ "n", "v" }, "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
 map({ "n", "v" }, "[b", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
@@ -60,8 +54,10 @@ map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
 -- Telescope
 local builtinTele = require('telescope.builtin')
 map("n", "<leader><space>", "<cmd>Telescope find_files<cr>", { desc = "Find Files" })
-map("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
-	{ desc = "Live Grep Args" })
+map("n", "<leader>fg",
+	function()
+		require('telescope').extensions.live_grep_args.live_grep_args()
+	end, { desc = "Live Grep Args" })
 map("n", "<leader>fm", "<cmd>Telescope media_files<cr>", { desc = "Media Files" })
 map("n", "<leader>fq", "<cmd>Telescope quickfix<cr>", { desc = "Quickfix" })
 map("n", "<leader>fc", "<cmd>Telescope resume<cr>", { desc = "Resume" })
@@ -83,25 +79,28 @@ map({ "n", "v" }, "<leader>mx", snacks.notifier.hide, { desc = "Hide notificatio
 map({ "n", "v" }, "<leader>mh", snacks.notifier.show_history, { desc = "Notification history" })
 map({ "n", "v" }, "<leader>gg", snacks.lazygit.open, { desc = "Lazygit" })
 map({ "n", "v" }, "<leader>gf", snacks.lazygit.log_file, { desc = "Lazygit file history" })
-
+map({ "n", "v" }, "<leader>bd", snacks.bufdelete.delete, { desc = "Delete buffer" })
+map({ "n", "v" }, "<leader>bo", snacks.bufdelete.other, { desc = "Delete other buffers" })
+map({ "n", "v" }, "<leader>ba", snacks.bufdelete.all, { desc = "Delete all buffers" })
 
 -- Neotree
 map({ "n", "v" }, "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Toggle Neotree" })
 
 -- Move to window using the <alt> yneo keys
-map("n", "<c-Left>", ":TmuxNavigateLeft<CR>", { desc = "Go to Left Window", silent = true, remap = true })
-map("n", "<c-Down>", ":TmuxNavigateDown<CR>", { desc = "Go to Lower Window", silent = true, remap = true })
-map("n", "<c-Up>", ":TmuxNavigateUp<CR>", { desc = "Go to Upper Window", silent = true, remap = true })
-map("n", "<c-Right>", ":TmuxNavigateRight<CR>", { desc = "Go to Right Window", silent = true, remap = true })
-map(
-	"n",
-	"<c-p>",
-	":TmuxNavigatePrevious<CR>",
+map("n", "<c-Left>", function() vim.cmd("TmuxNavigateLeft") end,
+	{ desc = "Go to Left Window", silent = true, remap = true })
+map("n", "<c-Down>", function() vim.cmd("TmuxNavigateDown") end,
+	{ desc = "Go to Lower Window", silent = true, remap = true })
+map("n", "<c-Up>", function() vim.cmd("TmuxNavigateUp") end,
+	{ desc = "Go to Upper Window", silent = true, remap = true })
+map("n", "<c-Right>", function() vim.cmd("TmuxNavigateRight") end,
+	{ desc = "Go to Right Window", silent = true, remap = true })
+map("n", "<c-p>", function() vim.cmd("TmuxNavigatePrevious") end,
 	{ desc = "Go to Previous Window", silent = true, remap = true }
 )
 
 -- Format
-map("n", "<leader>cf", function() vim.lsp.buf.format() end, { desc = "Format" })
+map("n", "<leader>cf", require("conform").format, { desc = "Format" })
 
 -- Diagnostics
 local diagnostic_goto = function(next, severity)

@@ -26,10 +26,6 @@
 			url = "github:Equilibris/nx.nvim";
 			flake = false;
 		};
-		plugin-vim-razor = {
-			url = "github:jlcrochet/vim-razor";
-			flake = false;
-		};
 		plugin-conform = {
 			url = "github:stevearc/conform.nvim";
 			flake = false;
@@ -38,8 +34,8 @@
 			url = "github:Robitx/gp.nvim";
 			flake = false;
 		};
-		plugin-git-file-history = {
-			url = "github:isak102/telescope-git-file-history.nvim";
+		plugin-github-theme = {
+			url = "github:projekt0n/github-nvim-theme";
 			flake = false;
 		};
   };

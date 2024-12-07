@@ -53,19 +53,19 @@
         "type": "github"
       }
     },
-    "plugin-git-file-history": {
+    "plugin-github-theme": {
       "flake": false,
       "locked": {
-        "lastModified": 1727128584,
-        "narHash": "sha256-rf5orEKvsS7gRcUb3+USmCK2SD84xusGU1xIIW8Ntyw=",
-        "owner": "isak102",
-        "repo": "telescope-git-file-history.nvim",
-        "rev": "c27d99ba88ec5f0b6d2b9f9bc67dd3d14c610b25",
+        "lastModified": 1727149670,
+        "narHash": "sha256-EreIuni6/XR0428rO4Lbi2usIreOyPWKm7kJJA2Nwqo=",
+        "owner": "projekt0n",
+        "repo": "github-nvim-theme",
+        "rev": "0e4636f556880d13c00d8a8f686fae8df7c9845f",
         "type": "github"
       },
       "original": {
-        "owner": "isak102",
-        "repo": "telescope-git-file-history.nvim",
+        "owner": "projekt0n",
+        "repo": "github-nvim-theme",
         "type": "github"
       }
     },
@@ -149,34 +149,17 @@
         "type": "github"
       }
     },
-    "plugin-vim-razor": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1716867622,
-        "narHash": "sha256-6obQ9nx3w/K8Jih/Xfub1iIYYl6f5GW9YEQmDZB38J8=",
-        "owner": "jlcrochet",
-        "repo": "vim-razor",
-        "rev": "305dd1db88c657c0c02effbee1a88048479bb0c4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "jlcrochet",
-        "repo": "vim-razor",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "plugin-conform": "plugin-conform",
-        "plugin-git-file-history": "plugin-git-file-history",
+        "plugin-github-theme": "plugin-github-theme",
         "plugin-gp": "plugin-gp",
         "plugin-nx": "plugin-nx",
         "plugin-roslyn-lsp": "plugin-roslyn-lsp",
         "plugin-rzls": "plugin-rzls",
         "plugin-tailwind-tools": "plugin-tailwind-tools",
-        "plugin-vim-razor": "plugin-vim-razor",
         "snacks-overlay": "snacks-overlay"
       }
     },

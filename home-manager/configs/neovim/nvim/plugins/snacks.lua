@@ -6,6 +6,7 @@ snacks.setup {
 	notify = { enabled = true, },
 	notifier = { enabled = true, },
 	rename = { enabled = true, },
+	bufdelete = { enabled = true },
 	words = { enabled = false },
 	dashboard = {
 		enabled = true,
@@ -51,11 +52,11 @@ snacks.setup {
 }
 
 local banned_messages = { "No information available" }
-vim.notify = function(msg, ...)
+vim.notify = function(msg)
 	for _, banned in ipairs(banned_messages) do
 		if msg == banned then
 			return
 		end
 	end
-	return require("notify")(msg, ...)
+	return snacks.notify
 end

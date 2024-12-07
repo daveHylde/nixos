@@ -80,18 +80,8 @@
 			which-key-nvim
 			colorizer
 			nui-nvim
-			nvim-notify
 
 		  # From source
-			(pkgs.vimUtils.buildVimPlugin {
-				name = "vim-razor";
-				src = inputs.plugin-vim-razor;
-			})
-
-			(pkgs.vimUtils.buildVimPlugin {
-				name = "telescope-git-file-history";
-				src = inputs.plugin-git-file-history;
-			})
 			{
 				plugin = (pkgs.vimUtils.buildVimPlugin {
 					name = "tailwind-tools";
@@ -248,9 +238,12 @@
 				plugin = mason-nvim;
 				config = toLua "require(\"mason\").setup()";
 			}
-			{
-				plugin = gruvbox-nvim;
-				config = "colorscheme gruvbox";
+			{ 
+				plugin = (pkgs.vimUtils.buildVimPlugin {
+					name = "github-nvim-theme";
+					src = inputs.plugin-github-theme;
+				});
+				config = "colorscheme github_dark_dimmed";
 			}
 			{
 				plugin = comment-nvim;
