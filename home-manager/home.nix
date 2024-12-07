@@ -57,6 +57,7 @@
 			gimp
 			git
 			gwenview
+			hub
 			home-manager
 			hyprpaper
 			hyprshot

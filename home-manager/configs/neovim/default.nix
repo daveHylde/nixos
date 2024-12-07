@@ -35,6 +35,7 @@
 			nixd
 			marksman
 			sox
+			dwt1-shell-color-scripts
 		];
 
 		extraLuaConfig = ''
@@ -79,6 +80,7 @@
 			which-key-nvim
 			colorizer
 			nui-nvim
+			nvim-notify
 
 		  # From source
 			(pkgs.vimUtils.buildVimPlugin {
@@ -149,10 +151,6 @@
 			{
 				plugin = neotest;
 				config = toLuaFile ./nvim/plugins/neotest.lua;
-			}
-			{
-				plugin = alpha-nvim;
-				config = toLuaFile ./nvim/plugins/alpha.lua;
 			}
 			{
 				plugin=	noice-nvim;

@@ -176,7 +176,24 @@
         "plugin-roslyn-lsp": "plugin-roslyn-lsp",
         "plugin-rzls": "plugin-rzls",
         "plugin-tailwind-tools": "plugin-tailwind-tools",
-        "plugin-vim-razor": "plugin-vim-razor"
+        "plugin-vim-razor": "plugin-vim-razor",
+        "snacks-overlay": "snacks-overlay"
+      }
+    },
+    "snacks-overlay": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1733322581,
+        "narHash": "sha256-h7nysvfJDuNUyu+qrg4HmwyPxYiVq+Fmx8zqmWuV/EI=",
+        "owner": "folke",
+        "repo": "snacks.nvim",
+        "rev": "974bccb126b6b5d7170c519c380207069d23f557",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "snacks.nvim",
+        "type": "github"
       }
     }
   },
