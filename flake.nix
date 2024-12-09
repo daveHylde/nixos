@@ -1,13 +1,14 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+		neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 		plugin-rzls = {
-			url = "github:tris203/rzls.nvim";
+			url = "github:tris203/rzls.nvim/perf";
 			flake = false;
 		};
 		plugin-roslyn-lsp = {

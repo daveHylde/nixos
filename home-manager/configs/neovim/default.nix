@@ -9,6 +9,7 @@
 		defaultEditor = true;
 		viAlias = true;
 		vimAlias = true;
+		package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
 
 		extraLuaPackages =  luaPkgs: with pkgs.luajitPackages; [
 				lua-curl
@@ -32,7 +33,6 @@
 			ripgrep
 			wget
 			wl-clipboard
-			nixd
 			marksman
 			sox
 		];
@@ -90,6 +90,10 @@
 				name = "telescope-git-file-history";
 				src = inputs.plugin-git-file-history;
 			})
+			{
+				plugin = nvim-lspconfig;
+				config = toLuaFile ./nvim/plugins/lsp.lua;
+			}
 			{
 				plugin = (pkgs.vimUtils.buildVimPlugin {
 					name = "tailwind-tools";
@@ -185,10 +189,6 @@
 			{
 				plugin = nvim-cmp;
 				config = toLuaFile ./nvim/plugins/cmp.lua;
-			}
-			{
-				plugin = nvim-lspconfig;
-				config = toLuaFile ./nvim/plugins/lsp.lua;
 			}
 			{
 				plugin = lualine-nvim;

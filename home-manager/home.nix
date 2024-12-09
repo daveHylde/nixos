@@ -43,7 +43,6 @@
 			DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_9_0}";
 		};
 
-
     packages = with pkgs; [
 			audacity
 			blueman
@@ -74,6 +73,7 @@
 			nerdfonts
 			netcoredbg
 			networkmanagerapplet
+			nixd
 			nodejs
 			openrgb
 			openssl
