@@ -35,6 +35,7 @@
 			wl-clipboard
 			marksman
 			sox
+			dwt1-shell-color-scripts
 		];
 
 		extraLuaConfig = ''
@@ -81,15 +82,6 @@
 			nui-nvim
 
 		  # From source
-			(pkgs.vimUtils.buildVimPlugin {
-				name = "vim-razor";
-				src = inputs.plugin-vim-razor;
-			})
-
-			(pkgs.vimUtils.buildVimPlugin {
-				name = "telescope-git-file-history";
-				src = inputs.plugin-git-file-history;
-			})
 			{
 				plugin = nvim-lspconfig;
 				config = toLuaFile ./nvim/plugins/lsp.lua;
@@ -155,12 +147,12 @@
 				config = toLuaFile ./nvim/plugins/neotest.lua;
 			}
 			{
-				plugin = alpha-nvim;
-				config = toLuaFile ./nvim/plugins/alpha.lua;
+				plugin=	noice-nvim;
+				config = toLuaFile ./nvim/plugins/noice.lua;
 			}
 			{
-				plugin=	nvim-notify;
-				config = toLuaFile ./nvim/plugins/notify.lua;
+				plugin=	snacks-nvim;
+				config = toLuaFile ./nvim/plugins/snacks.lua;
 			}
 			{
 				plugin=	trouble-nvim;
@@ -246,9 +238,12 @@
 				plugin = mason-nvim;
 				config = toLua "require(\"mason\").setup()";
 			}
-			{
-				plugin = gruvbox-nvim;
-				config = "colorscheme gruvbox";
+			{ 
+				plugin = (pkgs.vimUtils.buildVimPlugin {
+					name = "github-nvim-theme";
+					src = inputs.plugin-github-theme;
+				});
+				config = "colorscheme github_dark_dimmed";
 			}
 			{
 				plugin = comment-nvim;

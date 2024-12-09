@@ -56,6 +56,7 @@
 			gimp
 			git
 			gwenview
+			hub
 			home-manager
 			hyprpaper
 			hyprshot
@@ -73,8 +74,7 @@
 			nerdfonts
 			netcoredbg
 			networkmanagerapplet
-			nixd
-			nodejs
+			nodejs_22
 			openrgb
 			openssl
 			playerctl
