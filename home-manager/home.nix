@@ -58,6 +58,7 @@
 			gwenview
 			hub
 			home-manager
+			htop
 			hyprpaper
 			hyprshot
 			pinta
@@ -74,6 +75,7 @@
 			nerdfonts
 			netcoredbg
 			networkmanagerapplet
+			nixd
 			nodejs_22
 			openrgb
 			openssl
