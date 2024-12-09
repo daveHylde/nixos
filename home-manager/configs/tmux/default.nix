@@ -5,7 +5,7 @@
     enable = true;
     plugins = with pkgs;
       with tmuxPlugins; [
-        catppuccin 
+        gruvbox
         resurrect
         vim-tmux-navigator
         continuum
@@ -59,11 +59,8 @@
       bind-key -T copy-mode-vi 'C-p' select-pane -l
 
 			# Neovim theme fixes
-			# Undercurl
 			set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'  # undercurl support
 			set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'  # underscore colours - needs tmux-3.0
-
-		  set -g @catppuccin_flavor 'macchiato' # latte, frappe, macchiato or mocha
     '';
   };
 }
