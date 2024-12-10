@@ -48,6 +48,7 @@
 			blueman
 			cargo
 			chromium
+			docker-compose
 			dotnetCorePackages.sdk_9_0
 			figma-linux
 			firefox
