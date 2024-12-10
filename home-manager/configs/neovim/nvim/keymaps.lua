@@ -26,8 +26,8 @@ map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
 map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
 map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
 map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
-map("v", "<A-j>", function() vim.cmd("m '>+1<cr>gv=gv") end, { desc = "Move Down" })
-map("v", "<A-k>", function() vim.cmd("m '<-2<cr>gv=gv") end, { desc = "Move Up" })
+map("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move Down" })
+map("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move Up" })
 
 -- Gitsigns
 map({ "n", "v" }, "<leader>gp", "<cmd>Gitsigns preview_hunk_inline<cr>", { desc = "View hunk change" })
