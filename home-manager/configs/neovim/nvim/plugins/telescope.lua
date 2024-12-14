@@ -2,6 +2,7 @@ local actions = require('telescope.actions')
 
 require('telescope').setup({
 	defaults = {
+		find_command = { "fzf" },
 		path_display = {
 			filename_first = {
 				reverse_directories = true
@@ -21,21 +22,9 @@ require('telescope').setup({
 			'node_modules',
 			'dist',
 			'.angular',
-			'tmp',
 			'.nx',
 			'.git',
-			'.idea',
-			'build',
-			'out',
-			'target',
-			'vendor',
 			'.cache',
-			'.DS_Store',
-			'%.o',
-			'%.a',
-			'%.so',
-			'%.pyc',
-			'__pycache__'
 		},
 		mappings = {
 			i = {
@@ -51,15 +40,10 @@ require('telescope').setup({
 		}
 	},
 	extensions = {
-		fzf = {
-			fuzzy = true,                -- false will only do exact matching
-			override_generic_sorter = true, -- override the generic sorter
-			override_file_sorter = true, -- override the file sorter
-			case_mode = "ignore_case",   -- or "smart_case" or "respect_case"
-		},
+		fzf = {},
 		media_files = {
 			filetypes = { "png", "webp", "jpg", "jpeg", "pdf" },
-			find_cmd = "rg"
+			find_cmd = "fzf"
 		},
 		live_grep_args = {
 			auto_quoting = true,

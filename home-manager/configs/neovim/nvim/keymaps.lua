@@ -53,7 +53,7 @@ map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
 
 -- Telescope
 local builtinTele = require('telescope.builtin')
-map("n", "<leader><space>", "<cmd>Telescope find_files<cr>", { desc = "Find Files" })
+map("n", "<leader><space>", builtinTele.find_files, { desc = "Find Files" })
 map("n", "<leader>fg",
 	function()
 		require('telescope').extensions.live_grep_args.live_grep_args()
@@ -63,6 +63,8 @@ map("n", "<leader>fq", "<cmd>Telescope quickfix<cr>", { desc = "Quickfix" })
 map("n", "<leader>fc", "<cmd>Telescope resume<cr>", { desc = "Resume" })
 map("n", "<leader>fu", "<cmd>AdvancedGitSearch<cr>", { desc = "AdvancedGitSearch" })
 map("n", "<leader>fb", builtinTele.buffers, { desc = "Buffers" })
+map("n", "<leader>ft", builtinTele.help_tags, { desc = "Help tags" })
+map("n", "<leader>/", builtinTele.current_buffer_fuzzy_find, { desc = "Fuzzy current buffer" })
 map("n", "<leader>fs", builtinTele.lsp_document_symbols, { desc = "LSP symbols" })
 map("n", "<leader>fo", builtinTele.oldfiles, { desc = "Old files" })
 map("n", "<leader>fh", "<cmd>Telescope find_files hidden=true no_ignore=true<cr>", { desc = "Find hidden files" })
