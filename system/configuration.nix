@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ pkgs,lib, ... }:
 
 {
   nix = {
@@ -52,14 +52,12 @@
   };
 
   networking = {
-    firewall = {
+    firewall = rec {
       enable = true;
       allowedTCPPortRanges = [
         { from = 1714; to = 1764; } # KDE Connect
       ];
-      allowedUDPPortRanges = [
-        { from = 1714; to = 1764; } # KDE Connect
-      ];
+      allowedUDPPortRanges = allowedTCPPortRanges;
     };
     networkmanager = {
       enable = true;
@@ -71,6 +69,11 @@
   console.keyMap = "no";
 
 	systemd.services.lactd.wantedBy = ["multi-user.target"];
+
+	# For unstable or 25.05
+	# fonts = {
+  #    packages = builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+	# };
 
   services = {
     onedrive.enable = true;

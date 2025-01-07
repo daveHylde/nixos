@@ -29,12 +29,31 @@
         };
         tray = {
           icon-size = 18;
-          spacing = 8;
+          spacing = 10;
         };
-        clock = {
-          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-          format-alt = "{:%Y-%m-%d}";
-        };
+				clock = {
+					format = "{:%H:%M}  ";
+					format-alt = "{:%A, %B %d, %Y (%R)}  ";
+					tooltip-format = "<tt><small>{calendar}</small></tt>";
+					calendar = {
+						mode = "year";
+						mode-mon-col = 3;
+						weeks-pos = "right";
+						on-scroll = 1;
+						format = {
+							months = "<span color='#ffead3'><b>{}</b></span>";
+							days = "<span color='#ecc6d9'><b>{}</b></span>";
+							weeks = "<span color='#99ffdd'><b>W{}</b></span>";
+							weekdays = "<span color='#ffcc66'><b>{}</b></span>";
+							today = "<span color='#ff6699'><b><u>{}</u></b></span>";
+						};
+					};
+					actions = {
+						on-click-right = "mode";
+						on-scroll-up = "shift_up";    # Note: removed duplicate on-scroll-up
+						on-scroll-down = "shift_down"; # Note: removed duplicate on-scroll-down
+					};
+				};
         cpu = {
           format = "{usage}% ";
           tooltip = false;
@@ -55,15 +74,13 @@
           format-disconnected = "Disconnected ⚠";
           format-alt = "{ifname}: {ipaddr}/{cidr}";
         };
-        pulseaudio = {
-          format = "{volume}% {icon} {format_source}";
-          format-bluetooth = "{volume}% {icon} {format_source}";
-          format-bluetooth-muted = " {icon} {format_source}";
-          format-muted = " {format_source}";
-          format-source = "{volume}% ";
-          format-source-muted = "";
-          on-click = "pavucontrol";
-        };
+				wireplumber = {
+					format = "{volume}%";
+					format-muted = "";
+					on-click = "helvum";
+					max-volume = 150;
+					scroll-step = 0.2;
+				};
       };
     };
   };

@@ -9,5 +9,6 @@
     ./fusuma
     ./tmux
 		./hyprland
+		./kdeconnect
   ];
 }
