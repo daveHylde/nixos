@@ -350,6 +350,22 @@
         "type": "github"
       }
     },
+    "plugin-vim-razor": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1716867622,
+        "narHash": "sha256-6obQ9nx3w/K8Jih/Xfub1iIYYl6f5GW9YEQmDZB38J8=",
+        "owner": "jlcrochet",
+        "repo": "vim-razor",
+        "rev": "305dd1db88c657c0c02effbee1a88048479bb0c4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jlcrochet",
+        "repo": "vim-razor",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
@@ -362,6 +378,7 @@
         "plugin-roslyn-lsp": "plugin-roslyn-lsp",
         "plugin-rzls": "plugin-rzls",
         "plugin-tailwind-tools": "plugin-tailwind-tools",
+        "plugin-vim-razor": "plugin-vim-razor",
         "snacks-overlay": "snacks-overlay"
       }
     },
