@@ -39,6 +39,10 @@
 			url = "github:projekt0n/github-nvim-theme";
 			flake = false;
 		};
+		plugin-vim-razor = {
+			url = "github:jlcrochet/vim-razor";
+			flake = false;
+		};
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, ... }:
