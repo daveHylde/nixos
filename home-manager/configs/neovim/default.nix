@@ -83,10 +83,6 @@
 
 		  # From source
 			{
-				plugin = nvim-lspconfig;
-				config = toLuaFile ./nvim/plugins/lsp.lua;
-			}
-			{
 				plugin = (pkgs.vimUtils.buildVimPlugin {
 					name = "tailwind-tools";
 					src = inputs.plugin-tailwind-tools;
@@ -253,6 +249,10 @@
 				plugin = comment-nvim;
 				config = toLua "require(\"Comment\").setup()";
 			} 
+			{
+				plugin = nvim-lspconfig;
+				config = toLuaFile ./nvim/plugins/lsp.lua;
+			}
 		];
 	};
 }

@@ -48,31 +48,9 @@ capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp'
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 ros.setup {
-	args = {
-		'--logLevel=Information',
-		'--extensionLogDirectory=' .. vim.fs.dirname(vim.lsp.get_log_path()),
-		-- '--razorSourceGenerator=' .. vim.fs.joinpath(
-		-- 	vim.fn.stdpath 'data' --[[@as string]],
-		-- 	'mason',
-		-- 	'packages',
-		-- 	'roslyn',
-		-- 	'libexec',
-		-- 	'Microsoft.CodeAnalysis.Razor.Compiler.dll'
-		-- ),
-		-- '--razorDesignTimePath=' .. vim.fs.joinpath(
-		-- 	vim.fn.stdpath 'data' --[[@as string]],
-		-- 	'mason',
-		-- 	'packages',
-		-- 	'rzls',
-		-- 	'libexec',
-		-- 	'Targets',
-		-- 	'Microsoft.NET.Sdk.Razor.DesignTime.targets'
-		-- ),
-	},
 	config = {
 		on_attach = on_attach,
 		capabilities = capabilities,
-		-- handlers = require 'rzls.roslyn_handlers',
 		settings = {
 			["csharp|inlay_hints"] = {
 				csharp_enable_inlay_hints_for_implicit_object_creation = false,
@@ -92,9 +70,5 @@ ros.setup {
 				dotnet_enable_references_code_lens = true,
 			},
 		}
-	},
-	filewatching = true,
-	broad_search = true,
-	lock_target = true,
-	choose_sln = nil,
+	}
 }
