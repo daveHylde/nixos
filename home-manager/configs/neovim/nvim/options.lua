@@ -42,3 +42,5 @@ vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.o.foldlevel = 99
 
 vim.o.pumheight = 10
+
+vim.lsp.inlay_hint.enable();
