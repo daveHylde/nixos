@@ -48,10 +48,10 @@ capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp'
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 ros.setup {
-	filewatching = true,
-	broad_search = true,
-	lock_target = true,
-	choose_sln = nil,
+	args = {
+		'--logLevel=Information',
+		'--extensionLogDirectory=' .. vim.fs.dirname(vim.lsp.get_log_path()),
+	},
 	config = {
 		on_attach = on_attach,
 		capabilities = capabilities,
@@ -77,5 +77,9 @@ ros.setup {
 				dotnet_enable_references_code_lens = true,
 			},
 		}
-	}
+	},
+	filewatching = true,
+	broad_search = true,
+	lock_target = true,
+	choose_sln = nil,
 }
