@@ -35,6 +35,20 @@ map({ "n", "v" }, "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>", { desc = "Reset 
 -- map({ "n", "v" }, "<leader>gb", "<cmd>Gitsigns blame_line<cr>", { desc = "Blame line" })
 map({ "n", "v" }, "<leader>gB", "<cmd>Gitsigns blame<cr>", { desc = "Blame file" })
 
+-- DiffView
+map({ "n", "v" }, "<leader>gdo", "<cmd>DiffviewOpen<cr>", { desc = "Open Diffview" })
+map({ "n", "v" }, "<leader>gdc", "<cmd>DiffviewClose<cr>", { desc = "Toggle Diffview" })
+map({ "n", "v" }, "<leader>gde", "<cmd>DiffviewToggleFiles<cr>", { desc = "Toggle Diffview Files" })
+map({ "n", "v" }, "<leader>gt", function()
+	local diffview = require('diffview.lib').get_current_view()
+	if diffview then
+		vim.cmd("DiffviewClose")
+	else
+		vim.cmd("DiffviewOpen")
+	end
+end, { desc = "Toggle Diffview" })
+
+
 -- buffer
 map({ "n", "v" }, "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
 map({ "n", "v" }, "<S-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })

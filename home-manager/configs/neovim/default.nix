@@ -219,6 +219,10 @@
 				config = toLua "require(\"harpoon\"):setup()";
 			}
 			{
+				plugin = diffview-nvim;
+				config = toLua "require(\"diffview\").setup()";
+			}
+			{
 				plugin=	nvim-dap-virtual-text;
 				config = toLua "require(\"nvim-dap-virtual-text\").setup()";
 			}
