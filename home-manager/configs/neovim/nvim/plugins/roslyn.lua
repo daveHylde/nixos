@@ -81,5 +81,12 @@ ros.setup {
 	filewatching = true,
 	broad_search = true,
 	lock_target = true,
-	choose_sln = nil,
+	choose_target = function(target)
+		local knowsSlns = { "Ebh.sln", "Jobbi.sln" }
+		return vim.iter(target):find(function(item)
+			return vim.iter(knowsSlns):any(function(pattern)
+				return string.match(item, pattern)
+			end)
+		end)
+	end
 }
