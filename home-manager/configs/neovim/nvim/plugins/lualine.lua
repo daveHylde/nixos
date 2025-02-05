@@ -16,6 +16,12 @@ require 'lualine'.setup {
 			{ 'b:gitsigns_head', icon = '' },
 		},
 		lualine_x = {
+			'encoding', -- shows file encoding (utf-8, etc)
+			{
+				function()
+					return vim.bo.bomb and '[BOM]' or ''
+				end,
+			},
 			{
 				'fileformat',
 				icons_enabled = true,
