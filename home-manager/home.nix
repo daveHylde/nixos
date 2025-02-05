@@ -45,6 +45,7 @@
 
     packages = with pkgs; [
 			audacity
+			bat
 			bc
 			blueman
 			cargo
@@ -57,12 +58,11 @@
 			gimp
 			git
 			gwenview
-			hub
 			home-manager
 			htop
+			hub
 			hyprpaper
 			hyprshot
-			pinta
 			inotify-tools
 			jq
 			k9s
@@ -80,6 +80,7 @@
 			nodejs_22
 			openrgb
 			openssl
+			pinta
 			playerctl
 			postgresql
 			powershell
