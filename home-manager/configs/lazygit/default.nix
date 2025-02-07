@@ -128,7 +128,7 @@
 								**Criteria:**
 
 								1. **Format:** Each commit message must follow the conventional commits format,
-								which is \`<type>(<scope>): <description>\`.
+								which is \`<type>(<scope>): <description>\`. This is important!
 								2. **Relevance:** Avoid mentioning a module name unless it's directly relevant
 								to the change.
 								3. **Enumeration:** List the commit messages from 1 to 10.
@@ -137,9 +137,9 @@
 
 								**Commit Message Examples:**
 
+								- feat: add password regex pattern
 								- fix(app): add password regex pattern
 								- test(unit): add new test cases
-								- style: remove unused imports
 								- refactor(pages): extract common code to \`utils/wait.ts\`
 
 								**Output Template**
