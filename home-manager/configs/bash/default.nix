@@ -11,6 +11,7 @@
       k = "kubectl";
       clpb = "wl-copy";
       nx = "npx nx";
+      ai = "ollama run llama3.2";
     };
     bashrcExtra = ''
       export PATH=~/.npm-packages/bin:$PATH

@@ -44,6 +44,7 @@
 		};
 
     packages = with pkgs; [
+			aichat
 			audacity
 			bat
 			bc

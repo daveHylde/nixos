@@ -116,6 +116,11 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+
+		ollama = {
+			enable = true;
+			loadModels = [ "llama3.2" ];
+		};
   };
 
   programs = {
