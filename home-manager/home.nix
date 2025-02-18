@@ -58,6 +58,7 @@
 			fzf
 			gimp
 			git
+			git-spice
 			gwenview
 			home-manager
 			htop
@@ -74,6 +75,7 @@
 			libreoffice
 			lm_sensors
 			minikube
+			mermaid-cli
 			nerdfonts
 			netcoredbg
 			networkmanagerapplet
@@ -89,6 +91,8 @@
 			signal-desktop
 			slack
 			spotify
+			sqlite
+			tectonic
 			thunderbird
 			tldr
 			unzip

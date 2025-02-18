@@ -170,10 +170,10 @@
 				plugin = mason-tool-installer-nvim;
 				config = toLuaFile ./nvim/plugins/mason.lua;
 			}
-			{
-				plugin = image-nvim;
-				config = toLuaFile ./nvim/plugins/image.lua;
-			}
+			# {
+			# 	plugin = image-nvim;
+			# 	config = toLuaFile ./nvim/plugins/image.lua;
+			# }
 			{
 				plugin = neo-tree-nvim;
 				config = toLuaFile ./nvim/plugins/neotree.lua;
@@ -191,32 +191,8 @@
 				config = toLuaFile ./nvim/plugins/lualine.lua;
 			}
 			{
-				plugin = (nvim-treesitter.withPlugins (p: [
-						p.tree-sitter-angular
-						p.tree-sitter-bash
-						p.tree-sitter-c_sharp
-						p.tree-sitter-css
-						p.tree-sitter-c
-						p.tree-sitter-csv
-						p.tree-sitter-dockerfile
-						p.tree-sitter-gitignore
-						p.tree-sitter-html
-						p.tree-sitter-http
-						p.tree-sitter-javascript
-						p.tree-sitter-json
-						p.tree-sitter-json5
-						p.tree-sitter-lua
-						p.tree-sitter-nix
-						p.tree-sitter-python
-						p.tree-sitter-sql
-						p.tree-sitter-tmux
-						p.tree-sitter-toml
-						p.tree-sitter-typescript
-						p.tree-sitter-vim
-						p.tree-sitter-vimdoc
-						p.tree-sitter-yaml
-				]));
-		  config = toLuaFile ./nvim/plugins/treesitter.lua;
+				plugin = (nvim-treesitter.withAllGrammars);
+				config = toLuaFile ./nvim/plugins/treesitter.lua;
 			}
 			{
 				plugin = harpoon2;

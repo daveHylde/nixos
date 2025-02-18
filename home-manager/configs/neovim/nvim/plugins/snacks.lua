@@ -6,7 +6,9 @@ snacks.setup {
 	notify = { enabled = true, },
 	notifier = { enabled = true, },
 	rename = { enabled = true, },
+	image = { enabled = true },
 	bufdelete = { enabled = true },
+	picker = { enabled = true },
 	words = { enabled = false },
 	dashboard = {
 		enabled = true,
