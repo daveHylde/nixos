@@ -5,7 +5,7 @@ vim.o.clipboard = 'unnamedplus'
 
 vim.o.number = true
 vim.o.linebreak = true
-vim.o.wrap = true
+vim.o.wrap = false -- dont want wrap for now
 vim.o.swapfile = false
 
 vim.o.signcolumn = 'yes'
