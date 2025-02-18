@@ -143,15 +143,15 @@ map("n", "gy", function() snacks.picker.lsp_type_definitions() end, { desc = "Go
 map("n", "<leader>ss", function() snacks.picker.lsp_symbols() end, { desc = "LSP Symbols" })
 map("n", "<leader>sS", function() snacks.picker.lsp_workspace_symbols() end,
 	{ desc = "LSP Workspace Symbols" })
-map("n", '<leader>cr', vim.lsp.buf.rename, 'Rename')
-map("n", '<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-map("n", 'K', vim.lsp.buf.hover, 'Hover Documentation')
-map("n", '<leader>K', vim.lsp.buf.signature_help, 'Signature Documentation')
-map("n", '<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-map("n", '<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
+map("n", '<leader>cr', vim.lsp.buf.rename, { desc = 'Rename' })
+map("n", '<leader>ca', vim.lsp.buf.code_action, { desc = '[C]ode [A]ction' })
+map("n", 'K', vim.lsp.buf.hover, { desc = 'Hover Documentation' })
+map("n", '<leader>K', vim.lsp.buf.signature_help, { desc = 'Signature Documentation' })
+map("n", '<leader>wa', vim.lsp.buf.add_workspace_folder, { desc = '[W]orkspace [A]dd Folder' })
+map("n", '<leader>wr', vim.lsp.buf.remove_workspace_folder, { desc = '[W]orkspace [R]emove Folder' })
 map("n", '<leader>wl', function()
 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-end, '[W]orkspace [L]ist Folders')
+end, { desc = '[W]orkspace [L]ist Folders' })
 
 -- Neotree
 -- map({ "n", "v" }, "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Toggle Neotree" })
