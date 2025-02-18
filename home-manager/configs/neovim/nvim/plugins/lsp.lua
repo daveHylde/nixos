@@ -77,7 +77,7 @@ lsp.vtsls.setup {
 lsp.html.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
-	filetypes = { "html", "typescript", "angular" },
+	filetypes = { "html", "typescript", "angular", "freemarker" },
 }
 lsp.eslint.setup {
 	on_attach = on_attach,
@@ -91,6 +91,7 @@ lsp.nixd.setup {
 lsp.cssls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
+	filetypes = { "css", "scss", "less", "html", "angular", "freemarker" },
 }
 lsp.dockerls.setup {
 	on_attach = on_attach,

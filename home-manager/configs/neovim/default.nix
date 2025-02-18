@@ -100,6 +100,10 @@
 				name = "vim-razor";
 				src = inputs.plugin-vim-razor;
 			})
+			(pkgs.vimUtils.buildVimPlugin {
+				name = "vim-freemarker";
+				src = inputs.plugin-vim-freemarker;
+			})
 			# {
 			# 	plugin = (pkgs.vimUtils.buildVimPlugin {
 			# 		name = "rzls";

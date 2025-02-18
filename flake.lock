@@ -347,6 +347,22 @@
         "type": "github"
       }
     },
+    "plugin-vim-freemarker": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1499541341,
+        "narHash": "sha256-g4GnutHqxOH0rhZZmx7YpqFWZ9a+lTC6SdNYvVrSPbY=",
+        "owner": "andreshazard",
+        "repo": "vim-freemarker",
+        "rev": "993bda23e72e4c074659970c1e777cb19d8cf93e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "andreshazard",
+        "repo": "vim-freemarker",
+        "type": "github"
+      }
+    },
     "plugin-vim-razor": {
       "flake": false,
       "locked": {
@@ -375,6 +391,7 @@
         "plugin-roslyn-lsp": "plugin-roslyn-lsp",
         "plugin-rzls": "plugin-rzls",
         "plugin-tailwind-tools": "plugin-tailwind-tools",
+        "plugin-vim-freemarker": "plugin-vim-freemarker",
         "plugin-vim-razor": "plugin-vim-razor",
         "snacks-overlay": "snacks-overlay"
       }

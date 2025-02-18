@@ -43,6 +43,10 @@
 			url = "github:jlcrochet/vim-razor";
 			flake = false;
 		};
+		plugin-vim-freemarker = {
+			url = "github:andreshazard/vim-freemarker";
+			flake = false;
+		};
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, ... }:
