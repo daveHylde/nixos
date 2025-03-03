@@ -40,7 +40,7 @@
     stateVersion = "24.05";
 
 		sessionVariables = {
-			DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_9_0}";
+			DOTNET_ROOT = "${pkgs.dotnet-sdk_9}";
 		};
 
     packages = with pkgs; [
@@ -51,7 +51,7 @@
 			blueman
 			cargo
 			chromium
-			dotnetCorePackages.sdk_9_0
+			dotnet-sdk_9
 			figma-linux
 			firefox
 			flameshot
