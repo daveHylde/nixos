@@ -8,7 +8,16 @@ snacks.setup {
 	rename = { enabled = true, },
 	image = { enabled = true },
 	bufdelete = { enabled = true },
-	picker = { enabled = true },
+	picker = { enabled = true,
+		files = {
+			hidden = true,
+			ignored = true,
+		},
+		explorer = {
+			hidden = true,
+			ignored = true,
+		}
+	},
 	words = { enabled = false },
 	dashboard = {
 		enabled = true,
