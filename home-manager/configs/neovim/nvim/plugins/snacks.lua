@@ -3,10 +3,30 @@ snacks.setup {
 	bigfile = { enabled = true, },
 	lazygit = { enabled = true, },
 	git = { enabled = true, },
-	notify = { enabled = true, },
-	notifier = { enabled = true, },
+	notify = {
+		enabled = true,
+	},
+	notifier = { enabled = true,
+		filter = function(msg)
+			local banned_messages = { "No information available" }
+			for _, banned in ipairs(banned_messages) do
+				if msg == banned then
+					return
+				end
+			end
+		end
+	},
 	rename = { enabled = true, },
 	image = { enabled = true },
+	indent = {
+		enabled = true,
+		only_scope = true,
+		char = "|",
+		scope = {
+			enabled = false
+		}
+	},
+	input = { enabled = true },
 	bufdelete = { enabled = true },
 	picker = { enabled = true,
 		files = {
@@ -61,13 +81,3 @@ snacks.setup {
 		},
 	}
 }
-
-local banned_messages = { "No information available" }
-vim.notify = function(msg)
-	for _, banned in ipairs(banned_messages) do
-		if msg == banned then
-			return
-		end
-	end
-	return snacks.notify
-end

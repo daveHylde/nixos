@@ -45,30 +45,34 @@
 		'';
 
 		plugins = with pkgs.vimPlugins; [
-			markdown-preview-nvim
-			advanced-git-search-nvim
 			FixCursorHold-nvim
 			SchemaStore-nvim
+			advanced-git-search-nvim
 			cmp-buffer
 			cmp-nvim-lsp
+			cmp-nvim-lsp-signature-help
 			cmp-path
 			cmp_luasnip
-			cmp-nvim-lsp-signature-help
+			colorizer
 			editorconfig-nvim
 			friendly-snippets
+			lspkind-nvim
 			lualine-nvim
 			luasnip
-			lspkind-nvim
-			neotest-dotnet
-			nvim-web-devicons
-			nvim-nio
+			markdown-preview-nvim
 			mini-icons
+			neotest-dotnet
+			noice-nvim
+			nui-nvim
+			nvim-nio
+			nvim-web-devicons
+			nvim-notify
 			plenary-nvim
 			popup-nvim
 			telescope-fzf-native-nvim
 			telescope-live-grep-args-nvim
-			telescope-ui-select-nvim
 			telescope-media-files-nvim
+			telescope-ui-select-nvim
 			undotree
 			vim-dadbod
 			vim-dadbod-completion
@@ -78,8 +82,6 @@
 			vim-matchup
 			vim-tmux-navigator
 			which-key-nvim
-			colorizer
-			nui-nvim
 
 		  # From source
 			{
@@ -151,10 +153,6 @@
 				config = toLuaFile ./nvim/plugins/neotest.lua;
 			}
 			{
-				plugin=	noice-nvim;
-				config = toLuaFile ./nvim/plugins/noice.lua;
-			}
-			{
 				plugin=	snacks-nvim;
 				config = toLuaFile ./nvim/plugins/snacks.lua;
 			}
@@ -170,10 +168,6 @@
 				plugin = mason-tool-installer-nvim;
 				config = toLuaFile ./nvim/plugins/mason.lua;
 			}
-			# {
-			# 	plugin = image-nvim;
-			# 	config = toLuaFile ./nvim/plugins/image.lua;
-			# }
 			{
 				plugin = neo-tree-nvim;
 				config = toLuaFile ./nvim/plugins/neotree.lua;

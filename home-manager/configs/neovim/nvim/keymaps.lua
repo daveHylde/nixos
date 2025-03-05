@@ -10,19 +10,21 @@ map({ "n", "v" }, "<leader>ww", function() vim.wo.wrap = not vim.wo.wrap end, { 
 map('n', '<leader>ci', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {}) end,
 	{ desc = 'Toggle inlay hints' })
 
--- Send all delete and change operations to the black hole register
-map({ 'n', 'v' }, 'd', '"_d', { noremap = true })
-map({ 'n', 'v' }, 'D', '"_D', { noremap = true })
-map({ 'n', 'v' }, 'c', '"_c', { noremap = true })
-map('n', 'C', '"_C', { noremap = true })
-map('n', 'x', '"_x', { noremap = true })
-map('n', 'X', '"_X', { noremap = true })
--- Preserve the yank operation
-map({ 'n', 'v' }, 'y', 'y', { noremap = true })
-map('n', 'Y', 'Y', { noremap = true })
--- Override paste in visual mode to not capture overwritten text
-map('x', 'p', '"_dP', { noremap = true })
+-- Use clipboard register for yanks and explicit cuts
+map({ 'n', 'v' }, 'y', '"+y', { noremap = true })
+map('n', 'Y', '"+y$', { noremap = true })
+map({ 'n', 'v' }, '<leader>d', '"+d', { noremap = true })
+map({ 'n', 'v' }, '<leader>c', '"+c', { noremap = true })
+map('n', '<leader>C', '"+C', { noremap = true })
+map('n', '<leader>x', '"+x', { noremap = true })
 
+-- Override paste in visual mode to use clipboard register
+map('x', 'p', '"+p', { noremap = true })
+map('x', 'P', '"+P', { noremap = true })
+
+-- Normal paste from clipboard
+map('n', '<leader>p', '"+p', { noremap = true })
+map('n', '<leader>P', '"+P', { noremap = true })
 
 -- Move lines
 map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
@@ -35,14 +37,13 @@ map("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move Up" })
 -- Gitsigns
 map({ "n", "v" }, "<leader>gp", "<cmd>Gitsigns preview_hunk_inline<cr>", { desc = "View hunk change" })
 map({ "n", "v" }, "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>", { desc = "Reset hunk" })
--- map({ "n", "v" }, "<leader>gb", "<cmd>Gitsigns blame_line<cr>", { desc = "Blame line" })
 map({ "n", "v" }, "<leader>gB", "<cmd>Gitsigns blame<cr>", { desc = "Blame file" })
 
 -- DiffView
-map({ "n", "v" }, "<leader>gdo", "<cmd>DiffviewOpen<cr>", { desc = "Open Diffview" })
-map({ "n", "v" }, "<leader>gdc", "<cmd>DiffviewClose<cr>", { desc = "Toggle Diffview" })
-map({ "n", "v" }, "<leader>gde", "<cmd>DiffviewToggleFiles<cr>", { desc = "Toggle Diffview Files" })
-map({ "n", "v" }, "<leader>gt", function()
+map({ "n" }, "<leader>gdo", "<cmd>DiffviewOpen<cr>", { desc = "Open Diffview" })
+map({ "n" }, "<leader>gdc", "<cmd>DiffviewClose<cr>", { desc = "Toggle Diffview" })
+map({ "n" }, "<leader>gde", "<cmd>DiffviewToggleFiles<cr>", { desc = "Toggle Diffview Files" })
+map({ "n" }, "<leader>gt", function()
 	local diffview = require('diffview.lib').get_current_view()
 	if diffview then
 		vim.cmd("DiffviewClose")

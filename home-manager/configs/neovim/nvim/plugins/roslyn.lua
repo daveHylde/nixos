@@ -12,10 +12,10 @@ capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp'
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 ros.setup {
-	args = {
-		'--logLevel=Information',
-		'--extensionLogDirectory=' .. vim.fs.dirname(vim.lsp.get_log_path()),
-	},
+	-- args = {
+	-- 	'--logLevel=Information',
+	-- 	'--extensionLogDirectory=' .. vim.fs.dirname(vim.lsp.get_log_path()),
+	-- },
 	config = {
 		on_attach = on_attach,
 		capabilities = capabilities,
