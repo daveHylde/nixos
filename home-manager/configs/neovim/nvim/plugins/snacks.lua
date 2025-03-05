@@ -18,14 +18,7 @@ snacks.setup {
 	},
 	rename = { enabled = true, },
 	image = { enabled = true },
-	indent = {
-		enabled = true,
-		only_scope = true,
-		char = "|",
-		scope = {
-			enabled = false
-		}
-	},
+	indent = {	enabled = false, },
 	input = { enabled = true },
 	bufdelete = { enabled = true },
 	picker = { enabled = true,
