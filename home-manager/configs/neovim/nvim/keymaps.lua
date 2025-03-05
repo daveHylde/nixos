@@ -10,21 +10,13 @@ map({ "n", "v" }, "<leader>ww", function() vim.wo.wrap = not vim.wo.wrap end, { 
 map('n', '<leader>ci', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {}) end,
 	{ desc = 'Toggle inlay hints' })
 
--- Use clipboard register for yanks and explicit cuts
-map({ 'n', 'v' }, 'y', '"+y', { noremap = true })
-map('n', 'Y', '"+y$', { noremap = true })
-map({ 'n', 'v' }, '<leader>d', '"+d', { noremap = true })
-map({ 'n', 'v' }, '<leader>c', '"+c', { noremap = true })
-map('n', '<leader>C', '"+C', { noremap = true })
-map('n', '<leader>x', '"+x', { noremap = true })
-
--- Override paste in visual mode to use clipboard register
-map('x', 'p', '"+p', { noremap = true })
-map('x', 'P', '"+P', { noremap = true })
-
--- Normal paste from clipboard
-map('n', '<leader>p', '"+p', { noremap = true })
-map('n', '<leader>P', '"+P', { noremap = true })
+-- Yanky mappings
+map({ "n", "x" }, "y", "<Plug>(YankyYank)", { desc = "Yank text" })
+map({ "n", "x" }, "p", "<Plug>(YankyPutAfter)", { desc = "Put yanked text after cursor" })
+map({ "n", "x" }, "P", "<Plug>(YankyPutBefore)", { desc = "Put yanked text before cursor" })
+map("n", "<c-p>", "<Plug>(YankyCycleForward)", { desc = "Cycle forward through yank history" })
+map("n", "<c-n>", "<Plug>(YankyCycleBackward)", { desc = "Cycle backward through yank history" })
+map("n", "<leader>pp", "<cmd>YankyRingHistory<cr>", { desc = "Open yank ring history" })
 
 -- Move lines
 map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })

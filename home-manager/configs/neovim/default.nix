@@ -126,6 +126,10 @@
 				plugin = nvim-dap-ui;
 				config = toLuaFile ./nvim/plugins/dapui.lua;
 			}
+			{
+				plugin = yanky-nvim;
+				config = toLua "require(\"yanky\").setup()";
+			}
 			{ 
 				plugin = (pkgs.vimUtils.buildVimPlugin {
 					name = "conform";
