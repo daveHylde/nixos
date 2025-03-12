@@ -7,7 +7,7 @@
       general {
         disable_loading_bar = true
         hide_cursor = true
-        grace = 5
+        grace = 0
         no_fade_in = false
       }
 

@@ -20,11 +20,11 @@
         "hyprland/workspaces" = {
           disable-scroll = true;
           all-outputs = true;
-          format = "{name}: {icon}";
+          format = "{icon}({name})";
           format-icons = {
-            urgent = "💥";
-            active = "🤖";
-            default = "💤";
+            urgent = "🦊";
+            active = "🐓";
+            default = "🐤";
           };
         };
         tray = {
@@ -32,7 +32,7 @@
           spacing = 10;
         };
 				clock = {
-					format = "{:%H:%M}  ";
+					format = "{:%d/%m %H:%M}";
 					format-alt = "{:%A, %B %d, %Y (%R)}  ";
 					tooltip-format = "<tt><small>{calendar}</small></tt>";
 					calendar = {
@@ -55,11 +55,11 @@
 					};
 				};
         cpu = {
-          format = "{usage}% ";
+          format = "CPU: {usage}% ";
           tooltip = false;
         };
         memory = {
-          format = "{}% ";
+          format = "MEM: {}% ";
         };
         temperature = {
           critical-threshold = 80;
@@ -78,7 +78,7 @@
 					format = "{volume}%";
 					format-muted = "";
 					on-click = "helvum";
-					max-volume = 150;
+					max-volume = 100;
 					scroll-step = 0.2;
 				};
       };
