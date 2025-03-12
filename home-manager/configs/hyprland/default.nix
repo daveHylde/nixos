@@ -38,6 +38,7 @@
 			# Autostart necessary processes (like notifications daemons, status bars, etc.)
 			# Or execute your favorite apps at launch like this:
 
+			exec-once = hyprpaper
 			exec-once = waybar
 			exec-once = swaync
 			exec-once = keepassxc
@@ -45,13 +46,11 @@
 			exec-once = nm-applet --indicator
 			exec-once = blueman-applet
 
-			exec-once = [workspace 1 silent] $terminal
 			exec-once = [workspace 1 silent] firefox
+			exec-once = [workspace 1 silent] $terminal
 			exec-once = [workspace 2 silent] slack
-			exec-once = [workspace 2 silent] signal-desktop
-			exec-once = [workspace 2 silent] thunderbird
+			exec-once = [workspace 2 silent] spotify
 			exec-once = dbus-update-activation-environment --systemd --all
-			exec-once = hyprpaper
 
 
 			#############################
@@ -212,7 +211,8 @@
 			bind = $mainMod CTRL, up, movewindow, u
 			bind = $mainMod CTRL, down, movewindow, d
 
-			bind = $mainMod SHIFT, S, exec, hyprshot -m region -- pinta
+			# Screenshot
+			bind = $mainMod SHIFT, S, exec, flameshot gui
 
 			# Switch workspaces with mainMod + [0-9]
 			bind = $mainMod, 1, workspace, 1

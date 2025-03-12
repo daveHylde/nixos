@@ -51,10 +51,11 @@
 			blueman
 			cargo
 			chromium
-			dotnet-sdk_9
+			#			dotnet-sdk_9
+			dotnetCorePackages.sdk_9_0_1xx
 			figma-linux
 			firefox
-			flameshot
+			(flameshot.override { enableWlrSupport = true; })
 			fzf
 			gimp
 			git
@@ -64,7 +65,6 @@
 			htop
 			hub
 			hyprpaper
-			hyprshot
 			inotify-tools
 			jq
 			k9s

@@ -42,7 +42,7 @@ ros.setup {
 			},
 		}
 	},
-	filewatching = true,
+	filewatching = 'auto',
 	broad_search = true,
 	lock_target = true,
 	choose_target = function(target)
