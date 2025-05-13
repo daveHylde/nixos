@@ -9,7 +9,7 @@
 		defaultEditor = true;
 		viAlias = true;
 		vimAlias = true;
-		#		package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
+		# package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
 
 		extraLuaPackages =  luaPkgs: with pkgs.luajitPackages; [
 				lua-curl
@@ -169,8 +169,12 @@
 				config = toLuaFile ./nvim/plugins/actions-preview.lua;
 			}
 			{
-				plugin = mason-tool-installer-nvim;
+				plugin = mason-nvim;
 				config = toLuaFile ./nvim/plugins/mason.lua;
+			}
+			{
+				plugin = mason-tool-installer-nvim;
+				config = toLuaFile ./nvim/plugins/mason-installer.lua;
 			}
 			{
 				plugin = neo-tree-nvim;
@@ -215,10 +219,6 @@
 			{
 				plugin = which-key-nvim;
 				config = toLua "require(\"which-key\").setup()";
-			}
-			{
-				plugin = mason-nvim;
-				config = toLua "require(\"mason\").setup()";
 			}
 			{ 
 				plugin = (pkgs.vimUtils.buildVimPlugin {

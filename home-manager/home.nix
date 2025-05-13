@@ -51,8 +51,9 @@
 			blueman
 			cargo
 			chromium
-			dotnetCorePackages.sdk_9_0_1xx
 			discord
+			dotnet-sdk_9
+			#dotnetCorePackages.sdk_9_0_1xx
 			figma-linux
 			firefox
 			(flameshot.override { enableWlrSupport = true; })

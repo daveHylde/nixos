@@ -50,7 +50,7 @@
     fwupd.enable = true;
     thinkfan.enable = true;
     openvpn.servers = {
-      officeVPN = {
+      itf = {
         config = '' config /root/nixos/openvpn/officeVPN.conf '';
         updateResolvConf = true;
       };

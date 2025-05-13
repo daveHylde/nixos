@@ -19,6 +19,7 @@ ros.setup {
 	config = {
 		on_attach = on_attach,
 		capabilities = capabilities,
+--		handlers = require("rzls.roslyn_handlers"),
 		settings = {
 			["csharp|inlay_hints"] = {
 				csharp_enable_inlay_hints_for_implicit_object_creation = false,
@@ -40,7 +41,16 @@ ros.setup {
 			["csharp|code_lens"] = {
 				dotnet_enable_references_code_lens = true,
 			},
-		}
+		},
+		-- init = function()
+		-- 	-- We add the Razor file types before the plugin loads.
+		-- 	vim.filetype.add({
+		-- 		extension = {
+		-- 			razor = "razor",
+		-- 			cshtml = "razor",
+		-- 		},
+		-- 	})
+		-- end,
 	},
 	filewatching = 'auto',
 	broad_search = true,
