@@ -38,7 +38,6 @@
       enable = true;
       powerOnBoot = true;
     };
-    pulseaudio.enable = false;
   };
 
   virtualisation = {
@@ -71,11 +70,12 @@
 	systemd.services.lactd.wantedBy = ["multi-user.target"];
 
 	# For unstable or 25.05
-	# fonts = {
-  #    packages = builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
-	# };
+	fonts = {
+     packages = builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+	};
 
   services = {
+    pulseaudio.enable = false;
     onedrive.enable = true;
     pcscd.enable = true;
     printing.enable = true;

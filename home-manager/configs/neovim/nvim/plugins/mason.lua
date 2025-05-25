@@ -11,7 +11,7 @@ local mason_registry = require("mason-registry")
 local cmd = {}
 
 local roslyn_package = mason_registry.get_package("roslyn")
-if roslyn_package:is_installed() then
+if roslyn_package and roslyn_package.is_installed and roslyn_package:is_installed() and roslyn_package.get_install_path then
     vim.list_extend(cmd, {
         "dotnet",
         vim.fs.joinpath(roslyn_package:get_install_path(), "libexec", "Microsoft.CodeAnalysis.LanguageServer.dll"),
@@ -21,7 +21,7 @@ if roslyn_package:is_installed() then
     })
 
     local rzls_package = mason_registry.get_package("rzls")
-    if rzls_package:is_installed() then
+    if rzls_package and rzls_package.is_installed and rzls_package:is_installed() and rzls_package.get_install_path then
         local rzls_path = vim.fs.joinpath(rzls_package:get_install_path(), "libexec")
         table.insert(
             cmd,

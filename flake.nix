@@ -1,16 +1,16 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
  #		neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-		snacks-overlay = {
-			url = "github:folke/snacks.nvim";
-			flake = false;
-		};
+		# snacks-overlay = {
+		# 	url = "github:folke/snacks.nvim";
+		# 	flake = false;
+		# };
 		plugin-rzls = {
 			url = "github:tris203/rzls.nvim/perf";
 			flake = false;
@@ -54,19 +54,19 @@
       system = "x86_64-linux";
       user = "david";
 
-			overlays = [
-        (final: prev: {
-          vimPlugins = prev.vimPlugins // {
-            snacks-nvim = prev.vimUtils.buildVimPlugin {
-              name = "snacks-nvim";
-              src = inputs.snacks-overlay;  # Use from inputs
-            };
-          };
-        })
-      ];
+			# overlays = [
+   #      (final: prev: {
+   #        vimPlugins = prev.vimPlugins // {
+   #          snacks-nvim = prev.vimUtils.buildVimPlugin {
+   #            name = "snacks-nvim";
+   #            src = inputs.snacks-overlay;  # Use from inputs
+   #          };
+   #        };
+   #      })
+   #    ];
 
       shared-config = {
-				nixpkgs.overlays = overlays;
+				# nixpkgs.overlays = overlays;
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.${user} = import ./home-manager/home.nix;

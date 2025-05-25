@@ -7,32 +7,32 @@
         ]
       },
       "locked": {
-        "lastModified": 1747020534,
-        "narHash": "sha256-D/6rkiC6w2p+4SwRiVKrWIeYzun8FBg7NlMKMwQMxO0=",
+        "lastModified": 1747556831,
+        "narHash": "sha256-Qb84nbYFFk0DzFeqVoHltS2RodAYY5/HZQKE8WnBDsc=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "b4bbdc6fde16fc2051fcde232f6e288cd22007ca",
+        "rev": "d0bbd221482c2713cccb80220f3c9d16a6e20a33",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-24.11",
+        "ref": "release-25.05",
         "repo": "home-manager",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1746957726,
-        "narHash": "sha256-k9ut1LSfHCr0AW82ttEQzXVCqmyWVA5+SHJkS5ID/Jo=",
+        "lastModified": 1747953325,
+        "narHash": "sha256-y2ZtlIlNTuVJUZCqzZAhIw5rrKP4DOSklev6c8PyCkQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "a39ed32a651fdee6842ec930761e31d1f242cb94",
+        "rev": "55d1f923c480dadce40f5231feb472e81b0bab48",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-24.11",
+        "ref": "nixos-25.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -40,11 +40,11 @@
     "plugin-conform": {
       "flake": false,
       "locked": {
-        "lastModified": 1746805784,
-        "narHash": "sha256-jnVG7CFJf0GECrCwSrq1cAE1mD78crKgti1kdGdmFgg=",
+        "lastModified": 1747884293,
+        "narHash": "sha256-jPc91Lar3X58DkxV4I3nWMtTfNhTf+fXUBIfsQLa0u0=",
         "owner": "stevearc",
         "repo": "conform.nvim",
-        "rev": "374aaf384e2e841607b8e2fe63fa3ad01d111c91",
+        "rev": "6feb2f28f9a9385e401857b21eeac3c1b66dd628",
         "type": "github"
       },
       "original": {
@@ -104,11 +104,11 @@
     "plugin-roslyn-lsp": {
       "flake": false,
       "locked": {
-        "lastModified": 1746598350,
-        "narHash": "sha256-jrWzIoaorwQk8phqxAM5zoio4reM1e+qjXd/4Syhp24=",
+        "lastModified": 1748076317,
+        "narHash": "sha256-/HlncEOkTWnJstvz44wi5lsRWD5y1RSgYeG9VIgUV8Q=",
         "owner": "seblj",
         "repo": "roslyn.nvim",
-        "rev": "8dc729a651ae980088246caf651e5ff24e21077a",
+        "rev": "db143061a0bd4691935c5c3a86a5e8a5546698f7",
         "type": "github"
       },
       "original": {
@@ -137,11 +137,11 @@
     "plugin-tailwind-tools": {
       "flake": false,
       "locked": {
-        "lastModified": 1747068831,
-        "narHash": "sha256-89pHzdkyxQ7ZsFt80XAbNqpxv+CQMa2OECLA42KBpGk=",
+        "lastModified": 1747978068,
+        "narHash": "sha256-K9Jkd+d/XdukCDdEYvlNFEuCpFQIuVqhOGkWE9ivXyI=",
         "owner": "luckasRanarison",
         "repo": "tailwind-tools.nvim",
-        "rev": "999d314444073095494f5a36b90fdba3c432a457",
+        "rev": "fbe982901d4508b0dcd80e07addf0fcb6dab6c49",
         "type": "github"
       },
       "original": {
@@ -194,24 +194,7 @@
         "plugin-rzls": "plugin-rzls",
         "plugin-tailwind-tools": "plugin-tailwind-tools",
         "plugin-vim-freemarker": "plugin-vim-freemarker",
-        "plugin-vim-razor": "plugin-vim-razor",
-        "snacks-overlay": "snacks-overlay"
-      }
-    },
-    "snacks-overlay": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1740868622,
-        "narHash": "sha256-Gw0Bp2YeoESiBLs3NPnqke3xwEjuiQDDU1CPofrhtig=",
-        "owner": "folke",
-        "repo": "snacks.nvim",
-        "rev": "bc0630e43be5699bb94dadc302c0d21615421d93",
-        "type": "github"
-      },
-      "original": {
-        "owner": "folke",
-        "repo": "snacks.nvim",
-        "type": "github"
+        "plugin-vim-razor": "plugin-vim-razor"
       }
     }
   },

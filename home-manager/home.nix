@@ -12,7 +12,10 @@
     };
   };
 
-  fonts.fontconfig.enable = true;
+  fonts = {
+		fontconfig.enable = true;
+		# packages = [ ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+	};
 
   xdg = {
     enable = true;
@@ -61,7 +64,6 @@
 			gimp
 			git
 			git-spice
-			gwenview
 			home-manager
 			htop
 			hub
@@ -77,7 +79,6 @@
 			lm_sensors
 			minikube
 			mermaid-cli
-			nerdfonts
 			netcoredbg
 			networkmanagerapplet
 			nixd
@@ -102,7 +103,6 @@
 			wl-clipboard
 			yarn
 			yq
-			yubikey-manager-qt
 			yubikey-personalization
 			yubioath-flutter
 			zip

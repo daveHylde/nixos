@@ -91,13 +91,13 @@
 				});
 				config = toLuaFile ./nvim/plugins/tailwind-tools.lua;
 			}
-			{
-				plugin = (pkgs.vimUtils.buildVimPlugin {
-					name = "nx-nvim";
-					src = inputs.plugin-nx;
-				});
-				config = toLuaFile ./nvim/plugins/nx.lua;
-			}
+			# {
+			# 	plugin = (pkgs.vimUtils.buildVimPlugin {
+			# 		name = "nx-nvim";
+			# 		src = inputs.plugin-nx;
+			# 	});
+			# 	config = toLuaFile ./nvim/plugins/nx.lua;
+			# }
 			(pkgs.vimUtils.buildVimPlugin {
 				name = "vim-razor";
 				src = inputs.plugin-vim-razor;
@@ -157,7 +157,7 @@
 				config = toLuaFile ./nvim/plugins/neotest.lua;
 			}
 			{
-				plugin=	snacks-nvim;
+				plugin = snacks-nvim;
 				config = toLuaFile ./nvim/plugins/snacks.lua;
 			}
 			{
