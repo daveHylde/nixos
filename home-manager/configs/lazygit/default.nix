@@ -117,7 +117,7 @@
 					key = "<c-a>";
 					description = "Pick AI commit";
 					context = "files";
-					subprocess = true;
+					output = "terminal";
 					command = ''
         aichat "Please suggest 10 commit messages, given the following diff:
 
