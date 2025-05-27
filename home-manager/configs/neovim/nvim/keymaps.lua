@@ -62,10 +62,10 @@ map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
 map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
 
 -- nx
--- map("n", "<leader>nx", "<cmd>Telescope nx actions<CR>", {})
--- map("n", "<leader>ng", "<cmd>Telescope nx generators<CR>", {})
--- map("n", "<leader>nm", "<cmd>Telescope nx run_many<CR>", {})
--- map("n", "<leader>na", "<cmd>Telescope nx affected<CR>", {})
+map("n", "<leader>nx", "<cmd>Telescope nx actions<CR>", {})
+map("n", "<leader>ng", "<cmd>Telescope nx generators<CR>", {})
+map("n", "<leader>nm", "<cmd>Telescope nx run_many<CR>", {})
+map("n", "<leader>na", "<cmd>Telescope nx affected<CR>", {})
 
 -- Snacks
 local snacks = require('snacks')

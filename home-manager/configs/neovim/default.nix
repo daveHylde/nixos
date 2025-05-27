@@ -9,7 +9,6 @@
 		defaultEditor = true;
 		viAlias = true;
 		vimAlias = true;
-		# package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
 
 		extraLuaPackages =  luaPkgs: with pkgs.luajitPackages; [
 				lua-curl
@@ -86,42 +85,40 @@
 		  # From source
 			{
 				plugin = (pkgs.vimUtils.buildVimPlugin {
-					name = "tailwind-tools";
-					src = inputs.plugin-tailwind-tools;
+					name = "nx-nvim";
+					src = inputs.plugin-nx;
+          nvimSkipModules = [
+						"nx.actions"
+						"nx.multirunners"
+						"nx.generators"
+						"nx.read-configs"
+						"nx.form-renderers"
+						"nx"
+          ];
 				});
-				config = toLuaFile ./nvim/plugins/tailwind-tools.lua;
+				config = toLuaFile ./nvim/plugins/nx.lua;
 			}
-			# {
-			# 	plugin = (pkgs.vimUtils.buildVimPlugin {
-			# 		name = "nx-nvim";
-			# 		src = inputs.plugin-nx;
-			# 	});
-			# 	config = toLuaFile ./nvim/plugins/nx.lua;
-			# }
-			(pkgs.vimUtils.buildVimPlugin {
-				name = "vim-razor";
-				src = inputs.plugin-vim-razor;
-			})
 			(pkgs.vimUtils.buildVimPlugin {
 				name = "vim-freemarker";
 				src = inputs.plugin-vim-freemarker;
 			})
-			# {
-			# 	plugin = (pkgs.vimUtils.buildVimPlugin {
-			# 		name = "rzls";
-			# 		src = inputs.plugin-rzls;
-			# 	});
-			# 	config = toLuaFile ./nvim/plugins/rzls.lua;
-			# }
-			{
+			{ 
 				plugin = (pkgs.vimUtils.buildVimPlugin {
-					name = "roslyn";
-					src = inputs.plugin-roslyn-lsp;
+					name = "gp";
+					src = inputs.plugin-gp;
 				});
-				config = toLuaFile ./nvim/plugins/roslyn.lua;
+				config = toLuaFile ./nvim/plugins/gp.lua;
 			}
 
 			# With config
+			{ 
+				plugin = roslyn-nvim;
+			 	config = toLuaFile ./nvim/plugins/roslyn.lua;
+			}
+			# { 
+			# 	plugin = rzls-nvim;
+			# 	config = toLua "require(\"rzls\").setup{}";
+			# }
 			{ 
 				plugin = nvim-dap-ui;
 				config = toLuaFile ./nvim/plugins/dapui.lua;
@@ -131,18 +128,12 @@
 				config = toLua "require(\"yanky\").setup()";
 			}
 			{ 
-				plugin = (pkgs.vimUtils.buildVimPlugin {
-					name = "conform";
-					src = inputs.plugin-conform;
-				});
+				plugin = conform-nvim;
 				config = toLuaFile ./nvim/plugins/conform.lua;
 			}
-			{ 
-				plugin = (pkgs.vimUtils.buildVimPlugin {
-					name = "gp";
-					src = inputs.plugin-gp;
-				});
-				config = toLuaFile ./nvim/plugins/gp.lua;
+			{
+				plugin = tailwind-tools-nvim;
+				config = toLuaFile ./nvim/plugins/tailwind-tools.lua;
 			}
 			{	
 				plugin =	nvim-ts-autotag;
@@ -221,10 +212,7 @@
 				config = toLua "require(\"which-key\").setup()";
 			}
 			{ 
-				plugin = (pkgs.vimUtils.buildVimPlugin {
-					name = "github-nvim-theme";
-					src = inputs.plugin-github-theme;
-				});
+				plugin = github-nvim-theme;
 				config = "colorscheme github_dark_dimmed";
 			}
 			{

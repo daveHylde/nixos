@@ -44,3 +44,10 @@ vim.o.foldlevel = 99
 vim.o.pumheight = 10
 
 vim.lsp.inlay_hint.enable();
+
+vim.filetype.add {
+	extension = {
+		razor = 'razor',
+		cshtml = 'razor',
+	},
+}
