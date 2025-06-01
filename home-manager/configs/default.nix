@@ -5,6 +5,7 @@
     ./neovim
     ./git
     ./kitty
+    ./ghostty
     ./bash
     ./fusuma
     ./tmux
