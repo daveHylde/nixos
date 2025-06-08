@@ -38,5 +38,13 @@ require("roslyn").setup {
 				dotnet_enable_references_code_lens = true,
 			},
 		},
+		choose_target = function(target)
+			local knowsSlns = { "Ebh.sln", "Jobbi.sln" }
+			return vim.iter(target):find(function(item)
+				return vim.iter(knowsSlns):any(function(pattern)
+					return string.match(item, pattern)
+				end)
+			end)
+		end
 	}
 }
