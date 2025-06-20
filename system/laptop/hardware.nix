@@ -53,6 +53,7 @@
       itf = {
         config = '' config /root/nixos/openvpn/officeVPN.conf '';
         updateResolvConf = true;
+        autoStart = false;
       };
     };
   };
