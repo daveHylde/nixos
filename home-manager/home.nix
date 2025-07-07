@@ -54,6 +54,7 @@
 			blueman
 			cargo
 			chromium
+			claude-code
 			discord
 			dotnet-sdk_9
 			#dotnetCorePackages.sdk_9_0_1xx
