@@ -204,6 +204,10 @@
 				config = toLua "require(\"bufferline\").setup()";
 			}
 			{
+				plugin = claude-code-nvim;
+				config = toLuaFile ./nvim/plugins/claude-code.lua;
+			}
+			{
 				plugin = gitsigns-nvim;
 				config = toLua "require(\"gitsigns\").setup()";
 			}

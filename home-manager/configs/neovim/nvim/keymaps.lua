@@ -10,6 +10,9 @@ map({ "n", "v" }, "<leader>ww", function() vim.wo.wrap = not vim.wo.wrap end, { 
 map('n', '<leader>ci', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {}) end,
 	{ desc = 'Toggle inlay hints' })
 
+-- Claude Code
+map({ "n", "x", "v" }, "<C-i>", "<cmd>ClaudeCode<cr>", { desc = "Claude Code" })
+
 -- Yanky mappings
 map({ "n", "x" }, "y", "<Plug>(YankyYank)", { desc = "Yank text" })
 map({ "n", "x" }, "p", "<Plug>(YankyPutAfter)", { desc = "Put yanked text after cursor" })
@@ -148,7 +151,7 @@ end, { desc = '[W]orkspace [L]ist Folders' })
 -- Neotree
 map({ "n", "v" }, "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Toggle Neotree" })
 
--- Move to window using the <alt> yneo keys
+-- Move to window using ctrl + arrow keys (tmux aware navigation)
 map("n", "<c-Left>", function() vim.cmd("TmuxNavigateLeft") end,
 	{ desc = "Go to Left Window", silent = true, remap = true })
 map("n", "<c-Down>", function() vim.cmd("TmuxNavigateDown") end,
@@ -157,9 +160,12 @@ map("n", "<c-Up>", function() vim.cmd("TmuxNavigateUp") end,
 	{ desc = "Go to Upper Window", silent = true, remap = true })
 map("n", "<c-Right>", function() vim.cmd("TmuxNavigateRight") end,
 	{ desc = "Go to Right Window", silent = true, remap = true })
-map("n", "<c-p>", function() vim.cmd("TmuxNavigatePrevious") end,
-	{ desc = "Go to Previous Window", silent = true, remap = true }
-)
+
+-- Terminal mode window navigation (escape terminal then navigate with tmux awareness)
+map("t", "<c-Left>", "<C-\\><C-n>:TmuxNavigateLeft<CR>", { desc = "Go to Left Window", silent = true })
+map("t", "<c-Down>", "<C-\\><C-n>:TmuxNavigateDown<CR>", { desc = "Go to Lower Window", silent = true })
+map("t", "<c-Up>", "<C-\\><C-n>:TmuxNavigateUp<CR>", { desc = "Go to Upper Window", silent = true })
+map("t", "<c-Right>", "<C-\\><C-n>:TmuxNavigateRight<CR>", { desc = "Go to Right Window", silent = true })
 
 -- Format
 map("n", "<leader>cf", require("conform").format, { desc = "Format" })
