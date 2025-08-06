@@ -115,17 +115,13 @@
 				plugin = roslyn-nvim;
 			 	config = toLuaFile ./nvim/plugins/roslyn.lua;
 			}
-			# { 
-			# 	plugin = rzls-nvim;
-			# 	config = toLua "require(\"rzls\").setup{}";
-			# }
+			{ 
+				plugin = rzls-nvim;
+				config = toLua "require(\"rzls\").setup{}";
+			}
 			{ 
 				plugin = nvim-dap-ui;
 				config = toLuaFile ./nvim/plugins/dapui.lua;
-			}
-			{
-				plugin = yanky-nvim;
-				config = toLua "require(\"yanky\").setup()";
 			}
 			{ 
 				plugin = conform-nvim;
@@ -150,6 +146,10 @@
 			{
 				plugin = snacks-nvim;
 				config = toLuaFile ./nvim/plugins/snacks.lua;
+			}
+			{
+				plugin = yanky-nvim;
+				config = toLua "require(\"yanky\").setup()";
 			}
 			{
 				plugin=	trouble-nvim;
