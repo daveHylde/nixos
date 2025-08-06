@@ -79,6 +79,7 @@
 			lm_sensors
 			minikube
 			mermaid-cli
+			mono
 			netcoredbg
 			networkmanagerapplet
 			nixd
