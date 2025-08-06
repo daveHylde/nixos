@@ -11,7 +11,7 @@ map('n', '<leader>ci', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hi
 	{ desc = 'Toggle inlay hints' })
 
 -- Claude Code
-map({ "n", "x", "v" }, "<C-i>", "<cmd>ClaudeCode<cr>", { desc = "Claude Code" })
+map({ "n", "x", "v" }, "<C-y>", "<cmd>ClaudeCode<cr>", { desc = "Claude Code" })
 
 -- Yanky mappings
 map({ "n", "x" }, "y", "<Plug>(YankyYank)", { desc = "Yank text" })
