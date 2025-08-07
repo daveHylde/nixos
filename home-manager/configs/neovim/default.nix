@@ -117,7 +117,7 @@
 			}
 			# { 
 			# 	plugin = rzls-nvim;
-			# 	config = toLua "require(\"rzls\").setup{}";
+			# 	config = toLuaFile ./nvim/plugins/rzls.lua;
 			# }
 			{ 
 				plugin = nvim-dap-ui;
