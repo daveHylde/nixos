@@ -1,11 +1,11 @@
 {
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+   inputs = {
+     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+     
+     home-manager = {
+       url = "github:nix-community/home-manager/release-25.05";
+       inputs.nixpkgs.follows = "nixpkgs";
+     };
 		plugin-nx = {
 			url = "github:Equilibris/nx.nvim";
 			flake = false;

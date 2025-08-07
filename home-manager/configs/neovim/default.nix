@@ -115,10 +115,10 @@
 				plugin = roslyn-nvim;
 			 	config = toLuaFile ./nvim/plugins/roslyn.lua;
 			}
-			{ 
-				plugin = rzls-nvim;
-				config = toLua "require(\"rzls\").setup{}";
-			}
+			# { 
+			# 	plugin = rzls-nvim;
+			# 	config = toLua "require(\"rzls\").setup{}";
+			# }
 			{ 
 				plugin = nvim-dap-ui;
 				config = toLuaFile ./nvim/plugins/dapui.lua;
