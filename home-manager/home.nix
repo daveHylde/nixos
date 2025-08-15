@@ -85,6 +85,7 @@
 			nixd
 			nodejs_22
 			openrgb
+			obs-studio
 			openssl
 			pinta
 			playerctl
