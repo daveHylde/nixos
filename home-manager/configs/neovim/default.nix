@@ -51,6 +51,7 @@
 			cmp-nvim-lsp
 			cmp-nvim-lsp-signature-help
 			cmp-path
+			easy-dotnet-nvim
 			cmp_luasnip
 			colorizer
 			editorconfig-nvim
@@ -114,6 +115,10 @@
 			{ 
 				plugin = roslyn-nvim;
 			 	config = toLuaFile ./nvim/plugins/roslyn.lua;
+			}
+			{
+				plugin = easy-dotnet-nvim;
+				config = toLua "require(\"easy-dotnet\").setup()";
 			}
 			# { 
 			# 	plugin = rzls-nvim;

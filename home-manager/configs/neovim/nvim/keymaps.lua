@@ -48,6 +48,20 @@ map({ "n" }, "<leader>gt", function()
 	end
 end, { desc = "Toggle Diffview" })
 
+-- Toggle quickfix list
+map('n', '<leader>l', function()
+  local qf_exists = false
+  for _, win in pairs(vim.fn.getwininfo()) do
+    if win['quickfix'] == 1 then
+      qf_exists = true
+    end
+  end
+  if qf_exists == true then
+    vim.cmd('cclose')
+  else
+    vim.cmd('copen')
+  end
+end, { desc = 'Toggle quickfix list' })
 
 -- buffer
 map({ "n", "v" }, "<S-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
@@ -221,7 +235,7 @@ map({ "n", "v" }, "<leader>ds", function() dap.session() end, { desc = "Session"
 map({ "n", "v" }, "<leader>dt", function() dap.terminate() end, { desc = "Terminate" })
 map({ "n", "v" }, "<leader>dw", function() require("dap.ui.widgets").hover() end, { desc = "Widgets" })
 map({ "n", "v" }, "<leader>du", function() dapui.toggle({}) end, { desc = "Dap UI" })
-map({ "n", "v" }, "<leader>de", function() dapui.eval() end, { desc = "Eval" })
+map({ "n", "v" }, "<leader>dee", function() dapui.eval() end, { desc = "Eval" })
 map({ "n", "v" }, "<leader>dEs", function() dap.set_exception_breakpoints() end, { desc = "Stop on exceptions" })
 map({ "n", "v" }, "<leader>dEc", function() dap.set_exception_breakpoints({}) end, { desc = "Don't stop on exceptions" })
 map({ "n", "v" }, "<leader>dx", function() dap.clear_breakpoints() end, { desc = "Clear all breakpoints" })
@@ -229,6 +243,12 @@ map({ "n", "v" }, "<F5>", function() dap.continue() end, { desc = "Continue" })
 map({ "n", "v" }, "<F10>", function() dap.step_into() end, { desc = "Step Into" })
 map({ "n", "v" }, "<F11>", function() dap.step_out() end, { desc = "Step Out" })
 map({ "n", "v" }, "<F12>", function() dap.step_over() end, { desc = "Step Over" })
+
+-- Add these keybindings:
+vim.keymap.set('n', '<leader>dei', function()
+    local word = vim.fn.expand("<cword>")
+    eval_enumerable_enhanced(word)
+end, { desc = 'Debug: Interactive enumerable eval' })
 
 -- Undotree
 map('n', '<leader>uu', vim.cmd.UndotreeToggle, { desc = "Toggle undotree" })

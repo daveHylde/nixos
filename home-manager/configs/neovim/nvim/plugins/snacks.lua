@@ -18,10 +18,11 @@ snacks.setup {
 	},
 	rename = { enabled = true, },
 	image = { enabled = true },
-	indent = {	enabled = false, },
+	indent = { enabled = false, },
 	input = { enabled = true },
 	bufdelete = { enabled = true },
-	picker = { enabled = true,
+	picker = {
+		enabled = true,
 		files = {
 			hidden = true,
 			ignored = true,

@@ -5,6 +5,8 @@ require('luasnip.loaders.from_vscode').lazy_load()
 require 'luasnip'.filetype_extend("typescript", { "html", "css" })
 local lspkind = require('lspkind');
 
+cmp.register_source("easy-dotnet", require("easy-dotnet").package_completion_source)
+
 cmp.setup {
 	snippet = {
 		expand = function(args)
@@ -53,6 +55,7 @@ cmp.setup {
 		{ name = 'luasnip' },
 		{ name = 'buffer' },
 		{ name = 'path' },
+		{ name = 'easy-dotnet' },
 		{ name = 'nvim_lsp_signature_help' },
 	},
 }
