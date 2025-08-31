@@ -82,6 +82,7 @@
 			mermaid-cli
 			minikube
 			mono
+			mpv
 			netcoredbg
 			networkmanagerapplet
 			nixd
