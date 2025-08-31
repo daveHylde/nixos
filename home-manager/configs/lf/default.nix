@@ -23,6 +23,52 @@
         }}
       '';
       
+      # Open with menu
+      open_with = ''
+        ''${{
+          # Common applications menu
+          app="$(printf "Default\nText Editor\nVSCode\nPinta\nGimp\nFirefox\nMPV\nCustom Command" | ${pkgs.fzf}/bin/fzf --prompt="Open with: " --height=10 --reverse)"
+          
+          case "$app" in
+            "Default") 
+              lf -remote "send ''${id} open" 
+              ;;
+            "Text Editor") 
+              ''$EDITOR "$f" 
+              ;;
+            "VSCode")
+              ${pkgs.vscode}/bin/code "$f" &
+              ;;
+            "Pinta") 
+              ${pkgs.pinta}/bin/pinta "$f" & 
+              ;;
+            "Gimp") 
+              ${pkgs.gimp3}/bin/gimp3 "$f" & 
+              ;;
+            "Firefox") 
+              ${pkgs.firefox}/bin/firefox "$f" & 
+              ;;
+            "MPV") 
+              ${pkgs.mpv}/bin/mpv "$f" & 
+              ;;
+            "Custom Command")
+              printf "Command: "
+              read cmd
+              $cmd "$f"
+              ;;
+          esac
+        }}
+      '';
+      
+      # Alternative: simple open with using system apps
+      open_with_system = ''
+        ''${{
+          printf "Application: "
+          read app
+          $app "$f" &
+        }}
+      '';
+      
       # Fzf integration - find and navigate to file from home
       fzf_home = ''
         ''${{
@@ -64,6 +110,10 @@
       C = "clear";
       R = "reload";
       U = "unselect";
+      
+      # Open with options
+      o = "open_with";           # Open with menu
+      O = "open_with_system";    # Simple open with prompt
       
       # Fzf keybindings
       f = "fzf_home";        # Find file from home
@@ -113,4 +163,5 @@
     '';
   };
 }
+
 

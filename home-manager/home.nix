@@ -62,7 +62,7 @@
 			figma-linux
 			firefox
 			fzf
-			gimp
+			gimp3
 			git-spice
 			google-chrome
 			home-manager
