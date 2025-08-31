@@ -119,7 +119,7 @@
 					context = "files";
 					output = "terminal";
 					command = ''
-        aichat "Please suggest 10 commit messages, given the following diff:
+        aichat --model ollama:llama3.2 "Please suggest 10 commit messages, given the following diff:
 
         \`\`\`diff
         $(git diff --cached)

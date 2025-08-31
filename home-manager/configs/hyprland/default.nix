@@ -27,8 +27,11 @@
 
 			# Set programs that you use
 			$terminal = ghostty
-			$fileManager = dolphin
+			$fileManager = ghostty -e lf
 			$menu = wofi --show drun
+			$browser = firefox
+			$editor = nvim
+			$launcher = wofi --show run
 
 
 			#################

@@ -121,10 +121,10 @@
       pulse.enable = true;
     };
 
-		# ollama = {
-		# 	enable = true;
-		# 	loadModels = [ "llama3.2" ];
-		# };
+		ollama = {
+			enable = true;
+			loadModels = [ "llama3.2" ];
+		};
   };
 
   programs = {
