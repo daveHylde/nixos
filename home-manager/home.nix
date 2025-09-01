@@ -52,27 +52,28 @@
 		};
 
     packages = with pkgs; [
+			(flameshot.override { enableWlrSupport = true; })
 			aichat
 			audacity
 			bat
 			bc
 			blueman
 			cargo
-			google-chrome
+			chafa
 			claude-code
 			discord
 			dotnet-sdk_9
+			ffmpegthumbnailer
 			figma-linux
 			firefox
-			(flameshot.override { enableWlrSupport = true; })
 			fzf
-			gimp
-			git
+			gimp3
 			git-spice
+			google-chrome
 			home-manager
 			htop
-			hub
 			hyprpaper
+			imagemagick
 			inotify-tools
 			jq
 			k9s
@@ -81,23 +82,30 @@
 			kubernetes-helm
 			lazydocker
 			libreoffice
+			librsvg
 			lm_sensors
-			minikube
 			mermaid-cli
+			minikube
 			mono
+			mpv
 			netcoredbg
 			networkmanagerapplet
 			nixd
 			nodejs_22
-			openrgb
 			obs-studio
+			openrgb
 			openssl
+			pandoc
 			pinta
 			playerctl
+			poppler_utils
 			postgresql
 			powershell
 			python3Full
+			s3cmd
+			s3fs
 			signal-desktop
+			skaffold
 			slack
 			spotify
 			sqlite
@@ -105,6 +113,7 @@
 			thunderbird
 			tldr
 			unzip
+			viu
 			vscode-extensions.ms-dotnettools.csharp
 			vscode-fhs
 			wl-clipboard

@@ -1,15 +1,16 @@
 {
   imports = [
-    ./lazygit
-    ./java
-    ./neovim
-    ./git
-    ./kitty
-    ./ghostty
-    ./bash
-    ./fusuma
-    ./tmux
 		./hyprland
 		./kdeconnect
+		./lf
+    ./bash
+    ./fusuma
+    ./ghostty
+    ./git
+    ./java
+    ./kitty
+    ./lazygit
+    ./neovim
+    ./tmux
   ];
 }

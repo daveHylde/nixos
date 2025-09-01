@@ -12,6 +12,7 @@
       clpb = "wl-copy";
       nx = "npx nx";
       ai = "ollama run llama3.2";
+      b64 = "f() { echo -n \"$1\" | base64 -w 0 | wl-copy; }; f";
     };
     bashrcExtra = ''
       export PATH=~/.npm-packages/bin:$PATH
