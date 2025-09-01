@@ -138,30 +138,32 @@
 
       case "$(${pkgs.file}/bin/file -Lb --mime-type "$file")" in
         image/*)
-          ${pkgs.chafa}/bin/chafa --size="''${w}x''${h}" "$file" 2>/dev/null && exit
+          ${pkgs.chafa}/bin/chafa -f symbol --polite on --size="''${w}x''${h}" "$file" 2>/dev/null && exit
           ;;
         image/svg+xml)
           # Convert SVG to PNG and display with chafa
-          ${pkgs.librsvg}/bin/rsvg-convert "$file" | ${pkgs.chafa}/bin/chafa --size="''${w}x''${h}" - 2>/dev/null && exit
+          ${pkgs.librsvg}/bin/rsvg-convert "$file" | ${pkgs.chafa}/bin/chafa -f symbol --size="''${w}x''${h}" - 2>/dev/null && exit
           ;;
         text/* | application/json | application/javascript | application/x-sh)
           ${pkgs.bat}/bin/bat --color=always --style=numbers --line-range=:500 "$file" 2>/dev/null
           ;;
         application/pdf)
           # Try converting first page to image, fallback to text
-          ${pkgs.poppler_utils}/bin/pdftoppm -f 1 -l 1 -png "$file" | ${pkgs.chafa}/bin/chafa --size="''${w}x''${h}" - 2>/dev/null && exit
+          ${pkgs.poppler_utils}/bin/pdftoppm -f 1 -l 1 -png "$file" | ${pkgs.chafa}/bin/chafa -f symbol --size="''${w}x''${h}" - 2>/dev/null && exit
           ${pkgs.poppler_utils}/bin/pdftotext "$file" - | head -500
           ;;
         application/vnd.openxmlformats-officedocument.wordprocessingml.document)
           # Extract text from DOCX
           ${pkgs.pandoc}/bin/pandoc "$file" -t plain 2>/dev/null | head -500
           ;;
-        *)
-          ${pkgs.file}/bin/file -Lb "$file"
-          ;;
+				application/zip|application/x-rar|application/x-7z-compressed|application/x-tar|application/gzip)
+					${pkgs.lesspipe}/bin/lesspipe.sh "$1" 2>/dev/null || batorcat "$1"
+					;;
+				*)
+					${pkgs.lesspipe}/bin/lesspipe.sh "$1" 2>/dev/null || batorcat "$1" || echo "Cannot preview this file type"
+					;;
       esac
     '';
   };
 }
-
 

@@ -63,12 +63,12 @@
 			claude-code
 			discord
 			dotnet-sdk_9
+			lesspipe
 			ffmpegthumbnailer
 			figma-linux
 			firefox
 			fzf
 			gimp3
-			git-spice
 			google-chrome
 			home-manager
 			htop
