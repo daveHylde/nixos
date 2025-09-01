@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ./waybar
-    ./wofi
+		./waybar
+		./wofi
 		./hyprpaper
 		./swaync
 		./hyprlock
@@ -62,7 +62,8 @@
 			env = XCURSOR_SIZE,24
 			env = HYPRCURSOR_SIZE,24
 			env = XCURSOR_THEME,Kora
-
+			env = QT_QPA_PLATFORM,wayland
+			env = QT_QPA_PLATFORMTHEME,qt5ct
 
 			#####################
 			### LOOK AND FEEL ###
@@ -272,3 +273,4 @@
 			windowrulev2 = suppressevent maximize, class:.* # You'll probably like this.
 	''; 
 }
+

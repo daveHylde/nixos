@@ -18,6 +18,11 @@
 			url = "github:andreshazard/vim-freemarker";
 			flake = false;
 		};
+		# hyprland.url = "github:hyprwm/Hyprland";
+		# hyprland-plugins = {
+		# 	url = "github:hyprwm/hyprland-plugins";
+		# 	inputs.hyprland.follows = "hyprland";
+		# };
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, ... }:
