@@ -16,6 +16,8 @@
 
 			# See https://wiki.hyprland.org/Configuring/Monitors/
 			monitor = eDP-1, 1920x1200@60, 0x0, 1
+			# Rotate right monitor for work
+			monitor = DP-8, preferred, auto, 1, transform, 1 
 			monitor=,preferred,auto,1
 
 
@@ -54,6 +56,7 @@
 			exec-once = [workspace 2 silent] slack
 			exec-once = [workspace 2 silent] spotify
 			exec-once = dbus-update-activation-environment --systemd --all
+			exec-once = tmux setenv -g HYPRLAND_INSTANCE_SIGNATURE "$HYPRLAND_INSTANCE_SIGNATURE" 
 
 
 			#############################
