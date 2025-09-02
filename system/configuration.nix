@@ -208,6 +208,7 @@
     variables = {
       MINIKUBE_STATIC_IP = "192.168.49.2";
       EDITOR = "nvim";
+			QT_QPA_PLATFORM="wayland";
     };
 
     etc = {
@@ -216,12 +217,12 @@
   };
 
   system = {
-    stateVersion = "23.11";
+    stateVersion = "25.05";
 
-    autoUpgrade = {
-      enable = true;
-      channel = "https://nixos.org/channels/nixos-unstable";
-      allowReboot = false;
-    };
+    # autoUpgrade = {
+    #   enable = true;
+    #   flake = inputs.self.outPath;
+    #   allowReboot = false;
+    # };
   };
 }

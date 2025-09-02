@@ -276,5 +276,9 @@
 			# windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
 
 			windowrulev2 = suppressevent maximize, class:.* # You'll probably like this.
+
+			windowrulev2 = noanim,class:^(flameshot)$
+			windowrulev2 = float,class:^(flameshot)$
+			windowrulev2 = monitor 0,class:^(flameshot)$
 	''; 
 }

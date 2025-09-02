@@ -61,6 +61,7 @@
 			ffmpegthumbnailer
 			figma-linux
 			firefox
+			file
 			fzf
 			gimp3
 			git-spice
