@@ -165,9 +165,12 @@
         application/vnd.openxmlformats-officedocument.wordprocessingml.document)
           ${pkgs.pandoc}/bin/pandoc "$file" -t plain 2>/dev/null | head -500
           ;;
-        *)
-          ${pkgs.file}/bin/file -Lb "$file"
-          ;;
+				application/zip|application/x-rar|application/x-7z-compressed|application/x-tar|application/gzip)
+					${pkgs.lesspipe}/bin/lesspipe.sh "$1" 2>/dev/null || batorcat "$1"
+					;;
+				*)
+					${pkgs.lesspipe}/bin/lesspipe.sh "$1" 2>/dev/null || batorcat "$1" || echo "Cannot preview this file type"
+					;;
       esac
     '';
   };

@@ -9,21 +9,21 @@ capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp'
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.diagnostic.dynamicRegistration = true
 
--- local rzls_path = vim.fn.expand("~/.local/share/nvim/mason/packages/rzls/libexec")
--- local cmd = {
--- 	"roslyn",
--- 	"--stdio",
--- 	"--logLevel=Information",
--- 	"--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
--- 	"--razorSourceGenerator=" .. vim.fs.joinpath(rzls_path, "Microsoft.CodeAnalysis.Razor.Compiler.dll"),
--- 	"--razorDesignTimePath=" .. vim.fs.joinpath(rzls_path, "Targets", "Microsoft.NET.Sdk.Razor.DesignTime.targets"),
--- 	"--extension",
--- 	vim.fs.joinpath(rzls_path, "RazorExtension", "Microsoft.VisualStudioCode.RazorExtension.dll"),
--- }
+local rzls_path = vim.fn.expand("~/.local/share/nvim/mason/packages/rzls/libexec")
+local cmd = {
+	"roslyn",
+	"--stdio",
+	"--logLevel=Information",
+	"--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
+	"--razorSourceGenerator=" .. vim.fs.joinpath(rzls_path, "Microsoft.CodeAnalysis.Razor.Compiler.dll"),
+	"--razorDesignTimePath=" .. vim.fs.joinpath(rzls_path, "Targets", "Microsoft.NET.Sdk.Razor.DesignTime.targets"),
+	"--extension",
+	vim.fs.joinpath(rzls_path, "RazorExtension", "Microsoft.VisualStudioCode.RazorExtension.dll"),
+}
 
 require('roslyn').setup {
-	-- cmd = cmd,
-	-- handlers = require("rzls.roslyn_handlers"),
+	cmd = cmd,
+	handlers = require("rzls.roslyn_handlers"),
 	on_attach = on_attach,
 	capabilities = capabilities,
 	filewatching = 'auto',
@@ -52,7 +52,7 @@ require('roslyn').setup {
 		},
 	},
 	choose_target = function(target)
-		local knowsSlns = { "Ebh.sln", "Jobbi.sln" }
+		local knowsSlns = { "Ebh.sln", "Jobbi.sln", "OwnerPortal.sln" }
 		return vim.iter(target):find(function(item)
 			return vim.iter(knowsSlns):any(function(pattern)
 				return string.match(item, pattern)

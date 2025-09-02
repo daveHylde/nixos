@@ -35,15 +35,20 @@
 			name = "Kora";
 			package = pkgs.kora-icon-theme;
 		};
+		# font = {
+		#   name = "Archivo";
+	  #   size = 11;
+		# };
 	};
 
   home = {
     username = "${user}";
     homeDirectory = "/home/${user}";
-    stateVersion = "24.05";
+    stateVersion = "25.05";
 
 		sessionVariables = {
 			DOTNET_ROOT = "${pkgs.dotnet-sdk_9}";
+			NIXOS_OZONE_WL = "1";
 		};
 
     packages = with pkgs; [
@@ -58,13 +63,13 @@
 			claude-code
 			discord
 			dotnet-sdk_9
+			lesspipe
 			ffmpegthumbnailer
 			figma-linux
 			firefox
 			file
 			fzf
 			gimp3
-			git-spice
 			google-chrome
 			home-manager
 			htop

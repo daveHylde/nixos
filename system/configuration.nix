@@ -188,6 +188,8 @@
 			lact 
 			clinfo
 			kdePackages.kdeconnect-kde
+			kdePackages.kservice
+			kdePackages.qtsvg
 			xwayland
       glib
       glxinfo

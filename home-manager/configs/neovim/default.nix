@@ -120,10 +120,10 @@
 				plugin = easy-dotnet-nvim;
 				config = toLua "require(\"easy-dotnet\").setup()";
 			}
-			# { 
-			# 	plugin = rzls-nvim;
-			# 	config = toLuaFile ./nvim/plugins/rzls.lua;
-			# }
+			{ 
+				plugin = rzls-nvim;
+				config = toLuaFile ./nvim/plugins/rzls.lua;
+			}
 			{ 
 				plugin = nvim-dap-ui;
 				config = toLuaFile ./nvim/plugins/dapui.lua;
