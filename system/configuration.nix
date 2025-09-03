@@ -59,6 +59,8 @@
       enable = true;
       allowedTCPPortRanges = [
         { from = 1714; to = 1764; } # KDE Connect
+				{ from = 4200; to = 4210; } # angular local dev
+				{ from = 5000; to = 5010; } # dotnet local dev
       ];
       allowedUDPPortRanges = allowedTCPPortRanges;
     };
