@@ -2,7 +2,7 @@
   programs.git = {
     enable = true;
     userName = "daveHylde";
-    userEmail = "david@jobbi.no";
+    userEmail = "david.hyldgaard@gmail.com";
     extraConfig = {
       pull.rebase = false;
       rerere.enabled = true;

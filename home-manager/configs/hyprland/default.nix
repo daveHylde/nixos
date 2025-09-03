@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ./waybar
-    ./wofi
+		./waybar
+		./wofi
 		./hyprpaper
 		./swaync
 		./hyprlock
@@ -16,6 +16,8 @@
 
 			# See https://wiki.hyprland.org/Configuring/Monitors/
 			monitor = eDP-1, 1920x1200@60, 0x0, 1
+			# Rotate right monitor for work
+			monitor = DP-8, preferred, auto, 1, transform, 1 
 			monitor=,preferred,auto,1
 
 
@@ -54,6 +56,7 @@
 			exec-once = [workspace 2 silent] slack
 			exec-once = [workspace 2 silent] spotify
 			exec-once = dbus-update-activation-environment --systemd --all
+			exec-once = tmux setenv -g HYPRLAND_INSTANCE_SIGNATURE "$HYPRLAND_INSTANCE_SIGNATURE" 
 
 
 			#############################
@@ -65,7 +68,8 @@
 			env = XCURSOR_SIZE,24
 			env = HYPRCURSOR_SIZE,24
 			env = XCURSOR_THEME,Kora
-
+			env = QT_QPA_PLATFORM,wayland
+			env = QT_QPA_PLATFORMTHEME,qt5ct
 
 			#####################
 			### LOOK AND FEEL ###
@@ -273,5 +277,10 @@
 			# windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
 
 			windowrulev2 = suppressevent maximize, class:.* # You'll probably like this.
+
+			windowrulev2 = noanim,class:^(flameshot)$
+			windowrulev2 = float,class:^(flameshot)$
+			windowrulev2 = monitor 0,class:^(flameshot)$
 	''; 
 }
+
