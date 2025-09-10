@@ -21,15 +21,24 @@ snacks.setup {
 	indent = { enabled = false, },
 	input = { enabled = true },
 	bufdelete = { enabled = true },
+	explorer = {
+		hidden = true,
+		ignored = true,
+	},
 	picker = {
 		enabled = true,
 		files = {
 			hidden = true,
 			ignored = true,
 		},
-		explorer = {
-			hidden = true,
-			ignored = true,
+		formatters = {
+			file = {
+				filename_first = true, -- display filename before the file path
+				truncate = 75,        -- truncate the file path to (roughly) this length
+				filename_only = false, -- only show the filename
+				icon_width = 2,       -- width of the icon (in characters)
+				git_status_hl = true, -- use the git status highlight group for the filename
+			},
 		}
 	},
 	words = { enabled = false },
