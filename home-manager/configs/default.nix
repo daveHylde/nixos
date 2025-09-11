@@ -1,6 +1,7 @@
 {
   imports = [
 		./hyprland
+		./vscode
 		./kdeconnect
 		./lf
     ./bash
