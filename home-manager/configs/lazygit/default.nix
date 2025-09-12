@@ -128,12 +128,12 @@
 					   - Be specific and concise
 					   - Mix high-level and detailed messages
 					
-					   **Output format - commit messages only, one per line:**" \
+					   **Output only the commit messages, one per line:**" \
 					     | fzf --height 40% --border --ansi --preview "echo {}" --preview-window=up:wrap \
 					     | xargs -I {} bash -c '
 					         COMMIT_MSG_FILE=$(mktemp)
 					         echo "{}" > "$COMMIT_MSG_FILE"
-					         ${"\${EDITOR:-vim}"} "$COMMIT_MSG_FILE"
+					         ${"EDITOR:-vim"} "$COMMIT_MSG_FILE"
 					         if [ -s "$COMMIT_MSG_FILE" ]; then
 					             git commit -F "$COMMIT_MSG_FILE"
 					         else
