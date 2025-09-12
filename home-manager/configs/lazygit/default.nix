@@ -113,31 +113,27 @@
 					context = "files";
 					output = "terminal";
 					command = ''
-					   aichat --model ollama:llama3.2 "Analyze the staged changes and suggest 10 conventional commit messages. Focus on the business impact and user-facing changes rather than implementation details.
+					   aichat --model ollama:llama3.2 "Generate 4 conventional commit messages for the staged changes.
 					
 					   **Staged Changes:**
 					   \`\`\`diff
+					   $(git diff --cached --name-status)
 					   $(git diff --cached)
 					   \`\`\`
 					
-					   **Recent History:**
-					   \`\`\`
-					   $(git log -n 8 --pretty=format:'%h %s')
-					   \`\`\`
-					
 					   **Requirements:**
-					   - Use conventional commits format: \`type: description\`
-					   - Prioritize user impact over code mechanics
-					   - Be specific but concise
-					   - Cover different abstraction levels (1-2 high-level, others more specific)
+					   - Format: \`type: description\`
 					   - Types: feat, fix, refactor, perf, docs, test, chore, style, ci
+					   - Prioritize user impact
+					   - Be specific and concise
+					   - Mix high-level and detailed messages
 					
-					   **Output only the commit messages, one per line:**" \
+					   **Output format - commit messages only, one per line:**" \
 					     | fzf --height 40% --border --ansi --preview "echo {}" --preview-window=up:wrap \
 					     | xargs -I {} bash -c '
 					         COMMIT_MSG_FILE=$(mktemp)
 					         echo "{}" > "$COMMIT_MSG_FILE"
-					         ${"EDITOR:-vim"} "$COMMIT_MSG_FILE"
+					         ${"\${EDITOR:-vim}"} "$COMMIT_MSG_FILE"
 					         if [ -s "$COMMIT_MSG_FILE" ]; then
 					             git commit -F "$COMMIT_MSG_FILE"
 					         else
