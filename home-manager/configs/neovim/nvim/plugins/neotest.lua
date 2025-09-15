@@ -4,8 +4,8 @@ neotest.setup {
 	adapters = {
 		require("neotest-dotnet")({
 			dap = {
-				justMyCode = true,
-				adapter_name = "netcoredbg",
+				justMyCode = false,
+				adapter_name = "coreclr",
 			},
 			discovery_root = "solution",
 		}),

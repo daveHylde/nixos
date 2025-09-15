@@ -47,7 +47,7 @@
     stateVersion = "25.05";
 
 		sessionVariables = {
-			DOTNET_ROOT = "${pkgs.dotnet-sdk_9}";
+			DOTNET_ROOT = "${pkgs.dotnet-sdk_9}/share/dotnet";
 			NIXOS_OZONE_WL = "1";
 		};
 
