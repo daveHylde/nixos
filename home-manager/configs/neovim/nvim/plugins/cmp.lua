@@ -13,11 +13,6 @@ cmp.setup {
 			luasnip.lsp_expand(args.body)
 		end,
 	},
-	formatting = {
-		format = lspkind.cmp_format({
-			before = require("tailwind-tools.cmp").lspkind_format
-		})
-	},
 	performance = {
 		max_view_entries = 50,
 	},

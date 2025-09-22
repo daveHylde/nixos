@@ -32,12 +32,12 @@ lsp.lua_ls.setup {
 lsp.angularls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
-	root_dir = util.root_pattern("package.json", "angular.json", "project.json"), -- This is for monorepo's
+	root_dir = util.root_pattern("nx.json", "package.json", "angular.json", "project.json"), -- This is for monorepo's
 	filetypes = { 'typescript', 'angular.html', 'angular' }
 }
 lsp.vtsls.setup {
 	capabilities = capabilities,
-	root_dir = util.root_pattern("package.json", ".git", "tsconfig.base.json"),
+	root_dir = util.root_pattern("nx.json", "package.json", "angular.json", "project.json"), -- This is for monorepo's
 }
 lsp.html.setup {
 	on_attach = on_attach,
@@ -93,4 +93,10 @@ lsp.jsonls.setup {
 			validate = { enable = true },
 		},
 	},
+}
+
+lsp.tailwindcss.setup {
+	on_attach = on_attach,
+	capabilities = capabilities,
+	root_dir = util.root_pattern("nx.json", "package.json", "angular.json", "project.json"), -- This is for monorepo's
 }

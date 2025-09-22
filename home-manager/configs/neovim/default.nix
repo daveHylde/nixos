@@ -120,10 +120,6 @@
 				plugin = easy-dotnet-nvim;
 				config = toLua "require(\"easy-dotnet\").setup()";
 			}
-			# { 
-			# 	plugin = rzls-nvim;
-			# 	config = toLuaFile ./nvim/plugins/rzls.lua;
-			# }
 			{ 
 				plugin = nvim-dap-ui;
 				config = toLuaFile ./nvim/plugins/dapui.lua;
@@ -131,10 +127,6 @@
 			{ 
 				plugin = conform-nvim;
 				config = toLuaFile ./nvim/plugins/conform.lua;
-			}
-			{
-				plugin = tailwind-tools-nvim;
-				config = toLuaFile ./nvim/plugins/tailwind-tools.lua;
 			}
 			{	
 				plugin =	nvim-ts-autotag;
