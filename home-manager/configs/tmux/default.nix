@@ -5,7 +5,7 @@
     enable = true;
     plugins = with pkgs;
       with tmuxPlugins; [
-				tmux-colors-solarized
+				nord
         resurrect
         vim-tmux-navigator
         continuum
@@ -17,7 +17,7 @@
       unbind r
       bind r source-file ~/.config/tmux/tmux.conf
       bind u display-popup
-
+			
       set-option -g default-terminal "screen-256color"
       set-option -sa terminal-features ',screen-256color:RGB'
       set-option -sg escape-time 10
@@ -58,9 +58,9 @@
       bind-key -T copy-mode-vi 'C-Right' select-pane -R
       bind-key -T copy-mode-vi 'C-p' select-pane -l
 
-			# Neovim theme fixes
-			set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'  # undercurl support
-			set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'  # underscore colours - needs tmux-3.0
+			# # Neovim theme fixes
+			# set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'  # undercurl support
+			# set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'  # underscore colours - needs tmux-3.0
     '';
   };
 }

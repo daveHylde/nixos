@@ -1,6 +1,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.o.clipboard = 'unnamedplus'
+
+vim.cmd.colorscheme "github_dark"
+
 -- Enable persistent undo
 vim.opt.undofile = true
 -- Set the directory where the undo files will be stored
@@ -25,7 +28,6 @@ vim.o.shiftwidth = 2
 
 vim.o.updatetime = 50
 vim.o.guifont = "JetBrainsMono Nerd Font"
-vim.o.background = "light"
 
 vim.g.db_ui_use_nerd_fonts = 1
 vim.g.db_ui_winwidth = 50

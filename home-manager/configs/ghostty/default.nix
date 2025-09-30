@@ -3,7 +3,7 @@
 	enable = true;
 	enableBashIntegration = true;
 	settings = {
-			theme = "Builtin Solarized Light";
+			theme = "nord"; #"GitHub-Light-Default";
 			font-size = 10;
 			font-family = "JetBrainsMono Nerd Font";
 

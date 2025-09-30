@@ -118,6 +118,7 @@
 			vscode-extensions.ms-dotnettools.csharp
 			vscode-fhs
 			wl-clipboard
+			whatsie
 			yarn
 			yq
 			yubikey-personalization
