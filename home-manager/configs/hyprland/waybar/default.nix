@@ -164,9 +164,9 @@
       #waybar {
           background: @bg;
           color: @light;
-          font-family: "Cantarell", "Font Awesome 5 Pro";
-          font-size: 10px;
-          font-weight: bold;
+          font-family: "JetBrainsMono Nerd Font";
+          font-size: 12px;
+          font-weight: 600;
       }
 
       /* Each module */

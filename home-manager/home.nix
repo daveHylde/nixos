@@ -63,11 +63,11 @@
 			claude-code
 			discord
 			dotnet-sdk_9
-			lesspipe
+			exiftool
 			ffmpegthumbnailer
 			figma-linux
-			firefox
 			file
+			firefox
 			fzf
 			gimp3
 			google-chrome
@@ -82,6 +82,7 @@
 			kubectl
 			kubernetes-helm
 			lazydocker
+			lesspipe
 			libreoffice
 			librsvg
 			lm_sensors
@@ -98,11 +99,13 @@
 			openssl
 			pandoc
 			pinta
+			pistol
 			playerctl
 			poppler_utils
 			postgresql
 			powershell
 			python3Full
+			resvg
 			s3cmd
 			s3fs
 			signal-desktop
@@ -117,8 +120,9 @@
 			viu
 			vscode-extensions.ms-dotnettools.csharp
 			vscode-fhs
-			wl-clipboard
 			whatsie
+			wl-clipboard
+			xdragon
 			yarn
 			yq
 			yubikey-personalization

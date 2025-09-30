@@ -4,7 +4,7 @@
 		./vscode
 		./starship
 		./kdeconnect
-		./lf
+		./yazi
     ./bash
     ./fusuma
     ./ghostty
@@ -14,5 +14,6 @@
     ./lazygit
     ./neovim
     ./tmux
+		./zoxide
   ];
 }

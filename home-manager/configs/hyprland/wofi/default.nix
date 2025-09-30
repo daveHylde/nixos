@@ -19,17 +19,17 @@
       image_size = 40;
       gtk_dark = true;
       layer = "overlay";
-      term = "kitty";
+      term = "ghostty";
     };
     style = ''
       window {
         margin: 0px;
-        border: 2px solid #414868;
-        background-color: #24283b;
+        border: 2px solid #4c566a;
+        background-color: #2e3440;
         border-radius: 15px;
         animation: slideIn 0.1s ease-in-out;
       }
-
+  
       @keyframes slideIn {
         0% {
           opacity: 0;
@@ -40,39 +40,39 @@
           transform: translateY(0);
         }
       }
-
+  
       #input {
         margin: 5px;
         border: none;
-        color: #c0caf5;
-        background-color: #414868;
+        color: #d8dee9;
+        background-color: #4c566a;
       }
-
+  
       #inner-box {
         margin: 5px;
         border: none;
-        background-color: #24283b;
+        background-color: #2e3440;
       }
-
+  
       #outer-box {
         margin: 5px;
         border: none;
-        background-color: #24283b;
+        background-color: #2e3440;
       }
-
+  
       #scroll {
         margin: 0px;
         border: none;
       }
-
+  
       #text {
         margin: 5px;
         border: none;
-        color: #c0caf5;
+        color: #d8dee9;
       }
-
+  
       #entry:selected {
-        background-color: #414868;
+        background-color: #4c566a;
         border-radius: 5px;
       }
     '';

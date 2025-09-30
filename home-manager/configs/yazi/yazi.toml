@@ -1,0 +1,28 @@
+[opener]
+edit = [
+    { run = 'nvim "$@"', block = true, desc = "Neovim" },
+    { run = 'code "$@"', block = false, desc = "VS Code" },
+]
+
+open = [
+    { run = 'xdg-open "$@"', block = false, desc = "Default" },
+		{ run = 'libreoffice "$@"', block = false, desc = "LibreOffice" },
+		{ run = 'nvim "$@"', block = true, desc = "Neovim" },
+		{ run = 'firefox "$@"', block = false, desc = "Firefox" },
+    { run = 'code "$@"', block = false, desc = "VS Code" },
+    { run = 'dolphin "$@"', block = false, desc = "Dolphin" },
+    { run = 'gimp "$@"', block = false, desc = "GIMP" },
+    { run = 'pinta "$@"', block = false, desc = "Pinta" },
+    { run = '''sh -c 'read -p "Program: " prog && $prog "$@"' ''', block = true, desc = "Custom program" },
+]
+
+play = [
+    { run = 'mpv "$@"', block = false, desc = "mpv" },
+]
+
+# PDF viewers
+pdf = [
+    { run = 'libreoffice "$@"', block = false, desc = "LibreOffice" },
+    { run = 'firefox "$@"', block = false, desc = "Firefox" },
+]
+
