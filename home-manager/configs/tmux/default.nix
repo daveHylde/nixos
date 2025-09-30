@@ -5,7 +5,7 @@
     enable = true;
     plugins = with pkgs;
       with tmuxPlugins; [
-        gruvbox
+				tmux-colors-solarized
         resurrect
         vim-tmux-navigator
         continuum

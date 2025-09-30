@@ -192,7 +192,10 @@
 			kdePackages.kdeconnect-kde
 			kdePackages.kservice
 			kdePackages.qtsvg
+			kdePackages.krohnkite
 			xwayland
+			pavucontrol
+			nwg-displays
       glib
       glxinfo
 			gpu-viewer

@@ -212,10 +212,19 @@
 				plugin = which-key-nvim;
 				config = toLua "require(\"which-key\").setup()";
 			}
+			# { 
+			# 	plugin = github-nvim-theme;
+			# 	config = "colorscheme github_dark_dimmed";
+			# }
 			{ 
-				plugin = github-nvim-theme;
-				config = "colorscheme github_dark_dimmed";
+				plugin = solarized-nvim;
+				config = "colorscheme solarized";
 			}
+			# (pkgs.vimUtils.buildVimPlugin {
+			# 	name = "flexoki-nvim";
+			# 	src = inputs.flexoki-nvim;
+			# 	config = "colorscheme flexoki-light";
+			# })
 			{
 				plugin = comment-nvim;
 				config = toLua "require(\"Comment\").setup()";

@@ -15,6 +15,12 @@ require 'lualine'.setup {
 			{ 'diff', source = diff_source },
 			{ 'b:gitsigns_head', icon = '' },
 		},
+		lualine_c = {
+			{
+				'filename',
+				path = 1, -- 1 = relative path, 2 = absolute path
+			}
+		},
 		lualine_x = {
 			'encoding', -- shows file encoding (utf-8, etc)
 			{

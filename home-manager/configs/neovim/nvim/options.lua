@@ -24,6 +24,8 @@ vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 
 vim.o.updatetime = 50
+vim.o.guifont = "JetBrainsMono Nerd Font"
+vim.o.background = "light"
 
 vim.g.db_ui_use_nerd_fonts = 1
 vim.g.db_ui_winwidth = 50

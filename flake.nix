@@ -14,6 +14,10 @@
 			url = "github:Robitx/gp.nvim";
 			flake = false;
 		};
+		flexoki-nvim = {
+			url = "github:kepano/flexoki-neovim";
+			flake = false;
+		};
 		plugin-vim-freemarker = {
 			url = "github:andreshazard/vim-freemarker";
 			flake = false;

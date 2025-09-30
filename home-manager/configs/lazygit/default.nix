@@ -5,7 +5,7 @@
 			git = {
 				paging = {
 					colorArg = "always";
-					pager = "delta --dark --paging=never";
+					pager = "delta --light --paging=never";
 				};
 			};
 			customCommands = [
