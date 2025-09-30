@@ -63,54 +63,54 @@
       }
 
       .floating-notifications.background {
-        background-color: rgba(30, 30, 46, 0.8);
+        background-color: rgba(46, 52, 64, 0.9);
         border-radius: 12px;
-        border: 2px solid rgba(147, 153, 178, 0.8);
+        border: 2px solid rgba(76, 86, 106, 0.8);
         margin: 10px;
         max-height: 70vh;
       }
 
       .floating-notifications .notification {
-        background-color: rgba(30, 30, 46, 0.7);
+        background-color: rgba(59, 66, 82, 0.8);
         border-radius: 12px;
         padding: 10px;
         margin: 10px;
-        border: 2px solid rgba(147, 153, 178, 0.6);
+        border: 2px solid rgba(76, 86, 106, 0.6);
       }
 
       .floating-notifications .notification.critical {
-        border: 2px solid rgba(243, 139, 168, 0.9);
+        border: 2px solid rgba(191, 97, 106, 0.9);
       }
 
       .notification-action-button {
-        background-color: rgba(49, 50, 68, 0.7);
+        background-color: rgba(67, 76, 94, 0.8);
         border-radius: 8px;
         padding: 5px 10px;
         margin: 5px;
-        border: 1px solid rgba(147, 153, 178, 0.6);
+        border: 1px solid rgba(76, 86, 106, 0.6);
       }
 
       .notification-action-button:hover {
-        background-color: rgba(69, 71, 90, 0.7);
+        background-color: rgba(76, 86, 106, 0.8);
       }
 
       .control-center {
-        background-color: rgba(30, 30, 46, 0.8);
+        background-color: rgba(46, 52, 64, 0.9);
         border-radius: 12px;
-        border: 2px solid rgba(147, 153, 178, 0.8);
+        border: 2px solid rgba(76, 86, 106, 0.8);
         max-height: 80vh;
       }
 
       .control-center .notification {
-        background-color: rgba(49, 50, 68, 0.7);
+        background-color: rgba(67, 76, 94, 0.8);
         border-radius: 10px;
         padding: 10px;
         margin: 10px;
-        border: 1px solid rgba(147, 153, 178, 0.6);
+        border: 1px solid rgba(76, 86, 106, 0.6);
       }
 
       .control-center .notification.critical {
-        border: 1px solid rgba(243, 139, 168, 0.9);
+        border: 1px solid rgba(191, 97, 106, 0.9);
       }
 
       .notification-content {
@@ -122,19 +122,19 @@
       }
 
       .notification-default-action:hover {
-        background-color: rgba(69, 71, 90, 0.7);
+        background-color: rgba(76, 86, 106, 0.7);
         border-radius: 8px;
       }
 
       .close-button {
-        background-color: rgba(243, 139, 168, 0.8);
-        color: rgba(30, 30, 46, 1);
+        background-color: rgba(191, 97, 106, 0.8);
+        color: rgba(236, 239, 244, 1);
         padding: 2px 5px;
         border-radius: 5px;
       }
 
       .close-button:hover {
-        background-color: rgba(243, 139, 168, 1);
+        background-color: rgba(191, 97, 106, 1);
       }
 
       .notification .body-image {
@@ -147,23 +147,27 @@
       .title {
         font-weight: bold;
         font-size: 16px;
+        color: rgba(236, 239, 244, 1);
       }
 
       .widget-title {
         margin: 10px;
         font-size: 18px;
         font-weight: bold;
+        color: rgba(236, 239, 244, 1);
       }
 
       .widget-dnd {
         margin: 10px;
         padding: 5px 10px;
         border-radius: 8px;
-        background-color: rgba(49, 50, 68, 0.7);
+        background-color: rgba(67, 76, 94, 0.8);
+        color: rgba(236, 239, 244, 1);
       }
 
       .widget-dnd.active {
-        background-color: rgba(243, 139, 168, 0.7);
+        background-color: rgba(191, 97, 106, 0.8);
+        color: rgba(236, 239, 244, 1);
       }
 
       .widget-volume {
@@ -171,25 +175,25 @@
       }
 
       .volume-slider {
-        background-color: rgba(49, 50, 68, 0.7);
+        background-color: rgba(67, 76, 94, 0.8);
         border-radius: 8px;
       }
 
       .volume-slider trough {
-        background-color: rgba(49, 50, 68, 0.7);
+        background-color: rgba(67, 76, 94, 0.8);
         border-radius: 8px;
         min-height: 10px;
       }
 
       .volume-slider highlight {
-        background-color: rgba(137, 180, 250, 0.8);
+        background-color: rgba(94, 129, 172, 0.8);
         border-radius: 8px;
       }
 
       .widget-mpris {
         margin: 10px;
         padding: 10px;
-        background-color: rgba(49, 50, 68, 0.7);
+        background-color: rgba(67, 76, 94, 0.8);
         border-radius: 12px;
       }
 
@@ -200,10 +204,12 @@
       .widget-mpris-title {
         font-weight: bold;
         font-size: 15px;
+        color: rgba(236, 239, 244, 1);
       }
 
       .widget-mpris-subtitle {
         font-size: 13px;
+        color: rgba(216, 222, 233, 1);
       }
     '';
   };

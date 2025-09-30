@@ -50,8 +50,6 @@
 			cmp-buffer
 			cmp-nvim-lsp
 			github-nvim-theme
-			solarized-nvim
-			onenord-nvim
 			nord-nvim
 			cmp-nvim-lsp-signature-help
 			cmp-path
@@ -207,6 +205,10 @@
 			{
 				plugin = claude-code-nvim;
 				config = toLuaFile ./nvim/plugins/claude-code.lua;
+			}
+			{
+				plugin = onenord-nvim;
+				config = toLuaFile ./nvim/plugins/colorscheme.lua;
 			}
 			{
 				plugin = gitsigns-nvim;
