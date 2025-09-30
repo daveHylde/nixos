@@ -2,11 +2,10 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.o.clipboard = 'unnamedplus'
 
-
 vim.cmd.colorscheme "onenord-light"
 local colors = require("onenord.colors").load()
 vim.opt.guicursor = "n-v-c:block-Cursor,i-ci-ve:ver25-Cursor,r-cr:hor20-Cursor"
-vim.api.nvim_set_hl(0, "Cursor", { bg = colors.blue, fg = colors.bg })
+vim.api.nvim_set_hl(0, "Cursor", { bg = colors.gray })
 
 -- Enable persistent undo
 vim.opt.undofile = true
@@ -53,3 +52,4 @@ vim.filetype.add {
 		cshtml = 'razor',
 	},
 }
+
