@@ -2,7 +2,11 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.o.clipboard = 'unnamedplus'
 
-vim.cmd.colorscheme "github_dark"
+
+vim.cmd.colorscheme "onenord-light"
+local colors = require("onenord.colors").load()
+vim.opt.guicursor = "n-v-c:block-Cursor,i-ci-ve:ver25-Cursor,r-cr:hor20-Cursor"
+vim.api.nvim_set_hl(0, "Cursor", { bg = colors.blue, fg = colors.bg })
 
 -- Enable persistent undo
 vim.opt.undofile = true
@@ -18,7 +22,7 @@ vim.o.smartcase = true
 
 vim.o.number = true
 vim.o.linebreak = true
-vim.o.wrap = false -- dont want wrap for now
+vim.o.wrap = false
 vim.o.swapfile = false
 
 vim.o.signcolumn = 'yes'

@@ -2,6 +2,7 @@
   imports = [
 		./hyprland
 		./vscode
+		./starship
 		./kdeconnect
 		./lf
     ./bash

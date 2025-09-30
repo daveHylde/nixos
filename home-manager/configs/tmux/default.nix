@@ -5,6 +5,7 @@
     enable = true;
     plugins = with pkgs;
       with tmuxPlugins; [
+				prefix-highlight
 				nord
         resurrect
         vim-tmux-navigator
