@@ -11,14 +11,14 @@
         spacing = 4;
         modules-left = [ "clock" ];
         modules-center = [ "hyprland/workspaces" ];
-        modules-right = [ "cpu" "temperature" "pulseaudio" "network" "custom/network-speed" "custom/internet-speed" "tray" ];
+        modules-right = [ "cpu" "temperature" "wireplumber" "network" "custom/network-speed" "custom/internet-speed" "tray" ];
         
         "hyprland/workspaces" = {
           disable-scroll = true;
           all-outputs = true;
           format = "{name}";
           format-icons = {
-            urgent = "⚠️";
+            urgent = "";
             active = "";
             default = "";
           };
@@ -58,20 +58,19 @@
         
         cpu = {
           interval = 1;
-          format = "  {usage}%";
-          max-length = 13;
-          min-length = 13;
+          format = "{usage}%";
+          max-length = 6;
+          min-length = 6;
           tooltip = false;
         };
         
         temperature = {
           interval = 4;
           critical-threshold = 74;
-          format-critical = "  {temperatureC}°C";
-          format = "{icon}  {temperatureC}°C";
+          format = "{temperatureC}°C";
           format-icons = ["" "" ""];
-          max-length = 7;
-          min-length = 7;
+          max-length = 6;
+          min-length = 6;
         };
         
         network = {
@@ -85,7 +84,7 @@
           tooltip-format-ethernet = " {ifname}\nIP: {ipaddr}\n {bandwidthUpBits}  {bandwidthDownBits}";
         };
         
-        pulseaudio = {
+        wireplumber = {
           scroll-step = 3;
           format = "{icon} {volume}% {format_source}";
           format-bluetooth = "{volume}% {icon} {format_source}";
@@ -102,6 +101,7 @@
             car = "";
             default = ["" "" ""];
           };
+          on-click = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
           on-click-right = "pactl set-source-mute @DEFAULT_SOURCE@ toggle";
         };
         
@@ -110,17 +110,17 @@
           format = "{}";
           exec = "bash -c 'RX1=$(cat /sys/class/net/*/statistics/rx_bytes | paste -sd+ | bc); TX1=$(cat /sys/class/net/*/statistics/tx_bytes | paste -sd+ | bc); sleep 1; RX2=$(cat /sys/class/net/*/statistics/rx_bytes | paste -sd+ | bc); TX2=$(cat /sys/class/net/*/statistics/tx_bytes | paste -sd+ | bc); RXD=$((RX2-RX1)); TXD=$((TX2-TX1)); if [ $RXD -gt 1048576 ]; then RX_UNIT=\"MB/s\"; RX_VAL=$(echo \"scale=1; $RXD/1048576\" | bc); elif [ $RXD -gt 1024 ]; then RX_UNIT=\"KB/s\"; RX_VAL=$(echo \"scale=0; $RXD/1024\" | bc); else RX_UNIT=\"B/s\"; RX_VAL=$RXD; fi; if [ $TXD -gt 1048576 ]; then TX_UNIT=\"MB/s\"; TX_VAL=$(echo \"scale=1; $TXD/1048576\" | bc); elif [ $TXD -gt 1024 ]; then TX_UNIT=\"KB/s\"; TX_VAL=$(echo \"scale=0; $TXD/1024\" | bc); else TX_UNIT=\"B/s\"; TX_VAL=$TXD; fi; printf \" %s%s | %s%s\" \"$RX_VAL\" \"$RX_UNIT\" \"$TX_VAL\" \"$TX_UNIT\"'";
           tooltip = false;
-          max-length = 18;
-          min-length = 18;
+          max-length = 24;
+          min-length = 24;
         };
 
         "custom/internet-speed" = {
           interval = 1800;
           format = "{}";
-          exec = "bash -c 'SPEED_FILE=\"$HOME/.cache/waybar-internet-speed\"; if [ ! -f \"$SPEED_FILE\" ] || [ $(($(date +%s) - $(stat -c %Y \"$SPEED_FILE\" 2>/dev/null || echo 0))) -gt 1800 ]; then if command -v speedtest-cli >/dev/null 2>&1; then DOWN=$(speedtest-cli --simple 2>/dev/null | grep \"Download:\" | awk \"{printf \\\"%.1f\\\", \\$2}\"); UP=$(speedtest-cli --simple 2>/dev/null | grep \"Upload:\" | awk \"{printf \\\"%.1f\\\", \\$2}\"); echo \"$DOWN | $UP\" > \"$SPEED_FILE\"; else echo \"500.1 | 500.2\" > \"$SPEED_FILE\"; fi; fi; cat \"$SPEED_FILE\" 2>/dev/null || echo \"--- | ---\"'";
+          exec = "bash -c 'SPEED_FILE=\"$HOME/.cache/waybar-internet-speed\"; if [ ! -f \"$SPEED_FILE\" ] || [ $(($(date +%s) - $(stat -c %Y \"$SPEED_FILE\" 2>/dev/null || echo 0))) -gt 1800 ]; then DOWN=$(speedtest-cli --simple 2>/dev/null | grep \"Download:\" | awk \"{printf \\\"%.1f\\\", \\$2}\"); UP=$(speedtest-cli --simple 2>/dev/null | grep \"Upload:\" | awk \"{printf \\\"%.1f\\\", \\$2}\"); echo \"↓$DOWN ↑$UP Mbps\" > \"$SPEED_FILE\"; fi; cat \"$SPEED_FILE\" 2>/dev/null || echo \"--- | ---\"'";
           tooltip = false;
-          max-length = 18;
-          min-length = 18;
+          max-length = 24;
+          min-length = 24;
         };
       };
     };
@@ -195,7 +195,7 @@
       #memory,
       #mode,
       #network,
-      #pulseaudio,
+      #wireplumber,
       #temperature,
       #custom-alsa,
       #custom-pacman,
@@ -329,17 +329,17 @@
           color: #D8DEE9;
       }
 
-      #pulseaudio {
+      #wireplumber {
           background: @nord_bg_blue;
           color: #D8DEE9;
       }
 
-      #pulseaudio.muted {
+      #wireplumber.muted {
           background: #BF616A;
           color: #BF616A;
       }
 
-      #pulseaudio.source-muted {
+      #wireplumber.source-muted {
           background: #D08770;
           color: #D8DEE9;
       }

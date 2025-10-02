@@ -111,6 +111,7 @@
 			signal-desktop
 			skaffold
 			slack
+			speedtest-cli
 			spotify
 			sqlite
 			tectonic
