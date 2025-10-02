@@ -11,7 +11,7 @@
         spacing = 4;
         modules-left = [ "clock" ];
         modules-center = [ "hyprland/workspaces" ];
-        modules-right = [ "cpu" "temperature" "pulseaudio" "network" "tray" ];
+        modules-right = [ "cpu" "temperature" "pulseaudio" "network" "custom/network-speed" "custom/internet-speed" "tray" ];
         
         "hyprland/workspaces" = {
           disable-scroll = true;
@@ -104,6 +104,24 @@
           };
           on-click-right = "pactl set-source-mute @DEFAULT_SOURCE@ toggle";
         };
+        
+        "custom/network-speed" = {
+          interval = 2;
+          format = "{}";
+          exec = "bash -c 'RX1=$(cat /sys/class/net/*/statistics/rx_bytes | paste -sd+ | bc); TX1=$(cat /sys/class/net/*/statistics/tx_bytes | paste -sd+ | bc); sleep 1; RX2=$(cat /sys/class/net/*/statistics/rx_bytes | paste -sd+ | bc); TX2=$(cat /sys/class/net/*/statistics/tx_bytes | paste -sd+ | bc); RXD=$((RX2-RX1)); TXD=$((TX2-TX1)); if [ $RXD -gt 1048576 ]; then RX_UNIT=\"MB/s\"; RX_VAL=$(echo \"scale=1; $RXD/1048576\" | bc); elif [ $RXD -gt 1024 ]; then RX_UNIT=\"KB/s\"; RX_VAL=$(echo \"scale=0; $RXD/1024\" | bc); else RX_UNIT=\"B/s\"; RX_VAL=$RXD; fi; if [ $TXD -gt 1048576 ]; then TX_UNIT=\"MB/s\"; TX_VAL=$(echo \"scale=1; $TXD/1048576\" | bc); elif [ $TXD -gt 1024 ]; then TX_UNIT=\"KB/s\"; TX_VAL=$(echo \"scale=0; $TXD/1024\" | bc); else TX_UNIT=\"B/s\"; TX_VAL=$TXD; fi; printf \" %s%s | %s%s\" \"$RX_VAL\" \"$RX_UNIT\" \"$TX_VAL\" \"$TX_UNIT\"'";
+          tooltip = false;
+          max-length = 18;
+          min-length = 18;
+        };
+
+        "custom/internet-speed" = {
+          interval = 1800;
+          format = "{}";
+          exec = "bash -c 'SPEED_FILE=\"$HOME/.cache/waybar-internet-speed\"; if [ ! -f \"$SPEED_FILE\" ] || [ $(($(date +%s) - $(stat -c %Y \"$SPEED_FILE\" 2>/dev/null || echo 0))) -gt 1800 ]; then if command -v speedtest-cli >/dev/null 2>&1; then DOWN=$(speedtest-cli --simple 2>/dev/null | grep \"Download:\" | awk \"{printf \\\"%.1f\\\", \\$2}\"); UP=$(speedtest-cli --simple 2>/dev/null | grep \"Upload:\" | awk \"{printf \\\"%.1f\\\", \\$2}\"); echo \"$DOWN | $UP\" > \"$SPEED_FILE\"; else echo \"500.1 | 500.2\" > \"$SPEED_FILE\"; fi; fi; cat \"$SPEED_FILE\" 2>/dev/null || echo \"--- | ---\"'";
+          tooltip = false;
+          max-length = 18;
+          min-length = 18;
+        };
       };
     };
     
@@ -183,6 +201,8 @@
       #custom-pacman,
       #custom-weather,
       #custom-gpu,
+      #custom-network-speed,
+      #custom-internet-speed,
       #tray,
       #backlight,
       #language,
@@ -321,6 +341,16 @@
 
       #pulseaudio.source-muted {
           background: #D08770;
+          color: #D8DEE9;
+      }
+
+      #custom-network-speed {
+          background: @nord_bg_blue;
+          color: #D8DEE9;
+      }
+
+      #custom-internet-speed {
+          background: @network;
           color: #D8DEE9;
       }
 

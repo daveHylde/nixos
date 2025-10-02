@@ -9,10 +9,10 @@
       splash_offset = 2.0;
   
       preload =
-        [ "~/Pictures/space2.jpeg" ];
+        [ "~/Pictures/background.png" ];
   
       wallpaper = [
-				" , ~/Pictures/space2.jpeg"
+				" , ~/Pictures/background.png"
       ];
     };
   };

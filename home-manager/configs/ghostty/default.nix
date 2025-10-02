@@ -6,6 +6,7 @@
 			theme = "nord";
 			font-size = 10;
 			font-family = "JetBrainsMono Nerd Font";
+			background-opacity = 0.95;
 
       window-padding-x = 0;
       window-padding-y = 0;

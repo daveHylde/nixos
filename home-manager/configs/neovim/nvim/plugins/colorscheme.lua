@@ -1,1 +1,5 @@
-require('onenord').setup {}
+require('onenord').setup {
+  disable = {
+    background = true,
+  },
+}
