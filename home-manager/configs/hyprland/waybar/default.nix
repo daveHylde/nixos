@@ -86,10 +86,12 @@
         
         wireplumber = {
           scroll-step = 3;
+          max-length = 6;
+          min-length = 6;
           format = "{icon} {volume}% {format_source}";
           format-bluetooth = "{volume}% {icon} {format_source}";
           format-bluetooth-muted = " {icon} {format_source}";
-          format-muted = " {format_source}";
+          format-muted = "";
           format-source = "";
           format-source-muted = "";
           format-icons = {
@@ -110,8 +112,8 @@
           format = "{}";
           exec = "bash -c 'RX1=$(cat /sys/class/net/*/statistics/rx_bytes | paste -sd+ | bc); TX1=$(cat /sys/class/net/*/statistics/tx_bytes | paste -sd+ | bc); sleep 1; RX2=$(cat /sys/class/net/*/statistics/rx_bytes | paste -sd+ | bc); TX2=$(cat /sys/class/net/*/statistics/tx_bytes | paste -sd+ | bc); RXD=$((RX2-RX1)); TXD=$((TX2-TX1)); if [ $RXD -gt 1048576 ]; then RX_UNIT=\"Mb/s\"; RX_VAL=$(echo \"scale=1; $RXD/1048576\" | bc); elif [ $RXD -gt 1024 ]; then RX_UNIT=\"kb/s\"; RX_VAL=$(echo \"scale=0; $RXD/1024\" | bc); else RX_UNIT=\"b/s\"; RX_VAL=$RXD; fi; if [ $TXD -gt 1048576 ]; then TX_UNIT=\"Mb/s\"; TX_VAL=$(echo \"scale=1; $TXD/1048576\" | bc); elif [ $TXD -gt 1024 ]; then TX_UNIT=\"kb/s\"; TX_VAL=$(echo \"scale=0; $TXD/1024\" | bc); else TX_UNIT=\"b/s\"; TX_VAL=$TXD; fi; printf \" %s%s | %s%s\" \"$RX_VAL\" \"$RX_UNIT\" \"$TX_VAL\" \"$TX_UNIT\"'";
           tooltip = false;
-          max-length = 24;
-          min-length = 24;
+          max-length = 20;
+          min-length = 20;
         };
 
         "custom/internet-speed" = {
@@ -119,8 +121,8 @@
           format = "{}";
           exec = "bash -c 'SPEED_FILE=\"$HOME/.cache/waybar-internet-speed\"; if [ ! -f \"$SPEED_FILE\" ] || [ $(($(date +%s) - $(stat -c %Y \"$SPEED_FILE\" 2>/dev/null || echo 0))) -gt 1800 ]; then DOWN=$(speedtest-cli --simple 2>/dev/null | grep \"Download:\" | awk \"{printf \\\"%.1f\\\", \\$2}\"); UP=$(speedtest-cli --simple 2>/dev/null | grep \"Upload:\" | awk \"{printf \\\"%.1f\\\", \\$2}\"); echo \"↓$DOWN ↑$UP Mbps\" > \"$SPEED_FILE\"; fi; cat \"$SPEED_FILE\" 2>/dev/null || echo \"--- | ---\"'";
           tooltip = false;
-          max-length = 24;
-          min-length = 24;
+          max-length = 20;
+          min-length = 20;
         };
       };
     };
@@ -128,48 +130,33 @@
     style = ''
       @keyframes blink-warning {
           70% {
-              color: @light;
+              color: @nord_snow_storm;
           }
           to {
-              color: @light;
-              background-color: @warning;
+              color: @nord_snow_storm;
+              background-color: @nord_aurora_yellow;
           }
       }
-
+      
       @keyframes blink-critical {
           70% {
-            color: @light;
+            color: @nord_snow_storm;
           }
           to {
-              color: @light;
-              background-color: @critical;
+              color: @nord_snow_storm;
+              background-color: @nord_aurora_red;
           }
       }
-
+      
       /* COLORS - Nord Theme */
-      @define-color bg #2E3440;
-      @define-color light #D8DEE9;
-      @define-color warning #ebcb8b;
-      @define-color critical #BF616A;
-      @define-color mode #434C5E;
-      @define-color workspacesfocused #4C566A;
-      @define-color tray @workspacesfocused;
-      @define-color sound #EBCB8B;
-      @define-color network #5D7096;
-      @define-color memory #546484;
-      @define-color cpu #596A8D;
-      @define-color temp #4D5C78;
-      @define-color layout #5e81ac;
-      @define-color battery #88c0d0;
-      @define-color date #434C5E;
-      @define-color time #434C5E;
-      @define-color backlight #434C5E;
-      @define-color nord_bg #434C5E;
-      @define-color nord_bg_blue #546484;
-      @define-color nord_light #D8DEE9;
-      @define-color nord_light_font #D8DEE9;
-      @define-color nord_dark_font #434C5E;
-
+      @define-color nord_polar_night_dark #2E3440;
+      @define-color nord_polar_night #3B4252;
+      @define-color nord_polar_night_light #434C5E;
+      @define-color nord_snow_storm #D8DEE9;
+      @define-color nord_frost #5E81AC;
+      @define-color nord_aurora_red #BF616A;
+      @define-color nord_aurora_yellow #EBCB8B;
+      
       /* Reset all styles */
       * {
           border: none;
@@ -177,16 +164,16 @@
           min-height: 0;
           margin: 0.1em 0.1em;
       }
-
+      
       /* The whole bar */
       #waybar {
-          background: @bg;
-          color: @light;
+          background: @nord_polar_night_dark;
+          color: @nord_snow_storm;
           font-family: "JetBrainsMono Nerd Font";
           font-size: 12px;
           font-weight: 600;
       }
-
+      
       /* Each module */
       #battery,
       #clock,
@@ -211,7 +198,7 @@
           padding-left: 0.4em;
           padding-right: 0.4em;
       }
-
+      
       /* Each module that should blink */
       #mode,
       #memory,
@@ -221,15 +208,15 @@
           animation-iteration-count: infinite;
           animation-direction: alternate;
       }
-
+      
       /* Each critical module */
       #memory.critical,
       #cpu.critical,
       #temperature.critical,
       #battery.critical {
-          color: @critical;
+          color: @nord_aurora_red;
       }
-
+      
       /* Each critical that should blink */
       #mode,
       #memory.critical,
@@ -238,28 +225,28 @@
           animation-name: blink-critical;
           animation-duration: 2s;
       }
-
+      
       /* Each warning */
       #network.disconnected,
       #memory.warning,
       #cpu.warning,
       #temperature.warning,
       #battery.warning {
-          background: @warning;
-          color: @nord_dark_font;
+          background: @nord_aurora_yellow;
+          color: @nord_polar_night_dark;
       }
-
+      
       /* Each warning that should blink */
       #battery.warning.discharging {
           animation-name: blink-warning;
           animation-duration: 3s;
       }
-
+      
       #mode {
-          color: @light;
-          background: @mode;
+          color: @nord_snow_storm;
+          background: @nord_polar_night_light;
       }
-
+      
       /* Workspaces */
       #workspaces button {
           font-weight: bold;
@@ -268,94 +255,65 @@
           background: none;
           font-size: 1em;
       }
-
+      
       #workspaces button.active {
-          background: @workspacesfocused;
-          color: #D8DEE9;
+          background: @nord_polar_night;
+          color: @nord_snow_storm;
           opacity: 1;
           padding: 0 0.4em;
       }
-
+      
       #workspaces button.urgent {
-          border-color: #c9545d;
-          color: #c9545d;
+          border-color: @nord_aurora_red;
+          color: @nord_aurora_red;
           opacity: 1;
       }
-
+      
       #window {
           margin-right: 20px;
           margin-left: 20px;
           font-weight: normal;
       }
-
+      
       #idle_inhibitor {
-          background: @mode;
+          background: @nord_polar_night_light;
           font-weight: bold;
           padding: 0 0.4em;
       }
-
-      #network {
-          background: @nord_bg_blue;
-      }
-
-      #memory {
-          background: @memory;
-      }
-
-      #cpu {
-          background: @nord_bg;
-          color: #D8DEE9;
-      }
-
-      #cpu.critical {
-          color: @nord_dark_font;
-      }
-
-      #temperature {
-          background-color: @nord_bg;
-          color: #D8DEE9;
-      }
-
-      #temperature.critical {
-          background: @critical;
-      }
-
-      #battery {
-          background: @battery;
-      }
-
-      #clock {
-          background: @nord_bg_blue;
-          color: #D8DEE9;
-      }
-
+      
+      #network,
+      #custom-network-speed,
+      #custom-internet-speed,
+      #clock,
       #wireplumber {
-          background: @nord_bg_blue;
-          color: #D8DEE9;
+          background: @nord_frost;
+          color: @nord_snow_storm;
       }
-
+      
+      #memory,
+      #cpu,
+      #temperature,
+      #battery {
+          background: @nord_polar_night;
+          color: @nord_snow_storm;
+      }
+      
+      #temperature.critical {
+          background: @nord_aurora_red;
+      }
+      
       #wireplumber.muted {
-          background: #BF616A;
-          color: #BF616A;
+          background: @nord_aurora_red;
+          color: @nord_snow_storm;
       }
-
+      
       #wireplumber.source-muted {
-          background: #D08770;
-          color: #D8DEE9;
+          background: @nord_aurora_yellow;
+          color: @nord_polar_night_dark;
       }
-
-      #custom-network-speed {
-          background: @nord_bg_blue;
-          color: #D8DEE9;
-      }
-
-      #custom-internet-speed {
-          background: @network;
-          color: #D8DEE9;
-      }
-
+      
       #tray {
-          background: #434C5E;
+          background: @nord_polar_night_light;
       }
     '';
   };

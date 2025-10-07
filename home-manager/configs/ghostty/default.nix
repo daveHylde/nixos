@@ -8,9 +8,11 @@
 			font-family = "JetBrainsMono Nerd Font";
 			background-opacity = 0.95;
 
+			window-decoration = "none";
       window-padding-x = 0;
       window-padding-y = 0;
       window-padding-balance = false;
+
 			# onenordlight theme
 			# "palette[0]" = "#2E3440";
 			# "palette[1]" = "#CB4F53";

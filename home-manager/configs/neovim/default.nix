@@ -25,6 +25,7 @@
 		extraPackages = with pkgs; [
 			chafa
 			fd
+			ghostscript_headless
 			file
 			gcc
 			lua-language-server
@@ -42,7 +43,6 @@
 		${builtins.readFile ./nvim/keymaps.lua}
 		${builtins.readFile ./nvim/autocmds.lua}
 		'';
-
 		plugins = with pkgs.vimPlugins; [
 			FixCursorHold-nvim
 			SchemaStore-nvim

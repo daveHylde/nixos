@@ -53,6 +53,7 @@
 
     packages = with pkgs; [
 			(flameshot.override { enableWlrSupport = true; })
+			awscli2
 			aichat
 			audacity
 			bat

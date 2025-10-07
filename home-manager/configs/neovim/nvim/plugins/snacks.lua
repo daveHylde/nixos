@@ -3,10 +3,9 @@ snacks.setup {
 	bigfile = { enabled = true, },
 	lazygit = { enabled = true, },
 	git = { enabled = true, },
-	notify = {
+	notify = { enabled = true, },
+	notifier = {
 		enabled = true,
-	},
-	notifier = { enabled = true,
 		filter = function(msg)
 			local banned_messages = { "No information available" }
 			for _, banned in ipairs(banned_messages) do
@@ -19,7 +18,15 @@ snacks.setup {
 	rename = { enabled = true, },
 	image = { enabled = true },
 	indent = { enabled = false, },
-	input = { enabled = true },
+	input = {
+		enabled = true,
+		icon = " ",
+		icon_hl = "SnacksInputIcon",
+		icon_pos = "left",
+		prompt_pos = "title",
+		win = { style = "input" },
+		expand = true,
+	},
 	bufdelete = { enabled = true },
 	explorer = {
 		hidden = true,
@@ -34,9 +41,9 @@ snacks.setup {
 		formatters = {
 			file = {
 				filename_first = true, -- display filename before the file path
-				truncate = 75,        -- truncate the file path to (roughly) this length
+				truncate = 75,     -- truncate the file path to (roughly) this length
 				filename_only = false, -- only show the filename
-				icon_width = 2,       -- width of the icon (in characters)
+				icon_width = 2,    -- width of the icon (in characters)
 				git_status_hl = true, -- use the git status highlight group for the filename
 			},
 		}
@@ -82,5 +89,29 @@ snacks.setup {
 				indent = 3,
 			},
 		},
-	}
+	},
+	styles = {
+		input = {
+			backdrop = true,
+			border = vim.g.borderStyle,
+			title_pos = "left",
+			width = 50,
+			row = math.ceil(vim.o.lines / 2) - 3,
+			keys = {
+				i_esc = { "<Esc>", { "cmp_close", "stopinsert" }, mode = "i" },
+				BS = { "<BS>", "<Nop>", mode = "n" }, -- prevent accidental closing (<BS> -> :bprev)
+				CR = { "<CR>", "confirm", mode = "n" },
+			},
+		},
+		notification = {
+			border = vim.g.borderStyle,
+			wo = { winblend = 0, wrap = true },
+		},
+		blame_line = {
+			width = 0.6,
+			height = 0.6,
+			border = vim.g.borderStyle,
+			title = " 󰉚 Git blame ",
+		},
+	},
 }

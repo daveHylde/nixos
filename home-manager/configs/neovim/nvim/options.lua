@@ -50,3 +50,10 @@ vim.filetype.add {
 		cshtml = 'razor',
 	},
 }
+
+local original_input = vim.ui.input
+vim.ui.input = function(opts, callback)
+  print("vim.ui.input called with:", vim.inspect(opts))
+  print("Stack trace:", debug.traceback())
+  return original_input(opts, callback)
+end
