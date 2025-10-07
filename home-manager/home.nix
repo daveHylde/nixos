@@ -60,12 +60,9 @@
 			bc
 			blueman
 			cargo
-			chafa
 			claude-code
 			discord
 			dotnet-sdk_9
-			exiftool
-			ffmpegthumbnailer
 			figma-linux
 			file
 			firefox
@@ -87,7 +84,6 @@
 			libreoffice
 			librsvg
 			lm_sensors
-			mermaid-cli
 			minikube
 			mono
 			mpv
@@ -98,11 +94,8 @@
 			obs-studio
 			openrgb
 			openssl
-			pandoc
 			pinta
-			pistol
 			playerctl
-			poppler_utils
 			postgresql
 			powershell
 			python3Full

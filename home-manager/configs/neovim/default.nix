@@ -53,7 +53,6 @@
 			nord-nvim
 			cmp-nvim-lsp-signature-help
 			cmp-path
-			easy-dotnet-nvim
 			cmp_luasnip
 			colorizer
 			editorconfig-nvim
