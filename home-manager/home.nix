@@ -108,7 +108,6 @@
 			python3Full
 			resvg
 			s3cmd
-			s3fs
 			signal-desktop
 			skaffold
 			slack

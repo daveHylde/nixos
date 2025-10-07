@@ -5,6 +5,10 @@
 { pkgs,lib, ... }:
 
 {
+  imports = [
+    ./s3fs.nix
+  ];
+
   nix = {
     settings = {
       warn-dirty = false;
@@ -83,6 +87,13 @@
   services = {
     pulseaudio.enable = false;
     onedrive.enable = true;
+    
+    s3fs = {
+      enable = true;
+      bucket = "mounted";
+      mountPath = "/home/david/s3";
+      url = "https://se-sto-1.linodeobjects.com";
+    };
     pcscd.enable = true;
     printing.enable = true;
     displayManager.sddm.enable = true;
