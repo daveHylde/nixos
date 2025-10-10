@@ -28,10 +28,6 @@ snacks.setup {
 		expand = true,
 	},
 	bufdelete = { enabled = true },
-	explorer = {
-		hidden = true,
-		ignored = true,
-	},
 	picker = {
 		enabled = true,
 		files = {
@@ -46,6 +42,12 @@ snacks.setup {
 				icon_width = 2,    -- width of the icon (in characters)
 				git_status_hl = true, -- use the git status highlight group for the filename
 			},
+		},
+		sources = {
+			explorer = {
+				layout = "sidebar",
+				preview = "main"
+			}
 		}
 	},
 	words = { enabled = false },
@@ -95,7 +97,7 @@ snacks.setup {
 			backdrop = true,
 			border = vim.g.borderStyle,
 			title_pos = "left",
-			width = 50,
+			width = 100,
 			row = math.ceil(vim.o.lines / 2) - 3,
 			keys = {
 				i_esc = { "<Esc>", { "cmp_close", "stopinsert" }, mode = "i" },

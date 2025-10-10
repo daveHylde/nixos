@@ -165,10 +165,10 @@
 				plugin = mason-tool-installer-nvim;
 				config = toLuaFile ./nvim/plugins/mason-installer.lua;
 			}
-			{
-				plugin = neo-tree-nvim;
-				config = toLuaFile ./nvim/plugins/neotree.lua;
-			} 
+			# {
+			# 	plugin = neo-tree-nvim;
+			# 	config = toLuaFile ./nvim/plugins/neotree.lua;
+			# } 
 			{
 				plugin = telescope-nvim;
 				config = toLuaFile ./nvim/plugins/telescope.lua;

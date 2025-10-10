@@ -110,13 +110,15 @@ map("n", "<leader>fG", function() snacks.picker.git_files() end, { desc = "Find 
 map("n", "<leader>fp", function() snacks.picker.projects() end, { desc = "Projects" })
 map("n", "<leader>fr", function() snacks.picker.recent() end, { desc = "Recent" })
 -- git
--- map("n", "<leader>gb", function() snacks.picker.git_branches() end, { desc = "Git Branches" })
 map("n", "<leader>gl", function() snacks.picker.git_log() end, { desc = "Git Log" })
 map("n", "<leader>gL", function() snacks.picker.git_log_line() end, { desc = "Git Log Line" })
 map("n", "<leader>gs", function() snacks.picker.git_status() end, { desc = "Git Status" })
 map("n", "<leader>gS", function() snacks.picker.git_stash() end, { desc = "Git Stash" })
 map("n", "<leader>gd", function() snacks.picker.git_diff() end, { desc = "Git Diff (Hunks)" })
 map("n", "<leader>gf", function() snacks.picker.git_log_file() end, { desc = "Git Log File" })
+map("n", "[g", "<cmd>Gitsigns next_hunk<cr>", { desc = "Next Git Change" })
+map("n", "]g", "<cmd>Gitsigns prev_hunk<cr>", { desc = "Previous Git Change" })
+
 -- Grep
 map("n", "<leader>sb", function() snacks.picker.lines() end, { desc = "Buffer Lines" })
 map("n", "<leader>sB", function() snacks.picker.grep_buffers() end, { desc = "Grep Open Buffers" })
@@ -162,9 +164,6 @@ map({ "n", "v" }, '<leader>wr', vim.lsp.buf.remove_workspace_folder, { desc = '[
 map({ "n", "v" }, '<leader>wl', function()
 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 end, { desc = '[W]orkspace [L]ist Folders' })
-
--- Neotree
--- map({ "n", "v" }, "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Toggle Neotree" })
 
 -- Move to window using ctrl + arrow keys (tmux aware navigation)
 map("n", "<c-Left>", function() vim.cmd("TmuxNavigateLeft") end,
