@@ -100,7 +100,7 @@ map("n", "<leader><space>", function() snacks.picker.smart() end, { desc = "Smar
 map("n", "<leader>fg", function() snacks.picker.grep() end, { desc = "Grep" })
 map("n", "<leader>:", function() snacks.picker.command_history() end, { desc = "Command History" })
 map("n", "<leader>n", function() snacks.picker.notifications() end, { desc = "Notification History" })
--- map("n", "<leader>e", function() snacks.explorer() end, { desc = "File Explorer" })
+map("n", "<leader>e", function() snacks.explorer() end, { desc = "File Explorer" })
 -- find
 map("n", "<leader>fb", function() snacks.picker.buffers() end, { desc = "Buffers" })
 map("n", "<leader>fc", function() snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end,
@@ -164,7 +164,7 @@ map({ "n", "v" }, '<leader>wl', function()
 end, { desc = '[W]orkspace [L]ist Folders' })
 
 -- Neotree
-map({ "n", "v" }, "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Toggle Neotree" })
+-- map({ "n", "v" }, "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Toggle Neotree" })
 
 -- Move to window using ctrl + arrow keys (tmux aware navigation)
 map("n", "<c-Left>", function() vim.cmd("TmuxNavigateLeft") end,
