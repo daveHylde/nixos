@@ -32,6 +32,7 @@
 			python3Full
 			ripgrep
 			wget
+			hub
 			wl-clipboard
 			marksman
 			sox
@@ -63,7 +64,6 @@
 			markdown-preview-nvim
 			mini-icons
 			neotest-dotnet
-			noice-nvim
 			nui-nvim
 			nvim-nio
 			nvim-web-devicons
@@ -217,6 +217,10 @@
 				plugin = which-key-nvim;
 				config = toLua "require(\"which-key\").setup()";
 			}
+			{
+				plugin = noice-nvim;
+				config = toLuaFile ./nvim/plugins/noice.lua;
+			} 
 			{
 				plugin = comment-nvim;
 				config = toLua "require(\"Comment\").setup()";

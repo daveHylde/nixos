@@ -2,7 +2,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.o.clipboard = 'unnamedplus'
 
--- vim.cmd.colorscheme "onenord-light"
+vim.cmd.colorscheme "onenord"
 vim.o.termguicolors = true
 vim.o.background = "dark"
 

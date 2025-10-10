@@ -10,9 +10,10 @@ snacks.setup {
 			local banned_messages = { "No information available" }
 			for _, banned in ipairs(banned_messages) do
 				if msg == banned then
-					return
+					return false
 				end
 			end
+			return true
 		end
 	},
 	rename = { enabled = true, },
@@ -51,7 +52,7 @@ snacks.setup {
 			}
 		},
 		actions = {
-			copy_rel_path = function(picker, item)
+			copy_rel_path = function(_, item)
 				if item and item.file then
 					local relative_path = vim.fn.fnamemodify(item.file, ":.")
 					vim.fn.setreg("+", relative_path)
@@ -134,3 +135,8 @@ snacks.setup {
 		},
 	},
 }
+
+-- Override command-line input to use snacks.input
+vim.ui.input = function(opts, on_confirm)
+	require("snacks").input(opts, on_confirm)
+end
