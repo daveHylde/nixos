@@ -17,10 +17,8 @@ map({ "n", "x", "v" }, "<C-y>", "<cmd>ClaudeCode<cr>", { desc = "Claude Code" })
 map({ "n", "x" }, "y", "<Plug>(YankyYank)", { desc = "Yank text" })
 map({ "n", "x" }, "p", "<Plug>(YankyPutAfter)", { desc = "Put yanked text after cursor" })
 map({ "n", "x" }, "P", "<Plug>(YankyPutBefore)", { desc = "Put yanked text before cursor" })
-map("n", "<c-p>", "<Plug>(YankyCycleForward)", { desc = "Cycle forward through yank history" })
-map("n", "<c-n>", "<Plug>(YankyCycleBackward)", { desc = "Cycle backward through yank history" })
 map("n", "<leader>pp", "<cmd>YankyRingHistory<cr>", { desc = "Open yank ring history" })
-map("n", "<leader>fy", "<cmd>Telescope yank_history<cr>", { desc = "Yank history" })
+map("n", "<leader>sy", "<cmd>Telescope yank_history<cr>", { desc = "Yank history" })
 
 -- Move lines
 map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })

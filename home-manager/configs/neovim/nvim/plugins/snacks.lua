@@ -45,9 +45,26 @@ snacks.setup {
 		},
 		sources = {
 			explorer = {
-				layout = "sidebar",
-				preview = "main"
+				hidden = true,
+				ignored = true,
+				layout = { preset = "sidebar", preview = "main" },
 			}
+		},
+		actions = {
+			copy_rel_path = function(picker, item)
+				if item and item.file then
+					local relative_path = vim.fn.fnamemodify(item.file, ":.")
+					vim.fn.setreg("+", relative_path)
+					vim.notify("Copied relative path: " .. relative_path)
+				end
+			end,
+		},
+		win = {
+			list = {
+				keys = {
+					["<c-j>"] = "copy_rel_path",
+				},
+			},
 		}
 	},
 	words = { enabled = false },
