@@ -30,6 +30,10 @@ snacks.setup {
 		expand = true,
 	},
 	bufdelete = { enabled = true },
+	explorer = {
+		hidden = true,
+		ignored = true,
+	},
 	picker = {
 		enabled = true,
 		files = {
@@ -116,7 +120,7 @@ snacks.setup {
 			backdrop = true,
 			border = vim.g.borderStyle,
 			title_pos = "left",
-			width = 100,
+			width = 50,
 			row = math.ceil(vim.o.lines / 2) - 3,
 			keys = {
 				i_esc = { "<Esc>", { "cmp_close", "stopinsert" }, mode = "i" },
