@@ -3,7 +3,6 @@ local luasnip = require('luasnip')
 
 require('luasnip.loaders.from_vscode').lazy_load()
 require 'luasnip'.filetype_extend("typescript", { "html", "css" })
-local lspkind = require('lspkind');
 
 cmp.register_source("easy-dotnet", require("easy-dotnet").package_completion_source)
 
@@ -22,12 +21,13 @@ cmp.setup {
 		['<C-d>'] = cmp.mapping.scroll_docs(-4),
 		['<C-f>'] = cmp.mapping.scroll_docs(4),
 		['<C-Space>'] = cmp.mapping.complete {},
+		['<CR>'] = cmp.mapping.confirm {
+			behavior = cmp.ConfirmBehavior.Replace,
+			select = true,
+		},
 		['<Tab>'] = cmp.mapping(function(fallback)
 			if cmp.visible() then
-				cmp.confirm {
-					behavior = cmp.ConfirmBehavior.Replace,
-					select = true,
-				}
+				cmp.select_next_item()
 			elseif luasnip.expand_or_locally_jumpable() then
 				luasnip.expand_or_jump()
 			else

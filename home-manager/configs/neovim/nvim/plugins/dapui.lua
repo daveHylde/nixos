@@ -98,6 +98,23 @@ _G.add_enumerable_to_watch = add_enumerable_to_watch
 _G.eval_enumerable_buffer = eval_enumerable_buffer
 _G.eval_enumerable_enhanced = eval_enumerable_enhanced
 
+local function eval_tostring_enhanced(expr)
+	local session = dap.session()
+	if not session then
+		vim.notify("No active debug session", vim.log.levels.WARN)
+		return
+	end
+
+	-- First show in floating window
+	local eval_expr = string.format("(%s).ToString()", expr)
+	dapui.eval(eval_expr, {
+		context = "hover",
+		enter = true
+	})
+end
+
+_G.eval_tostring_enhanced = eval_tostring_enhanced
+
 -- Event listeners
 dap.listeners.after.event_initialized["dapui_config"] = function()
 	dapui.open({})

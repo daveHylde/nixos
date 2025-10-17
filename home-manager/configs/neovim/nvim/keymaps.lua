@@ -241,11 +241,15 @@ map({ "n", "v" }, "<F10>", function() dap.step_into() end, { desc = "Step Into" 
 map({ "n", "v" }, "<F11>", function() dap.step_out() end, { desc = "Step Out" })
 map({ "n", "v" }, "<F12>", function() dap.step_over() end, { desc = "Step Over" })
 
--- Add these keybindings:
 vim.keymap.set('n', '<leader>dei', function()
     local word = vim.fn.expand("<cword>")
     eval_enumerable_enhanced(word)
 end, { desc = 'Debug: Interactive enumerable eval' })
+
+vim.keymap.set('n', '<leader>des', function()
+    local word = vim.fn.expand("<cword>")
+    eval_tostring_enhanced(word)
+end, { desc = 'Debug: Interactive string eval' })
 
 -- Undotree
 map('n', '<leader>uu', vim.cmd.UndotreeToggle, { desc = "Toggle undotree" })

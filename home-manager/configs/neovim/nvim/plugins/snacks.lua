@@ -6,6 +6,7 @@ snacks.setup {
 	notify = { enabled = true, },
 	notifier = {
 		enabled = true,
+		level = vim.log.levels.INFO,
 		filter = function(msg)
 			local banned_messages = { "No information available" }
 			for _, banned in ipairs(banned_messages) do
