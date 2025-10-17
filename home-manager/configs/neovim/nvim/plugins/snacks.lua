@@ -31,6 +31,7 @@ snacks.setup {
 	},
 	bufdelete = { enabled = true },
 	explorer = {
+		enabled = false,
 		hidden = true,
 		ignored = true,
 	},
