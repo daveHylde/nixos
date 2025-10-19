@@ -34,7 +34,7 @@ vim.lsp.enable('lua_ls')
 -- Angular Language Server
 vim.lsp.config('angularls', {
 	capabilities = capabilities,
-	root_dir = util.root_pattern("nx.json", "package.json", "angular.json", "project.json"), -- This is for monorepo's
+	root_markers = { "nx.json", "package.json", "angular.json", "project.json" }, -- This is for monorepo's
 	filetypes = { 'typescript', 'angular.html', 'angular' }
 })
 vim.lsp.enable('angularls')
@@ -42,7 +42,6 @@ vim.lsp.enable('angularls')
 -- TypeScript Language Server
 vim.lsp.config('vtsls', {
 	capabilities = capabilities,
-	root_dir = util.root_pattern("nx.json", "package.json", "angular.json", "project.json"), -- This is for monorepo's
 })
 vim.lsp.enable('vtsls')
 
