@@ -1,17 +1,14 @@
-local on_attach = function(_, bufnr)
-	vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-		vim.lsp.buf.format()
-	end, { desc = 'Format current buffer with LSP' })
-end
-
+-- Set up capabilities for Roslyn LSP
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.diagnostic.dynamicRegistration = true
 
+-- Note: on_attach is handled globally by LspAttach autocmd in lsp.lua
 require('roslyn').setup {
-	on_attach = on_attach,
 	capabilities = capabilities,
+	-- Explicitly set dotnet path from environment or use 'dotnet' from PATH
+	dotnet_cmd = vim.env.DOTNET_ROOT and (vim.env.DOTNET_ROOT .. "/dotnet") or "dotnet",
 	filewatching = 'auto',
 	broad_search = true,
 	lock_target = true,

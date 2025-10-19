@@ -23,17 +23,14 @@
 		  	jsregexp
 		];
 		extraPackages = with pkgs; [
-			chafa
 			fd
 			ghostscript_headless
-			file
 			gcc
 			lua-language-server
-			python3Full
+			nixpkgs-fmt
 			ripgrep
 			wget
 			hub
-			wl-clipboard
 			marksman
 			sox
 			dwt1-shell-color-scripts
@@ -63,7 +60,6 @@
 			luasnip
 			markdown-preview-nvim
 			mini-icons
-			neotest-dotnet
 			nui-nvim
 			nvim-nio
 			nvim-web-devicons
@@ -100,6 +96,28 @@
 				});
 				config = toLuaFile ./nvim/plugins/nx.lua;
 			}
+
+			{
+				plugin = (pkgs.vimUtils.buildVimPlugin {
+					name = "neotest-vstest";
+					src = inputs.plugin-neotest-vstest;
+          nvimSkipModules = [
+				 	 "neotest-vstest.dotnet_utils"
+				 	 "neotest-vstest.mtp.client"
+				 	 "neotest-vstest.mtp.init"
+				 	 "neotest-vstest.client"
+				 	 "neotest-vstest.files"
+				 	 "neotest-vstest.strategies.vstest_debugger"
+				 	 "neotest-vstest.strategies.vstest"
+				 	 "neotest-vstest"
+				 	 "neotest-vstest.vstest.client"
+				 	 "neotest-vstest.vstest.init"
+				 	 "neotest-vstest.vstest.cli_wrapper"
+				 	 "neotest-vstest.utilities"
+				 	 "repro"
+          ];
+				});
+			}
 			(pkgs.vimUtils.buildVimPlugin {
 				name = "vim-freemarker";
 				src = inputs.plugin-vim-freemarker;
@@ -113,14 +131,10 @@
 			}
 
 			# With config
-			{ 
-				plugin = roslyn-nvim;
-			 	config = toLuaFile ./nvim/plugins/roslyn.lua;
-			}
-			{
-				plugin = easy-dotnet-nvim;
-				config = toLua "require(\"easy-dotnet\").setup()";
-			}
+			# { 
+			# 	plugin = roslyn-nvim;
+			#  	config = toLuaFile ./nvim/plugins/roslyn.lua;
+			# }
 			{ 
 				plugin = nvim-dap-ui;
 				config = toLuaFile ./nvim/plugins/dapui.lua;
@@ -140,6 +154,10 @@
 			{
 				plugin = neotest;
 				config = toLuaFile ./nvim/plugins/neotest.lua;
+			}
+			{
+				plugin = easy-dotnet-nvim;
+				config = toLuaFile ./nvim/plugins/easy-dotnet.lua;
 			}
 			{
 				plugin = snacks-nvim;
@@ -228,6 +246,10 @@
 			{
 				plugin = nvim-lspconfig;
 				config = toLuaFile ./nvim/plugins/lsp.lua;
+			}
+			{
+				plugin = wtf-nvim;
+				config = toLuaFile ./nvim/plugins/wtf.lua;
 			}
 		];
 	};

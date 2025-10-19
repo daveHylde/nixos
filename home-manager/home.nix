@@ -98,7 +98,7 @@
 			playerctl
 			postgresql
 			powershell
-			python3Full
+			python3
 			resvg
 			s3cmd
 			signal-desktop
@@ -114,7 +114,6 @@
 			viu
 			vscode-extensions.ms-dotnettools.csharp
 			vscode-fhs
-			whatsie
 			wl-clipboard
 			xdragon
 			yarn

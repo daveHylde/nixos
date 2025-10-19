@@ -1,11 +1,11 @@
 {
-   inputs = {
-     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-     
-     home-manager = {
-       url = "github:nix-community/home-manager/release-25.05";
-       inputs.nixpkgs.follows = "nixpkgs";
-     };
+	 inputs = {
+		 nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+		 
+		 home-manager = {
+			 url = "github:nix-community/home-manager";
+			 inputs.nixpkgs.follows = "nixpkgs";
+		 };
 		plugin-nx = {
 			url = "github:Equilibris/nx.nvim";
 			flake = false;
@@ -18,11 +18,10 @@
 			url = "github:andreshazard/vim-freemarker";
 			flake = false;
 		};
-		# hyprland.url = "github:hyprwm/Hyprland";
-		# hyprland-plugins = {
-		# 	url = "github:hyprwm/hyprland-plugins";
-		# 	inputs.hyprland.follows = "hyprland";
-		# };
+		plugin-neotest-vstest = {
+			url = "github:Nsidorenco/neotest-vstest";
+			flake = false;
+		};
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, ... }:

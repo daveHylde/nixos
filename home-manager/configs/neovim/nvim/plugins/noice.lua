@@ -1,5 +1,10 @@
 require("noice").setup({
   lsp = {
+    -- Disable LSP progress to fix Neovim 0.11 token nil error
+    -- See: https://github.com/folke/noice.nvim/issues/1144
+    progress = {
+      enabled = false,
+    },
     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
     override = {
       ["vim.lsp.util.convert_input_to_markdown_lines"] = true,

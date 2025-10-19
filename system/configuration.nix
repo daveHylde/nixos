@@ -38,10 +38,6 @@
   };
 
   hardware = {
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-    };
 		graphics = {
 			enable = true;
 			enable32Bit = true;
@@ -72,6 +68,9 @@
       enable = true;
       dns = "dnsmasq";
     };
+    extraHosts = ''
+      127.0.0.1 keycloak.local.jb
+    '';
   };
 
   time.timeZone = "Europe/Oslo";
@@ -226,7 +225,6 @@
     variables = {
       MINIKUBE_STATIC_IP = "192.168.49.2";
       EDITOR = "nvim";
-			QT_QPA_PLATFORM="wayland";
     };
 
     etc = {

@@ -7,32 +7,31 @@
         ]
       },
       "locked": {
-        "lastModified": 1758463745,
-        "narHash": "sha256-uhzsV0Q0I9j2y/rfweWeGif5AWe0MGrgZ/3TjpDYdGA=",
+        "lastModified": 1760809591,
+        "narHash": "sha256-OxGcFcQdfOK8veZkPdQuqXIotFYiy4sBQB58dMNLeHY=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "3b955f5f0a942f9f60cdc9cacb7844335d0f21c3",
+        "rev": "870883ba11ba1c84f756c0c1f9fa74cdb2a16c1e",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-25.05",
         "repo": "home-manager",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1759735786,
-        "narHash": "sha256-a0+h02lyP2KwSNrZz4wLJTu9ikujNsTWIC874Bv7IJ0=",
+        "lastModified": 1760524057,
+        "narHash": "sha256-EVAqOteLBFmd7pKkb0+FIUyzTF61VKi7YmvP1tw4nEw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "20c4598c84a671783f741e02bf05cbfaf4907cff",
+        "rev": "544961dfcce86422ba200ed9a0b00dd4b1486ec5",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-25.05",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -50,6 +49,22 @@
       "original": {
         "owner": "Robitx",
         "repo": "gp.nvim",
+        "type": "github"
+      }
+    },
+    "plugin-neotest-vstest": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1760877248,
+        "narHash": "sha256-J+7fubkr3RiVrDEN8uyyYtD3HQoiURoWPDz45+D8IfM=",
+        "owner": "Nsidorenco",
+        "repo": "neotest-vstest",
+        "rev": "dc77b3029dca292f547d0fec66c0f6034dff14ce",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Nsidorenco",
+        "repo": "neotest-vstest",
         "type": "github"
       }
     },
@@ -90,6 +105,7 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "plugin-gp": "plugin-gp",
+        "plugin-neotest-vstest": "plugin-neotest-vstest",
         "plugin-nx": "plugin-nx",
         "plugin-vim-freemarker": "plugin-vim-freemarker"
       }

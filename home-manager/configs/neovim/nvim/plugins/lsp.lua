@@ -1,21 +1,22 @@
 local util = require("lspconfig.util")
 
-local on_attach = function(_, bufnr)
-	-- Create a command `:Format` local to the LSP buffer
-	vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-		vim.lsp.buf.format()
-	end, { desc = 'Format current buffer with LSP' })
-end
+-- Set up LspAttach autocmd for on_attach behavior
+vim.api.nvim_create_autocmd('LspAttach', {
+	callback = function(ev)
+		-- Create a command `:Format` local to the LSP buffer
+		vim.api.nvim_buf_create_user_command(ev.buf, 'Format', function(_)
+			vim.lsp.buf.format()
+		end, { desc = 'Format current buffer with LSP' })
+	end,
+})
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.diagnostic.dynamicRegistration = true
 
-local lsp = require('lspconfig')
-
-lsp.lua_ls.setup {
-	on_attach = on_attach,
+-- Lua Language Server
+vim.lsp.config('lua_ls', {
 	capabilities = capabilities,
 	root_dir = function()
 		return vim.loop.cwd()
@@ -27,43 +28,59 @@ lsp.lua_ls.setup {
 			telemetry = { enable = false },
 		},
 	}
-}
+})
+vim.lsp.enable('lua_ls')
 
-lsp.angularls.setup {
-	on_attach = on_attach,
+-- Angular Language Server
+vim.lsp.config('angularls', {
 	capabilities = capabilities,
 	root_dir = util.root_pattern("nx.json", "package.json", "angular.json", "project.json"), -- This is for monorepo's
 	filetypes = { 'typescript', 'angular.html', 'angular' }
-}
-lsp.vtsls.setup {
+})
+vim.lsp.enable('angularls')
+
+-- TypeScript Language Server
+vim.lsp.config('vtsls', {
 	capabilities = capabilities,
 	root_dir = util.root_pattern("nx.json", "package.json", "angular.json", "project.json"), -- This is for monorepo's
-}
-lsp.html.setup {
-	on_attach = on_attach,
+})
+vim.lsp.enable('vtsls')
+
+-- HTML Language Server
+vim.lsp.config('html', {
 	capabilities = capabilities,
 	filetypes = { "html", "typescript", "angular", "freemarker" },
-}
-lsp.eslint.setup {
-	on_attach = on_attach,
+})
+vim.lsp.enable('html')
+
+-- ESLint Language Server
+vim.lsp.config('eslint', {
 	capabilities = capabilities,
-}
-lsp.nixd.setup {
-	on_attach = on_attach,
+})
+vim.lsp.enable('eslint')
+
+-- Nix Language Server
+vim.lsp.config('nixd', {
 	capabilities = capabilities,
 	cmd = { "nixd" }
-}
-lsp.cssls.setup {
-	on_attach = on_attach,
+})
+vim.lsp.enable('nixd')
+
+-- CSS Language Server
+vim.lsp.config('cssls', {
 	capabilities = capabilities,
 	filetypes = { "css", "scss", "less", "html", "angular", "freemarker" },
-}
-lsp.dockerls.setup {
-	on_attach = on_attach,
+})
+vim.lsp.enable('cssls')
+
+-- Docker Language Server
+vim.lsp.config('dockerls', {
 	capabilities = capabilities,
-}
-lsp.yamlls.setup {
-	on_attach = on_attach,
+})
+vim.lsp.enable('dockerls')
+
+-- YAML Language Server
+vim.lsp.config('yamlls', {
 	capabilities = capabilities,
 	settings = {
 		yaml = {
@@ -74,18 +91,24 @@ lsp.yamlls.setup {
 			schemas = require('schemastore').yaml.schemas(),
 		},
 	},
-}
-lsp.sqlls.setup {
-	on_attach = on_attach,
+})
+vim.lsp.enable('yamlls')
+
+-- SQL Language Server
+vim.lsp.config('sqlls', {
 	capabilities = capabilities,
-}
-lsp.marksman.setup {
-	on_attach = on_attach,
+})
+vim.lsp.enable('sqlls')
+
+-- Markdown Language Server
+vim.lsp.config('marksman', {
 	capabilities = capabilities,
 	cmd = { "marksman" },
-}
-lsp.jsonls.setup {
-	on_attach = on_attach,
+})
+vim.lsp.enable('marksman')
+
+-- JSON Language Server
+vim.lsp.config('jsonls', {
 	capabilities = capabilities,
 	settings = {
 		json = {
@@ -93,10 +116,12 @@ lsp.jsonls.setup {
 			validate = { enable = true },
 		},
 	},
-}
+})
+vim.lsp.enable('jsonls')
 
-lsp.tailwindcss.setup {
-	on_attach = on_attach,
+-- Tailwind CSS Language Server
+vim.lsp.config('tailwindcss', {
 	capabilities = capabilities,
 	root_dir = util.root_pattern("nx.json", "package.json", "angular.json", "project.json"), -- This is for monorepo's
-}
+})
+vim.lsp.enable('tailwindcss')

@@ -1,3 +1,5 @@
+local job_indicator = { require("easy-dotnet.ui-modules.jobs").lualine }
+
 local function diff_source()
 	local gitsigns = vim.b.gitsigns_status_dict
 	if gitsigns then
@@ -11,6 +13,7 @@ end
 
 require 'lualine'.setup {
 	sections = {
+    lualine_a = { "mode", job_indicator },
 		lualine_b = {
 			{ 'diff', source = diff_source },
 			{ 'b:gitsigns_head', icon = '' },

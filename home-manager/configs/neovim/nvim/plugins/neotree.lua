@@ -15,6 +15,15 @@ tree.setup({
 			hide_dotfiles = false,
 			hide_gitignored = false,
 		},
+		commands = {
+			["easy"] = function(state)
+				local node = state.tree:get_node()
+				local path = node.type == "directory" and node.path or vim.fs.dirname(node.path)
+				require("easy-dotnet").create_new_item(path, function()
+					require("neo-tree.sources.manager").refresh(state.name)
+				end)
+			end
+		}
 	},
 	event_handlers = {
 		{ event = events.FILE_MOVED,   handler = on_move },
@@ -23,6 +32,7 @@ tree.setup({
 	window = {
 		mappings = {
 			["P"] = { "toggle_preview", config = { use_float = false, use_image_nvim = true } },
+			["R"] = "easy",
 		},
 	},
 })
