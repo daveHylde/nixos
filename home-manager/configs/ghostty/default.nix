@@ -3,7 +3,7 @@
 	enable = true;
 	enableBashIntegration = true;
 	settings = {
-			theme = "nord";
+			theme = "Nord";
 			font-size = 10;
 			font-family = "JetBrainsMono Nerd Font";
 			background-opacity = 0.95;

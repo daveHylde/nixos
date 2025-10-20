@@ -42,6 +42,10 @@
 			enable = true;
 			enable32Bit = true;
 		};
+		bluetooth = {
+ 			enable = true;
+			powerOnBoot = true;
+		};
   };
 
   virtualisation = {
@@ -65,6 +69,7 @@
       allowedUDPPortRanges = allowedTCPPortRanges;
     };
     networkmanager = {
+			insertNameservers = [ "127.0.0.1" ];
       enable = true;
       dns = "dnsmasq";
     };
@@ -228,7 +233,7 @@
     };
 
     etc = {
-      "NetworkManager/dnsmasq.d/minikube.conf".text = "server=/jb/${variables.MINIKUBE_STATIC_IP}";
+      "NetworkManager/dnsmasq.d/minikube.conf".text = "address=/.jb/${variables.MINIKUBE_STATIC_IP}";
     };
   };
 
