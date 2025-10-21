@@ -39,7 +39,7 @@
 	
 	qt = {
 		enable = true;
-		platformTheme = "gtk";
+		platformTheme.name = "gtk";
 	};
 
   home = {
@@ -57,7 +57,11 @@
 		};
 
     packages = with pkgs; [
-			(flameshot.override { enableWlrSupport = true; })
+		  (pkgs.flameshot.overrideAttrs (old: {
+				cmakeFlags = old.cmakeFlags or [ ] ++ [ "-DUSE_WAYLAND_GRIM=ON" ];
+			}))
+			grim
+			slurp
 			awscli2
 			aichat
 			audacity

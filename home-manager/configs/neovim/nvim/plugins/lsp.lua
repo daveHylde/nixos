@@ -106,6 +106,12 @@ vim.lsp.config('marksman', {
 })
 vim.lsp.enable('marksman')
 
+-- Bash Language Server
+vim.lsp.config('bashls', {
+	capabilities = capabilities,
+})
+vim.lsp.enable('bashls')
+
 -- JSON Language Server
 vim.lsp.config('jsonls', {
 	capabilities = capabilities,
