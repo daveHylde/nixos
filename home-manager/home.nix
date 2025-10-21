@@ -26,25 +26,30 @@
   };
 
 	gtk = {
-	  enable = true;
-	  theme = {
-	    name = "Graphite-Dark";
-	    package = pkgs.graphite-gtk-theme;
-	  };
-		iconTheme = {
-			name = "Kora";
-			package = pkgs.kora-icon-theme;
+		enable = true;
+		theme = {
+			name = "Nordic";
+			package = pkgs.nordic;
 		};
-		# font = {
-		#   name = "Archivo";
-	  #   size = 11;
-		# };
+		iconTheme = {
+			name = "Nordzy";
+			package = pkgs.nordzy-icon-theme;
+		};
+	};
+	
+	qt = {
+		enable = true;
+		platformTheme = "gtk";
 	};
 
   home = {
     username = "${user}";
     homeDirectory = "/home/${user}";
     stateVersion = "25.05";
+
+		sessionPath = [
+			"$HOME/.dotnet/tools"
+		];
 
 		sessionVariables = {
 			DOTNET_ROOT = "${pkgs.dotnet-sdk_9}/share/dotnet";
