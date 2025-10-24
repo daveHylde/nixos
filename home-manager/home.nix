@@ -56,6 +56,11 @@
 			NIXOS_OZONE_WL = "1";
 		};
 
+		file.".config/brave-flags.conf".text = ''
+			--force-device-scale-factor=1
+			--enable-features=WebRTCPipeWireCapturer
+		'';
+
     packages = with pkgs; [
 		  (pkgs.flameshot.overrideAttrs (old: {
 				cmakeFlags = old.cmakeFlags or [ ] ++ [ "-DUSE_WAYLAND_GRIM=ON" ];
@@ -69,6 +74,7 @@
 			bat
 			bc
 			blueman
+			btop
 			cargo
 			claude-code
 			discord
@@ -80,7 +86,6 @@
 			gimp3
 			google-chrome
 			home-manager
-			htop
 			hyprpaper
 			imagemagick
 			inotify-tools
@@ -89,6 +94,7 @@
 			keepassxc
 			kubectl
 			kubernetes-helm
+			kooha
 			lazydocker
 			lens
 			lesspipe
