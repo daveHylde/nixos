@@ -37,11 +37,6 @@
 		};
 	};
 	
-	qt = {
-		enable = true;
-		platformTheme.name = "gtk";
-	};
-
   home = {
     username = "${user}";
     homeDirectory = "/home/${user}";

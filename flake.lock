@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1760809591,
-        "narHash": "sha256-OxGcFcQdfOK8veZkPdQuqXIotFYiy4sBQB58dMNLeHY=",
+        "lastModified": 1761266473,
+        "narHash": "sha256-QxCyKWBmuzI+eMhYV1JmbZsiUnBNATRP1EW34OBt5Vg=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "870883ba11ba1c84f756c0c1f9fa74cdb2a16c1e",
+        "rev": "5c71d4a730bd3c972befff343bb074421e345937",
         "type": "github"
       },
       "original": {
@@ -22,11 +22,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1760524057,
-        "narHash": "sha256-EVAqOteLBFmd7pKkb0+FIUyzTF61VKi7YmvP1tw4nEw=",
+        "lastModified": 1761114652,
+        "narHash": "sha256-f/QCJM/YhrV/lavyCVz8iU3rlZun6d+dAiC3H+CDle4=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "544961dfcce86422ba200ed9a0b00dd4b1486ec5",
+        "rev": "01f116e4df6a15f4ccdffb1bcd41096869fb385c",
         "type": "github"
       },
       "original": {
@@ -55,11 +55,11 @@
     "plugin-neotest-vstest": {
       "flake": false,
       "locked": {
-        "lastModified": 1760877248,
-        "narHash": "sha256-J+7fubkr3RiVrDEN8uyyYtD3HQoiURoWPDz45+D8IfM=",
+        "lastModified": 1761064702,
+        "narHash": "sha256-qFiPb5/N6j/DLIXc5KvmQG8kFHlxQE9nq69N4rQI66k=",
         "owner": "Nsidorenco",
         "repo": "neotest-vstest",
-        "rev": "dc77b3029dca292f547d0fec66c0f6034dff14ce",
+        "rev": "83cf9a1b6c86d7525801c2f63701ad81cea87f7c",
         "type": "github"
       },
       "original": {
