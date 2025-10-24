@@ -51,7 +51,6 @@
 			cmp_luasnip
 			colorizer
 			editorconfig-nvim
-			friendly-snippets
 			github-nvim-theme
 			lspkind-nvim
 			lualine-nvim
@@ -59,39 +58,18 @@
 			markdown-preview-nvim
 			mini-icons
 			nord-nvim
-			nvim-nio
 			nvim-web-devicons
 			plenary-nvim
-			popup-nvim
-			telescope-fzf-native-nvim
-			telescope-nvim
 			undotree
 			vim-dadbod
 			vim-dadbod-completion
 			vim-dadbod-ui
 			vim-dotenv
-			vim-fugitive
 			vim-matchup
 			vim-tmux-navigator
 			which-key-nvim
 
 		  # From source
-			{
-				plugin = (pkgs.vimUtils.buildVimPlugin {
-					name = "nx-nvim";
-					src = inputs.plugin-nx;
-          nvimSkipModules = [
-						"nx.actions"
-						"nx.multirunners"
-						"nx.generators"
-						"nx.read-configs"
-						"nx.form-renderers"
-						"nx"
-          ];
-				});
-				config = toLuaFile ./nvim/plugins/nx.lua;
-			}
-
 			{
 				plugin = (pkgs.vimUtils.buildVimPlugin {
 					name = "neotest-vstest";
@@ -126,6 +104,10 @@
 			}
 
 			# With config
+			{
+				plugin = nvim-dap;
+				config = toLuaFile ./nvim/plugins/dap.lua;
+			}
 			{ 
 				plugin = nvim-dap-ui;
 				config = toLuaFile ./nvim/plugins/dapui.lua;
@@ -137,10 +119,6 @@
 			{	
 				plugin =	nvim-ts-autotag;
 				config = toLuaFile ./nvim/plugins/autotag.lua;
-			}
-			{
-				plugin = nvim-dap;
-				config = toLuaFile ./nvim/plugins/dap.lua;
 			}
 			{
 				plugin = neotest;
@@ -223,10 +201,6 @@
 			{
 				plugin = nvim-lspconfig;
 				config = toLuaFile ./nvim/plugins/lsp.lua;
-			}
-			{
-				plugin = wtf-nvim;
-				config = toLuaFile ./nvim/plugins/wtf.lua;
 			}
 			{
 				plugin = yanky-nvim;

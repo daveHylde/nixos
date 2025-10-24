@@ -6,10 +6,6 @@
 			 url = "github:nix-community/home-manager";
 			 inputs.nixpkgs.follows = "nixpkgs";
 		 };
-		plugin-nx = {
-			url = "github:Equilibris/nx.nvim";
-			flake = false;
-		};
 		plugin-gp = {
 			url = "github:Robitx/gp.nvim";
 			flake = false;
