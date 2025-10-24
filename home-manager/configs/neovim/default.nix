@@ -44,33 +44,27 @@
 		plugins = with pkgs.vimPlugins; [
 			FixCursorHold-nvim
 			SchemaStore-nvim
-			advanced-git-search-nvim
 			cmp-buffer
-			telescope-nvim
-			fzf-lua
 			cmp-nvim-lsp
-			github-nvim-theme
-			nord-nvim
 			cmp-nvim-lsp-signature-help
 			cmp-path
 			cmp_luasnip
 			colorizer
 			editorconfig-nvim
 			friendly-snippets
+			github-nvim-theme
 			lspkind-nvim
 			lualine-nvim
 			luasnip
 			markdown-preview-nvim
 			mini-icons
-			nui-nvim
+			nord-nvim
 			nvim-nio
 			nvim-web-devicons
-			nvim-notify
 			plenary-nvim
 			popup-nvim
 			telescope-fzf-native-nvim
-			telescope-live-grep-args-nvim
-			telescope-media-files-nvim
+			telescope-nvim
 			undotree
 			vim-dadbod
 			vim-dadbod-completion
@@ -157,20 +151,38 @@
 				config = toLuaFile ./nvim/plugins/easy-dotnet.lua;
 			}
 			{
-				plugin = snacks-nvim;
+				plugin = (pkgs.vimUtils.buildVimPlugin {
+					name = "snacks.nvim";
+					src = inputs.plugin-snacks;
+					nvimSkipModules = [
+						 "snacks.git"
+						 "snacks.scratch"
+						 "snacks.lazygit"
+						 "snacks.indent"
+						 "snacks.input"
+						 "snacks.win"
+						 "snacks.terminal"
+						 "snacks.scroll"
+						 "snacks.dashboard"
+						 "snacks.notifier"
+						 "snacks.image.convert"
+						 "snacks.image.image"
+						 "snacks.image.init"
+						 "snacks.image.placement"
+						 "snacks.picker.util.db"
+						 "snacks.picker.config.highlights"
+						 "snacks.picker.core.list"
+						 "snacks.zen"
+						 "snacks.dim"
+						 "snacks.words"
+						 "trouble.sources.profiler"
+					];
+				});
 				config = toLuaFile ./nvim/plugins/snacks.lua;
-			}
-			{
-				plugin = yanky-nvim;
-				config = toLua "require(\"yanky\").setup()";
 			}
 			{
 				plugin=	trouble-nvim;
 				config = toLuaFile ./nvim/plugins/trouble.lua;
-			}
-			{
-				plugin = actions-preview-nvim;
-				config = toLuaFile ./nvim/plugins/actions-preview.lua;
 			}
 			{
 				plugin = mason-nvim;
@@ -184,10 +196,6 @@
 				plugin = neo-tree-nvim;
 				config = toLuaFile ./nvim/plugins/neotree.lua;
 			} 
-			# {
-			# 	plugin = telescope-nvim;
-			# 	config = toLuaFile ./nvim/plugins/telescope.lua;
-			# }
 			{
 				plugin = nvim-cmp;
 				config = toLuaFile ./nvim/plugins/cmp.lua;
@@ -201,6 +209,30 @@
 				config = toLuaFile ./nvim/plugins/treesitter.lua;
 			}
 			{
+				plugin = claude-code-nvim;
+				config = toLuaFile ./nvim/plugins/claude-code.lua;
+			}
+			{
+				plugin = onenord-nvim;
+				config = toLuaFile ./nvim/plugins/colorscheme.lua;
+			}
+			{
+				plugin = noice-nvim;
+				config = toLuaFile ./nvim/plugins/noice.lua;
+			} 
+			{
+				plugin = nvim-lspconfig;
+				config = toLuaFile ./nvim/plugins/lsp.lua;
+			}
+			{
+				plugin = wtf-nvim;
+				config = toLuaFile ./nvim/plugins/wtf.lua;
+			}
+			{
+				plugin = yanky-nvim;
+				config = toLua "require(\"yanky\").setup()";
+			}
+			{
 				plugin = harpoon2;
 				config = toLua "require(\"harpoon\"):setup()";
 			}
@@ -209,20 +241,12 @@
 				config = toLua "require(\"diffview\").setup()";
 			}
 			{
-				plugin=	nvim-dap-virtual-text;
+				plugin = nvim-dap-virtual-text;
 				config = toLua "require(\"nvim-dap-virtual-text\").setup()";
 			}
 			{
 				plugin = bufferline-nvim;
 				config = toLua "require(\"bufferline\").setup()";
-			}
-			{
-				plugin = claude-code-nvim;
-				config = toLuaFile ./nvim/plugins/claude-code.lua;
-			}
-			{
-				plugin = onenord-nvim;
-				config = toLuaFile ./nvim/plugins/colorscheme.lua;
 			}
 			{
 				plugin = gitsigns-nvim;
@@ -233,21 +257,9 @@
 				config = toLua "require(\"which-key\").setup()";
 			}
 			{
-				plugin = noice-nvim;
-				config = toLuaFile ./nvim/plugins/noice.lua;
-			} 
-			{
 				plugin = comment-nvim;
 				config = toLua "require(\"Comment\").setup()";
 			} 
-			{
-				plugin = nvim-lspconfig;
-				config = toLuaFile ./nvim/plugins/lsp.lua;
-			}
-			{
-				plugin = wtf-nvim;
-				config = toLuaFile ./nvim/plugins/wtf.lua;
-			}
 		];
 	};
 }

@@ -20,27 +20,7 @@ snacks.setup {
 	rename = { enabled = true, },
 	image = { enabled = true },
 	indent = { enabled = false, },
-	input = {
-		enabled = true,
-		win = {
-			border = "rounded",
-			wo = {
-				winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
-				winblend = 0,
-			},
-		},
-	},
-	select = {
-		enabled = true,
-		backend = "snacks",
-		win = {
-			border = "rounded",
-			wo = {
-				winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual",
-				winblend = 0,
-			},
-		},
-	},
+	input = { enabled = true },
 	bufdelete = { enabled = true },
 	explorer = {
 		enabled = false,
@@ -49,6 +29,7 @@ snacks.setup {
 	},
 	picker = {
 		enabled = true,
+		ui_select = true,
 		files = {
 			hidden = true,
 			ignored = true,
@@ -67,7 +48,12 @@ snacks.setup {
 				hidden = true,
 				ignored = true,
 				layout = { preset = "sidebar", preview = "main" },
-			}
+			},
+			select = {
+				layout = {
+					preset = "select",
+				},
+			},
 		},
 		actions = {
 			copy_rel_path = function(_, item)
@@ -129,3 +115,4 @@ snacks.setup {
 		},
 	},
 }
+

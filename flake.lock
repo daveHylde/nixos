@@ -84,6 +84,22 @@
         "type": "github"
       }
     },
+    "plugin-snacks": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1761296298,
+        "narHash": "sha256-8gumRg6ABD7HH1+1GUZ8diHjpTeUCW2XGux8E6Nw59M=",
+        "owner": "folke",
+        "repo": "snacks.nvim",
+        "rev": "4d9666ec653a060f2a15c60a175fc92b9fab20fe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "snacks.nvim",
+        "type": "github"
+      }
+    },
     "plugin-vim-freemarker": {
       "flake": false,
       "locked": {
@@ -107,6 +123,7 @@
         "plugin-gp": "plugin-gp",
         "plugin-neotest-vstest": "plugin-neotest-vstest",
         "plugin-nx": "plugin-nx",
+        "plugin-snacks": "plugin-snacks",
         "plugin-vim-freemarker": "plugin-vim-freemarker"
       }
     }

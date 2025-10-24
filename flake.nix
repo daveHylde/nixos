@@ -22,6 +22,10 @@
 			url = "github:Nsidorenco/neotest-vstest";
 			flake = false;
 		};
+		plugin-snacks = {
+			url = "github:folke/snacks.nvim";
+			flake = false;
+		};
   };
 
   outputs = inputs @ { self, nixpkgs, home-manager, ... }:
