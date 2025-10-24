@@ -65,6 +65,7 @@
 			awscli2
 			aichat
 			audacity
+			brave
 			bat
 			bc
 			blueman
@@ -89,6 +90,7 @@
 			kubectl
 			kubernetes-helm
 			lazydocker
+			lens
 			lesspipe
 			libreoffice
 			librsvg
