@@ -46,6 +46,8 @@
 			SchemaStore-nvim
 			advanced-git-search-nvim
 			cmp-buffer
+			telescope-nvim
+			fzf-lua
 			cmp-nvim-lsp
 			github-nvim-theme
 			nord-nvim
@@ -69,7 +71,6 @@
 			telescope-fzf-native-nvim
 			telescope-live-grep-args-nvim
 			telescope-media-files-nvim
-			telescope-ui-select-nvim
 			undotree
 			vim-dadbod
 			vim-dadbod-completion
@@ -131,10 +132,6 @@
 			}
 
 			# With config
-			# { 
-			# 	plugin = roslyn-nvim;
-			#  	config = toLuaFile ./nvim/plugins/roslyn.lua;
-			# }
 			{ 
 				plugin = nvim-dap-ui;
 				config = toLuaFile ./nvim/plugins/dapui.lua;
@@ -187,10 +184,10 @@
 				plugin = neo-tree-nvim;
 				config = toLuaFile ./nvim/plugins/neotree.lua;
 			} 
-			{
-				plugin = telescope-nvim;
-				config = toLuaFile ./nvim/plugins/telescope.lua;
-			}
+			# {
+			# 	plugin = telescope-nvim;
+			# 	config = toLuaFile ./nvim/plugins/telescope.lua;
+			# }
 			{
 				plugin = nvim-cmp;
 				config = toLuaFile ./nvim/plugins/cmp.lua;

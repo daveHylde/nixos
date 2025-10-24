@@ -69,7 +69,6 @@
 			bat
 			bc
 			blueman
-			btop
 			cargo
 			claude-code
 			discord

@@ -47,9 +47,6 @@ require('telescope').setup({
 		},
 		live_grep_args = {
 			auto_quoting = true,
-		},
-		["ui-select"] = {
-			require("telescope.themes").get_dropdown {}
 		}
 	},
 })
@@ -57,6 +54,5 @@ require('telescope').setup({
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('media_files')
 require('telescope').load_extension('live_grep_args')
-require("telescope").load_extension("ui-select")
 require("telescope").load_extension("advanced_git_search")
 require("telescope").load_extension("yank_history")

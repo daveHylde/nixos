@@ -3,6 +3,7 @@
 		./hyprland
 		./vscode
 		./starship
+		./btop
 		./kdeconnect
 		./yazi
     ./bash
