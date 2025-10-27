@@ -62,7 +62,6 @@
 			}))
 			grim
 			slurp
-			awscli2
 			aichat
 			audacity
 			bat
