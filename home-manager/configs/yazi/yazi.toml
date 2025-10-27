@@ -26,3 +26,11 @@ pdf = [
     { run = 'firefox "$@"', block = false, desc = "Firefox" },
 ]
 
+[open]
+rules = [
+    { name = "*/", use = "folder" },
+]
+
+folder = [
+    { run = 'yazi "$@"', block = false, desc = "Navigate" },
+]

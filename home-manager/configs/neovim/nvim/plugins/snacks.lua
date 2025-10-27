@@ -20,15 +20,7 @@ snacks.setup {
 	rename = { enabled = true, },
 	image = { enabled = true },
 	indent = { enabled = false, },
-	input = {
-		enabled = true,
-		icon = " ",
-		icon_hl = "SnacksInputIcon",
-		icon_pos = "left",
-		prompt_pos = "title",
-		win = { style = "input" },
-		expand = true,
-	},
+	input = { enabled = true },
 	bufdelete = { enabled = true },
 	explorer = {
 		enabled = false,
@@ -37,6 +29,7 @@ snacks.setup {
 	},
 	picker = {
 		enabled = true,
+		ui_select = true,
 		files = {
 			hidden = true,
 			ignored = true,
@@ -55,7 +48,12 @@ snacks.setup {
 				hidden = true,
 				ignored = true,
 				layout = { preset = "sidebar", preview = "main" },
-			}
+			},
+			select = {
+				layout = {
+					preset = "select",
+				},
+			},
 		},
 		actions = {
 			copy_rel_path = function(_, item)
@@ -116,33 +114,5 @@ snacks.setup {
 			},
 		},
 	},
-	styles = {
-		input = {
-			backdrop = true,
-			border = vim.g.borderStyle,
-			title_pos = "left",
-			width = 50,
-			row = math.ceil(vim.o.lines / 2) - 3,
-			keys = {
-				i_esc = { "<Esc>", { "cmp_close", "stopinsert" }, mode = "i" },
-				BS = { "<BS>", "<Nop>", mode = "n" }, -- prevent accidental closing (<BS> -> :bprev)
-				CR = { "<CR>", "confirm", mode = "n" },
-			},
-		},
-		notification = {
-			border = vim.g.borderStyle,
-			wo = { winblend = 0, wrap = true },
-		},
-		blame_line = {
-			width = 0.6,
-			height = 0.6,
-			border = vim.g.borderStyle,
-			title = " 󰉚 Git blame ",
-		},
-	},
 }
 
--- Override command-line input to use snacks.input
-vim.ui.input = function(opts, on_confirm)
-	require("snacks").input(opts, on_confirm)
-end

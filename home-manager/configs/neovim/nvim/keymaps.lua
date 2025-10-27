@@ -18,7 +18,6 @@ map({ "n", "x" }, "y", "<Plug>(YankyYank)", { desc = "Yank text" })
 map({ "n", "x" }, "p", "<Plug>(YankyPutAfter)", { desc = "Put yanked text after cursor" })
 map({ "n", "x" }, "P", "<Plug>(YankyPutBefore)", { desc = "Put yanked text before cursor" })
 map("n", "<leader>pp", "<cmd>YankyRingHistory<cr>", { desc = "Open yank ring history" })
-map("n", "<leader>sy", "<cmd>Telescope yank_history<cr>", { desc = "Yank history" })
 
 -- Move lines
 map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
@@ -76,12 +75,6 @@ map("n", "<leader>w-", "<C-W>s", { desc = "Split Window Below", remap = true })
 map("n", "<leader>w|", "<C-W>v", { desc = "Split Window Right", remap = true })
 map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
 map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
-
--- nx
-map("n", "<leader>nx", "<cmd>Telescope nx actions<CR>", {})
-map("n", "<leader>ng", "<cmd>Telescope nx generators<CR>", {})
-map("n", "<leader>nm", "<cmd>Telescope nx run_many<CR>", {})
-map("n", "<leader>na", "<cmd>Telescope nx affected<CR>", {})
 
 -- Snacks
 local snacks = require('snacks')
