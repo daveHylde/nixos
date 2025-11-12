@@ -9,9 +9,9 @@
 			background-opacity = 0.95;
 
 			window-decoration = "none";
-      window-padding-x = 0;
-      window-padding-y = 0;
-      window-padding-balance = false;
+      window-padding-x = 2;
+      window-padding-y = 2;
+      window-padding-balance = true;
 
 			# onenordlight theme
 			# "palette[0]" = "#2E3440";
